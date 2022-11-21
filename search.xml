@@ -1,6 +1,486 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java - 1st Week - Summary</title>
+    <url>/2022/11/07/Java/Java%20-%201st%20Week%20-%20Summary/</url>
+    <content><![CDATA[<h1 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h1><p align="right">10.26-11.05</p>
+
+<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>我决定从22.10.26开始重新扎实的再次学习一遍Java语言，并且计划将自己的学习过程以博客的形式记录下来。</p>
+<p>由于很多知识在前期都已经学过了，因此第一周的学习还是非常容易上手的，但我在之前的学习中忽略了很多细小的知识点，或者没有弄清楚其中的原理，因此这篇博客着重回顾这些容易被我忽视的内容。</p>
+<h2 id="常用的终端命令"><a href="#常用的终端命令" class="headerlink" title="常用的终端命令"></a>常用的终端命令</h2><p>在Mac上快捷打开Terminal的方式：通过 <strong>聚焦搜索</strong> 快捷键 <code>command + space</code>的方式，搜索<code>ter</code>即可</p>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>clear</code></td>
+<td align="center">清空屏幕中的内容</td>
+</tr>
+<tr>
+<td align="center"><code>command + q</code></td>
+<td align="center">退出终端</td>
+</tr>
+<tr>
+<td align="center"><code>command + w</code></td>
+<td align="center">关闭当前窗口</td>
+</tr>
+<tr>
+<td align="center"><code>control + c</code></td>
+<td align="center">结束当前进程</td>
+</tr>
+</tbody></table>
+<h3 id="与目录有关操作"><a href="#与目录有关操作" class="headerlink" title="与目录有关操作"></a>与目录有关操作</h3><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>cd + folder_name</code></td>
+<td align="center">进入名为folder_name的文件夹</td>
+</tr>
+<tr>
+<td align="center"><code>cd + -</code></td>
+<td align="center">回到上一个访问的目录</td>
+</tr>
+<tr>
+<td align="center"><code>cd + /</code></td>
+<td align="center">回到根目录</td>
+</tr>
+<tr>
+<td align="center"><code>cd + ../</code></td>
+<td align="center">回到当前目录的上一级</td>
+</tr>
+<tr>
+<td align="center"><code>pwd</code></td>
+<td align="center">显示当前目录</td>
+</tr>
+<tr>
+<td align="center"><code>ls</code></td>
+<td align="center">显示当前目录下的所有文件</td>
+</tr>
+</tbody></table>
+<h2 id="Java语言简介"><a href="#Java语言简介" class="headerlink" title="Java语言简介"></a>Java语言简介</h2><ul>
+<li><p>Java语言三大模块</p>
+<ol>
+<li>Java SE 标准版</li>
+<li>Java EE 企业版</li>
+<li>Java ME 微型版</li>
+</ol>
+</li>
+<li><p>Java特性</p>
+<ol>
+<li>简单：Java不再支持多继承、Java屏蔽了指针的概念、Java底层使用C++实现</li>
+<li>面向对象：纯粹的面向对象编程</li>
+<li>可移植性：Java可以一次编译，在多个平台上运行<ul>
+<li>Java程序运行在Java虚拟机JVM上，JVM运行在操作系统上，而不是直接运行在操作系统上，这样就可以屏蔽底层的差异</li>
+</ul>
+</li>
+<li>多线程</li>
+<li>健壮性：借助GC机制，也就是自动垃圾回收机制，Java语言运行中产生的垃圾可以自动回收，不需要程序员手动处理</li>
+</ol>
+</li>
+<li><p>Java的加载与执行</p>
+<ul>
+<li><p>Java程序的长记性分为 <u>编译</u> 和 <u>运行</u> 两个阶段</p>
+</li>
+<li><p><u>编译</u>：将.java的源文件 转换为 .class的字节码文件</p>
+<ul>
+<li><code>javac</code> 命令是java编译器工具，可以在Terminal中直接使用</li>
+<li>使用规则：<code>javac java源文件的路径</code></li>
+<li>Java源文件在编译时可以生成多个字节码文件，字节码文件可以跨平台使用</li>
+<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7wjly2gi1j31e80dw75n.jpg"></li>
+<li>使用javac命令后，在.java文件的目录下就会生成.class的字节码文件</li>
+<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7wjps4dh6j312a0rkjum.jpg"></li>
+</ul>
+</li>
+<li><p><u>运行</u>：将.class的字节码文件 转化为 可执行的二进制文件</p>
+<ul>
+<li><p><code>java</code> 命令是java运行工具，java命令会启动JVM，JVM会启动 <code>ClassLoader</code> 类加载器，类加载器在硬盘上搜索字节码文件，然后将其装载到JVM上</p>
+</li>
+<li><p>使用规则</p>
+<ol>
+<li>首先将目录切换到字节码文件所在的目录下</li>
+<li>输入 <code>java 类名</code>（注意不要加后缀名.class）！</li>
+</ol>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7wjr20x2oj31ge0qw78b.jpg"></p>
+</li>
+</ul>
+</li>
+<li><p>有关于 <code>javac</code> 与 <code>java</code>  命令</p>
+<ul>
+<li>这两个命令配置在JDK的bin目录下，而<code>echo $JAVA_HOME</code>指向了JDK的安装目录</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7wjyo0f32j31e80dwjtd.jpg"></p>
+<ul>
+<li><p>我们需要了解系统是如何搜索一个命令的</p>
+<ul>
+<li>当我们输入一个命令 <code>ping 1.1.1.1</code>时，系统会在当前目录下搜索这个命令.如果当前目录下没有这个命令，那么系统会在环境变量PATH指定的路径中继续进行搜索（这个命令不止包含Java中的命令），如果还找不到的话系统会报错</li>
+<li>也就是说 <strong>PATH 的作用是指定命令搜索路径</strong>，在命令行下面执行命令如<code>javac</code>编译时，它会到PATH变量所指定的路径中查找看是否能找到相应的命令程序</li>
+</ul>
+</li>
+<li><p>我们还需要了解系统是如何搜索到一个类的</p>
+<ul>
+<li>CLASSPATH：指定类的搜索路径，要是用已经编写好的类时没需要通过这个路径找到它们</li>
+<li>CLASSPATH下包含JDK安装目录下的lib子目录中的 <code>dt.jar</code> 以及 tools.jar 以及 当前目录</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>JVM &amp; JDK &amp; JRE之间的关系</p>
+<ul>
+<li>JVM：Java虚拟机，Java程序在JVM上运行</li>
+<li>JRE：Java程序运行环境</li>
+<li>JDK：Java开发工具包，包含JVM和JRE</li>
+</ul>
+</li>
+</ul>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
+<li><p>Java程序中的注释仅出现在Java的源程序<code>.java</code>中，起到对源码说明的作用，不会出现在字节码<code>.class</code>文件中</p>
+</li>
+<li><p>注释类型</p>
+<ol>
+<li>单行注释</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//单行注释</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>多行注释</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">多行注释</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>javadoc注释</strong>：<code>javadoc</code>命令可以提取javadoc注释，自动生成帮助文档</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line">*javadoc注释</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="针对HelloWorld的程序解释"><a href="#针对HelloWorld的程序解释" class="headerlink" title="针对HelloWorld的程序解释"></a>针对HelloWorld的程序解释</h2><ul>
+<li>一个Java源文件可以定义多个类<ul>
+<li>每个<code>class</code>经过java命令的编译，都会生成对应的<code>.class</code>文件</li>
+</ul>
+</li>
+<li>一个Java源文件可以不包含<code>public</code>类<ul>
+<li>但是一个Java源文件中只能有一个<code>public</code>类，并且这个类的名称必须和源文件的名称一直</li>
+</ul>
+</li>
+<li>每一个类（不一定是公开类）都可以编写自己的<code>main</code>方法，每一个类都可以作为程序的入口<ul>
+<li>在命令窗口执行某一个类时，这个类必须有自己的<code>main</code>方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><ul>
+<li>标识符包括：类名、方法名、变量名、接口名、常量名</li>
+<li>命名规则：只能又数字、字母（<u>包括汉字</u>）、_、$组成，不能以数字开始，严格区分大小写，关键字不能作为标识符，长度不限</li>
+<li>命名规范<ol>
+<li>类、接口名：首字母大写（记住HelloWorld）</li>
+<li>变量名、方法名：首字母小写（记住main）</li>
+<li>常量名：全部大写</li>
+</ol>
+</li>
+</ul>
+<h2 id="字面值"><a href="#字面值" class="headerlink" title="字面值"></a>字面值</h2><ul>
+<li>字面值即数据，也就是C语言中的常量值</li>
+<li>包括 整型、浮点型、布尔型、字符型、字符串</li>
+</ul>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
+<li><p>内存中的一块空间，由 **数据类型 名称 字面值 **三部分组成</p>
+</li>
+<li><p>变量是内存中存储数据的最基本的单元</p>
+</li>
+<li><p>变量的声明和赋值可以一起完成，并且可以重复的赋值，但是只能声明一次</p>
+<ul>
+<li>这一点在for循环里需要注意，不能出现以下代码！</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>变量的分类</p>
+<ol>
+<li><p>局部变量</p>
+<p>在方法体中声明的变量叫做局部变量，局部变量在声明后必须手动的赋值进行初始化，否则不能使用！</p>
+</li>
+<li><p>成员变量</p>
+<p>在方法体之外、类体之内声明的变量叫做成员变量，成员变量可以不用手动初始化，系统可以自动初始化</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+<li><p>数据类型主要用于指导JVM在运行程序时给不同的数据分配合适的内存空间</p>
+</li>
+<li><p>数据类型的分类</p>
+<ol>
+<li>基本数据类型</li>
+<li>引用数据类型</li>
+</ol>
+</li>
+<li><p>基本数据类型</p>
+<ul>
+<li>四大类，八小种<ol>
+<li>整型：<code>byte short int long</code></li>
+<li>浮点型：<code>float double</code></li>
+<li>布尔型：<code>boolean</code></li>
+<li>字符型：<code>char</code></li>
+</ol>
+</li>
+<li>需要注意的是String不属于基本数据类型，属于引用数据类型</li>
+<li>基本数据类型所占的空间大小</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">基本数据类型</th>
+<th align="center">占用空间大小（字节）</th>
+<th align="center">取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">byte</td>
+<td align="center">1</td>
+<td align="center">-128~127</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">2</td>
+<td align="center">-32768~32797</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">4</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">8</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">4</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">8</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">boolean</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Char</td>
+<td align="center">2</td>
+<td align="center">0~65535</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h4><ul>
+<li><p>字符编码是人为定义的，用来实现计算机二进制和文字之间的转换</p>
+</li>
+<li><p>常见的ASCII码：</p>
+<ol>
+<li>‘a’&#x3D;97</li>
+<li>‘A’&#x3D;63</li>
+<li>“0”&#x3D;48</li>
+</ol>
+</li>
+<li><p>Java使用Unicode编码（UTF-8），标识符支持中文等其他语言</p>
+<ul>
+<li>Unicode编码详见参考视频<sup><a href="#ref1">[1]</a></sup></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//DataType.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DataType</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">decimal</span> <span class="operator">=</span> ((<span class="type">int</span>)<span class="string">&#x27;中&#x27;</span>);<span class="comment">//获取中的unicode编码</span></span><br><span class="line">		System.out.println(decimal);</span><br><span class="line">		<span class="type">String</span> <span class="variable">hex</span> <span class="operator">=</span> Integer.toHexString(decimal);</span><br><span class="line">		System.out.println(hex);</span><br><span class="line"></span><br><span class="line">		a = <span class="string">&#x27;\u4e2d&#x27;</span>;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行结果：</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7wm10wb5ij30my0940tc.jpg"></p>
+</li>
+<li><p>转义字符 \ </p>
+<ul>
+<li>转义字符可以将后面紧接着的字符 从 <u>普通含义</u> 转换成 特殊转义字符 或者 将 <u>特殊转义字符</u> 转换成 <u>普通字符</u></li>
+<li>例如：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//输出转义字符</span></span><br><span class="line">System.out.println(<span class="string">&quot;\\&quot;</span>);<span class="comment">//将 特殊的转义字符 变成 普通的 \</span></span><br><span class="line"><span class="comment">//输出单引号</span></span><br><span class="line">System.out.println(<span class="string">&quot;\&#x27;&quot;</span>);<span class="comment">//将 特殊的&#x27; 变成 普通的 &#x27;</span></span><br><span class="line"><span class="comment">//输出制表符</span></span><br><span class="line">System.out.println(<span class="string">&quot;\t&quot;</span>);<span class="comment">//将 普通的t 变成 特殊的制表符</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h4><ul>
+<li>Java语言中的<u>默认整型</u>是<code>int</code>型，如果需要使用long，需要在字面值后添加L或者l，一般添加大写L以免混淆</li>
+<li>整型字面值三种表达方式：十进制（默认），八进制（字面值以0开始），十六进制（字面值以0x开始）</li>
+</ul>
+<h4 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h4><ol>
+<li><p>小容量向大容量转换</p>
+<ul>
+<li><p>小容量可以自动转换为大容量，称为自动类型转换机制</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">123</span>;</span><br><span class="line"><span class="comment">//编译通过，123是系统默认的整型，即int，系统自动将小容量的int转换为大容量的long</span></span><br><span class="line"><span class="type">long</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">2147483648</span>;</span><br><span class="line"><span class="comment">//编译报错，2147483648是系统默认的int型，但2147483648超过了int的范围</span></span><br><span class="line"><span class="comment">//将2147483648整型按照long进行处理，末尾加L</span></span><br><span class="line"><span class="type">long</span> <span class="variable">z</span> <span class="operator">=</span> <span class="number">2147483648L</span>;</span><br><span class="line"><span class="comment">//编译通过</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>大容量向小容量转换</p>
+<ul>
+<li><p>大容量需要通过强制类型转换才能变成小容量</p>
+</li>
+<li><p>强制类型转换虽然可以通过编译，但是在运行时也有可能损失精度</p>
+</li>
+<li><p>强制类型转换的原理：将前面多余的位数忽略，取后面几位</p>
+</li>
+<li><p><u>例外</u></p>
+<ul>
+<li><code>byte short char</code> 类型在取值范围内时可以不需要强制类型转换</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="comment">//虽然10是默认的int型，但是10没有超过byte的取值范围，不需要强制类型转换</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><ul>
+<li><p><code>float</code> 单精度，四个字节；<code>double</code> 双精度，八个字节</p>
+</li>
+<li><p>所有的浮点型字面值默认被当作<code>double</code>来处理，如果需要使用<code>float</code> 需要在字面值后面添加f&#x2F;F</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">float</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1.1</span>;</span><br><span class="line"><span class="comment">//编译报错，大精度转换为小精度需要强制类型转换</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><p>关于布尔类型只需要注意的是，Java中的布尔类型不能用0或者1来表示</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><p>运算符中需要细节较多的只有逻辑运算符 以及 位运算符，有关于算术运算符以及关系运算符就不再赘述了，位运算符会在算法部分详细展开</p>
+<p>逻辑运算符中需要格外关注的是 <strong>短路现象</strong></p>
+<ul>
+<li>逻辑运算运算符要求左右两边算子都是布尔类型，并且最后运算结果也是布尔类型</li>
+<li>短路现象：因为某个事件的发生导致程序运行步骤改变<ul>
+<li>普通与&amp;：将运算符两边的算子都运算，两边都为真，结果才为真</li>
+<li>短路与&amp;&amp;：一旦左边的算子为假，则忽视右边的算子，直接输出结果</li>
+<li>短路或|| 和 普通或｜同理</li>
+</ul>
+</li>
+<li>短路现象使运算更高效，但如果两边的算子都不得不计算时就无法使用短路现象了</li>
+</ul>
+<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><p>赋值运算符包括：基本赋值运算符，以及 扩展赋值运算符</p>
+<p>这里着重讨论扩展赋值运算符，包括：+&#x3D; -&#x3D; &#x2F;&#x3D; %&#x3D;</p>
+<p>–&gt;可以这样理解+&#x3D;：先做加法运算，再做赋值运算</p>
+<p>需要注意的是：拓展赋值运算符并不会修改运算结果的类型</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">a = a + <span class="number">1</span>;<span class="comment">//编译报错，在做加法运算时需要强制类型转换</span></span><br><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">b += <span class="number">1</span>;<span class="comment">//编译通过，相当于 b = (byte)(b + 1);</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串连接运算符"><a href="#字符串连接运算符" class="headerlink" title="字符串连接运算符"></a>字符串连接运算符</h4><ul>
+<li>“+”运算符有两个作用：<ol>
+<li>进行加法运算</li>
+<li>字符串连接</li>
+</ol>
+</li>
+<li>当 + 运算符两边的<u>都是</u>数字的话，进行加法运算，否则进行字符串连接</li>
+<li>进行字符串连接后运算的结果还是字符串类型</li>
+<li>一个表达式中出现多个+时，运算的优先级相同，按照从左到右的顺序依次运算</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 + 2 + 3 --&gt; 6</span><br><span class="line">1 + 2 + &quot;3&quot; --&gt; 33</span><br><span class="line">1 + (2 + &quot;3&quot;) --&gt; 123</span><br></pre></td></tr></table></figure>
+
+<h2 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h2><p>控制语句都是一些十分基础的语法，但是为了实现一些功能，这其中还涉及了一些相关的其他语法，这里单独列举出来</p>
+<h4 id="接收用户键盘的输入"><a href="#接收用户键盘的输入" class="headerlink" title="接收用户键盘的输入"></a>接收用户键盘的输入</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.util.Scanner scanner ;= <span class="keyword">new</span> <span class="title class_">java</span>.util.Scanner(System.in);</span><br><span class="line"><span class="type">String</span> <span class="variable">uerInput</span> <span class="operator">=</span> scanner.next();<span class="comment">//接收用户字符串的输入</span></span><br><span class="line"><span class="type">int</span> <span class="variable">uerInput</span> <span class="operator">=</span> scanner.nextInt();<span class="comment">//接收用户整型的输入</span></span><br><span class="line"><span class="type">double</span> <span class="variable">uerInput</span> <span class="operator">=</span> scanner.nextDouble();<span class="comment">//接收用户浮点型的输入</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="判断两字符串是否相等"><a href="#判断两字符串是否相等" class="headerlink" title="判断两字符串是否相等"></a>判断两字符串是否相等</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String a;</span><br><span class="line"><span class="type">boolean</span> a.equals(String b);<span class="comment">//当两字符串相等时返回true，否则返回false</span></span><br><span class="line">a == b;<span class="comment">//判断的是两个字符串的地址是否相同</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Switch中的case穿透现象"><a href="#Switch中的case穿透现象" class="headerlink" title="Switch中的case穿透现象"></a>Switch中的case穿透现象</h4><ul>
+<li><code>Switch</code>以及<code>case</code>后可以接<code>int String</code>类型，当接受byte short char类型时系统可以将它们直接自动转换成上述两类型</li>
+<li><code>Siwtch</code>的<code>case</code>穿透现象</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">			java语句<span class="number">1</span>;</span><br><span class="line">			<span class="comment">//break;----&gt;case穿透现象:无论2是否匹配，直接执行Java语句2</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">			java语句<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">break</span>;<span class="comment">//------&gt;因为有break，所以只会执行Java语句2</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">3</span>: <span class="keyword">case</span> <span class="number">4</span>:<span class="comment">//case的合并</span></span><br><span class="line">			java语句<span class="number">3</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="控制循环语句"><a href="#控制循环语句" class="headerlink" title="控制循环语句"></a>控制循环语句</h4><ol>
+<li><p><code>break</code>语句</p>
+<ul>
+<li><code>break</code>表示中断</li>
+<li><code>break</code>可用在循环语句以及<code>switch</code>语句中</li>
+<li>默认情况下<code>break</code>终止的是距离它最近的循环</li>
+<li>当然<code>break</code>也可以中断指定的循环</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//格式：break + 循环名字（需要前给每个循环取名字）0</span></span><br><span class="line">for1:<span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>: i++)&#123;</span><br><span class="line">  for2:<span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">10</span>; k ++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i == <span class="number">5</span>)</span><br><span class="line">      <span class="keyword">break</span> for1;<span class="comment">//中断for1的循环</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>continue</code>语句</p>
+<ul>
+<li>continue表示继续，即忽略本轮循环中剩余的语句，直接进入下一轮循环</li>
+</ul>
+</li>
+</ol>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="方法的作用"><a href="#方法的作用" class="headerlink" title="方法的作用"></a>方法的作用</h3><p>提高代码的复用性，使得代码可以重复利用</p>
+<h3 id="方法的定义"><a href="#方法的定义" class="headerlink" title="方法的定义"></a>方法的定义</h3><p>方法是一段代码片段，这个代码片段可以完成某个特定的功能，并且可以被重复调用(invoke)</p>
+<h3 id="方法的语法结构"><a href="#方法的语法结构" class="headerlink" title="方法的语法结构"></a>方法的语法结构</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[修饰符列表] 返回值类型 方法名 (形式参数列表)&#123;</span><br><span class="line">	方法体；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修饰符列表：<code>public static</code><ul>
+<li>这部分是可选项，不是必须的</li>
+</ul>
+</li>
+<li>返回值类型<ul>
+<li>这里着重强调返回值为<code>void</code>的类型<ul>
+<li>当方法结束后不返回任何数据时，返回值为void</li>
+<li>返回值为<code>void</code>的方法中也可以编写 <code>return;</code> ，代表该方法执行结束(类似<code>break</code>的作用)</li>
+</ul>
+</li>
+<li><code>return</code>语句<ul>
+<li>只要带有<code>return</code>关键字的语句被执行，则<code>return</code>语句所在的方法执行结束</li>
+<li>在同一个作用域中，<code>return</code>语句下面不能编写任何代码，因为这些代码永远不会被执行</li>
+</ul>
+</li>
+<li>在调用一个有返回值的方法时，我们可以选择接受这个值也可以选择不接受</li>
+</ul>
+</li>
+<li>方法名<ul>
+<li>按照规范，方法名的首字母需要小写(参见<code>main</code>方法)，且需要遵循驼峰命名原则</li>
+</ul>
+</li>
+<li>形参列表<ul>
+<li>形参数量可以有多个，也可以没有，多个形参之间由逗号隔开</li>
+</ul>
+</li>
+</ul>
+<h3 id="方法的调用"><a href="#方法的调用" class="headerlink" title="方法的调用"></a>方法的调用</h3><p>方法如果只被定义而不调用的话，方法是不会被执行的</p>
+<p>调用时的语法规则（修饰符列表中包含<code>static</code>关键字时）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">类名.方法名.(实参列表)；</span><br></pre></td></tr></table></figure>
+
+<p>在同一个类中类名可以省略不写，即类名省略时默认在同一个类中寻找方法</p>
+<h3 id="方法执行过程中的内存分配"><a href="#方法执行过程中的内存分配" class="headerlink" title="方法执行过程中的内存分配"></a><u>方法执行过程中的内存分配</u></h3><p>方法如果只是定义而不调用的话，系统是不会为其分配其运行所需要的空间</p>
+<p>JVM内存划分主要包含三大块内容</p>
+<ol>
+<li>方法区内存<ul>
+<li>方法代码片段属于字节码文件的一部分，字节码文件在类加载时将整个代码片段放到方法区内存当中</li>
+<li>在JVM的三块内存区中，方法区内存是最先有数据的</li>
+<li>代码片段虽然只有一份，但是可以被重复调用，每次调用都需要为其在栈内存分配新的、独立的内存空间</li>
+</ul>
+</li>
+<li>栈内存<ul>
+<li>每次调用方法时，在栈内存中为其分配运行所需要的空间<ul>
+<li>这个栈空间中主要包含了这个方法内的局部变量等信息</li>
+</ul>
+</li>
+<li>方法执行结束后，该方法所占用的空间全部释放</li>
+<li>从一个方法的栈内存向另一个方法的栈内存通过形参列表传递值，传递的是数据的值而不是内存地址</li>
+</ul>
+</li>
+<li>堆内存<ul>
+<li>等待学习…</li>
+</ul>
+</li>
+</ol>
+<h3 id="方法的重载Overload"><a href="#方法的重载Overload" class="headerlink" title="方法的重载Overload"></a>方法的重载Overload</h3><ul>
+<li>作用：使功能近似的方法使用起来像一个方法一样，便于变成</li>
+<li>使用条件：<ol>
+<li>在同一个类中</li>
+<li>方法名相同</li>
+<li>形参列表不同（包括数量不同、类型不同、顺序不同）</li>
+</ol>
+</li>
+<li>方法重载与<u>方法名</u>和参数列表有关，与<u>修饰列表</u>和<u>返回值</u>无关</li>
+</ul>
+<p>Reference <a name="ref1"><font color="black">[1]https://share.api.weibo.cn/share/346380011,4823082769059607.html?weibo_id&#x3D;4823082769059607</font></a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java - 2nd Week - Summary</title>
     <url>/2022/11/17/Java/Java%20-%202nd%20Week%20-%20Summary/</url>
     <content><![CDATA[<h1 id="第二周"><a href="#第二周" class="headerlink" title="第二周"></a>第二周</h1><p align="right">11.06-11.17</p>
@@ -655,517 +1135,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java - 1st Week - Summary</title>
-    <url>/2022/11/07/Java/Java%20-%201st%20Week%20-%20Summary/</url>
-    <content><![CDATA[<h1 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h1><p align="right">10.26-11.05</p>
-
-<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>我决定从22.10.26开始重新扎实的再次学习一遍Java语言，并且计划将自己的学习过程以博客的形式记录下来。</p>
-<p>由于很多知识在前期都已经学过了，因此第一周的学习还是非常容易上手的，但我在之前的学习中忽略了很多细小的知识点，或者没有弄清楚其中的原理，因此这篇博客着重回顾这些容易被我忽视的内容。</p>
-<h2 id="常用的终端命令"><a href="#常用的终端命令" class="headerlink" title="常用的终端命令"></a>常用的终端命令</h2><p>在Mac上快捷打开Terminal的方式：通过 <strong>聚焦搜索</strong> 快捷键 <code>command + space</code>的方式，搜索<code>ter</code>即可</p>
-<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>clear</code></td>
-<td align="center">清空屏幕中的内容</td>
-</tr>
-<tr>
-<td align="center"><code>command + q</code></td>
-<td align="center">退出终端</td>
-</tr>
-<tr>
-<td align="center"><code>command + w</code></td>
-<td align="center">关闭当前窗口</td>
-</tr>
-<tr>
-<td align="center"><code>control + c</code></td>
-<td align="center">结束当前进程</td>
-</tr>
-</tbody></table>
-<h3 id="与目录有关操作"><a href="#与目录有关操作" class="headerlink" title="与目录有关操作"></a>与目录有关操作</h3><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>cd + folder_name</code></td>
-<td align="center">进入名为folder_name的文件夹</td>
-</tr>
-<tr>
-<td align="center"><code>cd + -</code></td>
-<td align="center">回到上一个访问的目录</td>
-</tr>
-<tr>
-<td align="center"><code>cd + /</code></td>
-<td align="center">回到根目录</td>
-</tr>
-<tr>
-<td align="center"><code>cd + ../</code></td>
-<td align="center">回到当前目录的上一级</td>
-</tr>
-<tr>
-<td align="center"><code>pwd</code></td>
-<td align="center">显示当前目录</td>
-</tr>
-<tr>
-<td align="center"><code>ls</code></td>
-<td align="center">显示当前目录下的所有文件</td>
-</tr>
-</tbody></table>
-<h2 id="Java语言简介"><a href="#Java语言简介" class="headerlink" title="Java语言简介"></a>Java语言简介</h2><ul>
-<li><p>Java语言三大模块</p>
-<ol>
-<li>Java SE 标准版</li>
-<li>Java EE 企业版</li>
-<li>Java ME 微型版</li>
-</ol>
-</li>
-<li><p>Java特性</p>
-<ol>
-<li>简单：Java不再支持多继承、Java屏蔽了指针的概念、Java底层使用C++实现</li>
-<li>面向对象：纯粹的面向对象编程</li>
-<li>可移植性：Java可以一次编译，在多个平台上运行<ul>
-<li>Java程序运行在Java虚拟机JVM上，JVM运行在操作系统上，而不是直接运行在操作系统上，这样就可以屏蔽底层的差异</li>
-</ul>
-</li>
-<li>多线程</li>
-<li>健壮性：借助GC机制，也就是自动垃圾回收机制，Java语言运行中产生的垃圾可以自动回收，不需要程序员手动处理</li>
-</ol>
-</li>
-<li><p>Java的加载与执行</p>
-<ul>
-<li><p>Java程序的长记性分为 <u>编译</u> 和 <u>运行</u> 两个阶段</p>
-</li>
-<li><p><u>编译</u>：将.java的源文件 转换为 .class的字节码文件</p>
-<ul>
-<li><code>javac</code> 命令是java编译器工具，可以在Terminal中直接使用</li>
-<li>使用规则：<code>javac java源文件的路径</code></li>
-<li>Java源文件在编译时可以生成多个字节码文件，字节码文件可以跨平台使用</li>
-<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7wjly2gi1j31e80dw75n.jpg"></li>
-<li>使用javac命令后，在.java文件的目录下就会生成.class的字节码文件</li>
-<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7wjps4dh6j312a0rkjum.jpg"></li>
-</ul>
-</li>
-<li><p><u>运行</u>：将.class的字节码文件 转化为 可执行的二进制文件</p>
-<ul>
-<li><p><code>java</code> 命令是java运行工具，java命令会启动JVM，JVM会启动 <code>ClassLoader</code> 类加载器，类加载器在硬盘上搜索字节码文件，然后将其装载到JVM上</p>
-</li>
-<li><p>使用规则</p>
-<ol>
-<li>首先将目录切换到字节码文件所在的目录下</li>
-<li>输入 <code>java 类名</code>（注意不要加后缀名.class）！</li>
-</ol>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7wjr20x2oj31ge0qw78b.jpg"></p>
-</li>
-</ul>
-</li>
-<li><p>有关于 <code>javac</code> 与 <code>java</code>  命令</p>
-<ul>
-<li>这两个命令配置在JDK的bin目录下，而<code>echo $JAVA_HOME</code>指向了JDK的安装目录</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7wjyo0f32j31e80dwjtd.jpg"></p>
-<ul>
-<li><p>我们需要了解系统是如何搜索一个命令的</p>
-<ul>
-<li>当我们输入一个命令 <code>ping 1.1.1.1</code>时，系统会在当前目录下搜索这个命令.如果当前目录下没有这个命令，那么系统会在环境变量PATH指定的路径中继续进行搜索（这个命令不止包含Java中的命令），如果还找不到的话系统会报错</li>
-<li>也就是说 <strong>PATH 的作用是指定命令搜索路径</strong>，在命令行下面执行命令如<code>javac</code>编译时，它会到PATH变量所指定的路径中查找看是否能找到相应的命令程序</li>
-</ul>
-</li>
-<li><p>我们还需要了解系统是如何搜索到一个类的</p>
-<ul>
-<li>CLASSPATH：指定类的搜索路径，要是用已经编写好的类时没需要通过这个路径找到它们</li>
-<li>CLASSPATH下包含JDK安装目录下的lib子目录中的 <code>dt.jar</code> 以及 tools.jar 以及 当前目录</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>JVM &amp; JDK &amp; JRE之间的关系</p>
-<ul>
-<li>JVM：Java虚拟机，Java程序在JVM上运行</li>
-<li>JRE：Java程序运行环境</li>
-<li>JDK：Java开发工具包，包含JVM和JRE</li>
-</ul>
-</li>
-</ul>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
-<li><p>Java程序中的注释仅出现在Java的源程序<code>.java</code>中，起到对源码说明的作用，不会出现在字节码<code>.class</code>文件中</p>
-</li>
-<li><p>注释类型</p>
-<ol>
-<li>单行注释</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//单行注释</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>多行注释</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">多行注释</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><strong>javadoc注释</strong>：<code>javadoc</code>命令可以提取javadoc注释，自动生成帮助文档</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line">*javadoc注释</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="针对HelloWorld的程序解释"><a href="#针对HelloWorld的程序解释" class="headerlink" title="针对HelloWorld的程序解释"></a>针对HelloWorld的程序解释</h2><ul>
-<li>一个Java源文件可以定义多个类<ul>
-<li>每个<code>class</code>经过java命令的编译，都会生成对应的<code>.class</code>文件</li>
-</ul>
-</li>
-<li>一个Java源文件可以不包含<code>public</code>类<ul>
-<li>但是一个Java源文件中只能有一个<code>public</code>类，并且这个类的名称必须和源文件的名称一直</li>
-</ul>
-</li>
-<li>每一个类（不一定是公开类）都可以编写自己的<code>main</code>方法，每一个类都可以作为程序的入口<ul>
-<li>在命令窗口执行某一个类时，这个类必须有自己的<code>main</code>方法</li>
-</ul>
-</li>
-</ul>
-<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><ul>
-<li>标识符包括：类名、方法名、变量名、接口名、常量名</li>
-<li>命名规则：只能又数字、字母（<u>包括汉字</u>）、_、$组成，不能以数字开始，严格区分大小写，关键字不能作为标识符，长度不限</li>
-<li>命名规范<ol>
-<li>类、接口名：首字母大写（记住HelloWorld）</li>
-<li>变量名、方法名：首字母小写（记住main）</li>
-<li>常量名：全部大写</li>
-</ol>
-</li>
-</ul>
-<h2 id="字面值"><a href="#字面值" class="headerlink" title="字面值"></a>字面值</h2><ul>
-<li>字面值即数据，也就是C语言中的常量值</li>
-<li>包括 整型、浮点型、布尔型、字符型、字符串</li>
-</ul>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
-<li><p>内存中的一块空间，由 **数据类型 名称 字面值 **三部分组成</p>
-</li>
-<li><p>变量是内存中存储数据的最基本的单元</p>
-</li>
-<li><p>变量的声明和赋值可以一起完成，并且可以重复的赋值，但是只能声明一次</p>
-<ul>
-<li>这一点在for循环里需要注意，不能出现以下代码！</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>变量的分类</p>
-<ol>
-<li><p>局部变量</p>
-<p>在方法体中声明的变量叫做局部变量，局部变量在声明后必须手动的赋值进行初始化，否则不能使用！</p>
-</li>
-<li><p>成员变量</p>
-<p>在方法体之外、类体之内声明的变量叫做成员变量，成员变量可以不用手动初始化，系统可以自动初始化</p>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
-<li><p>数据类型主要用于指导JVM在运行程序时给不同的数据分配合适的内存空间</p>
-</li>
-<li><p>数据类型的分类</p>
-<ol>
-<li>基本数据类型</li>
-<li>引用数据类型</li>
-</ol>
-</li>
-<li><p>基本数据类型</p>
-<ul>
-<li>四大类，八小种<ol>
-<li>整型：<code>byte short int long</code></li>
-<li>浮点型：<code>float double</code></li>
-<li>布尔型：<code>boolean</code></li>
-<li>字符型：<code>char</code></li>
-</ol>
-</li>
-<li>需要注意的是String不属于基本数据类型，属于引用数据类型</li>
-<li>基本数据类型所占的空间大小</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">基本数据类型</th>
-<th align="center">占用空间大小（字节）</th>
-<th align="center">取值范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">byte</td>
-<td align="center">1</td>
-<td align="center">-128~127</td>
-</tr>
-<tr>
-<td align="center">short</td>
-<td align="center">2</td>
-<td align="center">-32768~32797</td>
-</tr>
-<tr>
-<td align="center">int</td>
-<td align="center">4</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">long</td>
-<td align="center">8</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">float</td>
-<td align="center">4</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">double</td>
-<td align="center">8</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">boolean</td>
-<td align="center">1</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Char</td>
-<td align="center">2</td>
-<td align="center">0~65535</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h4 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h4><ul>
-<li><p>字符编码是人为定义的，用来实现计算机二进制和文字之间的转换</p>
-</li>
-<li><p>常见的ASCII码：</p>
-<ol>
-<li>‘a’&#x3D;97</li>
-<li>‘A’&#x3D;63</li>
-<li>“0”&#x3D;48</li>
-</ol>
-</li>
-<li><p>Java使用Unicode编码（UTF-8），标识符支持中文等其他语言</p>
-<ul>
-<li>Unicode编码详见参考视频<sup><a href="#ref1">[1]</a></sup></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//DataType.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DataType</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">decimal</span> <span class="operator">=</span> ((<span class="type">int</span>)<span class="string">&#x27;中&#x27;</span>);<span class="comment">//获取中的unicode编码</span></span><br><span class="line">		System.out.println(decimal);</span><br><span class="line">		<span class="type">String</span> <span class="variable">hex</span> <span class="operator">=</span> Integer.toHexString(decimal);</span><br><span class="line">		System.out.println(hex);</span><br><span class="line"></span><br><span class="line">		a = <span class="string">&#x27;\u4e2d&#x27;</span>;</span><br><span class="line">		System.out.println(a);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>执行结果：</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7wm10wb5ij30my0940tc.jpg"></p>
-</li>
-<li><p>转义字符 \ </p>
-<ul>
-<li>转义字符可以将后面紧接着的字符 从 <u>普通含义</u> 转换成 特殊转义字符 或者 将 <u>特殊转义字符</u> 转换成 <u>普通字符</u></li>
-<li>例如：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//输出转义字符</span></span><br><span class="line">System.out.println(<span class="string">&quot;\\&quot;</span>);<span class="comment">//将 特殊的转义字符 变成 普通的 \</span></span><br><span class="line"><span class="comment">//输出单引号</span></span><br><span class="line">System.out.println(<span class="string">&quot;\&#x27;&quot;</span>);<span class="comment">//将 特殊的&#x27; 变成 普通的 &#x27;</span></span><br><span class="line"><span class="comment">//输出制表符</span></span><br><span class="line">System.out.println(<span class="string">&quot;\t&quot;</span>);<span class="comment">//将 普通的t 变成 特殊的制表符</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h4><ul>
-<li>Java语言中的<u>默认整型</u>是<code>int</code>型，如果需要使用long，需要在字面值后添加L或者l，一般添加大写L以免混淆</li>
-<li>整型字面值三种表达方式：十进制（默认），八进制（字面值以0开始），十六进制（字面值以0x开始）</li>
-</ul>
-<h4 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h4><ol>
-<li><p>小容量向大容量转换</p>
-<ul>
-<li><p>小容量可以自动转换为大容量，称为自动类型转换机制</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">123</span>;</span><br><span class="line"><span class="comment">//编译通过，123是系统默认的整型，即int，系统自动将小容量的int转换为大容量的long</span></span><br><span class="line"><span class="type">long</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">2147483648</span>;</span><br><span class="line"><span class="comment">//编译报错，2147483648是系统默认的int型，但2147483648超过了int的范围</span></span><br><span class="line"><span class="comment">//将2147483648整型按照long进行处理，末尾加L</span></span><br><span class="line"><span class="type">long</span> <span class="variable">z</span> <span class="operator">=</span> <span class="number">2147483648L</span>;</span><br><span class="line"><span class="comment">//编译通过</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>大容量向小容量转换</p>
-<ul>
-<li><p>大容量需要通过强制类型转换才能变成小容量</p>
-</li>
-<li><p>强制类型转换虽然可以通过编译，但是在运行时也有可能损失精度</p>
-</li>
-<li><p>强制类型转换的原理：将前面多余的位数忽略，取后面几位</p>
-</li>
-<li><p><u>例外</u></p>
-<ul>
-<li><code>byte short char</code> 类型在取值范围内时可以不需要强制类型转换</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="comment">//虽然10是默认的int型，但是10没有超过byte的取值范围，不需要强制类型转换</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ol>
-<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><ul>
-<li><p><code>float</code> 单精度，四个字节；<code>double</code> 双精度，八个字节</p>
-</li>
-<li><p>所有的浮点型字面值默认被当作<code>double</code>来处理，如果需要使用<code>float</code> 需要在字面值后面添加f&#x2F;F</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">float</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1.1</span>;</span><br><span class="line"><span class="comment">//编译报错，大精度转换为小精度需要强制类型转换</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><p>关于布尔类型只需要注意的是，Java中的布尔类型不能用0或者1来表示</p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><p>运算符中需要细节较多的只有逻辑运算符 以及 位运算符，有关于算术运算符以及关系运算符就不再赘述了，位运算符会在算法部分详细展开</p>
-<p>逻辑运算符中需要格外关注的是 <strong>短路现象</strong></p>
-<ul>
-<li>逻辑运算运算符要求左右两边算子都是布尔类型，并且最后运算结果也是布尔类型</li>
-<li>短路现象：因为某个事件的发生导致程序运行步骤改变<ul>
-<li>普通与&amp;：将运算符两边的算子都运算，两边都为真，结果才为真</li>
-<li>短路与&amp;&amp;：一旦左边的算子为假，则忽视右边的算子，直接输出结果</li>
-<li>短路或|| 和 普通或｜同理</li>
-</ul>
-</li>
-<li>短路现象使运算更高效，但如果两边的算子都不得不计算时就无法使用短路现象了</li>
-</ul>
-<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><p>赋值运算符包括：基本赋值运算符，以及 扩展赋值运算符</p>
-<p>这里着重讨论扩展赋值运算符，包括：+&#x3D; -&#x3D; &#x2F;&#x3D; %&#x3D;</p>
-<p>–&gt;可以这样理解+&#x3D;：先做加法运算，再做赋值运算</p>
-<p>需要注意的是：拓展赋值运算符并不会修改运算结果的类型</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">a = a + <span class="number">1</span>;<span class="comment">//编译报错，在做加法运算时需要强制类型转换</span></span><br><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">b += <span class="number">1</span>;<span class="comment">//编译通过，相当于 b = (byte)(b + 1);</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="字符串连接运算符"><a href="#字符串连接运算符" class="headerlink" title="字符串连接运算符"></a>字符串连接运算符</h4><ul>
-<li>“+”运算符有两个作用：<ol>
-<li>进行加法运算</li>
-<li>字符串连接</li>
-</ol>
-</li>
-<li>当 + 运算符两边的<u>都是</u>数字的话，进行加法运算，否则进行字符串连接</li>
-<li>进行字符串连接后运算的结果还是字符串类型</li>
-<li>一个表达式中出现多个+时，运算的优先级相同，按照从左到右的顺序依次运算</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 + 2 + 3 --&gt; 6</span><br><span class="line">1 + 2 + &quot;3&quot; --&gt; 33</span><br><span class="line">1 + (2 + &quot;3&quot;) --&gt; 123</span><br></pre></td></tr></table></figure>
-
-<h2 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h2><p>控制语句都是一些十分基础的语法，但是为了实现一些功能，这其中还涉及了一些相关的其他语法，这里单独列举出来</p>
-<h4 id="接收用户键盘的输入"><a href="#接收用户键盘的输入" class="headerlink" title="接收用户键盘的输入"></a>接收用户键盘的输入</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.util.Scanner scanner ;= <span class="keyword">new</span> <span class="title class_">java</span>.util.Scanner(System.in);</span><br><span class="line"><span class="type">String</span> <span class="variable">uerInput</span> <span class="operator">=</span> scanner.next();<span class="comment">//接收用户字符串的输入</span></span><br><span class="line"><span class="type">int</span> <span class="variable">uerInput</span> <span class="operator">=</span> scanner.nextInt();<span class="comment">//接收用户整型的输入</span></span><br><span class="line"><span class="type">double</span> <span class="variable">uerInput</span> <span class="operator">=</span> scanner.nextDouble();<span class="comment">//接收用户浮点型的输入</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="判断两字符串是否相等"><a href="#判断两字符串是否相等" class="headerlink" title="判断两字符串是否相等"></a>判断两字符串是否相等</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String a;</span><br><span class="line"><span class="type">boolean</span> a.equals(String b);<span class="comment">//当两字符串相等时返回true，否则返回false</span></span><br><span class="line">a == b;<span class="comment">//判断的是两个字符串的地址是否相同</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Switch中的case穿透现象"><a href="#Switch中的case穿透现象" class="headerlink" title="Switch中的case穿透现象"></a>Switch中的case穿透现象</h4><ul>
-<li><code>Switch</code>以及<code>case</code>后可以接<code>int String</code>类型，当接受byte short char类型时系统可以将它们直接自动转换成上述两类型</li>
-<li><code>Siwtch</code>的<code>case</code>穿透现象</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">			java语句<span class="number">1</span>;</span><br><span class="line">			<span class="comment">//break;----&gt;case穿透现象:无论2是否匹配，直接执行Java语句2</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">			java语句<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">break</span>;<span class="comment">//------&gt;因为有break，所以只会执行Java语句2</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">3</span>: <span class="keyword">case</span> <span class="number">4</span>:<span class="comment">//case的合并</span></span><br><span class="line">			java语句<span class="number">3</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="控制循环语句"><a href="#控制循环语句" class="headerlink" title="控制循环语句"></a>控制循环语句</h4><ol>
-<li><p><code>break</code>语句</p>
-<ul>
-<li><code>break</code>表示中断</li>
-<li><code>break</code>可用在循环语句以及<code>switch</code>语句中</li>
-<li>默认情况下<code>break</code>终止的是距离它最近的循环</li>
-<li>当然<code>break</code>也可以中断指定的循环</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//格式：break + 循环名字（需要前给每个循环取名字）0</span></span><br><span class="line">for1:<span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>: i++)&#123;</span><br><span class="line">  for2:<span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">10</span>; k ++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i == <span class="number">5</span>)</span><br><span class="line">      <span class="keyword">break</span> for1;<span class="comment">//中断for1的循环</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>continue</code>语句</p>
-<ul>
-<li>continue表示继续，即忽略本轮循环中剩余的语句，直接进入下一轮循环</li>
-</ul>
-</li>
-</ol>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="方法的作用"><a href="#方法的作用" class="headerlink" title="方法的作用"></a>方法的作用</h3><p>提高代码的复用性，使得代码可以重复利用</p>
-<h3 id="方法的定义"><a href="#方法的定义" class="headerlink" title="方法的定义"></a>方法的定义</h3><p>方法是一段代码片段，这个代码片段可以完成某个特定的功能，并且可以被重复调用(invoke)</p>
-<h3 id="方法的语法结构"><a href="#方法的语法结构" class="headerlink" title="方法的语法结构"></a>方法的语法结构</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[修饰符列表] 返回值类型 方法名 (形式参数列表)&#123;</span><br><span class="line">	方法体；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>修饰符列表：<code>public static</code><ul>
-<li>这部分是可选项，不是必须的</li>
-</ul>
-</li>
-<li>返回值类型<ul>
-<li>这里着重强调返回值为<code>void</code>的类型<ul>
-<li>当方法结束后不返回任何数据时，返回值为void</li>
-<li>返回值为<code>void</code>的方法中也可以编写 <code>return;</code> ，代表该方法执行结束(类似<code>break</code>的作用)</li>
-</ul>
-</li>
-<li><code>return</code>语句<ul>
-<li>只要带有<code>return</code>关键字的语句被执行，则<code>return</code>语句所在的方法执行结束</li>
-<li>在同一个作用域中，<code>return</code>语句下面不能编写任何代码，因为这些代码永远不会被执行</li>
-</ul>
-</li>
-<li>在调用一个有返回值的方法时，我们可以选择接受这个值也可以选择不接受</li>
-</ul>
-</li>
-<li>方法名<ul>
-<li>按照规范，方法名的首字母需要小写(参见<code>main</code>方法)，且需要遵循驼峰命名原则</li>
-</ul>
-</li>
-<li>形参列表<ul>
-<li>形参数量可以有多个，也可以没有，多个形参之间由逗号隔开</li>
-</ul>
-</li>
-</ul>
-<h3 id="方法的调用"><a href="#方法的调用" class="headerlink" title="方法的调用"></a>方法的调用</h3><p>方法如果只被定义而不调用的话，方法是不会被执行的</p>
-<p>调用时的语法规则（修饰符列表中包含<code>static</code>关键字时）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">类名.方法名.(实参列表)；</span><br></pre></td></tr></table></figure>
-
-<p>在同一个类中类名可以省略不写，即类名省略时默认在同一个类中寻找方法</p>
-<h3 id="方法执行过程中的内存分配"><a href="#方法执行过程中的内存分配" class="headerlink" title="方法执行过程中的内存分配"></a><u>方法执行过程中的内存分配</u></h3><p>方法如果只是定义而不调用的话，系统是不会为其分配其运行所需要的空间</p>
-<p>JVM内存划分主要包含三大块内容</p>
-<ol>
-<li>方法区内存<ul>
-<li>方法代码片段属于字节码文件的一部分，字节码文件在类加载时将整个代码片段放到方法区内存当中</li>
-<li>在JVM的三块内存区中，方法区内存是最先有数据的</li>
-<li>代码片段虽然只有一份，但是可以被重复调用，每次调用都需要为其在栈内存分配新的、独立的内存空间</li>
-</ul>
-</li>
-<li>栈内存<ul>
-<li>每次调用方法时，在栈内存中为其分配运行所需要的空间<ul>
-<li>这个栈空间中主要包含了这个方法内的局部变量等信息</li>
-</ul>
-</li>
-<li>方法执行结束后，该方法所占用的空间全部释放</li>
-<li>从一个方法的栈内存向另一个方法的栈内存通过形参列表传递值，传递的是数据的值而不是内存地址</li>
-</ul>
-</li>
-<li>堆内存<ul>
-<li>等待学习…</li>
-</ul>
-</li>
-</ol>
-<h3 id="方法的重载Overload"><a href="#方法的重载Overload" class="headerlink" title="方法的重载Overload"></a>方法的重载Overload</h3><ul>
-<li>作用：使功能近似的方法使用起来像一个方法一样，便于变成</li>
-<li>使用条件：<ol>
-<li>在同一个类中</li>
-<li>方法名相同</li>
-<li>形参列表不同（包括数量不同、类型不同、顺序不同）</li>
-</ol>
-</li>
-<li>方法重载与<u>方法名</u>和参数列表有关，与<u>修饰列表</u>和<u>返回值</u>无关</li>
-</ul>
-<p>Reference <a name="ref1"><font color="black">[1]https://share.api.weibo.cn/share/346380011,4823082769059607.html?weibo_id&#x3D;4823082769059607</font></a></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>访问控制权限&quot;</title>
-    <url>/2022/11/17/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A110/</url>
-    <content><![CDATA[<h1 id="访问控制权限"><a href="#访问控制权限" class="headerlink" title="访问控制权限"></a>访问控制权限</h1><h3 id="访问控制权限修饰符"><a href="#访问控制权限修饰符" class="headerlink" title="访问控制权限修饰符"></a>访问控制权限修饰符</h3><ul>
-<li>访问控制权限修饰符用来控制元素的访问范围</li>
-<li>修饰符包括：<code>public</code>, <code>protected</code>, <code>缺省</code> 以及 <code>private</code></li>
-<li>访问控制权限可以修饰 类 变量 方法</li>
-<li>修饰的范围：<code>private &lt; 缺省 &lt; protected &lt; public</code></li>
-<li>类只能用<code>public</code>和<code>缺省</code>修饰【内部类除外】</li>
-</ul>
-<h4 id="public"><a href="#public" class="headerlink" title="public"></a>public</h4><ul>
-<li>表示公开的，在任何位置都可以访问</li>
-</ul>
-<h4 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h4><ul>
-<li>表示受保护的，在同一个包，以及子类中可以访问</li>
-<li>当某个数据只希望子类使用时，采用<code>protected</code>修饰</li>
-</ul>
-<h4 id="缺省"><a href="#缺省" class="headerlink" title="缺省"></a>缺省</h4><ul>
-<li>仅仅是同一个包下可以访问</li>
-</ul>
-<h4 id="private"><a href="#private" class="headerlink" title="private"></a>private</h4><ul>
-<li>私有的，只能在本类中访问</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>多态2</title>
     <url>/2022/11/19/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A111/</url>
     <content><![CDATA[<h1 id="多态2"><a href="#多态2" class="headerlink" title="多态2"></a>多态2</h1><h3 id="方法覆盖"><a href="#方法覆盖" class="headerlink" title="方法覆盖"></a>方法覆盖</h3><ol>
@@ -1275,6 +1244,37 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">A</span><span class="params">()</span>&#123;<span class="comment">//第五个被调用</span></span><br><span class="line">        System.out.println(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_">A</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">B</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">B</span><span class="params">(<span class="type">int</span> i)</span>&#123;<span class="comment">//第四个被调用</span></span><br><span class="line">        System.out.println(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> <span class="keyword">extends</span> <span class="title class_">B</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">()</span>&#123;<span class="comment">//第一个被调用</span></span><br><span class="line">        <span class="built_in">this</span>(<span class="number">10</span>);</span><br><span class="line">        System.out.println(<span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">(<span class="type">int</span> i)</span>&#123;<span class="comment">//第二个被调用</span></span><br><span class="line">        <span class="built_in">this</span>(i,<span class="number">20</span>);</span><br><span class="line">        System.out.println(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;<span class="comment">//第三个被调用</span></span><br><span class="line">        <span class="built_in">super</span>(j);</span><br><span class="line">        System.out.println(<span class="number">6</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">      	<span class="comment">//后被调用的先执行</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">C</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ahjs5w5gj30u20e23z3.jpg"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>访问控制权限&quot;</title>
+    <url>/2022/11/17/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A110/</url>
+    <content><![CDATA[<h1 id="访问控制权限"><a href="#访问控制权限" class="headerlink" title="访问控制权限"></a>访问控制权限</h1><h3 id="访问控制权限修饰符"><a href="#访问控制权限修饰符" class="headerlink" title="访问控制权限修饰符"></a>访问控制权限修饰符</h3><ul>
+<li>访问控制权限修饰符用来控制元素的访问范围</li>
+<li>修饰符包括：<code>public</code>, <code>protected</code>, <code>缺省</code> 以及 <code>private</code></li>
+<li>访问控制权限可以修饰 类 变量 方法</li>
+<li>修饰的范围：<code>private &lt; 缺省 &lt; protected &lt; public</code></li>
+<li>类只能用<code>public</code>和<code>缺省</code>修饰【内部类除外】</li>
+</ul>
+<h4 id="public"><a href="#public" class="headerlink" title="public"></a>public</h4><ul>
+<li>表示公开的，在任何位置都可以访问</li>
+</ul>
+<h4 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h4><ul>
+<li>表示受保护的，在同一个包，以及子类中可以访问</li>
+<li>当某个数据只希望子类使用时，采用<code>protected</code>修饰</li>
+</ul>
+<h4 id="缺省"><a href="#缺省" class="headerlink" title="缺省"></a>缺省</h4><ul>
+<li>仅仅是同一个包下可以访问</li>
+</ul>
+<h4 id="private"><a href="#private" class="headerlink" title="private"></a>private</h4><ul>
+<li>私有的，只能在本类中访问</li>
+</ul>
 ]]></content>
       <categories>
         <category>Java</category>
