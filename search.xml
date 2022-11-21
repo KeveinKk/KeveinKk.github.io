@@ -1135,6 +1135,37 @@
       </tags>
   </entry>
   <entry>
+    <title>访问控制权限&quot;</title>
+    <url>/2022/11/17/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A110/</url>
+    <content><![CDATA[<h1 id="访问控制权限"><a href="#访问控制权限" class="headerlink" title="访问控制权限"></a>访问控制权限</h1><h3 id="访问控制权限修饰符"><a href="#访问控制权限修饰符" class="headerlink" title="访问控制权限修饰符"></a>访问控制权限修饰符</h3><ul>
+<li>访问控制权限修饰符用来控制元素的访问范围</li>
+<li>修饰符包括：<code>public</code>, <code>protected</code>, <code>缺省</code> 以及 <code>private</code></li>
+<li>访问控制权限可以修饰 类 变量 方法</li>
+<li>修饰的范围：<code>private &lt; 缺省 &lt; protected &lt; public</code></li>
+<li>类只能用<code>public</code>和<code>缺省</code>修饰【内部类除外】</li>
+</ul>
+<h4 id="public"><a href="#public" class="headerlink" title="public"></a>public</h4><ul>
+<li>表示公开的，在任何位置都可以访问</li>
+</ul>
+<h4 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h4><ul>
+<li>表示受保护的，在同一个包，以及子类中可以访问</li>
+<li>当某个数据只希望子类使用时，采用<code>protected</code>修饰</li>
+</ul>
+<h4 id="缺省"><a href="#缺省" class="headerlink" title="缺省"></a>缺省</h4><ul>
+<li>仅仅是同一个包下可以访问</li>
+</ul>
+<h4 id="private"><a href="#private" class="headerlink" title="private"></a>private</h4><ul>
+<li>私有的，只能在本类中访问</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>多态2</title>
     <url>/2022/11/19/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A111/</url>
     <content><![CDATA[<h1 id="多态2"><a href="#多态2" class="headerlink" title="多态2"></a>多态2</h1><h3 id="方法覆盖"><a href="#方法覆盖" class="headerlink" title="方法覆盖"></a>方法覆盖</h3><ol>
@@ -1244,37 +1275,6 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">A</span><span class="params">()</span>&#123;<span class="comment">//第五个被调用</span></span><br><span class="line">        System.out.println(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_">A</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">B</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">B</span><span class="params">(<span class="type">int</span> i)</span>&#123;<span class="comment">//第四个被调用</span></span><br><span class="line">        System.out.println(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> <span class="keyword">extends</span> <span class="title class_">B</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">()</span>&#123;<span class="comment">//第一个被调用</span></span><br><span class="line">        <span class="built_in">this</span>(<span class="number">10</span>);</span><br><span class="line">        System.out.println(<span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">(<span class="type">int</span> i)</span>&#123;<span class="comment">//第二个被调用</span></span><br><span class="line">        <span class="built_in">this</span>(i,<span class="number">20</span>);</span><br><span class="line">        System.out.println(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;<span class="comment">//第三个被调用</span></span><br><span class="line">        <span class="built_in">super</span>(j);</span><br><span class="line">        System.out.println(<span class="number">6</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">      	<span class="comment">//后被调用的先执行</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">C</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ahjs5w5gj30u20e23z3.jpg"></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>访问控制权限&quot;</title>
-    <url>/2022/11/17/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A110/</url>
-    <content><![CDATA[<h1 id="访问控制权限"><a href="#访问控制权限" class="headerlink" title="访问控制权限"></a>访问控制权限</h1><h3 id="访问控制权限修饰符"><a href="#访问控制权限修饰符" class="headerlink" title="访问控制权限修饰符"></a>访问控制权限修饰符</h3><ul>
-<li>访问控制权限修饰符用来控制元素的访问范围</li>
-<li>修饰符包括：<code>public</code>, <code>protected</code>, <code>缺省</code> 以及 <code>private</code></li>
-<li>访问控制权限可以修饰 类 变量 方法</li>
-<li>修饰的范围：<code>private &lt; 缺省 &lt; protected &lt; public</code></li>
-<li>类只能用<code>public</code>和<code>缺省</code>修饰【内部类除外】</li>
-</ul>
-<h4 id="public"><a href="#public" class="headerlink" title="public"></a>public</h4><ul>
-<li>表示公开的，在任何位置都可以访问</li>
-</ul>
-<h4 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h4><ul>
-<li>表示受保护的，在同一个包，以及子类中可以访问</li>
-<li>当某个数据只希望子类使用时，采用<code>protected</code>修饰</li>
-</ul>
-<h4 id="缺省"><a href="#缺省" class="headerlink" title="缺省"></a>缺省</h4><ul>
-<li>仅仅是同一个包下可以访问</li>
-</ul>
-<h4 id="private"><a href="#private" class="headerlink" title="private"></a>private</h4><ul>
-<li>私有的，只能在本类中访问</li>
-</ul>
 ]]></content>
       <categories>
         <category>Java</category>
