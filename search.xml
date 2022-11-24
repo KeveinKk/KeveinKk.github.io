@@ -2267,6 +2267,122 @@
       </tags>
   </entry>
   <entry>
+    <title>接口</title>
+    <url>/2022/11/24/Java/%E6%8E%A5%E5%8F%A3/</url>
+    <content><![CDATA[<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><h2 id="接口的概念"><a href="#接口的概念" class="headerlink" title="接口的概念"></a>接口的概念</h2><ul>
+<li><p>接口也是一个引用数据类型</p>
+<ul>
+<li>虽然接口不是一个类，但它编译之后仍然生成一个<code>.class</code>的字节码文件</li>
+</ul>
+</li>
+<li><p>接口是<strong>完全抽象</strong>的</p>
+<ul>
+<li>接口是一种特殊的抽象类</li>
+<li>抽象类是半抽象的</li>
+</ul>
+</li>
+<li><p>接口的语法格式</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[修饰符列表] interface 接口名&#123;</span><br><span class="line">  	<span class="comment">//接口不是一个类，不能用class关键字</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>类的定义</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[修饰符列表] class 类名&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>抽象类的定义</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[修饰符列表] <span class="keyword">abstract</span> class 类名&#123;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>接口支持多继承，一个接口可以继承多个接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">A</span>&#123;</span><br><span class="line">		<span class="comment">//编译生产.class字节码文件</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_">A</span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">C</span> <span class="keyword">extends</span> <span class="title class_">A</span>, B&#123;</span><br><span class="line">		<span class="comment">//支持多继承</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8fzhoo1zzj306b05mmx2.jpg"></p>
+</li>
+<li><p>接口中只包含两个部分：<u><strong>常量 以及 抽象方法</strong></u></p>
+</li>
+<li><p>接口中所有的元素都是由<code>public</code>修饰的</p>
+<ul>
+<li>在接口中定义方法时，<code>public</code>和<code>abstract</code>两个关键字可以修饰不写</li>
+<li>在接口中声明变量时，<code>publi static final</code>三个关键字不写，并且必须手动赋初始值<ul>
+<li>通过接口直接访问</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="接口的实现"><a href="#接口的实现" class="headerlink" title="接口的实现"></a>接口的实现</h2><ul>
+<li><p>类和接之间的继承关系称作<strong>实现</strong>，关键字<code>implements</code></p>
+<ul>
+<li><p>类和类之间叫做继承，关键字<code>extends</code></p>
+</li>
+<li><p>抽象类实现接口时，可以不用实现接口中的方法</p>
+<ul>
+<li>抽象类中运行存在抽象方法</li>
+</ul>
+</li>
+<li><p>非抽象类实现接口时，必须要实现接口中每一个 的方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">A</span>&#123;<span class="comment">//接口A</span></span><br><span class="line">  	<span class="comment">//常量</span></span><br><span class="line">    <span class="type">double</span> <span class="variable">PI</span> <span class="operator">=</span> <span class="number">3.14</span>;</span><br><span class="line">  	<span class="comment">//抽象方法</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">sub</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">implements</span> <span class="title class_">A</span>&#123;<span class="comment">//非抽象方法实现接口</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>&#123;<span class="comment">//通过快捷键command + N直接生成</span></span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sub</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;<span class="comment">//必须实现接口中的每一个抽象方法</span></span><br><span class="line">        <span class="keyword">return</span> a - b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">C</span> <span class="keyword">implements</span> <span class="title class_">A</span>&#123;&#125;<span class="comment">//抽象方法实现接口</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在实现接口中的方法时，类中方法的访问控制权限必须是<code>public</code></p>
+<ul>
+<li>子类继承父类的方法，访问权限只能更高，不能更低</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="接口的多态"><a href="#接口的多态" class="headerlink" title="接口的多态"></a>接口的多态</h2><ul>
+<li><p>接口的多态</p>
+</li>
+<li><p>&#96;&#96;&#96;java<br>A a &#x3D; new B();&#x2F;&#x2F;父类型的引用指向子类型的对象<br>a.sum(10,20);</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 类的多实现</span><br><span class="line"></span><br><span class="line">  - 一个类可以实现多个接口</span><br><span class="line">    - 弥补了Java中类只能单继承的缺陷</span><br><span class="line">  - 一个类实现多个接口时，需要将每一个接口中的方法都实现一遍</span><br><span class="line">  - 多实现中的多态</span><br><span class="line"></span><br><span class="line">  ```java</span><br><span class="line">  interface A&#123;</span><br><span class="line">      void fun1();</span><br><span class="line">  &#125;</span><br><span class="line">  interface B&#123;</span><br><span class="line">      void fun2();</span><br><span class="line">  &#125;</span><br><span class="line">  interface C&#123;</span><br><span class="line">      void fun3();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  class D implements A,B,C&#123;//多实现，实现每一个接口中的方法</span><br><span class="line">      @Override</span><br><span class="line">      public void fun1() &#123;&#125;</span><br><span class="line">      @Override</span><br><span class="line">      public void fun2() &#123;&#125;</span><br><span class="line">      @Override</span><br><span class="line">      public void fun3() &#123;&#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">A</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">D</span>();<span class="comment">//父类引用指向子类对象</span></span><br><span class="line">        <span class="type">B</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">D</span>();</span><br><span class="line">        <span class="type">C</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">D</span>();</span><br><span class="line">        a.fun1();</span><br><span class="line">        a.fun2();<span class="comment">//编译失败</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8g0s85rx5j30u80jwdhj.jpg"></p>
+<ul>
+<li>接口的类型转换<ul>
+<li>向下类型转换<ul>
+<li>同样需要使用<code>instanceof</code>来判断</li>
+</ul>
+</li>
+<li>强制类型转换<ul>
+<li><u>可以两个没有继承关系的接口进行相互转化</u></li>
+<li>编译不会报错，但是运行过程中可能会抛出<code>ClassCastException</code>异常</li>
+<li>在类的类型转换中，无论是向上转型还是向下转型，必须要求两个类有继承关系</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="继承和实现同时存在"><a href="#继承和实现同时存在" class="headerlink" title="继承和实现同时存在"></a>继承和实现同时存在</h2><ul>
+<li><p><code>extends</code>关键字在前，<code>implements</code>关键字在后</p>
+</li>
+<li><p>接口通常提取的是行为动作</p>
+</li>
+<li><p>一个类实现一个接口，就代表能够完成该接口的动作</p>
+</li>
+<li><p>举一个例子</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//父类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>&#123;&#125;</span><br><span class="line"><span class="comment">//接口：接口通常提取的是行为动作</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Flyable</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Flyable通过接口插到猫身上，猫就可以飞翔</span></span><br><span class="line"><span class="comment">//将翅膀插到猫身上，猫就可以飞翔</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> <span class="keyword">implements</span> <span class="title class_">Flyable</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;会飞的猫&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//如果不想让蛇类飞，可以不实现Flyable接口</span></span><br><span class="line"><span class="comment">//没有实现这个接口则表示不能飞</span></span><br><span class="line"><span class="comment">//不给蛇插上翅膀，蛇就不能飞翔</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Snake</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Flyable</span> <span class="variable">fly</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">    fly.fly();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="接口的作用"><a href="#接口的作用" class="headerlink" title="接口的作用"></a>接口的作用</h2><ul>
+<li>面向抽象编程等价于面向接口编程</li>
+<li>有了接口就可以插拔，可插拔代表拓展力强、低耦合度</li>
+<li>接口的使用离不开多态</li>
+<li><code>A has a B</code><strong><u>则B是A的一个属性</u></strong></li>
+<li><code>A is a B</code><strong><u>则A是B的子类（继承）</u></strong></li>
+<li>举一个例子：顾客去餐厅可以点餐，既可以点中餐也可以点西餐</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>两个数组的交集</title>
     <url>/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/</url>
     <content><![CDATA[<h1 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你两个整数数组<code>nums1</code>和<code>nums2</code>，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。</p>
@@ -2315,39 +2431,6 @@
       <tags>
         <tag>算法</tag>
         <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>两数之和</title>
-    <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
-    <content><![CDATA[<h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个下标从 1 开始的整数数组<code>numbers</code> ，该数组已按<u>非递减顺序排列</u>，请你从数组中找出满足相加之和等于目标数<code>target</code>的两个数。如果设这两个数分别是<code>numbers[index1]</code>和<code>numbers[index2]</code>，则<code>1 &lt;= index1 &lt; index2 &lt;= numbers.length</code>。</p>
-<p>你可以假设每个输入 只对应唯一的答案 ，而且你不可以重复使用相同的元素。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这个问题可以等价于先固定<code>numbers[index1]</code>这个数，要求我们在数组中找到<code>target-numbers[index1]</code>这个数的下标。由于当前的数组是有序的，所以我们首先考虑到通过二分法来解决这个问题。为了避免重复，我们可以每次在numbers[index1]这个数右边寻找。</p>
-<ul>
-<li>采用这种方法时，<code>index1</code>的下标需要将整个数组遍历一遍来确定第一个数，在<code>index1</code>遍历的一轮中，对剩下的数采用二分法来查找<code>index2</code>，一轮二分法查找需要$O(logN)$的时间，而一共需要$N$轮，总的时间复杂度为$O(NlogN)$</li>
-<li>这种方法不需要申请额外的辅助空间，空间复杂度为$O(1)$</li>
-<li>注意：如果将二分查找封装成一个函数，那么可能会因为频繁调用函数而造成超时</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//在每一轮中采用二分法来查找</span></span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;<span class="comment">//否则查找失败</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="针对上述方法的优化"><a href="#针对上述方法的优化" class="headerlink" title="针对上述方法的优化"></a>针对上述方法的优化</h3><p>我们仔细思考可以发现，如果当<code>index1</code>过小，以至于index2指向数组中最末尾的数时，它们的二者之和也不能大于或者等于<code>target</code>时，那么就可以直接略过这一轮，直接对下一个更大的<code>index1</code>进行查找</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//如果index1和数组中最大的数相加都小了，则直接跳过这一轮</span></span><br><span class="line">            <span class="keyword">if</span>(numbers[index1] + numbers[high] &lt; target)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>使用双指针的方法，初始化时低位的指针指向最左边的元素，高位的指针指向最右边的元素，判断这二者之和与<code>target</code>的关系，如果大了，则代表<code>high</code>指针指向的元素过大，<code>high</code>指针左移。如果小了，则代表<code>low</code>指针指向的元素过小，low<code>指针</code>右移。如果刚好等于，则输出<code>low</code>和<code>high</code>指针即可。</p>
-<p>这里我们会疑惑，这样的移动会不会造成正确答案被我们遗漏。我们假定<code>numbers[i]+numbers[j]=target</code>.初始时两个指针分别指向下标<code>0</code>和下标<br><code>numbers.length−1</code>，左指针指向的下标小于或等于 <code>i</code>，右指针指向的下标大于或等于 <code>j</code>。除非初始时左指针和右指针已经位于下标<code>i</code>和<code>j,</code>否则一定是左指针先到达下标<code>i</code>的位置或者右指针先到达下标<code>j</code> 的位置。<br>如果左指针先到达下标<code>i</code>的位置，此时右指针还在下标<code>j</code> 的右侧，因此一定是右指针左移，左指针不可能移<code>i</code>的右侧。对应的同理。由此可见，在整个移动过程中，左指针不可能移到<code>i</code>的右侧，右指针不可能移到<code>j</code> 的左侧，因此不会把可能的解过滤掉。由于题目确保有唯一的答案，因此使用双指针一定可以找到答案。</p>
-<ul>
-<li>这种方法时间只用遍历一遍数组，时间复杂度是$O(N)$</li>
-<li>空间复杂度显然是$O(1)$</li>
-</ul>
-<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> numbers[low] + numbers[high];</span><br><span class="line">        <span class="keyword">while</span>(sum != target)&#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                high --;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low ++;</span><br><span class="line">            &#125;</span><br><span class="line">            sum = numbers[low] + numbers[high];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++low,++high&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>二分查找</tag>
       </tags>
   </entry>
   <entry>
@@ -2470,6 +2553,39 @@
       </tags>
   </entry>
   <entry>
+    <title>两数之和</title>
+    <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+    <content><![CDATA[<h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个下标从 1 开始的整数数组<code>numbers</code> ，该数组已按<u>非递减顺序排列</u>，请你从数组中找出满足相加之和等于目标数<code>target</code>的两个数。如果设这两个数分别是<code>numbers[index1]</code>和<code>numbers[index2]</code>，则<code>1 &lt;= index1 &lt; index2 &lt;= numbers.length</code>。</p>
+<p>你可以假设每个输入 只对应唯一的答案 ，而且你不可以重复使用相同的元素。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这个问题可以等价于先固定<code>numbers[index1]</code>这个数，要求我们在数组中找到<code>target-numbers[index1]</code>这个数的下标。由于当前的数组是有序的，所以我们首先考虑到通过二分法来解决这个问题。为了避免重复，我们可以每次在numbers[index1]这个数右边寻找。</p>
+<ul>
+<li>采用这种方法时，<code>index1</code>的下标需要将整个数组遍历一遍来确定第一个数，在<code>index1</code>遍历的一轮中，对剩下的数采用二分法来查找<code>index2</code>，一轮二分法查找需要$O(logN)$的时间，而一共需要$N$轮，总的时间复杂度为$O(NlogN)$</li>
+<li>这种方法不需要申请额外的辅助空间，空间复杂度为$O(1)$</li>
+<li>注意：如果将二分查找封装成一个函数，那么可能会因为频繁调用函数而造成超时</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//在每一轮中采用二分法来查找</span></span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;<span class="comment">//否则查找失败</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="针对上述方法的优化"><a href="#针对上述方法的优化" class="headerlink" title="针对上述方法的优化"></a>针对上述方法的优化</h3><p>我们仔细思考可以发现，如果当<code>index1</code>过小，以至于index2指向数组中最末尾的数时，它们的二者之和也不能大于或者等于<code>target</code>时，那么就可以直接略过这一轮，直接对下一个更大的<code>index1</code>进行查找</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//如果index1和数组中最大的数相加都小了，则直接跳过这一轮</span></span><br><span class="line">            <span class="keyword">if</span>(numbers[index1] + numbers[high] &lt; target)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>使用双指针的方法，初始化时低位的指针指向最左边的元素，高位的指针指向最右边的元素，判断这二者之和与<code>target</code>的关系，如果大了，则代表<code>high</code>指针指向的元素过大，<code>high</code>指针左移。如果小了，则代表<code>low</code>指针指向的元素过小，low<code>指针</code>右移。如果刚好等于，则输出<code>low</code>和<code>high</code>指针即可。</p>
+<p>这里我们会疑惑，这样的移动会不会造成正确答案被我们遗漏。我们假定<code>numbers[i]+numbers[j]=target</code>.初始时两个指针分别指向下标<code>0</code>和下标<br><code>numbers.length−1</code>，左指针指向的下标小于或等于 <code>i</code>，右指针指向的下标大于或等于 <code>j</code>。除非初始时左指针和右指针已经位于下标<code>i</code>和<code>j,</code>否则一定是左指针先到达下标<code>i</code>的位置或者右指针先到达下标<code>j</code> 的位置。<br>如果左指针先到达下标<code>i</code>的位置，此时右指针还在下标<code>j</code> 的右侧，因此一定是右指针左移，左指针不可能移<code>i</code>的右侧。对应的同理。由此可见，在整个移动过程中，左指针不可能移到<code>i</code>的右侧，右指针不可能移到<code>j</code> 的左侧，因此不会把可能的解过滤掉。由于题目确保有唯一的答案，因此使用双指针一定可以找到答案。</p>
+<ul>
+<li>这种方法时间只用遍历一遍数组，时间复杂度是$O(N)$</li>
+<li>空间复杂度显然是$O(1)$</li>
+</ul>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> numbers[low] + numbers[high];</span><br><span class="line">        <span class="keyword">while</span>(sum != target)&#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                high --;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low ++;</span><br><span class="line">            &#125;</span><br><span class="line">            sum = numbers[low] + numbers[high];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++low,++high&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>反转字符串中的单词</title>
     <url>/2022/11/16/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/</url>
     <content><![CDATA[<h1 id="反转字符串中的单词"><a href="#反转字符串中的单词" class="headerlink" title="反转字符串中的单词"></a>反转字符串中的单词</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串 <code>s</code> ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p>
@@ -2538,28 +2654,6 @@
       <tags>
         <tag>算法</tag>
         <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>存在重复元素</title>
-    <url>/2022/11/21/%E7%AE%97%E6%B3%95/%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<h1 id="存在重复元素"><a href="#存在重复元素" class="headerlink" title="存在重复元素"></a>存在重复元素</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> ，返回 <code>true</code> ；如果数组中每个元素互不相同，返回 <code>false</code></p>
-<h2 id="方法一：利用排序"><a href="#方法一：利用排序" class="headerlink" title="方法一：利用排序"></a>方法一：利用排序</h2><p>在对数字从小到大排序之后，数组的重复元素一定出现在相邻位置中。因此，我们可以扫描已排序的数组，每次判断相邻的两个元素是否相等，如果相等则说明存在重复的元素。</p>
-<p>在进行排序时，我们其实可以先导入<code>java.util.Arrays</code>的包，直接利用<code>sort</code>方法进行排序</p>
-<ul>
-<li>时间复杂度：$O(NlogN)$，排序的时间复杂度</li>
-<li>空间复杂度：$O(logN)$，快排的递归深度</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsDuplicate</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == nums[i-<span class="number">1</span>]) </span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这道题并不能通过位运算的技巧来快速解决，通过排序解决应该是最简单的办法</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>排序算法</tag>
       </tags>
   </entry>
   <entry>
@@ -2640,6 +2734,28 @@
       <tags>
         <tag>算法</tag>
         <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>存在重复元素</title>
+    <url>/2022/11/21/%E7%AE%97%E6%B3%95/%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h1 id="存在重复元素"><a href="#存在重复元素" class="headerlink" title="存在重复元素"></a>存在重复元素</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> ，返回 <code>true</code> ；如果数组中每个元素互不相同，返回 <code>false</code></p>
+<h2 id="方法一：利用排序"><a href="#方法一：利用排序" class="headerlink" title="方法一：利用排序"></a>方法一：利用排序</h2><p>在对数字从小到大排序之后，数组的重复元素一定出现在相邻位置中。因此，我们可以扫描已排序的数组，每次判断相邻的两个元素是否相等，如果相等则说明存在重复的元素。</p>
+<p>在进行排序时，我们其实可以先导入<code>java.util.Arrays</code>的包，直接利用<code>sort</code>方法进行排序</p>
+<ul>
+<li>时间复杂度：$O(NlogN)$，排序的时间复杂度</li>
+<li>空间复杂度：$O(logN)$，快排的递归深度</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsDuplicate</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == nums[i-<span class="number">1</span>]) </span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这道题并不能通过位运算的技巧来快速解决，通过排序解决应该是最简单的办法</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>排序算法</tag>
       </tags>
   </entry>
   <entry>
@@ -2758,38 +2874,6 @@
       </tags>
   </entry>
   <entry>
-    <title>计数排序</title>
-    <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h1 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h1><h5 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h5><ul>
-<li>计数排序是一种<u>稳定</u>的排序算法。使用一个额外数组<code>C</code>，其中第<code>i</code>个元素是待排序数组<code>arr</code>中值等于<code>i</code>的元素个数，然后根据数组<code>C</code>来将<code>arr</code>中的元素放到正确的位置<ul>
-<li>假设现在对学校里的所有学生按照年龄进行排序，则申请一个0到30的数组C</li>
-<li>遍历一遍所有学生的年龄，如果一个学生的年龄是18，则<code>C[18]++</code></li>
-<li>遍历结束后，顺序输出数组$i\times C[i]$即可</li>
-</ul>
-</li>
-<li>它只能对整数进行排序</li>
-<li>计数排序的核心在于：将输入的数据转化为键存储在额外开辟的数组空间中</li>
-</ul>
-<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">countSotr</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//遍历数组，求数组的最大值和最小值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            max = (max &gt; nums[i]) ? max : nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//数组中所有的数的取值都比max小</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> max + <span class="number">1</span>;<span class="comment">//申请的辅助空间的数组长度</span></span><br><span class="line">        <span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            arr[nums[i]]++;<span class="comment">//arr[i]存储着nums中值为i的元素的个数</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//指向nums数组的下标</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span> (arr[i] &gt; <span class="number">0</span>)&#123;<span class="comment">//使每一个arr[i]都输出完</span></span><br><span class="line">                nums[index] = i;</span><br><span class="line">                index ++;</span><br><span class="line">                arr[i] --;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h5><ul>
-<li>时间复杂度$O(n)$，由于计数排序不是比较排序，它的速度远快于任何排序算法</li>
-<li>空间复杂度：计数排序中所使用的辅助空间与数组中的最大值有关，所以当数组中的数很大时，计数排序需要很夸张的辅助空间。</li>
-<li>也因此，计数排序不适用于大部分的情况，但对于某些特定的情况，计数排序的效率会非常的高</li>
-</ul>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">LENGTH</span> <span class="operator">=</span> <span class="number">100000</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">MAX</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line">        <span class="type">int</span>[] nums = <span class="keyword">new</span> <span class="title class_">int</span>[LENGTH];</span><br><span class="line">        nums = randomGen(LENGTH,MAX);</span><br><span class="line">        <span class="type">int</span>[] test = (<span class="type">int</span>[])Arrays.copyOf(nums,nums.length);</span><br><span class="line"></span><br><span class="line">        countSotr(nums);</span><br><span class="line">        Arrays.sort(test);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(Arrays.equals(nums,test))&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;排序成功&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">countSotr</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//遍历数组，求数组的最大值和最小值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            max = (max &gt; nums[i]) ? max : nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//数组中所有的数的取值都比max小</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> max + <span class="number">1</span>;<span class="comment">//申请的辅助空间的数组长度</span></span><br><span class="line">        <span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            arr[nums[i]]++;<span class="comment">//arr[i]存储着nums中值为i的元素的个数</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//指向nums数组的下标</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span> (arr[i] &gt; <span class="number">0</span>)&#123;<span class="comment">//使每一个arr[i]都输出完</span></span><br><span class="line">                nums[index] = i;</span><br><span class="line">                index ++;</span><br><span class="line">                arr[i] --;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] randomGen(<span class="type">int</span> length, <span class="type">int</span> max)&#123;</span><br><span class="line">        <span class="type">int</span>[] nums = <span class="keyword">new</span> <span class="title class_">int</span>[length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i&lt; length; i++)&#123;</span><br><span class="line">            nums[i] = (<span class="type">int</span>) (Math.random()*max);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h84s2ozzlij30u60cyjs7.jpg"></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>排序算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>移动零</title>
     <url>/2022/11/11/%E7%AE%97%E6%B3%95/%E7%A7%BB%E5%8A%A8%E9%9B%B6/</url>
     <content><![CDATA[<h1 id="移动零"><a href="#移动零" class="headerlink" title="移动零"></a>移动零</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。<strong>请注意</strong> ，必须在不复制数组的情况下原地对数组进行操作。</p>
@@ -2824,6 +2908,38 @@
       <tags>
         <tag>算法</tag>
         <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计数排序</title>
+    <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h1 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h1><h5 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h5><ul>
+<li>计数排序是一种<u>稳定</u>的排序算法。使用一个额外数组<code>C</code>，其中第<code>i</code>个元素是待排序数组<code>arr</code>中值等于<code>i</code>的元素个数，然后根据数组<code>C</code>来将<code>arr</code>中的元素放到正确的位置<ul>
+<li>假设现在对学校里的所有学生按照年龄进行排序，则申请一个0到30的数组C</li>
+<li>遍历一遍所有学生的年龄，如果一个学生的年龄是18，则<code>C[18]++</code></li>
+<li>遍历结束后，顺序输出数组$i\times C[i]$即可</li>
+</ul>
+</li>
+<li>它只能对整数进行排序</li>
+<li>计数排序的核心在于：将输入的数据转化为键存储在额外开辟的数组空间中</li>
+</ul>
+<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">countSotr</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//遍历数组，求数组的最大值和最小值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            max = (max &gt; nums[i]) ? max : nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//数组中所有的数的取值都比max小</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> max + <span class="number">1</span>;<span class="comment">//申请的辅助空间的数组长度</span></span><br><span class="line">        <span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            arr[nums[i]]++;<span class="comment">//arr[i]存储着nums中值为i的元素的个数</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//指向nums数组的下标</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span> (arr[i] &gt; <span class="number">0</span>)&#123;<span class="comment">//使每一个arr[i]都输出完</span></span><br><span class="line">                nums[index] = i;</span><br><span class="line">                index ++;</span><br><span class="line">                arr[i] --;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h5><ul>
+<li>时间复杂度$O(n)$，由于计数排序不是比较排序，它的速度远快于任何排序算法</li>
+<li>空间复杂度：计数排序中所使用的辅助空间与数组中的最大值有关，所以当数组中的数很大时，计数排序需要很夸张的辅助空间。</li>
+<li>也因此，计数排序不适用于大部分的情况，但对于某些特定的情况，计数排序的效率会非常的高</li>
+</ul>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">LENGTH</span> <span class="operator">=</span> <span class="number">100000</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">MAX</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line">        <span class="type">int</span>[] nums = <span class="keyword">new</span> <span class="title class_">int</span>[LENGTH];</span><br><span class="line">        nums = randomGen(LENGTH,MAX);</span><br><span class="line">        <span class="type">int</span>[] test = (<span class="type">int</span>[])Arrays.copyOf(nums,nums.length);</span><br><span class="line"></span><br><span class="line">        countSotr(nums);</span><br><span class="line">        Arrays.sort(test);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(Arrays.equals(nums,test))&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;排序成功&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">countSotr</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//遍历数组，求数组的最大值和最小值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            max = (max &gt; nums[i]) ? max : nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//数组中所有的数的取值都比max小</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> max + <span class="number">1</span>;<span class="comment">//申请的辅助空间的数组长度</span></span><br><span class="line">        <span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            arr[nums[i]]++;<span class="comment">//arr[i]存储着nums中值为i的元素的个数</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//指向nums数组的下标</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span> (arr[i] &gt; <span class="number">0</span>)&#123;<span class="comment">//使每一个arr[i]都输出完</span></span><br><span class="line">                nums[index] = i;</span><br><span class="line">                index ++;</span><br><span class="line">                arr[i] --;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] randomGen(<span class="type">int</span> length, <span class="type">int</span> max)&#123;</span><br><span class="line">        <span class="type">int</span>[] nums = <span class="keyword">new</span> <span class="title class_">int</span>[length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i&lt; length; i++)&#123;</span><br><span class="line">            nums[i] = (<span class="type">int</span>) (Math.random()*max);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h84s2ozzlij30u60cyjs7.jpg"></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>排序算法</tag>
       </tags>
   </entry>
 </search>
