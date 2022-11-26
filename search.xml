@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo搭建博客过程中，4000端口被占用</title>
-    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
-<ul>
-<li>更改hexo使用的端口</li>
-<li>杀掉正在占用4000端口的其他进程</li>
-</ul>
-<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
-<ul>
-<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
-<ul>
-<li><code>sudo lsof -i tcp:端口号</code></li>
-<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
-<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
-</li>
-<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
-<ul>
-<li><code>sudo kill -9 PID</code></li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java - 1st Week - Summary</title>
     <url>/2022/11/07/Java/Java%20-%201st%20Week%20-%20Summary/</url>
     <content><![CDATA[<h1 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h1><p align="right">10.26-11.05</p>
@@ -2108,6 +2073,190 @@
       </tags>
   </entry>
   <entry>
+    <title>Object类</title>
+    <url>/2022/11/26/Java/Object%E7%B1%BB/</url>
+    <content><![CDATA[<h1 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h1><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
+<li>Application Program Interface</li>
+<li>整个JDK的类库就是一个JavaSE的API</li>
+<li>每一个API都会配置一套API的帮助文档<ul>
+<li><a href="https://www.oracle.com/cn/java/technologies/java-se-api-doc.html">https://www.oracle.com/cn/java/technologies/java-se-api-doc.html</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="protected-Object-clone"><a href="#protected-Object-clone" class="headerlink" title="protected Object clone()"></a><code>protected Object clone()</code></h2><blockquote>
+<p>Creates and returns a copy of this object. The precise meaning of “copy” may depend on the class of the object. </p>
+<p>The general intent is that, for any object <code>x</code>, the expression:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&gt;x.clone() != x<span class="comment">//克隆的对象和原对象的地址不同</span></span><br></pre></td></tr></table></figure>
+
+<p>will be true, and that the expression:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&gt;x.clone().getClass() == x.getClass()<span class="comment">//克隆的对象和原对象属于同一类</span></span><br></pre></td></tr></table></figure>
+
+<p>will be <code>true</code>, but these are not absolute requirements. While it is typically the case that:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&gt;x.clone().equals(x)<span class="comment">//克隆的对象和原对象的内容相同</span></span><br></pre></td></tr></table></figure>
+
+<p>will be <code>true</code>, this is not an absolute requirement.</p>
+</blockquote>
+<ul>
+<li><p><code>protected Object clone()</code>‘</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="int-hasCode"><a href="#int-hasCode" class="headerlink" title="int hasCode()"></a><code>int hasCode()</code></h2><blockquote>
+<p>Returns a hash code value for the object. This method is supported for the benefit of hash tables such as those provided by HashMap</p>
+<p>The general contract of <code>hashCode</code> is:</p>
+<ul>
+<li>Whenever it is invoked on the same object more than once during an execution of a Java application, the <code>hashCode</code>method must consistently return the same integer, provided no information used in <code>equals</code> comparisons on the object is modified.（在一次程序的执行中每个对象的哈希值都相同） This integer need not remain consistent from one execution of an application to another execution of the same application.（但是不同的执行中，一个对象的哈希值可能不同）</li>
+<li>If two objects are equal according to the <code>equals(Object)</code> method, then calling the <code>hashCode</code> method on each of the two objects must produce the same integer result.（通过equals方法判断相等两个对象，它们的哈希值相同）</li>
+<li>It is <em>not</em> required that if two objects are unequal according to the <code>equals(java.lang.Object)</code> method, then calling the <code>hashCode</code> method on each of the two objects must produce distinct integer results. （如果equals方法判断不等的两个对象，它们的hash值可能仍然相同）However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hash tables.（每个对象有不同的hash值可以提高程序的性能）</li>
+</ul>
+<p>As much as is reasonably practical, the hashCode method defined by class <code>Object</code> does return distinct integers for distinct objects. (This is typically implemented by converting the internal address of the object into an integer, but this implementation technique is not required by the Java™ programming language.)</p>
+</blockquote>
+<ul>
+<li><p><code>int hasCode()</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span>;<span class="comment">//调用了底层C++的方法</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>hasCode()</code>的作用</p>
+<ul>
+<li>一个Java对象的内存地址，经过哈希算法得到的一个整数值</li>
+<li><strong>等价于返回一个Java对象的内存地址</strong></li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="boolean-equals-Object-obj"><a href="#boolean-equals-Object-obj" class="headerlink" title="boolean equals(Object obj)"></a><code>boolean equals(Object obj)</code></h2><blockquote>
+<p>Indicates whether some other object is “equal to” this one.</p>
+<p>The <code>equals</code> method implements an equivalence relation on non-null object references:</p>
+<ul>
+<li>It is <em>reflexive</em>（子反性）: for any non-null reference value <code>x</code>, <code>x.equals(x)</code> should return <code>true</code>.</li>
+<li>It is <em>symmetric</em>（对称性）: for any non-null reference values <code>x</code> and <code>y</code>, <code>x.equals(y)</code> should return <code>true</code> if and only if <code>y.equals(x)</code>returns <code>true</code>.</li>
+<li>It is <em>transitive</em>（传递性）: for any non-null reference values <code>x</code>, <code>y</code>, and <code>z</code>, if <code>x.equals(y)</code> returns <code>true</code> and <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+<li>It is <em>consistent</em>（不变性）: for any non-null reference values <code>x</code> and <code>y</code>, multiple invocations of <code>x.equals(y)</code> consistently return <code>true</code> or consistently return <code>false</code>, provided no information used in <code>equals</code> comparisons on the objects is modified.</li>
+<li>For any non-null reference v、ue <code>x</code>, <code>x.equals(null)</code> should return <code>false</code>.</li>
+</ul>
+<p>The <code>equals</code> method for class <code>Object</code> implements the most discriminating possible equivalence relation on objects; that is, for any non-null reference values <code>x</code> and <code>y</code>, this method returns <code>true</code> if and only if <code>x</code> and <code>y</code> refer to the same object (<code>x == y</code> has the value <code>true</code>).</p>
+<p>Note that it is generally necessary to override the <code>hashCode</code> method whenever this method is overridden, so as to maintain the general contract for the <code>hashCode</code> method, which states that equal objects must have equal hash codes.</p>
+<ul>
+<li><p><strong>Parameters:</strong></p>
+<p><code>obj</code> - the reference object with which to compare.</p>
+</li>
+<li><p><strong>Returns:</strong></p>
+<p><code>true</code> if this object is the same as the obj argument; <code>false</code> otherwise.</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><code>equals(Object obj)</code>的默认实现</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="built_in">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>equals(Object obj)</code>的作用</p>
+<ul>
+<li>判断两个对象（<code>this</code>和<code>obj</code>）是否相等</li>
+<li><strong>两个基本数据类型数据相等的判断用</strong><code>==</code></li>
+<li><strong>两个引用数据类型数据相等的判断用</strong><code>equals()</code><ul>
+<li><code>==</code>只能判断两个引用指向的地址是否相同</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="type">int</span> ID;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(<span class="type">int</span> ID)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.ID = ID;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">100</span>);</span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;a == b &quot;</span> + (a==b));</span><br><span class="line">        System.out.println(<span class="string">&quot;stu1 == stu2 &quot;</span> + (stu1==stu2));</span><br><span class="line">        System.out.println(<span class="string">&quot;没有重写的equals：stu1.equals(stu2) &quot;</span> + stu1.equals(stu2));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ibz3y6zwj30vq0g875h.jpg"></p>
+</li>
+<li><p><code>equals(Object obj)</code>的重写</p>
+<ul>
+<li>默认的<code>equals(Object obj)</code>实现还是在用<code>==</code>来判断两个引用数据类型是否相等</li>
+<li>我们需要对其进行重写来满足自己的需求<ul>
+<li><strong>比较的不再是地址，而是两个引用指向的内容</strong></li>
+<li>可以自定义相等的标准</li>
+<li>重写<code>equals(Object obj)</code>的技巧<ul>
+<li>先判断<code>obj</code>是否为空指针，因为调用<code>equals(Object obj)</code>方法的<code>this</code>不可能是空（否则发生空指针异常）</li>
+<li>再通过<code>instanceof</code>判断<code>obj</code>是否可以向下强制类型转换</li>
+<li>这样做的好处是可以省略很多多余的判断</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>需要对每一个类都要重写<code>equals</code>方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="type">int</span> ID;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(<span class="type">int</span> ID)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.ID = ID;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//方法重写时，形参列表要完全一样</span></span><br><span class="line">    <span class="comment">//不可以写equals(Student stu)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">        <span class="comment">//提前判断，避免多余的操作</span></span><br><span class="line">        <span class="keyword">if</span>(obj == <span class="literal">null</span> ||!(obj <span class="keyword">instanceof</span> Student))<span class="comment">//向下强制类型转换时需要判断类型</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span> == obj)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//obj中没有ID的属性</span></span><br><span class="line">        <span class="comment">//向下强制类型转化</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> (Student) obj;</span><br><span class="line">        <span class="keyword">return</span> stu.ID == <span class="built_in">this</span>.ID;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ic8cdsumj30vs0g4wfs.jpg"></p>
+</li>
+</ul>
+<h2 id="String-toString"><a href="#String-toString" class="headerlink" title="String toString()"></a><code>String toString()</code></h2><blockquote>
+<p>Returns a string representation of the object（返回一个对象的字符串表示形式）. In general, the <code>toString</code> method returns a string that “textually represents” （以文本的形式）this object. The result should be a concise but informative representation（简洁但是详实的信息） that is easy for a person to read. It is recommended that all subclasses override this method（建议所有子类都去重写该方法）.</p>
+<p>The <code>toString</code> method for class <code>Object</code> returns a string consisting of the name of the class of which the object is an instance, the at-sign character &#96;&#96;@&#96;’, and the unsigned hexadecimal representation of the hash code of the object. In other words, this method returns a string equal to the value of:</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">getClass().getName() + <span class="string">&#x27;@&#x27;</span> + Integer.toHexString(hashCode())</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>Returns:</strong></p>
+<p>a string representation of the object.</p>
+</blockquote>
+<ul>
+<li><p><code>toString()</code>的返回值是</p>
+<ul>
+<li>“<u>类名</u>@对象内存地址的十六进制形式”</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//默认继承了Object</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTime</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> year;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> mon;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> day;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyTime</span><span class="params">(<span class="type">int</span> year, <span class="type">int</span> mon, <span class="type">int</span> day)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.year = year;</span><br><span class="line">        <span class="built_in">this</span>.mon = mon;</span><br><span class="line">        <span class="built_in">this</span>.day = day;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        MyTime time= <span class="keyword">new</span> <span class="title class_">MyTime</span>(<span class="number">2022</span>,<span class="number">11</span>,<span class="number">26</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> time.toString();</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iailk1arj30vq0ds0tr.jpg"></p>
+</li>
+<li><p><code>toString()</code>的作用</p>
+<ul>
+<li><strong>将一个Java对象转化成字符串表示形式</strong> </li>
+<li>这个字符串必须能简洁而且详实的说明该对象的信息</li>
+</ul>
+</li>
+<li><p><code>toString()</code><strong>重写</strong></p>
+<ul>
+<li>因为默认方法不能做到简洁详实的说明自己编写的类的信息</li>
+<li>因此我们最好在自己编写的每一个类中重写该方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">this</span>.year + <span class="string">&quot;年&quot;</span> + <span class="built_in">this</span>.mon + <span class="string">&quot;月&quot;</span> + <span class="built_in">this</span>.day + <span class="string">&quot;日&quot;</span>;<span class="comment">//简洁详实的输出对象信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iaz66be7j30vi0euaaw.jpg"></p>
+</li>
+</ul>
+<h2 id="protected-void-finalized"><a href="#protected-void-finalized" class="headerlink" title="protected void finalized()"></a><code>protected void finalized()</code></h2><blockquote>
+<p>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object. A subclass overrides the <code>finalize</code> method to dispose of system resources or to perform other cleanup.</p>
+<p>The <code>finalize</code> method of class <code>Object</code> performs no special action; it simply returns normally. Subclasses of <code>Object</code> may override this definition.</p>
+</blockquote>
+<ul>
+<li><p><code>finalized()</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalized</span><span class="params">()</span> <span class="keyword">throws</span> Throwable&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>由<code>protected</code>修饰，只有一对大括号，方法体中没有代码</li>
+<li>该方法不需要手动调用，JVM的垃圾回收器GC自动调用该方法<ul>
+<li><strong>当一个对象即将被垃圾回收器回收时，垃圾回收器负责调用该方法</strong></li>
+</ul>
+</li>
+<li>该方法提供一个**<u>时机</u>**，即垃圾销毁时机<ul>
+<li>如果希望在对象销毁时执行一些操作的话，可以将这些操作放到<code>finalized()</code>的方法体中</li>
+<li>类似<u>静态代码块</u>，提供类加载时机，可以在类加载时进行一些操作</li>
+</ul>
+</li>
+<li><strong>该方法不需要手动调用，如果有特殊要求，我们只用重写该方法即可</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Pet</span>&#123;</span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Pet</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">  	<span class="comment">//重写之后需要调用</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;一个名叫&quot;</span> + name + <span class="string">&quot;的宠物&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">  	<span class="comment">//只用重写，不用调用</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.toString() + <span class="string">&quot;即将被销毁&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test4</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      	<span class="comment">//垃圾回收器不是每次都能启动，需要一定的数量、在一定的时间下才会启动</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">999999</span>; i ++)&#123;</span><br><span class="line">            <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pet</span>(<span class="string">&quot;Tom&quot;</span>);</span><br><span class="line">            pet = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq1kt7hfj30ek0k2gmx.jpg"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++)&#123;</span><br><span class="line">    <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pet</span>(<span class="string">&quot;Jerry&quot;</span>);</span><br><span class="line">    pet = <span class="literal">null</span>;</span><br><span class="line">    System.gc();<span class="comment">//建议JVM启动垃圾回收器</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">  	System.out.println(<span class="built_in">this</span> + <span class="string">&quot;即将被销毁&quot;</span>);<span class="comment">//输出每个引用的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq9fnh8cj30ee0isdhe.jpg"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>抽象类</title>
     <url>/2022/11/24/Java/%E6%8A%BD%E8%B1%A1%E7%B1%BB/</url>
     <content><![CDATA[<h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><h2 id="抽象类的概念"><a href="#抽象类的概念" class="headerlink" title="抽象类的概念"></a>抽象类的概念</h2><ul>
@@ -2304,6 +2453,28 @@
 <li><code>A is a B</code><strong><u>则A是B的子类（继承）</u></strong></li>
 <li>举一个例子：顾客去餐厅可以点餐，既可以点中餐也可以点西餐</li>
 </ul>
+<h2 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h2><ol>
+<li>抽象<ul>
+<li>抽象类是半抽象的：可以在里面定义非抽象的方法，<u>也可以定义普通的成员变量</u></li>
+<li>接口是纯抽象的：在接口中定义的方法都是抽象方法，在接口中声明的变量都是静态常量</li>
+</ul>
+</li>
+<li>构造方法<ul>
+<li>抽象类拥有构造方法</li>
+<li>接口中没有构造方法</li>
+</ul>
+</li>
+<li>继承<ul>
+<li>抽象类只能单继承：一个类只能继承一个抽象类</li>
+<li>接口支持多继承：一个类可以实现多个接口</li>
+</ul>
+</li>
+<li>使用情况<ul>
+<li>抽象类是对行为和数据的抽象，使用的较少</li>
+<li>接口是对行为的抽象</li>
+</ul>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -2409,57 +2580,6 @@
       </categories>
       <tags>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>两个数组的交集</title>
-    <url>/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/</url>
-    <content><![CDATA[<h1 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你两个整数数组<code>nums1</code>和<code>nums2</code>，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>由于我还不会调用Java中的哈希函数相关的内容，所以这道题我只能用一种方法来解决。</p>
-<p>我们可以先让两个数组是有序的，通过使用双指针的方法得到两个数组的交集。</p>
-<ol>
-<li>首先对两个数组进行排序，然后使用两个指针遍历两个数组</li>
-<li>初始时，两个指针分别指向两个数组的头部</li>
-<li>每次比较两个指针指向的两个数组中的数字<ul>
-<li>如果两个数字不相等，则将指向较小数字的指针右移一位</li>
-<li>如果两个数字相等，将该数字添加到答案，并将两个指针都右移一位</li>
-</ul>
-</li>
-<li>当至少有一个指针超出数组范围时，遍历结束</li>
-</ol>
-<ul>
-<li>时间复杂度：$O(mlogm+nlogn)$，其中<code>m</code>和<code>n</code>是两个数组的长度。我们首先通过调用系统的排序算法来对数组排序，这个步骤的时间复杂度是$O(mlogm+nlogn)$，然后我们需要遍历两个数组，时间复杂度是$O(m+n)$，那么总的时间符复杂度就是$O(mlogm+nlogn)$</li>
-<li>空间复杂度：$O(min(m,n))$我们需要一个辅助空间来存储重复的数字信息。注意，我们只用申请两个数组中较短的那么大的数组，因为极限情况就是短的数组全部和长的数组重复，即使这样也不过是$O(min(m,n))$，所以不用更大的空间</li>
-</ul>
-<h3 id="知识点回顾"><a href="#知识点回顾" class="headerlink" title="知识点回顾"></a>知识点回顾</h3><ul>
-<li><p>数组的拷贝<sup><a href="#ref1">1</a></sup></p>
-<ul>
-<li>通过<code>System.arraycopy()</code>方法来实现数组的拷贝</li>
-<li><code>System.arraycopy()</code> 方法是本地的方法，不需要导入任何包</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">arraycopy</span><span class="params">(Object src, <span class="type">int</span> srcPos, Object dest, <span class="type">int</span> desPos, <span class="type">int</span> length)</span></span><br><span class="line"><span class="comment">//形参列表的含义</span></span><br><span class="line"><span class="comment">//（原数组，原数组的开始位置，目标数组，目标数组的开始位置，拷贝元素个数）</span></span><br><span class="line"><span class="comment">//其中目标数组是要拷贝到的数组</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数组的排序<sup><a href="#ref1">2</a></sup></p>
-<ul>
-<li>通过<code>Arrays.sort()</code>方法实现数组的排序</li>
-<li><code>Arrays.sort(T[] a)</code>: 对指定的 T 型数组按数字升序排序</li>
-<li><code>Arrays.sort(T[] a, int formIndex, int toIndex)</code>: 对指定的 T 型数组在下标 [formIndex, toIndex] 之间排序</li>
-<li><code>Arrays.sort(T[] a, Comparator&lt;? supre T&gt; c)</code>: 根据比较器产生的顺序对指定对象数组进行排序</li>
-<li><code>Arrasy.sort(T[] a, int formIndex, int toIndex, Comparator&lt;? supre T&gt; c</code>): …</li>
-</ul>
-</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//当两个数组都有序时</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] intersect(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2) &#123;</span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">        Arrays.sort(nums2);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> nums1.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> nums2.length;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> len1 &lt; len2 ? len1 : len2;<span class="comment">//取较小值</span></span><br><span class="line">        <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = <span class="number">0</span>;<span class="comment">//用于遍历两个数组的指针;</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//用于遍历res指针</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (i &lt; len1 &amp;&amp; j &lt; len2) &#123;</span><br><span class="line">            <span class="comment">//不等，则小的移动</span></span><br><span class="line">            <span class="keyword">if</span> (nums1[i] &lt; nums2[j]) &#123;</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i] &gt; nums2[j])&#123;</span><br><span class="line">                j ++;</span><br><span class="line">            <span class="comment">//相等，则都移动</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i] == nums2[j])&#123;</span><br><span class="line">                res[k] = nums1[i];</span><br><span class="line">                k ++;</span><br><span class="line">                i ++;</span><br><span class="line">                j ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//拷贝前面有记录的部分</span></span><br><span class="line">      	<span class="comment">//注意不能是只拷贝非0的部分，因为可能nums1和nums2中有0元素重复</span></span><br><span class="line">        <span class="type">int</span>[] fianl = <span class="keyword">new</span> <span class="title class_">int</span>[k];</span><br><span class="line">        System.arraycopy(res,<span class="number">0</span>,fianl,<span class="number">0</span>,k);</span><br><span class="line">        <span class="keyword">return</span> fianl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><span name = "ref1"><a href="https://keveinkk.github.io/2022/11/08/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/">https://keveinkk.github.io/2022/11/08/算法/旋转数组/</a></span></p>
-<p><span name = "ref2"><a href="https://keveinkk.github.io/2022/11/07/%E7%AE%97%E6%B3%95/%E6%AF%94%E8%BE%83%E5%99%A8%20&amp;%20%E5%AF%B9%E6%95%B0%E5%99%A8/">https://keveinkk.github.io/2022/11/07/算法/比较器%20&amp;%20对数器/</a></span></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -2612,36 +2732,6 @@
       <tags>
         <tag>算法</tag>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>加一</title>
-    <url>/2022/11/24/%E7%AE%97%E6%B3%95/%E5%8A%A0%E4%B8%80/</url>
-    <content><![CDATA[<h1 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数0之外，这个整数不会以零开头。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：digits = [1,2,3]</span><br><span class="line">输出：[1,2,4]</span><br><span class="line">解释：输入数组表示数字123，对其加一，输出124。</span><br><span class="line"></span><br><span class="line">输入：digits = [9]</span><br><span class="line">输出：[1，0]</span><br><span class="line">解释：输入数组表示数字9，对其加一，输出10。</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题在模拟对数字进行加一的运算结果，如果整个<code>digits</code>数组中末尾没有9的话其实非常简单，直接将<code>digits[len-1]</code>最后这个数修改一下，然后返回<code>digits</code>即可；如果数组中其他位置出现了9的话其实也没有影响，因为后面不进位的话前面也不会有改变。我们着重需要考虑的是末尾有9，或者说末尾有连续个9的情况。</p>
-<ol>
-<li>如果末尾有若干个9，但第一个数字不是，例如[1,2,9,9]。那么将最后一位设置成0，然后向前面进位，如果还是9，则将倒数第二位再设置成0，再进位…这样最后的结果和<code>digits</code>数组的长度是一样的，因为第一位不会再进位了</li>
-<li>如果全部是9，即第一位数字也是9，例如[9，9]。那么按照上面的步骤，最后<code>digits</code>的结果就是[10,0,0]，我们首先不得不申请一个大一点的数组res，将digits后面的几位复制给<code>res</code>，然后再将<code>res</code>的第一位设置成1，第二位设置成0即可。</li>
-</ol>
-<ul>
-<li>时间复杂度：$O(N)$，这种方法只用将<code>digits</code>数组遍历一遍即可结束</li>
-<li>空间复杂度：$O(N)$，这种方法由于需要复制数组，所以需要申请额外的辅助空间</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">				<span class="comment">//如果最后一位是9</span></span><br><span class="line">      	<span class="comment">//分两种情况：首位不是9和首位是9</span></span><br><span class="line">        <span class="keyword">if</span> (digits[len - <span class="number">1</span>] == <span class="number">9</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len-<span class="number">1</span>;</span><br><span class="line">            digits[i] ++;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; digits[i] == <span class="number">10</span>) &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">                i --;<span class="comment">//指针前移</span></span><br><span class="line">                digits[i] ++;<span class="comment">//进位</span></span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//首位是9</span></span><br><span class="line">          	<span class="comment">//则需要申请一个更大的空间</span></span><br><span class="line">            <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len+<span class="number">1</span>];</span><br><span class="line">                System.arraycopy(digits,<span class="number">1</span>,res,<span class="number">2</span>,len-<span class="number">1</span>);</span><br><span class="line">                res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                res[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            <span class="comment">//首位不是9</span></span><br><span class="line">            <span class="comment">//则只用修改最后一位</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">                System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//如果最后一位不是9</span></span><br><span class="line">        <span class="comment">//直接复制整个数组，然后修改最后一位即可</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">            System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">            res[len-<span class="number">1</span>] = res[len-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>在方法一中，由于我一直采用先申请一个辅助空间，然后对辅助空间进行复制、修改操作，这样导致我的空间复杂度在任何一种情况下都是$O(N)$。但其实，我完全可以调整思路，直接对<code>digits</code>进行操作，然后最后返回<code>digits</code>；除非万不得已，整个<code>digits</code>数组全部都是9，这样我再申请一个更大的空间去存放数据。</p>
-<p>同时，对两种情况分辨的标准也可以优化。在方法一中，我是根据末尾是否为9这个标准进行分类。但我们可以换个思路，我们可以看看在进行加一操作后结果是否为0。这二者的区别有点类似<code>while</code>和<code>do( )while</code>：方法一中我们需要先判断，如果是不同的情况，则需要进入不同的<code>while</code>循环，这样代码很长；然而方法二中，我们先进行操作，如果末位加一操作后不为0，那么直接可以跳出循环，这样只用写一种情况下的循环体。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          	<span class="comment">//直接先进行加一操作</span></span><br><span class="line">            digits[i] = (digits[i] + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">          	<span class="comment">//这里只用针对当前这个一个数是否为0进行判断，并不只考虑最后一个数</span></span><br><span class="line">          	<span class="comment">//如果这个数不为0，则代表没有发生进位，那这个数前面的都不用改了</span></span><br><span class="line">          	<span class="comment">//此时，加一操作之后的结果已经在数组中修改了，那么直接返回digits即可</span></span><br><span class="line">            <span class="keyword">if</span> (digits[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果这个数等于0</span></span><br><span class="line">          	<span class="comment">//则会发生进位现象，前面的数也需要+1</span></span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//循环完全退出则代表digits中原来全部为9</span></span><br><span class="line">      	<span class="comment">//此时再申请新的数组空间</span></span><br><span class="line">        digits = <span class="keyword">new</span> <span class="title class_">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        digits[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -2808,26 +2898,6 @@
 
 <h2 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h2><p>方法四是我在看了参考答案后才明白的一种方法，借助移动过程中的数学推导，该方法也可以用$O(1)$的空间复杂度解决这个问题，但由于时间问题今天就不再整理了！回去休息了！</p>
 <p>Reference <a name="ref1"><font color="black">[1]https://blog.csdn.net/u011669700/article/details/79323251</font></a></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>旋转数组2</title>
-    <url>/2022/11/20/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%842/</url>
-    <content><![CDATA[<h1 id="旋转数组2"><a href="#旋转数组2" class="headerlink" title="旋转数组2"></a>旋转数组2</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个数组，将数组中的元素向右轮转<code>k</code>个位置，其中<code>k</code>是非负数</p>
-<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>在这之前我们已经能用两种方法解决这个问题，分别是申请辅助空间和翻转数组这两种方法。这次的方法是<strong>环状替换</strong>法。</p>
-<p>方法一中使用额外数组的原因在于如果我们直接将每个数字放至它最后的位置，这样被放置位置的元素会被覆盖从而丢失。因此，从另一个角度，我们可以仅仅将被替换的<u>那一个元素</u>保存在变量<code>temp</code>中，从而避免了额外数组的开销。在这种方法里，每一轮可以确定一个数<code>a</code>的最终位置<code>b</code>，我们先将数<code>b</code>拷贝出来，这样就能避免等下将<code>a</code>放过来时覆盖了<code>b</code>的信息，拷贝好信息后我们就能将<code>a</code>直接放过去。然后在下一轮中，我们可以再去考虑<code>b</code>的最终位置，假设是<code>b&#39;</code>，然后不停的重复上述过程。</p>
-<p>具体来说，我们不妨假设一个很长的数组向右移动3个位置。我们从位置<code>0</code>开始，根据规则，位置<code>0</code>的元素将会被放置到<code>(0+3)%n=3</code>的位置上，我们先拷贝这个位置上的元素到临时变量temp里，然后将<code>0</code>位置的元素直接放过来，这样就确定了0位置元素的最终位置。然后我们再考虑位置<code>3</code>的元素的最终位置，它的最终位置是<code>6</code>，我们先拷贝<code>6</code>位置元素的信息，然后再把3位置的元素放过来…以此类推。</p>
-<p>容易发现，当回到初始位置<code>0</code>时，有些数字可能还没有遍历到，此时我们应该从下一个数字开始重复的过程，可是这个时候怎么才算遍历结束呢？我们可以设置一个计数器，每确定好一个数的最终位置，计数器就加一，当计数器的数量刚好等于数组中的元素个数时程序就可以结束了。</p>
-<p>###代码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        k = k % nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录交换了多少个数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//从第一个数开始交换</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (count &lt; nums.length) &#123;<span class="comment">//直到所有的数都交换了一遍</span></span><br><span class="line">        <span class="comment">//注意，判断循环结束的条件不能加等号</span></span><br><span class="line">        <span class="comment">//移动了一个数，计数器才加一，如果等于了还进入循环的话，就会移动length+1个数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> nums[start];<span class="comment">//存储上一轮的b</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">toSwap</span> <span class="operator">=</span> (start + k) % nums.length;<span class="comment">//找到a下一个要交换的数b的下标</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(toSwap != start)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> nums[toSwap];<span class="comment">//将b拷贝出来，因为等下a要覆盖它</span></span><br><span class="line">                nums[toSwap] = pre;<span class="comment">//将a（也就是上一轮的b）放到它的位置上</span></span><br><span class="line"></span><br><span class="line">                pre = temp;<span class="comment">//这一轮的b成为下一轮的a</span></span><br><span class="line">                toSwap = (toSwap + k) % nums.length;<span class="comment">//找到下一轮b的位置</span></span><br><span class="line">                count ++;<span class="comment">//找到了一个数a的最终位置</span></span><br><span class="line">            &#125;</span><br><span class="line">          	</span><br><span class="line">            nums[toSwap] = pre;<span class="comment">//当下一个位置与初始位置相同时，将上一轮的数放到初始位置</span></span><br><span class="line">            count ++;</span><br><span class="line">            start ++;<span class="comment">//从下一个数再开始</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>算法</category>
@@ -3019,6 +3089,26 @@
       </tags>
   </entry>
   <entry>
+    <title>旋转数组2</title>
+    <url>/2022/11/20/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%842/</url>
+    <content><![CDATA[<h1 id="旋转数组2"><a href="#旋转数组2" class="headerlink" title="旋转数组2"></a>旋转数组2</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个数组，将数组中的元素向右轮转<code>k</code>个位置，其中<code>k</code>是非负数</p>
+<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>在这之前我们已经能用两种方法解决这个问题，分别是申请辅助空间和翻转数组这两种方法。这次的方法是<strong>环状替换</strong>法。</p>
+<p>方法一中使用额外数组的原因在于如果我们直接将每个数字放至它最后的位置，这样被放置位置的元素会被覆盖从而丢失。因此，从另一个角度，我们可以仅仅将被替换的<u>那一个元素</u>保存在变量<code>temp</code>中，从而避免了额外数组的开销。在这种方法里，每一轮可以确定一个数<code>a</code>的最终位置<code>b</code>，我们先将数<code>b</code>拷贝出来，这样就能避免等下将<code>a</code>放过来时覆盖了<code>b</code>的信息，拷贝好信息后我们就能将<code>a</code>直接放过去。然后在下一轮中，我们可以再去考虑<code>b</code>的最终位置，假设是<code>b&#39;</code>，然后不停的重复上述过程。</p>
+<p>具体来说，我们不妨假设一个很长的数组向右移动3个位置。我们从位置<code>0</code>开始，根据规则，位置<code>0</code>的元素将会被放置到<code>(0+3)%n=3</code>的位置上，我们先拷贝这个位置上的元素到临时变量temp里，然后将<code>0</code>位置的元素直接放过来，这样就确定了0位置元素的最终位置。然后我们再考虑位置<code>3</code>的元素的最终位置，它的最终位置是<code>6</code>，我们先拷贝<code>6</code>位置元素的信息，然后再把3位置的元素放过来…以此类推。</p>
+<p>容易发现，当回到初始位置<code>0</code>时，有些数字可能还没有遍历到，此时我们应该从下一个数字开始重复的过程，可是这个时候怎么才算遍历结束呢？我们可以设置一个计数器，每确定好一个数的最终位置，计数器就加一，当计数器的数量刚好等于数组中的元素个数时程序就可以结束了。</p>
+<p>###代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        k = k % nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录交换了多少个数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//从第一个数开始交换</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (count &lt; nums.length) &#123;<span class="comment">//直到所有的数都交换了一遍</span></span><br><span class="line">        <span class="comment">//注意，判断循环结束的条件不能加等号</span></span><br><span class="line">        <span class="comment">//移动了一个数，计数器才加一，如果等于了还进入循环的话，就会移动length+1个数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> nums[start];<span class="comment">//存储上一轮的b</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">toSwap</span> <span class="operator">=</span> (start + k) % nums.length;<span class="comment">//找到a下一个要交换的数b的下标</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(toSwap != start)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> nums[toSwap];<span class="comment">//将b拷贝出来，因为等下a要覆盖它</span></span><br><span class="line">                nums[toSwap] = pre;<span class="comment">//将a（也就是上一轮的b）放到它的位置上</span></span><br><span class="line"></span><br><span class="line">                pre = temp;<span class="comment">//这一轮的b成为下一轮的a</span></span><br><span class="line">                toSwap = (toSwap + k) % nums.length;<span class="comment">//找到下一轮b的位置</span></span><br><span class="line">                count ++;<span class="comment">//找到了一个数a的最终位置</span></span><br><span class="line">            &#125;</span><br><span class="line">          	</span><br><span class="line">            nums[toSwap] = pre;<span class="comment">//当下一个位置与初始位置相同时，将上一轮的数放到初始位置</span></span><br><span class="line">            count ++;</span><br><span class="line">            start ++;<span class="comment">//从下一个数再开始</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>猜数游戏</title>
     <url>/2022/11/22/%E7%AE%97%E6%B3%95/%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F/</url>
     <content><![CDATA[<h1 id="猜数游戏"><a href="#猜数游戏" class="headerlink" title="猜数游戏"></a>猜数游戏</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>我在做Java一个简单的猜数游戏时突发奇想，能不能编写一个程序让计算机自己产生一个随机数，自己再猜。</p>
@@ -3088,6 +3178,87 @@
       </tags>
   </entry>
   <entry>
+    <title>两个数组的交集</title>
+    <url>/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/</url>
+    <content><![CDATA[<h1 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你两个整数数组<code>nums1</code>和<code>nums2</code>，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>由于我还不会调用Java中的哈希函数相关的内容，所以这道题我只能用一种方法来解决。</p>
+<p>我们可以先让两个数组是有序的，通过使用双指针的方法得到两个数组的交集。</p>
+<ol>
+<li>首先对两个数组进行排序，然后使用两个指针遍历两个数组</li>
+<li>初始时，两个指针分别指向两个数组的头部</li>
+<li>每次比较两个指针指向的两个数组中的数字<ul>
+<li>如果两个数字不相等，则将指向较小数字的指针右移一位</li>
+<li>如果两个数字相等，将该数字添加到答案，并将两个指针都右移一位</li>
+</ul>
+</li>
+<li>当至少有一个指针超出数组范围时，遍历结束</li>
+</ol>
+<ul>
+<li>时间复杂度：$O(mlogm+nlogn)$，其中<code>m</code>和<code>n</code>是两个数组的长度。我们首先通过调用系统的排序算法来对数组排序，这个步骤的时间复杂度是$O(mlogm+nlogn)$，然后我们需要遍历两个数组，时间复杂度是$O(m+n)$，那么总的时间符复杂度就是$O(mlogm+nlogn)$</li>
+<li>空间复杂度：$O(min(m,n))$我们需要一个辅助空间来存储重复的数字信息。注意，我们只用申请两个数组中较短的那么大的数组，因为极限情况就是短的数组全部和长的数组重复，即使这样也不过是$O(min(m,n))$，所以不用更大的空间</li>
+</ul>
+<h3 id="知识点回顾"><a href="#知识点回顾" class="headerlink" title="知识点回顾"></a>知识点回顾</h3><ul>
+<li><p>数组的拷贝<sup><a href="#ref1">1</a></sup></p>
+<ul>
+<li>通过<code>System.arraycopy()</code>方法来实现数组的拷贝</li>
+<li><code>System.arraycopy()</code> 方法是本地的方法，不需要导入任何包</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">arraycopy</span><span class="params">(Object src, <span class="type">int</span> srcPos, Object dest, <span class="type">int</span> desPos, <span class="type">int</span> length)</span></span><br><span class="line"><span class="comment">//形参列表的含义</span></span><br><span class="line"><span class="comment">//（原数组，原数组的开始位置，目标数组，目标数组的开始位置，拷贝元素个数）</span></span><br><span class="line"><span class="comment">//其中目标数组是要拷贝到的数组</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组的排序<sup><a href="#ref1">2</a></sup></p>
+<ul>
+<li>通过<code>Arrays.sort()</code>方法实现数组的排序</li>
+<li><code>Arrays.sort(T[] a)</code>: 对指定的 T 型数组按数字升序排序</li>
+<li><code>Arrays.sort(T[] a, int formIndex, int toIndex)</code>: 对指定的 T 型数组在下标 [formIndex, toIndex] 之间排序</li>
+<li><code>Arrays.sort(T[] a, Comparator&lt;? supre T&gt; c)</code>: 根据比较器产生的顺序对指定对象数组进行排序</li>
+<li><code>Arrasy.sort(T[] a, int formIndex, int toIndex, Comparator&lt;? supre T&gt; c</code>): …</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//当两个数组都有序时</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] intersect(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2) &#123;</span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">        Arrays.sort(nums2);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> nums1.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> nums2.length;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> len1 &lt; len2 ? len1 : len2;<span class="comment">//取较小值</span></span><br><span class="line">        <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = <span class="number">0</span>;<span class="comment">//用于遍历两个数组的指针;</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//用于遍历res指针</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (i &lt; len1 &amp;&amp; j &lt; len2) &#123;</span><br><span class="line">            <span class="comment">//不等，则小的移动</span></span><br><span class="line">            <span class="keyword">if</span> (nums1[i] &lt; nums2[j]) &#123;</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i] &gt; nums2[j])&#123;</span><br><span class="line">                j ++;</span><br><span class="line">            <span class="comment">//相等，则都移动</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i] == nums2[j])&#123;</span><br><span class="line">                res[k] = nums1[i];</span><br><span class="line">                k ++;</span><br><span class="line">                i ++;</span><br><span class="line">                j ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//拷贝前面有记录的部分</span></span><br><span class="line">      	<span class="comment">//注意不能是只拷贝非0的部分，因为可能nums1和nums2中有0元素重复</span></span><br><span class="line">        <span class="type">int</span>[] fianl = <span class="keyword">new</span> <span class="title class_">int</span>[k];</span><br><span class="line">        System.arraycopy(res,<span class="number">0</span>,fianl,<span class="number">0</span>,k);</span><br><span class="line">        <span class="keyword">return</span> fianl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><span name = "ref1"><a href="https://keveinkk.github.io/2022/11/08/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/">https://keveinkk.github.io/2022/11/08/算法/旋转数组/</a></span></p>
+<p><span name = "ref2"><a href="https://keveinkk.github.io/2022/11/07/%E7%AE%97%E6%B3%95/%E6%AF%94%E8%BE%83%E5%99%A8%20&amp;%20%E5%AF%B9%E6%95%B0%E5%99%A8/">https://keveinkk.github.io/2022/11/07/算法/比较器%20&amp;%20对数器/</a></span></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>加一</title>
+    <url>/2022/11/24/%E7%AE%97%E6%B3%95/%E5%8A%A0%E4%B8%80/</url>
+    <content><![CDATA[<h1 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数0之外，这个整数不会以零开头。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：digits = [1,2,3]</span><br><span class="line">输出：[1,2,4]</span><br><span class="line">解释：输入数组表示数字123，对其加一，输出124。</span><br><span class="line"></span><br><span class="line">输入：digits = [9]</span><br><span class="line">输出：[1，0]</span><br><span class="line">解释：输入数组表示数字9，对其加一，输出10。</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题在模拟对数字进行加一的运算结果，如果整个<code>digits</code>数组中末尾没有9的话其实非常简单，直接将<code>digits[len-1]</code>最后这个数修改一下，然后返回<code>digits</code>即可；如果数组中其他位置出现了9的话其实也没有影响，因为后面不进位的话前面也不会有改变。我们着重需要考虑的是末尾有9，或者说末尾有连续个9的情况。</p>
+<ol>
+<li>如果末尾有若干个9，但第一个数字不是，例如[1,2,9,9]。那么将最后一位设置成0，然后向前面进位，如果还是9，则将倒数第二位再设置成0，再进位…这样最后的结果和<code>digits</code>数组的长度是一样的，因为第一位不会再进位了</li>
+<li>如果全部是9，即第一位数字也是9，例如[9，9]。那么按照上面的步骤，最后<code>digits</code>的结果就是[10,0,0]，我们首先不得不申请一个大一点的数组res，将digits后面的几位复制给<code>res</code>，然后再将<code>res</code>的第一位设置成1，第二位设置成0即可。</li>
+</ol>
+<ul>
+<li>时间复杂度：$O(N)$，这种方法只用将<code>digits</code>数组遍历一遍即可结束</li>
+<li>空间复杂度：$O(N)$，这种方法由于需要复制数组，所以需要申请额外的辅助空间</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">				<span class="comment">//如果最后一位是9</span></span><br><span class="line">      	<span class="comment">//分两种情况：首位不是9和首位是9</span></span><br><span class="line">        <span class="keyword">if</span> (digits[len - <span class="number">1</span>] == <span class="number">9</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len-<span class="number">1</span>;</span><br><span class="line">            digits[i] ++;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; digits[i] == <span class="number">10</span>) &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">                i --;<span class="comment">//指针前移</span></span><br><span class="line">                digits[i] ++;<span class="comment">//进位</span></span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//首位是9</span></span><br><span class="line">          	<span class="comment">//则需要申请一个更大的空间</span></span><br><span class="line">            <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len+<span class="number">1</span>];</span><br><span class="line">                System.arraycopy(digits,<span class="number">1</span>,res,<span class="number">2</span>,len-<span class="number">1</span>);</span><br><span class="line">                res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                res[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            <span class="comment">//首位不是9</span></span><br><span class="line">            <span class="comment">//则只用修改最后一位</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">                System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//如果最后一位不是9</span></span><br><span class="line">        <span class="comment">//直接复制整个数组，然后修改最后一位即可</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">            System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">            res[len-<span class="number">1</span>] = res[len-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>在方法一中，由于我一直采用先申请一个辅助空间，然后对辅助空间进行复制、修改操作，这样导致我的空间复杂度在任何一种情况下都是$O(N)$。但其实，我完全可以调整思路，直接对<code>digits</code>进行操作，然后最后返回<code>digits</code>；除非万不得已，整个<code>digits</code>数组全部都是9，这样我再申请一个更大的空间去存放数据。</p>
+<p>同时，对两种情况分辨的标准也可以优化。在方法一中，我是根据末尾是否为9这个标准进行分类。但我们可以换个思路，我们可以看看在进行加一操作后结果是否为0。这二者的区别有点类似<code>while</code>和<code>do( )while</code>：方法一中我们需要先判断，如果是不同的情况，则需要进入不同的<code>while</code>循环，这样代码很长；然而方法二中，我们先进行操作，如果末位加一操作后不为0，那么直接可以跳出循环，这样只用写一种情况下的循环体。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          	<span class="comment">//直接先进行加一操作</span></span><br><span class="line">            digits[i] = (digits[i] + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">          	<span class="comment">//这里只用针对当前这个一个数是否为0进行判断，并不只考虑最后一个数</span></span><br><span class="line">          	<span class="comment">//如果这个数不为0，则代表没有发生进位，那这个数前面的都不用改了</span></span><br><span class="line">          	<span class="comment">//此时，加一操作之后的结果已经在数组中修改了，那么直接返回digits即可</span></span><br><span class="line">            <span class="keyword">if</span> (digits[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果这个数等于0</span></span><br><span class="line">          	<span class="comment">//则会发生进位现象，前面的数也需要+1</span></span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//循环完全退出则代表digits中原来全部为9</span></span><br><span class="line">      	<span class="comment">//此时再申请新的数组空间</span></span><br><span class="line">        digits = <span class="keyword">new</span> <span class="title class_">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        digits[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计数排序</title>
     <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h1 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h1><h5 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h5><ul>
@@ -3117,6 +3288,41 @@
       <tags>
         <tag>算法</tag>
         <tag>排序算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客过程中，4000端口被占用</title>
+    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
+<ul>
+<li>更改hexo使用的端口</li>
+<li>杀掉正在占用4000端口的其他进程</li>
+</ul>
+<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
+<ul>
+<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
+<ul>
+<li><code>sudo lsof -i tcp:端口号</code></li>
+<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
+<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
+</li>
+<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
+<ul>
+<li><code>sudo kill -9 PID</code></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>

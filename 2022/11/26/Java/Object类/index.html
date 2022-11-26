@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"keveinkk.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Java学习-Object类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object类">
+<meta property="og:url" content="https://keveinkk.github.io/2022/11/26/Java/Object%E7%B1%BB/index.html">
+<meta property="og:site_name" content="Kevin&#39;s study Blog">
+<meta property="og:description" content="Java学习-Object类">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8ibz3y6zwj30vq0g875h.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8ic8cdsumj30vs0g4wfs.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8iailk1arj30vq0ds0tr.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8iaz66be7j30vi0euaaw.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq1kt7hfj30ek0k2gmx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq9fnh8cj30ee0isdhe.jpg">
+<meta property="article:published_time" content="2022-11-26T01:24:16.851Z">
+<meta property="article:modified_time" content="2022-11-26T11:14:57.132Z">
+<meta property="article:author" content="Kevin He">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8ibz3y6zwj30vq0g875h.jpg">
+
+<link rel="canonical" href="https://keveinkk.github.io/2022/11/26/Java/Object%E7%B1%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Object类 | Kevin's study Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kevin's study Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">33</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://keveinkk.github.io/2022/11/26/Java/Object%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Kevin He">
+      <meta itemprop="description" content="我的学习博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kevin's study Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Object类
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-26 09:24:16 / 修改时间：19:14:57" itemprop="dateCreated datePublished" datetime="2022-11-26T09:24:16+08:00">2022-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Java学习-Object类</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h1><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
+<li>Application Program Interface</li>
+<li>整个JDK的类库就是一个JavaSE的API</li>
+<li>每一个API都会配置一套API的帮助文档<ul>
+<li><a target="_blank" rel="noopener" href="https://www.oracle.com/cn/java/technologies/java-se-api-doc.html">https://www.oracle.com/cn/java/technologies/java-se-api-doc.html</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="protected-Object-clone"><a href="#protected-Object-clone" class="headerlink" title="protected Object clone()"></a><code>protected Object clone()</code></h2><blockquote>
+<p>Creates and returns a copy of this object. The precise meaning of “copy” may depend on the class of the object. </p>
+<p>The general intent is that, for any object <code>x</code>, the expression:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;x.clone() != x<span class="comment">//克隆的对象和原对象的地址不同</span></span><br></pre></td></tr></table></figure>
+
+<p>will be true, and that the expression:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;x.clone().getClass() == x.getClass()<span class="comment">//克隆的对象和原对象属于同一类</span></span><br></pre></td></tr></table></figure>
+
+<p>will be <code>true</code>, but these are not absolute requirements. While it is typically the case that:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;x.clone().equals(x)<span class="comment">//克隆的对象和原对象的内容相同</span></span><br></pre></td></tr></table></figure>
+
+<p>will be <code>true</code>, this is not an absolute requirement.</p>
+</blockquote>
+<ul>
+<li><p><code>protected Object clone()</code>‘</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="int-hasCode"><a href="#int-hasCode" class="headerlink" title="int hasCode()"></a><code>int hasCode()</code></h2><blockquote>
+<p>Returns a hash code value for the object. This method is supported for the benefit of hash tables such as those provided by HashMap</p>
+<p>The general contract of <code>hashCode</code> is:</p>
+<ul>
+<li>Whenever it is invoked on the same object more than once during an execution of a Java application, the <code>hashCode</code>method must consistently return the same integer, provided no information used in <code>equals</code> comparisons on the object is modified.（在一次程序的执行中每个对象的哈希值都相同） This integer need not remain consistent from one execution of an application to another execution of the same application.（但是不同的执行中，一个对象的哈希值可能不同）</li>
+<li>If two objects are equal according to the <code>equals(Object)</code> method, then calling the <code>hashCode</code> method on each of the two objects must produce the same integer result.（通过equals方法判断相等两个对象，它们的哈希值相同）</li>
+<li>It is <em>not</em> required that if two objects are unequal according to the <code>equals(java.lang.Object)</code> method, then calling the <code>hashCode</code> method on each of the two objects must produce distinct integer results. （如果equals方法判断不等的两个对象，它们的hash值可能仍然相同）However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hash tables.（每个对象有不同的hash值可以提高程序的性能）</li>
+</ul>
+<p>As much as is reasonably practical, the hashCode method defined by class <code>Object</code> does return distinct integers for distinct objects. (This is typically implemented by converting the internal address of the object into an integer, but this implementation technique is not required by the Java™ programming language.)</p>
+</blockquote>
+<ul>
+<li><p><code>int hasCode()</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span>;<span class="comment">//调用了底层C++的方法</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>hasCode()</code>的作用</p>
+<ul>
+<li>一个Java对象的内存地址，经过哈希算法得到的一个整数值</li>
+<li><strong>等价于返回一个Java对象的内存地址</strong></li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="boolean-equals-Object-obj"><a href="#boolean-equals-Object-obj" class="headerlink" title="boolean equals(Object obj)"></a><code>boolean equals(Object obj)</code></h2><blockquote>
+<p>Indicates whether some other object is “equal to” this one.</p>
+<p>The <code>equals</code> method implements an equivalence relation on non-null object references:</p>
+<ul>
+<li>It is <em>reflexive</em>（子反性）: for any non-null reference value <code>x</code>, <code>x.equals(x)</code> should return <code>true</code>.</li>
+<li>It is <em>symmetric</em>（对称性）: for any non-null reference values <code>x</code> and <code>y</code>, <code>x.equals(y)</code> should return <code>true</code> if and only if <code>y.equals(x)</code>returns <code>true</code>.</li>
+<li>It is <em>transitive</em>（传递性）: for any non-null reference values <code>x</code>, <code>y</code>, and <code>z</code>, if <code>x.equals(y)</code> returns <code>true</code> and <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+<li>It is <em>consistent</em>（不变性）: for any non-null reference values <code>x</code> and <code>y</code>, multiple invocations of <code>x.equals(y)</code> consistently return <code>true</code> or consistently return <code>false</code>, provided no information used in <code>equals</code> comparisons on the objects is modified.</li>
+<li>For any non-null reference v、ue <code>x</code>, <code>x.equals(null)</code> should return <code>false</code>.</li>
+</ul>
+<p>The <code>equals</code> method for class <code>Object</code> implements the most discriminating possible equivalence relation on objects; that is, for any non-null reference values <code>x</code> and <code>y</code>, this method returns <code>true</code> if and only if <code>x</code> and <code>y</code> refer to the same object (<code>x == y</code> has the value <code>true</code>).</p>
+<p>Note that it is generally necessary to override the <code>hashCode</code> method whenever this method is overridden, so as to maintain the general contract for the <code>hashCode</code> method, which states that equal objects must have equal hash codes.</p>
+<ul>
+<li><p><strong>Parameters:</strong></p>
+<p><code>obj</code> - the reference object with which to compare.</p>
+</li>
+<li><p><strong>Returns:</strong></p>
+<p><code>true</code> if this object is the same as the obj argument; <code>false</code> otherwise.</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><code>equals(Object obj)</code>的默认实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="built_in">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>equals(Object obj)</code>的作用</p>
+<ul>
+<li>判断两个对象（<code>this</code>和<code>obj</code>）是否相等</li>
+<li><strong>两个基本数据类型数据相等的判断用</strong><code>==</code></li>
+<li><strong>两个引用数据类型数据相等的判断用</strong><code>equals()</code><ul>
+<li><code>==</code>只能判断两个引用指向的地址是否相同</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="type">int</span> ID;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(<span class="type">int</span> ID)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.ID = ID;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">100</span>);</span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;a == b &quot;</span> + (a==b));</span><br><span class="line">        System.out.println(<span class="string">&quot;stu1 == stu2 &quot;</span> + (stu1==stu2));</span><br><span class="line">        System.out.println(<span class="string">&quot;没有重写的equals：stu1.equals(stu2) &quot;</span> + stu1.equals(stu2));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ibz3y6zwj30vq0g875h.jpg"></p>
+</li>
+<li><p><code>equals(Object obj)</code>的重写</p>
+<ul>
+<li>默认的<code>equals(Object obj)</code>实现还是在用<code>==</code>来判断两个引用数据类型是否相等</li>
+<li>我们需要对其进行重写来满足自己的需求<ul>
+<li><strong>比较的不再是地址，而是两个引用指向的内容</strong></li>
+<li>可以自定义相等的标准</li>
+<li>重写<code>equals(Object obj)</code>的技巧<ul>
+<li>先判断<code>obj</code>是否为空指针，因为调用<code>equals(Object obj)</code>方法的<code>this</code>不可能是空（否则发生空指针异常）</li>
+<li>再通过<code>instanceof</code>判断<code>obj</code>是否可以向下强制类型转换</li>
+<li>这样做的好处是可以省略很多多余的判断</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>需要对每一个类都要重写<code>equals</code>方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="type">int</span> ID;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(<span class="type">int</span> ID)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.ID = ID;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//方法重写时，形参列表要完全一样</span></span><br><span class="line">    <span class="comment">//不可以写equals(Student stu)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">        <span class="comment">//提前判断，避免多余的操作</span></span><br><span class="line">        <span class="keyword">if</span>(obj == <span class="literal">null</span> ||!(obj <span class="keyword">instanceof</span> Student))<span class="comment">//向下强制类型转换时需要判断类型</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span> == obj)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//obj中没有ID的属性</span></span><br><span class="line">        <span class="comment">//向下强制类型转化</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> (Student) obj;</span><br><span class="line">        <span class="keyword">return</span> stu.ID == <span class="built_in">this</span>.ID;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ic8cdsumj30vs0g4wfs.jpg"></p>
+</li>
+</ul>
+<h2 id="String-toString"><a href="#String-toString" class="headerlink" title="String toString()"></a><code>String toString()</code></h2><blockquote>
+<p>Returns a string representation of the object（返回一个对象的字符串表示形式）. In general, the <code>toString</code> method returns a string that “textually represents” （以文本的形式）this object. The result should be a concise but informative representation（简洁但是详实的信息） that is easy for a person to read. It is recommended that all subclasses override this method（建议所有子类都去重写该方法）.</p>
+<p>The <code>toString</code> method for class <code>Object</code> returns a string consisting of the name of the class of which the object is an instance, the at-sign character &#96;&#96;@&#96;’, and the unsigned hexadecimal representation of the hash code of the object. In other words, this method returns a string equal to the value of:</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getClass().getName() + <span class="string">&#x27;@&#x27;</span> + Integer.toHexString(hashCode())</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>Returns:</strong></p>
+<p>a string representation of the object.</p>
+</blockquote>
+<ul>
+<li><p><code>toString()</code>的返回值是</p>
+<ul>
+<li>“<u>类名</u>@对象内存地址的十六进制形式”</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认继承了Object</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTime</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> year;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> mon;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> day;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyTime</span><span class="params">(<span class="type">int</span> year, <span class="type">int</span> mon, <span class="type">int</span> day)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.year = year;</span><br><span class="line">        <span class="built_in">this</span>.mon = mon;</span><br><span class="line">        <span class="built_in">this</span>.day = day;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        MyTime time= <span class="keyword">new</span> <span class="title class_">MyTime</span>(<span class="number">2022</span>,<span class="number">11</span>,<span class="number">26</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> time.toString();</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iailk1arj30vq0ds0tr.jpg"></p>
+</li>
+<li><p><code>toString()</code>的作用</p>
+<ul>
+<li><strong>将一个Java对象转化成字符串表示形式</strong> </li>
+<li>这个字符串必须能简洁而且详实的说明该对象的信息</li>
+</ul>
+</li>
+<li><p><code>toString()</code><strong>重写</strong></p>
+<ul>
+<li>因为默认方法不能做到简洁详实的说明自己编写的类的信息</li>
+<li>因此我们最好在自己编写的每一个类中重写该方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">this</span>.year + <span class="string">&quot;年&quot;</span> + <span class="built_in">this</span>.mon + <span class="string">&quot;月&quot;</span> + <span class="built_in">this</span>.day + <span class="string">&quot;日&quot;</span>;<span class="comment">//简洁详实的输出对象信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iaz66be7j30vi0euaaw.jpg"></p>
+</li>
+</ul>
+<h2 id="protected-void-finalized"><a href="#protected-void-finalized" class="headerlink" title="protected void finalized()"></a><code>protected void finalized()</code></h2><blockquote>
+<p>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object. A subclass overrides the <code>finalize</code> method to dispose of system resources or to perform other cleanup.</p>
+<p>The <code>finalize</code> method of class <code>Object</code> performs no special action; it simply returns normally. Subclasses of <code>Object</code> may override this definition.</p>
+</blockquote>
+<ul>
+<li><p><code>finalized()</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalized</span><span class="params">()</span> <span class="keyword">throws</span> Throwable&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>由<code>protected</code>修饰，只有一对大括号，方法体中没有代码</li>
+<li>该方法不需要手动调用，JVM的垃圾回收器GC自动调用该方法<ul>
+<li><strong>当一个对象即将被垃圾回收器回收时，垃圾回收器负责调用该方法</strong></li>
+</ul>
+</li>
+<li>该方法提供一个**<u>时机</u>**，即垃圾销毁时机<ul>
+<li>如果希望在对象销毁时执行一些操作的话，可以将这些操作放到<code>finalized()</code>的方法体中</li>
+<li>类似<u>静态代码块</u>，提供类加载时机，可以在类加载时进行一些操作</li>
+</ul>
+</li>
+<li><strong>该方法不需要手动调用，如果有特殊要求，我们只用重写该方法即可</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Pet</span>&#123;</span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Pet</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">  	<span class="comment">//重写之后需要调用</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;一个名叫&quot;</span> + name + <span class="string">&quot;的宠物&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">  	<span class="comment">//只用重写，不用调用</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.toString() + <span class="string">&quot;即将被销毁&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test4</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      	<span class="comment">//垃圾回收器不是每次都能启动，需要一定的数量、在一定的时间下才会启动</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">999999</span>; i ++)&#123;</span><br><span class="line">            <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pet</span>(<span class="string">&quot;Tom&quot;</span>);</span><br><span class="line">            pet = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq1kt7hfj30ek0k2gmx.jpg"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++)&#123;</span><br><span class="line">    <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pet</span>(<span class="string">&quot;Jerry&quot;</span>);</span><br><span class="line">    pet = <span class="literal">null</span>;</span><br><span class="line">    System.gc();<span class="comment">//建议JVM启动垃圾回收器</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">  	System.out.println(<span class="built_in">this</span> + <span class="string">&quot;即将被销毁&quot;</span>);<span class="comment">//输出每个引用的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq9fnh8cj30ee0isdhe.jpg"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/11/25/%E7%AE%97%E6%B3%95/%E6%9C%89%E6%95%88%E7%9A%84%E6%95%B0%E7%8B%AC/" rel="prev" title="有效的数独">
+      <i class="fa fa-chevron-left"></i> 有效的数独
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Object%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">Object类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">1.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#protected-Object-clone"><span class="nav-number">1.2.</span> <span class="nav-text">protected Object clone()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#int-hasCode"><span class="nav-number">1.3.</span> <span class="nav-text">int hasCode()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boolean-equals-Object-obj"><span class="nav-number">1.4.</span> <span class="nav-text">boolean equals(Object obj)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-toString"><span class="nav-number">1.5.</span> <span class="nav-text">String toString()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#protected-void-finalized"><span class="nav-number">1.6.</span> <span class="nav-text">protected void finalized()</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kevin He"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Kevin He</p>
+  <div class="site-description" itemprop="description">我的学习博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/KeveinKk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;KeveinKk" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:kevin001025@foxmail.com" title="E-Mail → mailto:kevin001025@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/KkandTi" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;KkandTi" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin He</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
