@@ -1,6 +1,472 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo搭建博客过程中，4000端口被占用</title>
+    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
+<ul>
+<li>更改hexo使用的端口</li>
+<li>杀掉正在占用4000端口的其他进程</li>
+</ul>
+<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
+<ul>
+<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
+<ul>
+<li><code>sudo lsof -i tcp:端口号</code></li>
+<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
+<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
+</li>
+<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
+<ul>
+<li><code>sudo kill -9 PID</code></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java - 2nd Week - Summary</title>
+    <url>/2022/11/17/Java/Java%20-%202nd%20Week%20-%20Summary/</url>
+    <content><![CDATA[<h1 id="第二周"><a href="#第二周" class="headerlink" title="第二周"></a>第二周</h1><p align="right">11.06-11.17</p>
+
+<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>这周所学习的内容主要是Java中面向对象的相关内容。虽然在前三年学习了很多相关的课程，自认为对面向对象的思想已经有些理解了，但如今再次回顾起来才发现自己有很多相关知识都已经忘记了，这周的学习相比于上周更加有难度。</p>
+<h2 id="面向对象的编程"><a href="#面向对象的编程" class="headerlink" title="面向对象的编程"></a>面向对象的编程</h2><p>###面向过程和面向对象的区别</p>
+<ol>
+<li>面向过程<ul>
+<li>面向过程强调的是整个流程中的前后因果关系，没有独立体的概念</li>
+<li>一个步骤和一个步骤之间因为前后的因果关系组合成一个模块，一个模块和一个模块之间因为因果关系构成一个系统…</li>
+<li>当其中一个因果关系破裂，整个系统都会受到影响</li>
+<li><u>优点</u>：当业务逻辑简单时，可以达到快速开发的效果，前期投入成本低</li>
+<li><u>缺点</u>：难以解决较为复杂的业务；高耦合，扩展性弱</li>
+</ul>
+</li>
+<li>面向对象<ul>
+<li>将现实世界分割成不同的单元，每个单元都是一个独立的对象，在一个 确定的环境下，将各个单元协作起来，就可以构成一个系统</li>
+<li>面向对象强调的是对象，将所需要的独立体以及它们的功能进行组合，即可完成整个流程</li>
+<li><u>优点</u>：低耦合，扩展性强，可以实现更加复杂的业务</li>
+<li><u>缺点</u>：前期投入成本高</li>
+</ul>
+</li>
+</ol>
+<h3 id="面向对象开发的三个步骤"><a href="#面向对象开发的三个步骤" class="headerlink" title="面向对象开发的三个步骤"></a>面向对象开发的三个步骤</h3><ol>
+<li>面向对象的分析：Objected-Oriented Analysis</li>
+<li>面向对象的设计：OOD</li>
+<li>面向对象的编程：OOP</li>
+</ol>
+<h2 id="面向对象的三大特征：封装-继承-多态"><a href="#面向对象的三大特征：封装-继承-多态" class="headerlink" title="面向对象的三大特征：封装 继承 多态"></a>面向对象的三大特征：封装 继承 多态</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h4 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h4><ul>
+<li>对象：对客观事物的抽象</li>
+<li>类：对对象的抽象，代表了一类具有共同特征的事物</li>
+<li>类通过<u><strong>实例化</strong></u>创建对象，因此对象又被称作实例</li>
+<li>对象通过<u>抽象</u>的到类</li>
+</ul>
+<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><ul>
+<li><p>类是对对象的抽象，而对象主要有两类信息</p>
+<ol>
+<li>状态信息：类的属性</li>
+<li>动作信息：类的方法</li>
+</ol>
+</li>
+<li><p>语法结构</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[修饰符列表] class 类名&#123;</span><br><span class="line">	属性<span class="number">1</span>；</span><br><span class="line">	...</span><br><span class="line">	方法<span class="number">1</span>；</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Java中数据类型分为基本数据类型和引用数据类型，而所有的<code>class</code>都是引用数据类型</li>
+</ul>
+</li>
+<li><p>属性</p>
+<ul>
+<li>用来描述对象的状态信息</li>
+<li>属性一般都是各类数据，通常采用变量的方式来定义</li>
+<li>属性变量是成员变量，可以在未初始化的情况下直接使用</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li>用来描述对象的动作信息，或者功能</li>
+</ul>
+</li>
+</ul>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><ul>
+<li><p>对象的创建</p>
+<ul>
+<li>语法结构：<code>new 类名()</code></li>
+<li>new运算符的作用是创建对象，在堆内存中开辟空间</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>Student</code> 是数据类型，代表<code>stu</code>这个引用是学生类</li>
+<li><code>stu</code> 是引用存放于栈内存中，存储的数据指向堆内存中<code>Student</code>对象的内存地址</li>
+<li><code>new Student()</code> 是调用 <code>Student()</code>构造函数创建一个学生类的对象</li>
+</ul>
+</li>
+<li><p>对象和引用</p>
+<ol>
+<li>对象：通过构造函数<code>/new</code>运算符在堆内存中开辟的内存空间称为对象</li>
+<li>引用：<ul>
+<li><strong>引用</strong>也是一种变量，但存储的是另一个对象的<u>内存地址</u></li>
+<li>Java中没有指针的概念，只能通过引用的方式去访问堆内存</li>
+<li>当一个对象没有引用指向它时，它将会被自动回收</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h5 id="基本数据类型-和-引用数据类型的区别"><a href="#基本数据类型-和-引用数据类型的区别" class="headerlink" title="基本数据类型 和 引用数据类型的区别"></a><strong>基本数据类型</strong> 和 <strong>引用数据类型</strong>的区别</h5><ol>
+<li>存储的数据不同<ul>
+<li>基本数据类型的数据保存数据本身</li>
+<li>引用数据类型的数据保存<strong>引用值</strong>，引用值指向内存空间的一块地址，而非该内存空间上的数据本身</li>
+</ul>
+</li>
+<li>初始化过程不同<ul>
+<li>基本数据类型在声明时系统就会为其分配内存空间</li>
+<li>引用数据类型在声明时只是给变量分配了引用空间，而没有分配数据空间，并不会在堆内存中就开辟相关的空间</li>
+</ul>
+</li>
+<li>数据传递方式不同<ul>
+<li>基本数据类型是<strong>值传递</strong><ul>
+<li>方法调用时，实际参数把它的值传递给对应的形式参数，函数接收的是原始值的一份拷贝，在方法中对这个拷贝的形参做修改，不改变实参的值</li>
+</ul>
+</li>
+<li>引用数据类型是<strong>引用传递</strong><ul>
+<li>方法调用时，实参的引用被传递给方法中相应的形参，在方法执行过程中，形参和实参指向同一块内存地址，方法执行后再访问该内存地址，会发现实参被改变了</li>
+</ul>
+</li>
+<li><strong><u>参数传递的本质</u></strong><ul>
+<li>方法调用涉及参数传递时，Java只遵循的其实只有一种机制：<strong>将变量中存储的“值”传递过去</strong>，只不过这个值有的时候时字面值，有的是内存地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="实例变量-和-静态变量"><a href="#实例变量-和-静态变量" class="headerlink" title="实例变量 和 静态变量"></a>实例变量 和 静态变量</h5><p>二者都属于<u>成员变量</u>，定义在方法体之外，类体之中</p>
+<ol>
+<li>实例变量<ul>
+<li>一个类中，每个对象都具有同一种属性，但是属性的值会随着对象的不同而不同，例如用户类中的“账号”，这种属性称为实例变量。<u>只能通过对象去访问这种属性</u></li>
+<li>只有创建了对象，才会为实例变量开辟内存空间</li>
+<li>实例变量的访问：<code>引用.变量名</code></li>
+</ul>
+</li>
+<li>静态变量<ul>
+<li>在类体中，用<code>static</code>关键字修饰的变量称为静态变量</li>
+<li>一个类中，所有的对象都具有同一种属性，并且所有对象的这种属性的值都相同，这种属性称为静态变量</li>
+<li>在初始化类时，就会为静态变量开辟内存空间</li>
+<li>静态变量的访问：<code>类.变量名</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="JVM内存空间"><a href="#JVM内存空间" class="headerlink" title="JVM内存空间"></a>JVM内存空间</h4><p>JVM内存一共被划分为三类，分别为：栈内存、方法区内存，以及堆内存</p>
+<ol>
+<li><strong>栈内存</strong>：一个线程拥有一个栈内存。栈内存中主要存储的是方法体中的局部变量。调用方法时，在栈内存中为其分配空间，称为压栈；方法调用结束时，释放栈内存中的空间，称为出栈</li>
+<li><strong>方法区内存</strong>：一个JVM虚拟机只有一个方法区内存。方法的代码片段以及整个类的代码片段都存储于方法区内存中，成员变量中的静态变量也存储于方法区中</li>
+<li><strong>堆内存</strong>：通过<code>new</code>运算符创建的对象存储于堆内存中，对象中的实例变量也存储于堆内存中</li>
+</ol>
+<h4 id="NullPointerException"><a href="#NullPointerException" class="headerlink" title="NullPointerException"></a><code>NullPointerException</code></h4><ul>
+<li>空指针异常：<code>java.lang.NullPointerException</code></li>
+<li>当空引用访问<u>实例相关</u>的数据时一定会发生空指针异常</li>
+<li>实例相关的数据指的是这个数据的访问必须有对象的参与</li>
+<li>空指针异常可以通过编译，但是在运行期间会报错！</li>
+</ul>
+<h3 id="封装-1"><a href="#封装-1" class="headerlink" title="封装"></a>封装</h3><h4 id="封装的作用"><a href="#封装的作用" class="headerlink" title="封装的作用"></a>封装的作用</h4><ol>
+<li>安全性：控制外部的访问</li>
+<li>有效性：复杂性封装，对外提供简单的操作入口</li>
+<li>复用性：使得对象可以被反复使用</li>
+</ol>
+<h4 id="访问控制权限"><a href="#访问控制权限" class="headerlink" title="访问控制权限"></a>访问控制权限</h4><ul>
+<li>访问控制权限修饰符用来控制元素的访问范围</li>
+<li>访问控制权限修饰符可以用来修饰类、变量以及方法<ul>
+<li>类只能用<code>public</code>和<code>缺省</code>修饰【内部类除外】</li>
+</ul>
+</li>
+<li>修饰符包括：<code>public</code>, <code>protected</code>, <code>缺省</code> 以及 <code>private</code><ul>
+<li><code>public</code>：公开的，在任何位置都可以访问</li>
+<li><code>protected</code>：表示受保护的，在同一个包，以及子类中可以访问<ul>
+<li>当某个数据只希望子类使用时，采用<code>protected</code>修饰</li>
+</ul>
+</li>
+<li>缺省：仅仅是同一个包的类下可以访问</li>
+<li><code>private</code>：私有的，只能在本类中访问</li>
+</ul>
+</li>
+<li>修饰的范围：<code>private &lt; 缺省 &lt; protected &lt; public</code></li>
+</ul>
+<h4 id="封装的步骤"><a href="#封装的步骤" class="headerlink" title="封装的步骤"></a>封装的步骤</h4><ol>
+<li><p>属性&#x2F;方法用访问修饰符进行修饰</p>
+</li>
+<li><p>对外提供简单的操作入口，通过这些简单的操作来修改&#x2F;访问被封装的内容</p>
+<ul>
+<li>如果不提供操作入口，那么被封装的属性将永远不会被访问</li>
+</ul>
+</li>
+<li><p><strong><code>set</code>和<code>get</code>方法</strong></p>
+<ul>
+<li><p>提供对私有属性的读写操作入口</p>
+</li>
+<li><p>语法格式</p>
+<ul>
+<li>&#96;&#96;&#96;java<br>public void setValue(形参列表){<br>  this.value &#x3D; value;<br>}<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- ```java</span><br><span class="line">  public 返回值类型 getValue()&#123;</span><br><span class="line">    return this.value;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><code>set</code>和<code>get</code>函数的修饰符列表中不包含<code>static</code>，并且命名规范要遵循驼峰命名规则</p>
+</li>
+<li><p><code>set</code>和<code>get</code>函数可以在IntelliJ中自动生成：选中所需要生成<code>set</code>和<code>get</code>方法的实例变量，<code>command + N</code>选择<code>Getter and Setter</code>即可</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><ul>
+<li>构造方法又称为构造器&#x2F;Constructor</li>
+<li>语法结构</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[修饰符列表] 构造方法名(形参列表)&#123;</span><br><span class="line">	构造方法体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>与不同的方法相比较<ol>
+<li>构造方法不需要指定返回值类型<ul>
+<li>构造方法调用结束会返回堆地址中创建对象的<strong>引用</strong></li>
+<li>构造方法的返回值类型唯一且固定，所以可以省略</li>
+</ul>
+</li>
+<li>构造方法名和类名必须保持一致</li>
+</ol>
+</li>
+<li><strong>构造方法的作用</strong><ul>
+<li>通过调用构造方法在堆内存中创建对象，同时初始化实例变量</li>
+</ul>
+</li>
+<li>构造方法的调用<ul>
+<li><code>new 构造方法(实参列表)</code></li>
+</ul>
+</li>
+<li>实例变量的初始化<ul>
+<li>在类加载时，系统并不会初始化实例变量</li>
+<li>通过构造函数来初始化实例变量</li>
+</ul>
+</li>
+</ul>
+<h5 id="缺省构造器"><a href="#缺省构造器" class="headerlink" title="缺省构造器"></a>缺省构造器</h5><ul>
+<li>当一个类中没有定义任何构造方法时，系统默认为该类提供一个无参的构造方法，该方法称为缺省构造器</li>
+<li>当类中显示的定义了其他构造方法时，系统就不会为器提供缺省构造器</li>
+</ul>
+<h5 id="构造方法的重载"><a href="#构造方法的重载" class="headerlink" title="构造方法的重载"></a>构造方法的重载</h5><ul>
+<li>在一个类中可以定义多个构造方法，通过不同的形参列表重载构造方法</li>
+<li>由于无参构造方法经常被使用，所以我们当我们编写了带参数的构造方法后，需要手动的为当前类提供一个无参构造方法</li>
+<li><strong>每调用一次构造方法，就会在堆内存中创建不同的对象</strong>，即使调用相同的构造方法</li>
+</ul>
+<h4 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h4><h5 id="this关键字的作用"><a href="#this关键字的作用" class="headerlink" title="this关键字的作用"></a>this关键字的作用</h5><ul>
+<li><code>this</code>关键字用于引用 方法或构造函数中的 当前对象</li>
+<li><code>this</code>是一个<strong>引用变量</strong>，保存的是指向当前对象自身的地址</li>
+<li><code>this</code>存储于堆内存中</li>
+<li>初始化对象的过程中，都会初始化该对象的<code>this</code>关键字</li>
+</ul>
+<h5 id="this关键字的使用"><a href="#this关键字的使用" class="headerlink" title="this关键字的使用"></a>this关键字的使用</h5><ol>
+<li>出现在实例方法中，用于指向当前正在执行这个动作的对象<ul>
+<li>一般通过<code>this</code>访问的都是实例变量&#x2F;方法，而在访问这个实例变量&#x2F;方法的大多都是该对象本身，所以<code>this.</code>可以省略</li>
+<li><code>this</code>不能出现在带有<code>static</code>的方法中，不过静态的方法也不是实例方法</li>
+</ul>
+</li>
+<li>用来区分局部变量和实例变量<ul>
+<li>常用于构造方法中，用于区分时，不能省略<code>this.</code></li>
+</ul>
+</li>
+<li>用来调用其他构造方法<ul>
+<li>通过当前构造方法调用其他构造方法</li>
+<li>语法结构<code>this(实参列表)；</code></li>
+<li>用这种方法调用构造方法时，这条语句必须出现在构造方法的<strong>第一行</strong></li>
+</ul>
+</li>
+</ol>
+<h4 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h4><ul>
+<li>静态的</li>
+<li><code>static</code>可以用来修饰变量和方法，所修饰的变量称为静态变量，所修饰的方法称为静态方法</li>
+<li><code>static</code>所修饰的元素都是类级别的特征，与具体的对象无关</li>
+<li>也因此，静态变量和静态方法在类加载时就初始化了，内存在方法区中开辟，不需要通过对象来初始化</li>
+<li>直接通过<code>类名.</code>访问<code>static</code>所修饰内容</li>
+</ul>
+<h5 id="实例方法-和-静态方法"><a href="#实例方法-和-静态方法" class="headerlink" title="实例方法 和 静态方法"></a>实例方法 和 静态方法</h5><p>与实例变量与静态变量的关系相似</p>
+<ol>
+<li>实例方法<ul>
+<li>每个对象都有具有这种行为，但是每个对象执行这个方法后所产生的结果<u>不同</u>，这样的方法称为实例方法</li>
+<li>绝大部分的动作都被定义为实例方法，因为动作都需要具体的对象参与</li>
+</ul>
+</li>
+<li>静态方法<ul>
+<li>每个对象都具有这种行为，并且每个对象执行这个方法后所产生的结果<u>相同</u>，这样的方法称为静态方法</li>
+<li>静态方法的动作行为不属于某一个对象，而是可以提升至整个类级别</li>
+<li>在静态方法中无法直接访问实例变量或者实例方法<ul>
+<li>调用静态方法时没有对象的参与，而实例变量和实例方法需要对象才能访问</li>
+<li>可以在静态方法中创建一个对象，再去访问实例变量和实例方法</li>
+<li>绝大部分的方法类工具都被定义为静态方法，可以在不创建对象的情况下调用，便于使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="静态变量和方法的访问"><a href="#静态变量和方法的访问" class="headerlink" title="静态变量和方法的访问"></a>静态变量和方法的访问</h5><ul>
+<li>静态变量&#x2F;方法可以通过<code>类名.静态变量名</code>来直接访问</li>
+<li>所有的静态数据既可以通过类名的方式访问，也可以通过对象的方式访问<ul>
+<li>当通过引用（对象）来访问时，即使这个引用指向null，也不会出现空指针异常的情况</li>
+<li>因为本质上是通过这个引用所在的类来访问静态的数据，不需要引用的存在！</li>
+</ul>
+</li>
+</ul>
+<h4 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h4><ul>
+<li><p>语法格式</p>
+<ul>
+<li>&#96;&#96;&#96;java<br>static{<br>Java语句;<br>}<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 静态代码块在类加载时执行，并且只执行一次</span><br><span class="line"></span><br><span class="line">- 静态代码块在类中可以编写多个，遵循自上而下依次执行</span><br><span class="line"></span><br><span class="line">- 静态代码块在加载类时就执行了，比主函数执行的还要提前</span><br><span class="line"></span><br><span class="line">- 作用</span><br><span class="line"></span><br><span class="line">  - 静态代码块可以用来&lt;u&gt;记录类加载时刻&lt;/u&gt;，可以在类加载时刻执行一些特定的动作</span><br><span class="line">  - 可以在静态代码块中记录日志、完成初始化工作以及一些准备工作</span><br><span class="line"></span><br><span class="line">#### 实例代码块</span><br><span class="line"></span><br><span class="line">- 语法格式</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    &#123;</span><br><span class="line">    	Java语句；</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>实例代码块可以编写多个，遵循自上而下的顺序依次执行</p>
+</li>
+<li><p>实例代码块在构造函数之前执行，<u>构造函数</u>执行一次实例代码块就执行一次</p>
+</li>
+<li><p>作用</p>
+<ul>
+<li>实例代码块可以用来记录对象初始化时刻</li>
+</ul>
+</li>
+</ul>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h4 id="继承-1"><a href="#继承-1" class="headerlink" title="继承"></a>继承</h4><ul>
+<li>继承的基本作用是<u>代码复用</u>，有了继承之后才有方法的<strong>覆盖和多态机制</strong></li>
+<li>继承允许创建分等级层次的类</li>
+<li><strong>继承的数据类型</strong><ol>
+<li>私有的、缺省的不支持继承</li>
+<li>父类的构造函数不支持继承</li>
+<li>其余的都支持继承</li>
+</ol>
+</li>
+<li>Java语言中只支持单继承，一个类不能同时继承很多个类（C++中支持多继承）</li>
+<li>Java中的间接继承<ul>
+<li>D extends C, C extends B, B extends A，则D直接继承C，间接继承B和A</li>
+</ul>
+</li>
+<li>当Java中一个类没有显示的继承任何类时，该类<strong>默认继承</strong>JavaSE中的<code>java.lang.Object</code>类</li>
+</ul>
+<h4 id="继承的语法结构"><a href="#继承的语法结构" class="headerlink" title="继承的语法结构"></a>继承的语法结构</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[修饰符列表]class 父类&#123;</span><br><span class="line">	类体;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[修饰符列表] class 子类名 extends 父类&#123;</span><br><span class="line">	类体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>父类又称为基类，超类(Superclass)</li>
+<li>子类又称为派生类(Subclass)</li>
+</ul>
+<h4 id="方法的覆盖"><a href="#方法的覆盖" class="headerlink" title="方法的覆盖"></a>方法的覆盖</h4><h5 id="方法的覆盖Override"><a href="#方法的覆盖Override" class="headerlink" title="方法的覆盖Override"></a>方法的覆盖Override</h5><ul>
+<li>又称为方法的重写Overwrite</li>
+<li>当父类中的方法无法满足当前子类的要求时，子类有必要将父类继承过来的方法进行重写</li>
+<li>方法重写发生在具有<strong>继承关系的父子类之间</strong></li>
+<li>重写的方法必须和父类的方法的<u>返回值类型</u>、<u>方法名</u>、<u>形参列表</u>相同<ul>
+<li>直接复制粘贴父类的方法，然后修改<u>方法体</u>中内容即可</li>
+</ul>
+</li>
+<li>子类重写的方法访问权限可以更低，但不能更高</li>
+<li>抛出的异常可以更少，但不能更多</li>
+</ul>
+<h5 id="方法的重载Overload"><a href="#方法的重载Overload" class="headerlink" title="方法的重载Overload"></a>方法的重载Overload</h5><ul>
+<li>在同一个类中，方法完成的功能相似时，建议方法名相同，这样方便编程</li>
+<li>重载的方法必须<ol>
+<li>在同一个类中</li>
+<li>方法名相同</li>
+<li>参数列表不同</li>
+</ol>
+</li>
+<li>方法重载与一下因素无关<ol>
+<li>返回值</li>
+<li>修饰符列表</li>
+</ol>
+</li>
+</ul>
+<h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><ul>
+<li>表示最终的、不可变的</li>
+<li><code>final</code>修饰的类是无法被继承的</li>
+<li><code>final</code>修饰的方法是无法被覆盖的</li>
+<li><code>final</code>修饰的变量只能被赋值一次<ul>
+<li><code>final</code>修饰的实例变量只能手动赋值，如果采用系统直接初始化的话，则之后永远为0不能修改</li>
+</ul>
+</li>
+<li><code>final</code>修饰的引用确定好对象后无法再被修改<ul>
+<li>即这个引用指向的地址是不能修改的</li>
+<li>被<code>final</code>修饰的引用所指向的对象无法被垃圾回收器回收</li>
+<li>但是被<code>final</code>修饰的引用所指向的对象，它内存中存储的数据可以修改</li>
+</ul>
+</li>
+</ul>
+<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><ul>
+<li><p><code>final</code>修饰的实例变量都是不可变的，这种变量一般都和<code>static</code>联合使用，被称为常量</p>
+<ul>
+<li>不可变的实例变量如果在每个对象中都保存一份的话会造成空间浪费</li>
+</ul>
+</li>
+<li><p>语法格式</p>
+<p><code>public static final 数据类型 常量名 = 值;</code></p>
+</li>
+<li><p>常量名的命名规范：所有字母大写，每个单词之间通过下划线来连接</p>
+</li>
+<li><p>由于常量在声明后无法被修改，所以被<code>public</code>修饰也是十分安全的</p>
+</li>
+</ul>
+<h4 id="包"><a href="#包" class="headerlink" title="包"></a>包</h4><ul>
+<li><p>Java中引入包机制主要是为了方便程序管理。不同功能的类被分别放到不同的包当中，便于查找、管理和维护</p>
+</li>
+<li><p><code>package</code>的定义</p>
+<ul>
+<li>在Java源程序的第一行上编写<code>package</code>语句</li>
+<li><code>package</code>只能编写一个语句</li>
+<li>语法结构：<code>package 包名;</code></li>
+</ul>
+</li>
+<li><p>包的命名规范：</p>
+<ul>
+<li>前缀 + 发起者名 + 项目名 + 模块名</li>
+<li>包名要求<strong>全部小写</strong>，包名也是标识符，必须遵循标识符的命名规范</li>
+</ul>
+</li>
+<li><p>一个包对应一个目录，目录之间用<code>.</code>分隔开</p>
+<ul>
+<li>例如：<code>pers.kevin.javase.day1117</code>就会生成四个目录</li>
+</ul>
+</li>
+<li><p>一旦使用包机制后，<strong>类的名称就会改变</strong></p>
+<ul>
+<li>我们编写一个Test类，当使用如上的包后，Test类的名称就会变成<code>pers.kevin.javase.day1117.Test</code></li>
+</ul>
+</li>
+<li><p>包名的省略</p>
+<ul>
+<li><p>当两个类在同一个包下时，可以省略包名</p>
+</li>
+<li><p>当两个类不在同一个包下时，一定要在类前加上完整的包名</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="import关键字"><a href="#import关键字" class="headerlink" title="import关键字"></a><code>import</code>关键字</h4><ul>
+<li><code>import</code>语句用来完成导入其他类，同一个包下的类不需要导入，不在同一个包下的类需要手动导入</li>
+<li>语法格式：<ul>
+<li><code>import 类名;</code></li>
+<li><code>import 包名.*;</code>代表引入这个包下的所有类</li>
+</ul>
+</li>
+<li><code>import</code>语句需要编写到<code>package</code>语句之下，<code>class</code>语句之上</li>
+<li><code>java.lang.*</code>不需要手动引入</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java - 1st Week - Summary</title>
     <url>/2022/11/07/Java/Java%20-%201st%20Week%20-%20Summary/</url>
     <content><![CDATA[<h1 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h1><p align="right">10.26-11.05</p>
@@ -481,427 +947,27 @@
       </tags>
   </entry>
   <entry>
-    <title>Java - 2nd Week - Summary</title>
-    <url>/2022/11/17/Java/Java%20-%202nd%20Week%20-%20Summary/</url>
-    <content><![CDATA[<h1 id="第二周"><a href="#第二周" class="headerlink" title="第二周"></a>第二周</h1><p align="right">11.06-11.17</p>
-
-<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>这周所学习的内容主要是Java中面向对象的相关内容。虽然在前三年学习了很多相关的课程，自认为对面向对象的思想已经有些理解了，但如今再次回顾起来才发现自己有很多相关知识都已经忘记了，这周的学习相比于上周更加有难度。</p>
-<h2 id="面向对象的编程"><a href="#面向对象的编程" class="headerlink" title="面向对象的编程"></a>面向对象的编程</h2><p>###面向过程和面向对象的区别</p>
-<ol>
-<li>面向过程<ul>
-<li>面向过程强调的是整个流程中的前后因果关系，没有独立体的概念</li>
-<li>一个步骤和一个步骤之间因为前后的因果关系组合成一个模块，一个模块和一个模块之间因为因果关系构成一个系统…</li>
-<li>当其中一个因果关系破裂，整个系统都会受到影响</li>
-<li><u>优点</u>：当业务逻辑简单时，可以达到快速开发的效果，前期投入成本低</li>
-<li><u>缺点</u>：难以解决较为复杂的业务；高耦合，扩展性弱</li>
-</ul>
-</li>
-<li>面向对象<ul>
-<li>将现实世界分割成不同的单元，每个单元都是一个独立的对象，在一个 确定的环境下，将各个单元协作起来，就可以构成一个系统</li>
-<li>面向对象强调的是对象，将所需要的独立体以及它们的功能进行组合，即可完成整个流程</li>
-<li><u>优点</u>：低耦合，扩展性强，可以实现更加复杂的业务</li>
-<li><u>缺点</u>：前期投入成本高</li>
-</ul>
-</li>
-</ol>
-<h3 id="面向对象开发的三个步骤"><a href="#面向对象开发的三个步骤" class="headerlink" title="面向对象开发的三个步骤"></a>面向对象开发的三个步骤</h3><ol>
-<li>面向对象的分析：Objected-Oriented Analysis</li>
-<li>面向对象的设计：OOD</li>
-<li>面向对象的编程：OOP</li>
-</ol>
-<h2 id="面向对象的三大特征：封装-继承-多态"><a href="#面向对象的三大特征：封装-继承-多态" class="headerlink" title="面向对象的三大特征：封装 继承 多态"></a>面向对象的三大特征：封装 继承 多态</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h4 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h4><ul>
-<li>对象：对客观事物的抽象</li>
-<li>类：对对象的抽象，代表了一类具有共同特征的事物</li>
-<li>类通过<u><strong>实例化</strong></u>创建对象，因此对象又被称作实例</li>
-<li>对象通过<u>抽象</u>的到类</li>
-</ul>
-<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><ul>
-<li><p>类是对对象的抽象，而对象主要有两类信息</p>
-<ol>
-<li>状态信息：类的属性</li>
-<li>动作信息：类的方法</li>
-</ol>
-</li>
-<li><p>语法结构</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[修饰符列表] class 类名&#123;</span><br><span class="line">	属性<span class="number">1</span>；</span><br><span class="line">	...</span><br><span class="line">	方法<span class="number">1</span>；</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Java中数据类型分为基本数据类型和引用数据类型，而所有的<code>class</code>都是引用数据类型</li>
-</ul>
-</li>
-<li><p>属性</p>
-<ul>
-<li>用来描述对象的状态信息</li>
-<li>属性一般都是各类数据，通常采用变量的方式来定义</li>
-<li>属性变量是成员变量，可以在未初始化的情况下直接使用</li>
-</ul>
-</li>
-<li><p>方法</p>
-<ul>
-<li>用来描述对象的动作信息，或者功能</li>
-</ul>
-</li>
-</ul>
-<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><ul>
-<li><p>对象的创建</p>
-<ul>
-<li>语法结构：<code>new 类名()</code></li>
-<li>new运算符的作用是创建对象，在堆内存中开辟空间</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>Student</code> 是数据类型，代表<code>stu</code>这个引用是学生类</li>
-<li><code>stu</code> 是引用存放于栈内存中，存储的数据指向堆内存中<code>Student</code>对象的内存地址</li>
-<li><code>new Student()</code> 是调用 <code>Student()</code>构造函数创建一个学生类的对象</li>
-</ul>
-</li>
-<li><p>对象和引用</p>
-<ol>
-<li>对象：通过构造函数<code>/new</code>运算符在堆内存中开辟的内存空间称为对象</li>
-<li>引用：<ul>
-<li><strong>引用</strong>也是一种变量，但存储的是另一个对象的<u>内存地址</u></li>
-<li>Java中没有指针的概念，只能通过引用的方式去访问堆内存</li>
-<li>当一个对象没有引用指向它时，它将会被自动回收</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h5 id="基本数据类型-和-引用数据类型的区别"><a href="#基本数据类型-和-引用数据类型的区别" class="headerlink" title="基本数据类型 和 引用数据类型的区别"></a><strong>基本数据类型</strong> 和 <strong>引用数据类型</strong>的区别</h5><ol>
-<li>存储的数据不同<ul>
-<li>基本数据类型的数据保存数据本身</li>
-<li>引用数据类型的数据保存<strong>引用值</strong>，引用值指向内存空间的一块地址，而非该内存空间上的数据本身</li>
-</ul>
-</li>
-<li>初始化过程不同<ul>
-<li>基本数据类型在声明时系统就会为其分配内存空间</li>
-<li>引用数据类型在声明时只是给变量分配了引用空间，而没有分配数据空间，并不会在堆内存中就开辟相关的空间</li>
-</ul>
-</li>
-<li>数据传递方式不同<ul>
-<li>基本数据类型是<strong>值传递</strong><ul>
-<li>方法调用时，实际参数把它的值传递给对应的形式参数，函数接收的是原始值的一份拷贝，在方法中对这个拷贝的形参做修改，不改变实参的值</li>
-</ul>
-</li>
-<li>引用数据类型是<strong>引用传递</strong><ul>
-<li>方法调用时，实参的引用被传递给方法中相应的形参，在方法执行过程中，形参和实参指向同一块内存地址，方法执行后再访问该内存地址，会发现实参被改变了</li>
-</ul>
-</li>
-<li><strong><u>参数传递的本质</u></strong><ul>
-<li>方法调用涉及参数传递时，Java只遵循的其实只有一种机制：<strong>将变量中存储的“值”传递过去</strong>，只不过这个值有的时候时字面值，有的是内存地址</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h5 id="实例变量-和-静态变量"><a href="#实例变量-和-静态变量" class="headerlink" title="实例变量 和 静态变量"></a>实例变量 和 静态变量</h5><p>二者都属于<u>成员变量</u>，定义在方法体之外，类体之中</p>
-<ol>
-<li>实例变量<ul>
-<li>一个类中，每个对象都具有同一种属性，但是属性的值会随着对象的不同而不同，例如用户类中的“账号”，这种属性称为实例变量。<u>只能通过对象去访问这种属性</u></li>
-<li>只有创建了对象，才会为实例变量开辟内存空间</li>
-<li>实例变量的访问：<code>引用.变量名</code></li>
-</ul>
-</li>
-<li>静态变量<ul>
-<li>在类体中，用<code>static</code>关键字修饰的变量称为静态变量</li>
-<li>一个类中，所有的对象都具有同一种属性，并且所有对象的这种属性的值都相同，这种属性称为静态变量</li>
-<li>在初始化类时，就会为静态变量开辟内存空间</li>
-<li>静态变量的访问：<code>类.变量名</code></li>
-</ul>
-</li>
-</ol>
-<h4 id="JVM内存空间"><a href="#JVM内存空间" class="headerlink" title="JVM内存空间"></a>JVM内存空间</h4><p>JVM内存一共被划分为三类，分别为：栈内存、方法区内存，以及堆内存</p>
-<ol>
-<li><strong>栈内存</strong>：一个线程拥有一个栈内存。栈内存中主要存储的是方法体中的局部变量。调用方法时，在栈内存中为其分配空间，称为压栈；方法调用结束时，释放栈内存中的空间，称为出栈</li>
-<li><strong>方法区内存</strong>：一个JVM虚拟机只有一个方法区内存。方法的代码片段以及整个类的代码片段都存储于方法区内存中，成员变量中的静态变量也存储于方法区中</li>
-<li><strong>堆内存</strong>：通过<code>new</code>运算符创建的对象存储于堆内存中，对象中的实例变量也存储于堆内存中</li>
-</ol>
-<h4 id="NullPointerException"><a href="#NullPointerException" class="headerlink" title="NullPointerException"></a><code>NullPointerException</code></h4><ul>
-<li>空指针异常：<code>java.lang.NullPointerException</code></li>
-<li>当空引用访问<u>实例相关</u>的数据时一定会发生空指针异常</li>
-<li>实例相关的数据指的是这个数据的访问必须有对象的参与</li>
-<li>空指针异常可以通过编译，但是在运行期间会报错！</li>
-</ul>
-<h3 id="封装-1"><a href="#封装-1" class="headerlink" title="封装"></a>封装</h3><h4 id="封装的作用"><a href="#封装的作用" class="headerlink" title="封装的作用"></a>封装的作用</h4><ol>
-<li>安全性：控制外部的访问</li>
-<li>有效性：复杂性封装，对外提供简单的操作入口</li>
-<li>复用性：使得对象可以被反复使用</li>
-</ol>
-<h4 id="访问控制权限"><a href="#访问控制权限" class="headerlink" title="访问控制权限"></a>访问控制权限</h4><ul>
+    <title>访问控制权限&quot;</title>
+    <url>/2022/11/17/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A110/</url>
+    <content><![CDATA[<h1 id="访问控制权限"><a href="#访问控制权限" class="headerlink" title="访问控制权限"></a>访问控制权限</h1><h3 id="访问控制权限修饰符"><a href="#访问控制权限修饰符" class="headerlink" title="访问控制权限修饰符"></a>访问控制权限修饰符</h3><ul>
 <li>访问控制权限修饰符用来控制元素的访问范围</li>
-<li>访问控制权限修饰符可以用来修饰类、变量以及方法<ul>
+<li>修饰符包括：<code>public</code>, <code>protected</code>, <code>缺省</code> 以及 <code>private</code></li>
+<li>访问控制权限可以修饰 类 变量 方法</li>
+<li>修饰的范围：<code>private &lt; 缺省 &lt; protected &lt; public</code></li>
 <li>类只能用<code>public</code>和<code>缺省</code>修饰【内部类除外】</li>
 </ul>
-</li>
-<li>修饰符包括：<code>public</code>, <code>protected</code>, <code>缺省</code> 以及 <code>private</code><ul>
-<li><code>public</code>：公开的，在任何位置都可以访问</li>
-<li><code>protected</code>：表示受保护的，在同一个包，以及子类中可以访问<ul>
+<h4 id="public"><a href="#public" class="headerlink" title="public"></a>public</h4><ul>
+<li>表示公开的，在任何位置都可以访问</li>
+</ul>
+<h4 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h4><ul>
+<li>表示受保护的，在同一个包，以及子类中可以访问</li>
 <li>当某个数据只希望子类使用时，采用<code>protected</code>修饰</li>
 </ul>
-</li>
-<li>缺省：仅仅是同一个包的类下可以访问</li>
-<li><code>private</code>：私有的，只能在本类中访问</li>
+<h4 id="缺省"><a href="#缺省" class="headerlink" title="缺省"></a>缺省</h4><ul>
+<li>仅仅是同一个包下可以访问</li>
 </ul>
-</li>
-<li>修饰的范围：<code>private &lt; 缺省 &lt; protected &lt; public</code></li>
-</ul>
-<h4 id="封装的步骤"><a href="#封装的步骤" class="headerlink" title="封装的步骤"></a>封装的步骤</h4><ol>
-<li><p>属性&#x2F;方法用访问修饰符进行修饰</p>
-</li>
-<li><p>对外提供简单的操作入口，通过这些简单的操作来修改&#x2F;访问被封装的内容</p>
-<ul>
-<li>如果不提供操作入口，那么被封装的属性将永远不会被访问</li>
-</ul>
-</li>
-<li><p><strong><code>set</code>和<code>get</code>方法</strong></p>
-<ul>
-<li><p>提供对私有属性的读写操作入口</p>
-</li>
-<li><p>语法格式</p>
-<ul>
-<li>&#96;&#96;&#96;java<br>public void setValue(形参列表){<br>  this.value &#x3D; value;<br>}<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- ```java</span><br><span class="line">  public 返回值类型 getValue()&#123;</span><br><span class="line">    return this.value;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><code>set</code>和<code>get</code>函数的修饰符列表中不包含<code>static</code>，并且命名规范要遵循驼峰命名规则</p>
-</li>
-<li><p><code>set</code>和<code>get</code>函数可以在IntelliJ中自动生成：选中所需要生成<code>set</code>和<code>get</code>方法的实例变量，<code>command + N</code>选择<code>Getter and Setter</code>即可</p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><ul>
-<li>构造方法又称为构造器&#x2F;Constructor</li>
-<li>语法结构</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[修饰符列表] 构造方法名(形参列表)&#123;</span><br><span class="line">	构造方法体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>与不同的方法相比较<ol>
-<li>构造方法不需要指定返回值类型<ul>
-<li>构造方法调用结束会返回堆地址中创建对象的<strong>引用</strong></li>
-<li>构造方法的返回值类型唯一且固定，所以可以省略</li>
-</ul>
-</li>
-<li>构造方法名和类名必须保持一致</li>
-</ol>
-</li>
-<li><strong>构造方法的作用</strong><ul>
-<li>通过调用构造方法在堆内存中创建对象，同时初始化实例变量</li>
-</ul>
-</li>
-<li>构造方法的调用<ul>
-<li><code>new 构造方法(实参列表)</code></li>
-</ul>
-</li>
-<li>实例变量的初始化<ul>
-<li>在类加载时，系统并不会初始化实例变量</li>
-<li>通过构造函数来初始化实例变量</li>
-</ul>
-</li>
-</ul>
-<h5 id="缺省构造器"><a href="#缺省构造器" class="headerlink" title="缺省构造器"></a>缺省构造器</h5><ul>
-<li>当一个类中没有定义任何构造方法时，系统默认为该类提供一个无参的构造方法，该方法称为缺省构造器</li>
-<li>当类中显示的定义了其他构造方法时，系统就不会为器提供缺省构造器</li>
-</ul>
-<h5 id="构造方法的重载"><a href="#构造方法的重载" class="headerlink" title="构造方法的重载"></a>构造方法的重载</h5><ul>
-<li>在一个类中可以定义多个构造方法，通过不同的形参列表重载构造方法</li>
-<li>由于无参构造方法经常被使用，所以我们当我们编写了带参数的构造方法后，需要手动的为当前类提供一个无参构造方法</li>
-<li><strong>每调用一次构造方法，就会在堆内存中创建不同的对象</strong>，即使调用相同的构造方法</li>
-</ul>
-<h4 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h4><h5 id="this关键字的作用"><a href="#this关键字的作用" class="headerlink" title="this关键字的作用"></a>this关键字的作用</h5><ul>
-<li><code>this</code>关键字用于引用 方法或构造函数中的 当前对象</li>
-<li><code>this</code>是一个<strong>引用变量</strong>，保存的是指向当前对象自身的地址</li>
-<li><code>this</code>存储于堆内存中</li>
-<li>初始化对象的过程中，都会初始化该对象的<code>this</code>关键字</li>
-</ul>
-<h5 id="this关键字的使用"><a href="#this关键字的使用" class="headerlink" title="this关键字的使用"></a>this关键字的使用</h5><ol>
-<li>出现在实例方法中，用于指向当前正在执行这个动作的对象<ul>
-<li>一般通过<code>this</code>访问的都是实例变量&#x2F;方法，而在访问这个实例变量&#x2F;方法的大多都是该对象本身，所以<code>this.</code>可以省略</li>
-<li><code>this</code>不能出现在带有<code>static</code>的方法中，不过静态的方法也不是实例方法</li>
-</ul>
-</li>
-<li>用来区分局部变量和实例变量<ul>
-<li>常用于构造方法中，用于区分时，不能省略<code>this.</code></li>
-</ul>
-</li>
-<li>用来调用其他构造方法<ul>
-<li>通过当前构造方法调用其他构造方法</li>
-<li>语法结构<code>this(实参列表)；</code></li>
-<li>用这种方法调用构造方法时，这条语句必须出现在构造方法的<strong>第一行</strong></li>
-</ul>
-</li>
-</ol>
-<h4 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h4><ul>
-<li>静态的</li>
-<li><code>static</code>可以用来修饰变量和方法，所修饰的变量称为静态变量，所修饰的方法称为静态方法</li>
-<li><code>static</code>所修饰的元素都是类级别的特征，与具体的对象无关</li>
-<li>也因此，静态变量和静态方法在类加载时就初始化了，内存在方法区中开辟，不需要通过对象来初始化</li>
-<li>直接通过<code>类名.</code>访问<code>static</code>所修饰内容</li>
-</ul>
-<h5 id="实例方法-和-静态方法"><a href="#实例方法-和-静态方法" class="headerlink" title="实例方法 和 静态方法"></a>实例方法 和 静态方法</h5><p>与实例变量与静态变量的关系相似</p>
-<ol>
-<li>实例方法<ul>
-<li>每个对象都有具有这种行为，但是每个对象执行这个方法后所产生的结果<u>不同</u>，这样的方法称为实例方法</li>
-<li>绝大部分的动作都被定义为实例方法，因为动作都需要具体的对象参与</li>
-</ul>
-</li>
-<li>静态方法<ul>
-<li>每个对象都具有这种行为，并且每个对象执行这个方法后所产生的结果<u>相同</u>，这样的方法称为静态方法</li>
-<li>静态方法的动作行为不属于某一个对象，而是可以提升至整个类级别</li>
-<li>在静态方法中无法直接访问实例变量或者实例方法<ul>
-<li>调用静态方法时没有对象的参与，而实例变量和实例方法需要对象才能访问</li>
-<li>可以在静态方法中创建一个对象，再去访问实例变量和实例方法</li>
-<li>绝大部分的方法类工具都被定义为静态方法，可以在不创建对象的情况下调用，便于使用</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h5 id="静态变量和方法的访问"><a href="#静态变量和方法的访问" class="headerlink" title="静态变量和方法的访问"></a>静态变量和方法的访问</h5><ul>
-<li>静态变量&#x2F;方法可以通过<code>类名.静态变量名</code>来直接访问</li>
-<li>所有的静态数据既可以通过类名的方式访问，也可以通过对象的方式访问<ul>
-<li>当通过引用（对象）来访问时，即使这个引用指向null，也不会出现空指针异常的情况</li>
-<li>因为本质上是通过这个引用所在的类来访问静态的数据，不需要引用的存在！</li>
-</ul>
-</li>
-</ul>
-<h4 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h4><ul>
-<li><p>语法格式</p>
-<ul>
-<li>&#96;&#96;&#96;java<br>static{<br>Java语句;<br>}<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 静态代码块在类加载时执行，并且只执行一次</span><br><span class="line"></span><br><span class="line">- 静态代码块在类中可以编写多个，遵循自上而下依次执行</span><br><span class="line"></span><br><span class="line">- 静态代码块在加载类时就执行了，比主函数执行的还要提前</span><br><span class="line"></span><br><span class="line">- 作用</span><br><span class="line"></span><br><span class="line">  - 静态代码块可以用来&lt;u&gt;记录类加载时刻&lt;/u&gt;，可以在类加载时刻执行一些特定的动作</span><br><span class="line">  - 可以在静态代码块中记录日志、完成初始化工作以及一些准备工作</span><br><span class="line"></span><br><span class="line">#### 实例代码块</span><br><span class="line"></span><br><span class="line">- 语法格式</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    &#123;</span><br><span class="line">    	Java语句；</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>实例代码块可以编写多个，遵循自上而下的顺序依次执行</p>
-</li>
-<li><p>实例代码块在构造函数之前执行，<u>构造函数</u>执行一次实例代码块就执行一次</p>
-</li>
-<li><p>作用</p>
-<ul>
-<li>实例代码块可以用来记录对象初始化时刻</li>
-</ul>
-</li>
-</ul>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h4 id="继承-1"><a href="#继承-1" class="headerlink" title="继承"></a>继承</h4><ul>
-<li>继承的基本作用是<u>代码复用</u>，有了继承之后才有方法的<strong>覆盖和多态机制</strong></li>
-<li>继承允许创建分等级层次的类</li>
-<li><strong>继承的数据类型</strong><ol>
-<li>私有的、缺省的不支持继承</li>
-<li>父类的构造函数不支持继承</li>
-<li>其余的都支持继承</li>
-</ol>
-</li>
-<li>Java语言中只支持单继承，一个类不能同时继承很多个类（C++中支持多继承）</li>
-<li>Java中的间接继承<ul>
-<li>D extends C, C extends B, B extends A，则D直接继承C，间接继承B和A</li>
-</ul>
-</li>
-<li>当Java中一个类没有显示的继承任何类时，该类<strong>默认继承</strong>JavaSE中的<code>java.lang.Object</code>类</li>
-</ul>
-<h4 id="继承的语法结构"><a href="#继承的语法结构" class="headerlink" title="继承的语法结构"></a>继承的语法结构</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[修饰符列表]class 父类&#123;</span><br><span class="line">	类体;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[修饰符列表] class 子类名 extends 父类&#123;</span><br><span class="line">	类体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>父类又称为基类，超类(Superclass)</li>
-<li>子类又称为派生类(Subclass)</li>
-</ul>
-<h4 id="方法的覆盖"><a href="#方法的覆盖" class="headerlink" title="方法的覆盖"></a>方法的覆盖</h4><h5 id="方法的覆盖Override"><a href="#方法的覆盖Override" class="headerlink" title="方法的覆盖Override"></a>方法的覆盖Override</h5><ul>
-<li>又称为方法的重写Overwrite</li>
-<li>当父类中的方法无法满足当前子类的要求时，子类有必要将父类继承过来的方法进行重写</li>
-<li>方法重写发生在具有<strong>继承关系的父子类之间</strong></li>
-<li>重写的方法必须和父类的方法的<u>返回值类型</u>、<u>方法名</u>、<u>形参列表</u>相同<ul>
-<li>直接复制粘贴父类的方法，然后修改<u>方法体</u>中内容即可</li>
-</ul>
-</li>
-<li>子类重写的方法访问权限可以更低，但不能更高</li>
-<li>抛出的异常可以更少，但不能更多</li>
-</ul>
-<h5 id="方法的重载Overload"><a href="#方法的重载Overload" class="headerlink" title="方法的重载Overload"></a>方法的重载Overload</h5><ul>
-<li>在同一个类中，方法完成的功能相似时，建议方法名相同，这样方便编程</li>
-<li>重载的方法必须<ol>
-<li>在同一个类中</li>
-<li>方法名相同</li>
-<li>参数列表不同</li>
-</ol>
-</li>
-<li>方法重载与一下因素无关<ol>
-<li>返回值</li>
-<li>修饰符列表</li>
-</ol>
-</li>
-</ul>
-<h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><ul>
-<li>表示最终的、不可变的</li>
-<li><code>final</code>修饰的类是无法被继承的</li>
-<li><code>final</code>修饰的方法是无法被覆盖的</li>
-<li><code>final</code>修饰的变量只能被赋值一次<ul>
-<li><code>final</code>修饰的实例变量只能手动赋值，如果采用系统直接初始化的话，则之后永远为0不能修改</li>
-</ul>
-</li>
-<li><code>final</code>修饰的引用确定好对象后无法再被修改<ul>
-<li>即这个引用指向的地址是不能修改的</li>
-<li>被<code>final</code>修饰的引用所指向的对象无法被垃圾回收器回收</li>
-<li>但是被<code>final</code>修饰的引用所指向的对象，它内存中存储的数据可以修改</li>
-</ul>
-</li>
-</ul>
-<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><ul>
-<li><p><code>final</code>修饰的实例变量都是不可变的，这种变量一般都和<code>static</code>联合使用，被称为常量</p>
-<ul>
-<li>不可变的实例变量如果在每个对象中都保存一份的话会造成空间浪费</li>
-</ul>
-</li>
-<li><p>语法格式</p>
-<p><code>public static final 数据类型 常量名 = 值;</code></p>
-</li>
-<li><p>常量名的命名规范：所有字母大写，每个单词之间通过下划线来连接</p>
-</li>
-<li><p>由于常量在声明后无法被修改，所以被<code>public</code>修饰也是十分安全的</p>
-</li>
-</ul>
-<h4 id="包"><a href="#包" class="headerlink" title="包"></a>包</h4><ul>
-<li><p>Java中引入包机制主要是为了方便程序管理。不同功能的类被分别放到不同的包当中，便于查找、管理和维护</p>
-</li>
-<li><p><code>package</code>的定义</p>
-<ul>
-<li>在Java源程序的第一行上编写<code>package</code>语句</li>
-<li><code>package</code>只能编写一个语句</li>
-<li>语法结构：<code>package 包名;</code></li>
-</ul>
-</li>
-<li><p>包的命名规范：</p>
-<ul>
-<li>前缀 + 发起者名 + 项目名 + 模块名</li>
-<li>包名要求<strong>全部小写</strong>，包名也是标识符，必须遵循标识符的命名规范</li>
-</ul>
-</li>
-<li><p>一个包对应一个目录，目录之间用<code>.</code>分隔开</p>
-<ul>
-<li>例如：<code>pers.kevin.javase.day1117</code>就会生成四个目录</li>
-</ul>
-</li>
-<li><p>一旦使用包机制后，<strong>类的名称就会改变</strong></p>
-<ul>
-<li>我们编写一个Test类，当使用如上的包后，Test类的名称就会变成<code>pers.kevin.javase.day1117.Test</code></li>
-</ul>
-</li>
-<li><p>包名的省略</p>
-<ul>
-<li><p>当两个类在同一个包下时，可以省略包名</p>
-</li>
-<li><p>当两个类不在同一个包下时，一定要在类前加上完整的包名</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="import关键字"><a href="#import关键字" class="headerlink" title="import关键字"></a><code>import</code>关键字</h4><ul>
-<li><code>import</code>语句用来完成导入其他类，同一个包下的类不需要导入，不在同一个包下的类需要手动导入</li>
-<li>语法格式：<ul>
-<li><code>import 类名;</code></li>
-<li><code>import 包名.*;</code>代表引入这个包下的所有类</li>
-</ul>
-</li>
-<li><code>import</code>语句需要编写到<code>package</code>语句之下，<code>class</code>语句之上</li>
-<li><code>java.lang.*</code>不需要手动引入</li>
+<h4 id="private"><a href="#private" class="headerlink" title="private"></a>private</h4><ul>
+<li>私有的，只能在本类中访问</li>
 </ul>
 ]]></content>
       <categories>
@@ -1135,37 +1201,6 @@
       </tags>
   </entry>
   <entry>
-    <title>访问控制权限&quot;</title>
-    <url>/2022/11/17/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A110/</url>
-    <content><![CDATA[<h1 id="访问控制权限"><a href="#访问控制权限" class="headerlink" title="访问控制权限"></a>访问控制权限</h1><h3 id="访问控制权限修饰符"><a href="#访问控制权限修饰符" class="headerlink" title="访问控制权限修饰符"></a>访问控制权限修饰符</h3><ul>
-<li>访问控制权限修饰符用来控制元素的访问范围</li>
-<li>修饰符包括：<code>public</code>, <code>protected</code>, <code>缺省</code> 以及 <code>private</code></li>
-<li>访问控制权限可以修饰 类 变量 方法</li>
-<li>修饰的范围：<code>private &lt; 缺省 &lt; protected &lt; public</code></li>
-<li>类只能用<code>public</code>和<code>缺省</code>修饰【内部类除外】</li>
-</ul>
-<h4 id="public"><a href="#public" class="headerlink" title="public"></a>public</h4><ul>
-<li>表示公开的，在任何位置都可以访问</li>
-</ul>
-<h4 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h4><ul>
-<li>表示受保护的，在同一个包，以及子类中可以访问</li>
-<li>当某个数据只希望子类使用时，采用<code>protected</code>修饰</li>
-</ul>
-<h4 id="缺省"><a href="#缺省" class="headerlink" title="缺省"></a>缺省</h4><ul>
-<li>仅仅是同一个包下可以访问</li>
-</ul>
-<h4 id="private"><a href="#private" class="headerlink" title="private"></a>private</h4><ul>
-<li>私有的，只能在本类中访问</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>多态2</title>
     <url>/2022/11/19/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A111/</url>
     <content><![CDATA[<h1 id="多态2"><a href="#多态2" class="headerlink" title="多态2"></a>多态2</h1><h3 id="方法覆盖"><a href="#方法覆盖" class="headerlink" title="方法覆盖"></a>方法覆盖</h3><ol>
@@ -1275,82 +1310,6 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">A</span><span class="params">()</span>&#123;<span class="comment">//第五个被调用</span></span><br><span class="line">        System.out.println(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_">A</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">B</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">B</span><span class="params">(<span class="type">int</span> i)</span>&#123;<span class="comment">//第四个被调用</span></span><br><span class="line">        System.out.println(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> <span class="keyword">extends</span> <span class="title class_">B</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">()</span>&#123;<span class="comment">//第一个被调用</span></span><br><span class="line">        <span class="built_in">this</span>(<span class="number">10</span>);</span><br><span class="line">        System.out.println(<span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">(<span class="type">int</span> i)</span>&#123;<span class="comment">//第二个被调用</span></span><br><span class="line">        <span class="built_in">this</span>(i,<span class="number">20</span>);</span><br><span class="line">        System.out.println(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;<span class="comment">//第三个被调用</span></span><br><span class="line">        <span class="built_in">super</span>(j);</span><br><span class="line">        System.out.println(<span class="number">6</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">      	<span class="comment">//后被调用的先执行</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">C</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ahjs5w5gj30u20e23z3.jpg"></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Super关键字</title>
-    <url>/2022/11/21/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A112/</url>
-    <content><![CDATA[<h1 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h1><h3 id="super-的原理"><a href="#super-的原理" class="headerlink" title="super()的原理"></a><code>super()</code>的原理</h3><ul>
-<li>在构造方法执行过程中，调用了一连串父类的构造方法，父类的构造方法又继续向上调用它的构造方法，但实际上对象只创建了一个</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line">	<span class="comment">//super()省略</span></span><br><span class="line">  <span class="comment">//A()&#123;&#125;</span></span><br><span class="line">  <span class="type">int</span> a;</span><br><span class="line">  String b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_">A</span>&#123;</span><br><span class="line">	<span class="comment">//super()省略</span></span><br><span class="line">  <span class="comment">//B()&#123;&#125;</span></span><br><span class="line">  <span class="type">double</span> c;</span><br><span class="line">  String d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8chljmt9bj31990lzmys.jpg"></p>
-<ul>
-<li><code>super(实参)</code>的作用是：<strong>初始化当前对象的父类特征</strong></li>
-<li>调用<code>super()</code>时并<strong>不会创建一个父类的对象</strong>，从始至终只创建了<strong>一个</strong>对象。通过<code>super()</code>将父类的特征<strong>继承</strong>下来，变成子类自己的。也就是说，子类和它通过<code>super()</code>创建的父类之间的关系是<strong>包含关系</strong>，子类包含了父类的特征。<strong>而<code>super</code>指向的就是当前对象的那部分父类特征</strong><ul>
-<li>在上述列子中，<code>super</code>代表的就是<code>a</code>和<code>b</code></li>
-<li>虽然<code>a</code>和<code>b</code>是父类<code>A</code>的特征（属性），但子类<code>B</code>一旦继承下来就是属于它自己的了</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Customer</span> &#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Customer</span><span class="params">()</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Customer</span><span class="params">(String name)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Vip</span> <span class="keyword">extends</span> <span class="title class_">Customer</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Vip</span><span class="params">()</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Vip</span><span class="params">(String name)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">shopping</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot; is shopping&quot;</span>);<span class="comment">//this指向vip自己</span></span><br><span class="line">        System.out.println(<span class="built_in">super</span>.name + <span class="string">&quot; is shopping&quot;</span>);<span class="comment">//super指向子类中的父类特征属性</span></span><br><span class="line">        System.out.println(name + <span class="string">&quot; is shopping&quot;</span>);<span class="comment">//this可以省略</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Vip</span> <span class="variable">vip</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Vip</span>(<span class="string">&quot;张三&quot;</span>);</span><br><span class="line">        vip.shopping();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8cifgs87pj30vs0fw75e.jpg"></p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8cij8eqqvj317n0o5taj.jpg"></p>
-<ul>
-<li><p>当通过<code>this</code>来访问<code>name</code>这个属性时，因为<code>name</code>在Vip这个对象的内存中，所以可以访问到</p>
-</li>
-<li><p>当通过<code>super</code>来访问<code>name</code>这个属性时，因为<code>name</code>是Vip这个对象的父类属性，所以也可以访问到</p>
-</li>
-<li><p><strong><code>super</code>是<code>this</code>指向对象的一块空间</strong></p>
-</li>
-<li><p>当我们在Vip类中也添加一个名为<code>name</code>的属性</p>
-<ul>
-<li>Java允许子类中出现和父类一样的同名属性</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Vip2</span> <span class="keyword">extends</span> <span class="title class_">Customer</span>&#123;</span><br><span class="line">    String name;<span class="comment">//子类中的name属性</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Vip2</span><span class="params">()</span>&#123;</span><br><span class="line">      	<span class="comment">//super();</span></span><br><span class="line">      	<span class="comment">//this.name = null;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Vip2</span><span class="params">(String name)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(name);<span class="comment">//将name初始化给了父类的name，而子类中的name没有初始化</span></span><br><span class="line">      	<span class="comment">//this.name = null;在一个构造方法中如果没有给属性手动初始化，系统将会自动为其赋默认值</span></span><br><span class="line">    &#125;</span><br><span class="line">  	</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">shopping</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot; is shopping&quot;</span>);<span class="comment">//this指向的子类的name</span></span><br><span class="line">        System.out.println(<span class="built_in">super</span>.name + <span class="string">&quot; is shopping&quot;</span>);<span class="comment">//super指向父类的name</span></span><br><span class="line">        System.out.println(name + <span class="string">&quot; is shopping&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8cizu8qcfj30vu0lcac3.jpg"></p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8cj0c63umj31dx0shju5.jpg"></p>
-<h3 id="super-的使用情况"><a href="#super-的使用情况" class="headerlink" title="super.的使用情况"></a><code>super.</code>的使用情况</h3><ul>
-<li><code>super.</code>既可以访问父类的属性，也能访问父类的方法</li>
-<li>大部分情况下<code>super.</code>都是可以省略的</li>
-<li>如果父类和自类具有同名属性&#x2F;方法，并且想要通过子类去访问父类的属性&#x2F;方法，则<code>super.</code>不能省略</li>
-<li>Java通过<code>super.</code>来区分同名的子类和父类的属性&#x2F;方法</li>
-</ul>
-<h3 id="super单独使用"><a href="#super单独使用" class="headerlink" title="super单独使用"></a><code>super</code>单独使用</h3><ul>
-<li><p><code>this</code>是可以直接单独使用</p>
-<ul>
-<li><code>this</code>是一个指向当前对象自己的引用</li>
-<li>输出引用时，会自动调用引用的<code>toString()</code>方法，输出该引用地址的一个哈希</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doSome</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Test2</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test2</span>();</span><br><span class="line">        test.doSome();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ck5gqjquj30vs0fk757.jpg"></p>
-</li>
-<li><p><code>super</code>不能单独引用</p>
-<ul>
-<li><code>super</code>不是引用，不保存内存地址，也不指向任何对象</li>
-<li>它只代表当前对象内部的那一块父类型特征</li>
-</ul>
-</li>
-</ul>
-<h3 id="super不能用于静态方法中"><a href="#super不能用于静态方法中" class="headerlink" title="super不能用于静态方法中"></a><code>super</code>不能用于静态方法中</h3><ul>
-<li><code>this</code>和<code>super</code>的使用需要对象的参与，只能用于实例方法中</li>
-</ul>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -1494,6 +1453,82 @@
       </tags>
   </entry>
   <entry>
+    <title>Super关键字</title>
+    <url>/2022/11/21/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A112/</url>
+    <content><![CDATA[<h1 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h1><h3 id="super-的原理"><a href="#super-的原理" class="headerlink" title="super()的原理"></a><code>super()</code>的原理</h3><ul>
+<li>在构造方法执行过程中，调用了一连串父类的构造方法，父类的构造方法又继续向上调用它的构造方法，但实际上对象只创建了一个</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line">	<span class="comment">//super()省略</span></span><br><span class="line">  <span class="comment">//A()&#123;&#125;</span></span><br><span class="line">  <span class="type">int</span> a;</span><br><span class="line">  String b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_">A</span>&#123;</span><br><span class="line">	<span class="comment">//super()省略</span></span><br><span class="line">  <span class="comment">//B()&#123;&#125;</span></span><br><span class="line">  <span class="type">double</span> c;</span><br><span class="line">  String d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8chljmt9bj31990lzmys.jpg"></p>
+<ul>
+<li><code>super(实参)</code>的作用是：<strong>初始化当前对象的父类特征</strong></li>
+<li>调用<code>super()</code>时并<strong>不会创建一个父类的对象</strong>，从始至终只创建了<strong>一个</strong>对象。通过<code>super()</code>将父类的特征<strong>继承</strong>下来，变成子类自己的。也就是说，子类和它通过<code>super()</code>创建的父类之间的关系是<strong>包含关系</strong>，子类包含了父类的特征。<strong>而<code>super</code>指向的就是当前对象的那部分父类特征</strong><ul>
+<li>在上述列子中，<code>super</code>代表的就是<code>a</code>和<code>b</code></li>
+<li>虽然<code>a</code>和<code>b</code>是父类<code>A</code>的特征（属性），但子类<code>B</code>一旦继承下来就是属于它自己的了</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Customer</span> &#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Customer</span><span class="params">()</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Customer</span><span class="params">(String name)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Vip</span> <span class="keyword">extends</span> <span class="title class_">Customer</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Vip</span><span class="params">()</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Vip</span><span class="params">(String name)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">shopping</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot; is shopping&quot;</span>);<span class="comment">//this指向vip自己</span></span><br><span class="line">        System.out.println(<span class="built_in">super</span>.name + <span class="string">&quot; is shopping&quot;</span>);<span class="comment">//super指向子类中的父类特征属性</span></span><br><span class="line">        System.out.println(name + <span class="string">&quot; is shopping&quot;</span>);<span class="comment">//this可以省略</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Vip</span> <span class="variable">vip</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Vip</span>(<span class="string">&quot;张三&quot;</span>);</span><br><span class="line">        vip.shopping();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8cifgs87pj30vs0fw75e.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8cij8eqqvj317n0o5taj.jpg"></p>
+<ul>
+<li><p>当通过<code>this</code>来访问<code>name</code>这个属性时，因为<code>name</code>在Vip这个对象的内存中，所以可以访问到</p>
+</li>
+<li><p>当通过<code>super</code>来访问<code>name</code>这个属性时，因为<code>name</code>是Vip这个对象的父类属性，所以也可以访问到</p>
+</li>
+<li><p><strong><code>super</code>是<code>this</code>指向对象的一块空间</strong></p>
+</li>
+<li><p>当我们在Vip类中也添加一个名为<code>name</code>的属性</p>
+<ul>
+<li>Java允许子类中出现和父类一样的同名属性</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Vip2</span> <span class="keyword">extends</span> <span class="title class_">Customer</span>&#123;</span><br><span class="line">    String name;<span class="comment">//子类中的name属性</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Vip2</span><span class="params">()</span>&#123;</span><br><span class="line">      	<span class="comment">//super();</span></span><br><span class="line">      	<span class="comment">//this.name = null;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Vip2</span><span class="params">(String name)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(name);<span class="comment">//将name初始化给了父类的name，而子类中的name没有初始化</span></span><br><span class="line">      	<span class="comment">//this.name = null;在一个构造方法中如果没有给属性手动初始化，系统将会自动为其赋默认值</span></span><br><span class="line">    &#125;</span><br><span class="line">  	</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">shopping</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot; is shopping&quot;</span>);<span class="comment">//this指向的子类的name</span></span><br><span class="line">        System.out.println(<span class="built_in">super</span>.name + <span class="string">&quot; is shopping&quot;</span>);<span class="comment">//super指向父类的name</span></span><br><span class="line">        System.out.println(name + <span class="string">&quot; is shopping&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8cizu8qcfj30vu0lcac3.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8cj0c63umj31dx0shju5.jpg"></p>
+<h3 id="super-的使用情况"><a href="#super-的使用情况" class="headerlink" title="super.的使用情况"></a><code>super.</code>的使用情况</h3><ul>
+<li><code>super.</code>既可以访问父类的属性，也能访问父类的方法</li>
+<li>大部分情况下<code>super.</code>都是可以省略的</li>
+<li>如果父类和自类具有同名属性&#x2F;方法，并且想要通过子类去访问父类的属性&#x2F;方法，则<code>super.</code>不能省略</li>
+<li>Java通过<code>super.</code>来区分同名的子类和父类的属性&#x2F;方法</li>
+</ul>
+<h3 id="super单独使用"><a href="#super单独使用" class="headerlink" title="super单独使用"></a><code>super</code>单独使用</h3><ul>
+<li><p><code>this</code>是可以直接单独使用</p>
+<ul>
+<li><code>this</code>是一个指向当前对象自己的引用</li>
+<li>输出引用时，会自动调用引用的<code>toString()</code>方法，输出该引用地址的一个哈希</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doSome</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Test2</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test2</span>();</span><br><span class="line">        test.doSome();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ck5gqjquj30vs0fk757.jpg"></p>
+</li>
+<li><p><code>super</code>不能单独引用</p>
+<ul>
+<li><code>super</code>不是引用，不保存内存地址，也不指向任何对象</li>
+<li>它只代表当前对象内部的那一块父类型特征</li>
+</ul>
+</li>
+</ul>
+<h3 id="super不能用于静态方法中"><a href="#super不能用于静态方法中" class="headerlink" title="super不能用于静态方法中"></a><code>super</code>不能用于静态方法中</h3><ul>
+<li><code>this</code>和<code>super</code>的使用需要对象的参与，只能用于实例方法中</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>this关键字</title>
     <url>/2022/11/13/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A13/</url>
     <content><![CDATA[<h1 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h1><h3 id="this关键字-1"><a href="#this关键字-1" class="headerlink" title="this关键字"></a>this关键字</h3><h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p><code>this</code>关键字用于引用方法或构造函数中的当前对象</p>
@@ -1555,6 +1590,56 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Date</span>&#123;</span><br><span class="line">  <span class="keyword">private</span> year;</span><br><span class="line">  <span class="keyword">private</span> month;</span><br><span class="line">  <span class="keyword">private</span> day;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Constructor</span></span><br><span class="line">    <span class="comment">//要求：在调用无参数的构造方法时，默认创建的日期是&quot;2000-10-25&quot;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Date</span><span class="params">(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> day)</span> &#123;</span><br><span class="line">      setYear(year);</span><br><span class="line">      setMonth(month);</span><br><span class="line">      setDay(day);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">public</span> <span class="title function_">Date</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="comment">//这样的方式会创建两个对象</span></span><br><span class="line">      <span class="comment">//调用无参的构造函数会生成一个对象，无参构造函数中又调用一个有参的构造函数再生成一个对象</span></span><br><span class="line">  <span class="comment">//        new Date(2000, 10, 25);//调用构造函数只能通过new的方式</span></span><br><span class="line">      <span class="comment">//采用以下的方式来调用构造函数</span></span><br><span class="line">      <span class="built_in">this</span>(<span class="number">2000</span>,<span class="number">10</span>,<span class="number">25</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123; </span><br><span class="line">      <span class="type">Date</span> <span class="variable">day1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">      System.out.print(<span class="string">&quot;采用无参数的构造函数&quot;</span>);</span><br><span class="line">      day1.printDate();</span><br><span class="line">      </span><br><span class="line">      <span class="type">Date</span> <span class="variable">day2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">2022</span>,<span class="number">11</span>,<span class="number">12</span>);</span><br><span class="line">      System.out.print(<span class="string">&quot;采用带参数的构造函数&quot;</span>);</span><br><span class="line">      day2.printDate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h827qci8k8j312e0kcac7.jpg"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>继承</title>
+    <url>/2022/11/13/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A15/</url>
+    <content><![CDATA[<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h3 id="继承的概念"><a href="#继承的概念" class="headerlink" title="继承的概念"></a>继承的概念</h3><ul>
+<li>继承是面向对象三大特征之一（封装、继承、多态）</li>
+<li>继承的基本作用是<u>代码复用</u>，有了继承之后才有方法的覆盖和多态机制</li>
+<li>继承允许创建分等级层次的类</li>
+<li>语法结构</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[修饰符列表]class 父类&#123;</span><br><span class="line">	类体;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[修饰符列表] class 类名 extends 父类&#123;</span><br><span class="line">	类体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>继承的数据类型</strong><ol>
+<li>私有的不支持继承</li>
+<li>构造函数不支持继承</li>
+<li>其余的都支持继承</li>
+</ol>
+</li>
+<li>Java语言中只支持单继承，一个类不能同时继承很多个类（C++中支持多继承）</li>
+<li>Java中的间接继承<ul>
+<li>D extends C, C extends B, B extends A，则D直接继承C，间接继承B和A</li>
+</ul>
+</li>
+<li>当Java中一个类没有显示的继承任何类时，该类<strong>默认继承</strong>JavaSE中的java.lang.Object类</li>
+</ul>
+<h3 id="继承的术语"><a href="#继承的术语" class="headerlink" title="继承的术语"></a>继承的术语</h3><p>B类继承A类</p>
+<ul>
+<li>A类称为：父类，基类，超类(Superclass)</li>
+<li>B类称为：子类、派生类(Subclass)</li>
+</ul>
+<p>一个简单的继承的例子</p>
+<ul>
+<li>银行账户类有自己的账户号码和账户余额</li>
+<li>信用卡类继承账类，这样信用卡类就可以继承账户类中对于封装实例变量的set和get方法</li>
+<li>在测试类中设置信用卡的账号和余额并获取其中的数据</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//账户类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Account</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> num;<span class="comment">//封装的账户号码</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">float</span> balance;<span class="comment">//封装的余额</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Account</span><span class="params">(<span class="type">int</span> num, <span class="type">float</span> balance)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.num = num;</span><br><span class="line">        <span class="built_in">this</span>.balance = balance;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">  	<span class="comment">//一定得有这个缺省的构造函数</span></span><br><span class="line">  	<span class="keyword">public</span> <span class="title function_">Account</span><span class="params">()</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getNum</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setNum</span><span class="params">(<span class="type">int</span> num)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.num = num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">float</span> <span class="title function_">getBalance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> balance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setBalance</span><span class="params">(<span class="type">float</span> balance)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.balance = balance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CredictCard</span> <span class="keyword">extends</span> <span class="title class_">Account</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> num;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">float</span> balance;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> credit;</span><br><span class="line">  	<span class="comment">//省略自己的set和get方法，直接调用父类的方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestExtends</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">CredictCard</span> <span class="variable">cre</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CredictCard</span>();</span><br><span class="line">        cre.setNum(<span class="number">123</span>);<span class="comment">//调用继承的方法</span></span><br><span class="line">        cre.setBalance(<span class="number">100.1f</span>);<span class="comment">//调用继承的方法</span></span><br><span class="line">        System.out.println(cre.getNum() + <span class="string">&quot; &quot;</span> + cre.getBalance());<span class="comment">//调用继承的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Java</category>
@@ -1651,56 +1736,6 @@
 <ul>
 <li>实例代码块的作用：实例代码块可以用来记录对象初始化时刻</li>
 </ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>继承</title>
-    <url>/2022/11/13/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A15/</url>
-    <content><![CDATA[<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h3 id="继承的概念"><a href="#继承的概念" class="headerlink" title="继承的概念"></a>继承的概念</h3><ul>
-<li>继承是面向对象三大特征之一（封装、继承、多态）</li>
-<li>继承的基本作用是<u>代码复用</u>，有了继承之后才有方法的覆盖和多态机制</li>
-<li>继承允许创建分等级层次的类</li>
-<li>语法结构</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[修饰符列表]class 父类&#123;</span><br><span class="line">	类体;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[修饰符列表] class 类名 extends 父类&#123;</span><br><span class="line">	类体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>继承的数据类型</strong><ol>
-<li>私有的不支持继承</li>
-<li>构造函数不支持继承</li>
-<li>其余的都支持继承</li>
-</ol>
-</li>
-<li>Java语言中只支持单继承，一个类不能同时继承很多个类（C++中支持多继承）</li>
-<li>Java中的间接继承<ul>
-<li>D extends C, C extends B, B extends A，则D直接继承C，间接继承B和A</li>
-</ul>
-</li>
-<li>当Java中一个类没有显示的继承任何类时，该类<strong>默认继承</strong>JavaSE中的java.lang.Object类</li>
-</ul>
-<h3 id="继承的术语"><a href="#继承的术语" class="headerlink" title="继承的术语"></a>继承的术语</h3><p>B类继承A类</p>
-<ul>
-<li>A类称为：父类，基类，超类(Superclass)</li>
-<li>B类称为：子类、派生类(Subclass)</li>
-</ul>
-<p>一个简单的继承的例子</p>
-<ul>
-<li>银行账户类有自己的账户号码和账户余额</li>
-<li>信用卡类继承账类，这样信用卡类就可以继承账户类中对于封装实例变量的set和get方法</li>
-<li>在测试类中设置信用卡的账号和余额并获取其中的数据</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//账户类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Account</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> num;<span class="comment">//封装的账户号码</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">float</span> balance;<span class="comment">//封装的余额</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Account</span><span class="params">(<span class="type">int</span> num, <span class="type">float</span> balance)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.num = num;</span><br><span class="line">        <span class="built_in">this</span>.balance = balance;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">  	<span class="comment">//一定得有这个缺省的构造函数</span></span><br><span class="line">  	<span class="keyword">public</span> <span class="title function_">Account</span><span class="params">()</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getNum</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setNum</span><span class="params">(<span class="type">int</span> num)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.num = num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">float</span> <span class="title function_">getBalance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> balance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setBalance</span><span class="params">(<span class="type">float</span> balance)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.balance = balance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CredictCard</span> <span class="keyword">extends</span> <span class="title class_">Account</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> num;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">float</span> balance;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> credit;</span><br><span class="line">  	<span class="comment">//省略自己的set和get方法，直接调用父类的方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestExtends</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">CredictCard</span> <span class="variable">cre</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CredictCard</span>();</span><br><span class="line">        cre.setNum(<span class="number">123</span>);<span class="comment">//调用继承的方法</span></span><br><span class="line">        cre.setBalance(<span class="number">100.1f</span>);<span class="comment">//调用继承的方法</span></span><br><span class="line">        System.out.println(cre.getNum() + <span class="string">&quot; &quot;</span> + cre.getBalance());<span class="comment">//调用继承的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>Java</category>
@@ -2583,6 +2618,57 @@
       </tags>
   </entry>
   <entry>
+    <title>两个数组的交集</title>
+    <url>/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/</url>
+    <content><![CDATA[<h1 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你两个整数数组<code>nums1</code>和<code>nums2</code>，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>由于我还不会调用Java中的哈希函数相关的内容，所以这道题我只能用一种方法来解决。</p>
+<p>我们可以先让两个数组是有序的，通过使用双指针的方法得到两个数组的交集。</p>
+<ol>
+<li>首先对两个数组进行排序，然后使用两个指针遍历两个数组</li>
+<li>初始时，两个指针分别指向两个数组的头部</li>
+<li>每次比较两个指针指向的两个数组中的数字<ul>
+<li>如果两个数字不相等，则将指向较小数字的指针右移一位</li>
+<li>如果两个数字相等，将该数字添加到答案，并将两个指针都右移一位</li>
+</ul>
+</li>
+<li>当至少有一个指针超出数组范围时，遍历结束</li>
+</ol>
+<ul>
+<li>时间复杂度：$O(mlogm+nlogn)$，其中<code>m</code>和<code>n</code>是两个数组的长度。我们首先通过调用系统的排序算法来对数组排序，这个步骤的时间复杂度是$O(mlogm+nlogn)$，然后我们需要遍历两个数组，时间复杂度是$O(m+n)$，那么总的时间符复杂度就是$O(mlogm+nlogn)$</li>
+<li>空间复杂度：$O(min(m,n))$我们需要一个辅助空间来存储重复的数字信息。注意，我们只用申请两个数组中较短的那么大的数组，因为极限情况就是短的数组全部和长的数组重复，即使这样也不过是$O(min(m,n))$，所以不用更大的空间</li>
+</ul>
+<h3 id="知识点回顾"><a href="#知识点回顾" class="headerlink" title="知识点回顾"></a>知识点回顾</h3><ul>
+<li><p>数组的拷贝<sup><a href="#ref1">1</a></sup></p>
+<ul>
+<li>通过<code>System.arraycopy()</code>方法来实现数组的拷贝</li>
+<li><code>System.arraycopy()</code> 方法是本地的方法，不需要导入任何包</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">arraycopy</span><span class="params">(Object src, <span class="type">int</span> srcPos, Object dest, <span class="type">int</span> desPos, <span class="type">int</span> length)</span></span><br><span class="line"><span class="comment">//形参列表的含义</span></span><br><span class="line"><span class="comment">//（原数组，原数组的开始位置，目标数组，目标数组的开始位置，拷贝元素个数）</span></span><br><span class="line"><span class="comment">//其中目标数组是要拷贝到的数组</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组的排序<sup><a href="#ref1">2</a></sup></p>
+<ul>
+<li>通过<code>Arrays.sort()</code>方法实现数组的排序</li>
+<li><code>Arrays.sort(T[] a)</code>: 对指定的 T 型数组按数字升序排序</li>
+<li><code>Arrays.sort(T[] a, int formIndex, int toIndex)</code>: 对指定的 T 型数组在下标 [formIndex, toIndex] 之间排序</li>
+<li><code>Arrays.sort(T[] a, Comparator&lt;? supre T&gt; c)</code>: 根据比较器产生的顺序对指定对象数组进行排序</li>
+<li><code>Arrasy.sort(T[] a, int formIndex, int toIndex, Comparator&lt;? supre T&gt; c</code>): …</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//当两个数组都有序时</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] intersect(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2) &#123;</span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">        Arrays.sort(nums2);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> nums1.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> nums2.length;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> len1 &lt; len2 ? len1 : len2;<span class="comment">//取较小值</span></span><br><span class="line">        <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = <span class="number">0</span>;<span class="comment">//用于遍历两个数组的指针;</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//用于遍历res指针</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (i &lt; len1 &amp;&amp; j &lt; len2) &#123;</span><br><span class="line">            <span class="comment">//不等，则小的移动</span></span><br><span class="line">            <span class="keyword">if</span> (nums1[i] &lt; nums2[j]) &#123;</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i] &gt; nums2[j])&#123;</span><br><span class="line">                j ++;</span><br><span class="line">            <span class="comment">//相等，则都移动</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i] == nums2[j])&#123;</span><br><span class="line">                res[k] = nums1[i];</span><br><span class="line">                k ++;</span><br><span class="line">                i ++;</span><br><span class="line">                j ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//拷贝前面有记录的部分</span></span><br><span class="line">      	<span class="comment">//注意不能是只拷贝非0的部分，因为可能nums1和nums2中有0元素重复</span></span><br><span class="line">        <span class="type">int</span>[] fianl = <span class="keyword">new</span> <span class="title class_">int</span>[k];</span><br><span class="line">        System.arraycopy(res,<span class="number">0</span>,fianl,<span class="number">0</span>,k);</span><br><span class="line">        <span class="keyword">return</span> fianl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><span name = "ref1"><a href="https://keveinkk.github.io/2022/11/08/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/">https://keveinkk.github.io/2022/11/08/算法/旋转数组/</a></span></p>
+<p><span name = "ref2"><a href="https://keveinkk.github.io/2022/11/07/%E7%AE%97%E6%B3%95/%E6%AF%94%E8%BE%83%E5%99%A8%20&amp;%20%E5%AF%B9%E6%95%B0%E5%99%A8/">https://keveinkk.github.io/2022/11/07/算法/比较器%20&amp;%20对数器/</a></span></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>两数之和</title>
     <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
     <content><![CDATA[<h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个下标从 1 开始的整数数组<code>numbers</code> ，该数组已按<u>非递减顺序排列</u>，请你从数组中找出满足相加之和等于目标数<code>target</code>的两个数。如果设这两个数分别是<code>numbers[index1]</code>和<code>numbers[index2]</code>，则<code>1 &lt;= index1 &lt; index2 &lt;= numbers.length</code>。</p>
@@ -2735,6 +2821,36 @@
       </tags>
   </entry>
   <entry>
+    <title>加一</title>
+    <url>/2022/11/24/%E7%AE%97%E6%B3%95/%E5%8A%A0%E4%B8%80/</url>
+    <content><![CDATA[<h1 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数0之外，这个整数不会以零开头。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：digits = [1,2,3]</span><br><span class="line">输出：[1,2,4]</span><br><span class="line">解释：输入数组表示数字123，对其加一，输出124。</span><br><span class="line"></span><br><span class="line">输入：digits = [9]</span><br><span class="line">输出：[1，0]</span><br><span class="line">解释：输入数组表示数字9，对其加一，输出10。</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题在模拟对数字进行加一的运算结果，如果整个<code>digits</code>数组中末尾没有9的话其实非常简单，直接将<code>digits[len-1]</code>最后这个数修改一下，然后返回<code>digits</code>即可；如果数组中其他位置出现了9的话其实也没有影响，因为后面不进位的话前面也不会有改变。我们着重需要考虑的是末尾有9，或者说末尾有连续个9的情况。</p>
+<ol>
+<li>如果末尾有若干个9，但第一个数字不是，例如[1,2,9,9]。那么将最后一位设置成0，然后向前面进位，如果还是9，则将倒数第二位再设置成0，再进位…这样最后的结果和<code>digits</code>数组的长度是一样的，因为第一位不会再进位了</li>
+<li>如果全部是9，即第一位数字也是9，例如[9，9]。那么按照上面的步骤，最后<code>digits</code>的结果就是[10,0,0]，我们首先不得不申请一个大一点的数组res，将digits后面的几位复制给<code>res</code>，然后再将<code>res</code>的第一位设置成1，第二位设置成0即可。</li>
+</ol>
+<ul>
+<li>时间复杂度：$O(N)$，这种方法只用将<code>digits</code>数组遍历一遍即可结束</li>
+<li>空间复杂度：$O(N)$，这种方法由于需要复制数组，所以需要申请额外的辅助空间</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">				<span class="comment">//如果最后一位是9</span></span><br><span class="line">      	<span class="comment">//分两种情况：首位不是9和首位是9</span></span><br><span class="line">        <span class="keyword">if</span> (digits[len - <span class="number">1</span>] == <span class="number">9</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len-<span class="number">1</span>;</span><br><span class="line">            digits[i] ++;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; digits[i] == <span class="number">10</span>) &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">                i --;<span class="comment">//指针前移</span></span><br><span class="line">                digits[i] ++;<span class="comment">//进位</span></span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//首位是9</span></span><br><span class="line">          	<span class="comment">//则需要申请一个更大的空间</span></span><br><span class="line">            <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len+<span class="number">1</span>];</span><br><span class="line">                System.arraycopy(digits,<span class="number">1</span>,res,<span class="number">2</span>,len-<span class="number">1</span>);</span><br><span class="line">                res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                res[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            <span class="comment">//首位不是9</span></span><br><span class="line">            <span class="comment">//则只用修改最后一位</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">                System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//如果最后一位不是9</span></span><br><span class="line">        <span class="comment">//直接复制整个数组，然后修改最后一位即可</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">            System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">            res[len-<span class="number">1</span>] = res[len-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>在方法一中，由于我一直采用先申请一个辅助空间，然后对辅助空间进行复制、修改操作，这样导致我的空间复杂度在任何一种情况下都是$O(N)$。但其实，我完全可以调整思路，直接对<code>digits</code>进行操作，然后最后返回<code>digits</code>；除非万不得已，整个<code>digits</code>数组全部都是9，这样我再申请一个更大的空间去存放数据。</p>
+<p>同时，对两种情况分辨的标准也可以优化。在方法一中，我是根据末尾是否为9这个标准进行分类。但我们可以换个思路，我们可以看看在进行加一操作后结果是否为0。这二者的区别有点类似<code>while</code>和<code>do( )while</code>：方法一中我们需要先判断，如果是不同的情况，则需要进入不同的<code>while</code>循环，这样代码很长；然而方法二中，我们先进行操作，如果末位加一操作后不为0，那么直接可以跳出循环，这样只用写一种情况下的循环体。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          	<span class="comment">//直接先进行加一操作</span></span><br><span class="line">            digits[i] = (digits[i] + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">          	<span class="comment">//这里只用针对当前这个一个数是否为0进行判断，并不只考虑最后一个数</span></span><br><span class="line">          	<span class="comment">//如果这个数不为0，则代表没有发生进位，那这个数前面的都不用改了</span></span><br><span class="line">          	<span class="comment">//此时，加一操作之后的结果已经在数组中修改了，那么直接返回digits即可</span></span><br><span class="line">            <span class="keyword">if</span> (digits[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果这个数等于0</span></span><br><span class="line">          	<span class="comment">//则会发生进位现象，前面的数也需要+1</span></span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//循环完全退出则代表digits中原来全部为9</span></span><br><span class="line">      	<span class="comment">//此时再申请新的数组空间</span></span><br><span class="line">        digits = <span class="keyword">new</span> <span class="title class_">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        digits[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>反转字符串中的单词</title>
     <url>/2022/11/16/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/</url>
     <content><![CDATA[<h1 id="反转字符串中的单词"><a href="#反转字符串中的单词" class="headerlink" title="反转字符串中的单词"></a>反转字符串中的单词</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串 <code>s</code> ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p>
@@ -2828,6 +2944,108 @@
       </tags>
   </entry>
   <entry>
+    <title>旋转图像</title>
+    <url>/2022/11/27/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<h1 id="旋转图像"><a href="#旋转图像" class="headerlink" title="旋转图像"></a>旋转图像</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个$n\times n$的二维矩阵<code>matrix</code>表示一个图像。请你将图像顺时针旋转 90 度。</p>
+<p>你必须在<u>原地</u>旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要使用另一个矩阵来旋转图像。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>我们可以通过多次翻转操作来实现旋转的效果</p>
+<table>
+<thead>
+<tr>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">8</td>
+<td align="center">9</td>
+</tr>
+</tbody></table>
+<ol>
+<li><p>首先将数组沿着对角线交换</p>
+<table>
+<thead>
+<tr>
+<th align="center">1</th>
+<th align="center">4</th>
+<th align="center">7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">2</td>
+<td align="center">5</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">6</td>
+<td align="center">9</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>然后将每一行再翻转一次</p>
+<table>
+<thead>
+<tr>
+<th align="center">7</th>
+<th align="center">4</th>
+<th align="center">1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">8</td>
+<td align="center">5</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">6</td>
+<td align="center">3</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<p>这样便完成了一次旋转操作。</p>
+<p>我们对其中的数组下标的规律做一个总结：</p>
+<ol>
+<li>数组沿对角线交换：<code>matrix[i][j]</code>与<code>matrix[j][i]</code>交换</li>
+<li>每一行进行翻转：第<code>i</code>行<code>matrix[i][j]</code>与<code>matrix[i][length-1-j]</code>交换</li>
+</ol>
+<ul>
+<li>时间复杂度：只需要遍历一次通过两次翻转操作就可以完成旋转的效果，时间复杂度为$O(N^{2})$</li>
+<li>空间复杂度：原地工作，空间复杂度$O(1)$</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[][] matrix)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;= i; j ++)&#123;</span><br><span class="line">                swap(matrix,i,j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            reverse(matrix,i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[][] matrix, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i == j)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        matrix[i][j] = matrix[i][j] ^ matrix[j][i];</span><br><span class="line">        matrix[j][i] = matrix[i][j] ^ matrix[j][i];</span><br><span class="line">        matrix[i][j] = matrix[i][j] ^ matrix[j][i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span>[][] matrix, <span class="type">int</span> i)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;= (matrix.length-<span class="number">1</span>)/<span class="number">2</span>; j++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> matrix[i][j];</span><br><span class="line">            matrix[i][j] = matrix[i][matrix.length-<span class="number">1</span>-j];</span><br><span class="line">            matrix[i][matrix.length-<span class="number">1</span>-j] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>当然我们也可以通过旋转操作来解决这个问题。直接旋转整个数组太困难，那我们可以一层一层的旋转，不难发现每一层矩形框的旋转都是符合同一个规律的。自外向内一共有不超过$n&#x2F;2$层矩形框，对于第<code>times</code>层矩形框（从外向内计数），我们只需要循环交换其4个部分即可。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8jh0wx7pjj30w60u0diy.jpg"></p>
+<p>由于不能使用额外的存储空间，所以我们只能一个元素一个元素的交换。我们循环交换每个部分的第一个数，然后是第二个数…</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8jhmjo7h2j30xt0u0jt0.jpg"></p>
+<p>总结一下交换的规律：</p>
+<p>第times层里有<code>len=matrix.length - 2*times</code>个数第0个数的坐标为<code>matrix[times][times+i]</code>,第1个数的坐标为<code>matrix[times+i][times+len-1]</code>，第2个数为<code>matrix[times+len-1][times+lem-i-1]</code>，第3个数为<code>matrix[times+len-i-1][times]</code></p>
+<ul>
+<li>时间复杂度：$O(N^{2})$</li>
+<li>空间复杂度：$O(1)$</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[][] matrix)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.length == <span class="number">0</span> || matrix.length != matrix[<span class="number">0</span>].length) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">nums</span> <span class="operator">=</span> matrix.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">times</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(times &lt;= (nums &gt;&gt; <span class="number">1</span>))&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> nums - (times &lt;&lt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len - <span class="number">1</span>; ++i)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> matrix[times][times + i];</span><br><span class="line">                matrix[times][times + i] = matrix[times + len - i - <span class="number">1</span>][times];</span><br><span class="line">                matrix[times + len - i - <span class="number">1</span>][times] = matrix[times + len - <span class="number">1</span>][times + len - i - <span class="number">1</span>];</span><br><span class="line">                matrix[times + len - <span class="number">1</span>][times + len - i - <span class="number">1</span>] = matrix[times + i][times + len - <span class="number">1</span>];</span><br><span class="line">                matrix[times + i][times + len - <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            ++times;</span><br><span class="line">        &#125;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>旋转数组</title>
     <url>/2022/11/08/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h1 id="旋转数组"><a href="#旋转数组" class="headerlink" title="旋转数组"></a>旋转数组</h1><p align="right">11.8</p>
@@ -2898,6 +3116,26 @@
 
 <h2 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h2><p>方法四是我在看了参考答案后才明白的一种方法，借助移动过程中的数学推导，该方法也可以用$O(1)$的空间复杂度解决这个问题，但由于时间问题今天就不再整理了！回去休息了！</p>
 <p>Reference <a name="ref1"><font color="black">[1]https://blog.csdn.net/u011669700/article/details/79323251</font></a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>旋转数组2</title>
+    <url>/2022/11/20/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%842/</url>
+    <content><![CDATA[<h1 id="旋转数组2"><a href="#旋转数组2" class="headerlink" title="旋转数组2"></a>旋转数组2</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个数组，将数组中的元素向右轮转<code>k</code>个位置，其中<code>k</code>是非负数</p>
+<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>在这之前我们已经能用两种方法解决这个问题，分别是申请辅助空间和翻转数组这两种方法。这次的方法是<strong>环状替换</strong>法。</p>
+<p>方法一中使用额外数组的原因在于如果我们直接将每个数字放至它最后的位置，这样被放置位置的元素会被覆盖从而丢失。因此，从另一个角度，我们可以仅仅将被替换的<u>那一个元素</u>保存在变量<code>temp</code>中，从而避免了额外数组的开销。在这种方法里，每一轮可以确定一个数<code>a</code>的最终位置<code>b</code>，我们先将数<code>b</code>拷贝出来，这样就能避免等下将<code>a</code>放过来时覆盖了<code>b</code>的信息，拷贝好信息后我们就能将<code>a</code>直接放过去。然后在下一轮中，我们可以再去考虑<code>b</code>的最终位置，假设是<code>b&#39;</code>，然后不停的重复上述过程。</p>
+<p>具体来说，我们不妨假设一个很长的数组向右移动3个位置。我们从位置<code>0</code>开始，根据规则，位置<code>0</code>的元素将会被放置到<code>(0+3)%n=3</code>的位置上，我们先拷贝这个位置上的元素到临时变量temp里，然后将<code>0</code>位置的元素直接放过来，这样就确定了0位置元素的最终位置。然后我们再考虑位置<code>3</code>的元素的最终位置，它的最终位置是<code>6</code>，我们先拷贝<code>6</code>位置元素的信息，然后再把3位置的元素放过来…以此类推。</p>
+<p>容易发现，当回到初始位置<code>0</code>时，有些数字可能还没有遍历到，此时我们应该从下一个数字开始重复的过程，可是这个时候怎么才算遍历结束呢？我们可以设置一个计数器，每确定好一个数的最终位置，计数器就加一，当计数器的数量刚好等于数组中的元素个数时程序就可以结束了。</p>
+<p>###代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        k = k % nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录交换了多少个数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//从第一个数开始交换</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (count &lt; nums.length) &#123;<span class="comment">//直到所有的数都交换了一遍</span></span><br><span class="line">        <span class="comment">//注意，判断循环结束的条件不能加等号</span></span><br><span class="line">        <span class="comment">//移动了一个数，计数器才加一，如果等于了还进入循环的话，就会移动length+1个数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> nums[start];<span class="comment">//存储上一轮的b</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">toSwap</span> <span class="operator">=</span> (start + k) % nums.length;<span class="comment">//找到a下一个要交换的数b的下标</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(toSwap != start)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> nums[toSwap];<span class="comment">//将b拷贝出来，因为等下a要覆盖它</span></span><br><span class="line">                nums[toSwap] = pre;<span class="comment">//将a（也就是上一轮的b）放到它的位置上</span></span><br><span class="line"></span><br><span class="line">                pre = temp;<span class="comment">//这一轮的b成为下一轮的a</span></span><br><span class="line">                toSwap = (toSwap + k) % nums.length;<span class="comment">//找到下一轮b的位置</span></span><br><span class="line">                count ++;<span class="comment">//找到了一个数a的最终位置</span></span><br><span class="line">            &#125;</span><br><span class="line">          	</span><br><span class="line">            nums[toSwap] = pre;<span class="comment">//当下一个位置与初始位置相同时，将上一轮的数放到初始位置</span></span><br><span class="line">            count ++;</span><br><span class="line">            start ++;<span class="comment">//从下一个数再开始</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>算法</category>
@@ -3089,26 +3327,6 @@
       </tags>
   </entry>
   <entry>
-    <title>旋转数组2</title>
-    <url>/2022/11/20/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%842/</url>
-    <content><![CDATA[<h1 id="旋转数组2"><a href="#旋转数组2" class="headerlink" title="旋转数组2"></a>旋转数组2</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个数组，将数组中的元素向右轮转<code>k</code>个位置，其中<code>k</code>是非负数</p>
-<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>在这之前我们已经能用两种方法解决这个问题，分别是申请辅助空间和翻转数组这两种方法。这次的方法是<strong>环状替换</strong>法。</p>
-<p>方法一中使用额外数组的原因在于如果我们直接将每个数字放至它最后的位置，这样被放置位置的元素会被覆盖从而丢失。因此，从另一个角度，我们可以仅仅将被替换的<u>那一个元素</u>保存在变量<code>temp</code>中，从而避免了额外数组的开销。在这种方法里，每一轮可以确定一个数<code>a</code>的最终位置<code>b</code>，我们先将数<code>b</code>拷贝出来，这样就能避免等下将<code>a</code>放过来时覆盖了<code>b</code>的信息，拷贝好信息后我们就能将<code>a</code>直接放过去。然后在下一轮中，我们可以再去考虑<code>b</code>的最终位置，假设是<code>b&#39;</code>，然后不停的重复上述过程。</p>
-<p>具体来说，我们不妨假设一个很长的数组向右移动3个位置。我们从位置<code>0</code>开始，根据规则，位置<code>0</code>的元素将会被放置到<code>(0+3)%n=3</code>的位置上，我们先拷贝这个位置上的元素到临时变量temp里，然后将<code>0</code>位置的元素直接放过来，这样就确定了0位置元素的最终位置。然后我们再考虑位置<code>3</code>的元素的最终位置，它的最终位置是<code>6</code>，我们先拷贝<code>6</code>位置元素的信息，然后再把3位置的元素放过来…以此类推。</p>
-<p>容易发现，当回到初始位置<code>0</code>时，有些数字可能还没有遍历到，此时我们应该从下一个数字开始重复的过程，可是这个时候怎么才算遍历结束呢？我们可以设置一个计数器，每确定好一个数的最终位置，计数器就加一，当计数器的数量刚好等于数组中的元素个数时程序就可以结束了。</p>
-<p>###代码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        k = k % nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录交换了多少个数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//从第一个数开始交换</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (count &lt; nums.length) &#123;<span class="comment">//直到所有的数都交换了一遍</span></span><br><span class="line">        <span class="comment">//注意，判断循环结束的条件不能加等号</span></span><br><span class="line">        <span class="comment">//移动了一个数，计数器才加一，如果等于了还进入循环的话，就会移动length+1个数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> nums[start];<span class="comment">//存储上一轮的b</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">toSwap</span> <span class="operator">=</span> (start + k) % nums.length;<span class="comment">//找到a下一个要交换的数b的下标</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(toSwap != start)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> nums[toSwap];<span class="comment">//将b拷贝出来，因为等下a要覆盖它</span></span><br><span class="line">                nums[toSwap] = pre;<span class="comment">//将a（也就是上一轮的b）放到它的位置上</span></span><br><span class="line"></span><br><span class="line">                pre = temp;<span class="comment">//这一轮的b成为下一轮的a</span></span><br><span class="line">                toSwap = (toSwap + k) % nums.length;<span class="comment">//找到下一轮b的位置</span></span><br><span class="line">                count ++;<span class="comment">//找到了一个数a的最终位置</span></span><br><span class="line">            &#125;</span><br><span class="line">          	</span><br><span class="line">            nums[toSwap] = pre;<span class="comment">//当下一个位置与初始位置相同时，将上一轮的数放到初始位置</span></span><br><span class="line">            count ++;</span><br><span class="line">            start ++;<span class="comment">//从下一个数再开始</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>猜数游戏</title>
     <url>/2022/11/22/%E7%AE%97%E6%B3%95/%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F/</url>
     <content><![CDATA[<h1 id="猜数游戏"><a href="#猜数游戏" class="headerlink" title="猜数游戏"></a>猜数游戏</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>我在做Java一个简单的猜数游戏时突发奇想，能不能编写一个程序让计算机自己产生一个随机数，自己再猜。</p>
@@ -3178,87 +3396,6 @@
       </tags>
   </entry>
   <entry>
-    <title>两个数组的交集</title>
-    <url>/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/</url>
-    <content><![CDATA[<h1 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你两个整数数组<code>nums1</code>和<code>nums2</code>，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>由于我还不会调用Java中的哈希函数相关的内容，所以这道题我只能用一种方法来解决。</p>
-<p>我们可以先让两个数组是有序的，通过使用双指针的方法得到两个数组的交集。</p>
-<ol>
-<li>首先对两个数组进行排序，然后使用两个指针遍历两个数组</li>
-<li>初始时，两个指针分别指向两个数组的头部</li>
-<li>每次比较两个指针指向的两个数组中的数字<ul>
-<li>如果两个数字不相等，则将指向较小数字的指针右移一位</li>
-<li>如果两个数字相等，将该数字添加到答案，并将两个指针都右移一位</li>
-</ul>
-</li>
-<li>当至少有一个指针超出数组范围时，遍历结束</li>
-</ol>
-<ul>
-<li>时间复杂度：$O(mlogm+nlogn)$，其中<code>m</code>和<code>n</code>是两个数组的长度。我们首先通过调用系统的排序算法来对数组排序，这个步骤的时间复杂度是$O(mlogm+nlogn)$，然后我们需要遍历两个数组，时间复杂度是$O(m+n)$，那么总的时间符复杂度就是$O(mlogm+nlogn)$</li>
-<li>空间复杂度：$O(min(m,n))$我们需要一个辅助空间来存储重复的数字信息。注意，我们只用申请两个数组中较短的那么大的数组，因为极限情况就是短的数组全部和长的数组重复，即使这样也不过是$O(min(m,n))$，所以不用更大的空间</li>
-</ul>
-<h3 id="知识点回顾"><a href="#知识点回顾" class="headerlink" title="知识点回顾"></a>知识点回顾</h3><ul>
-<li><p>数组的拷贝<sup><a href="#ref1">1</a></sup></p>
-<ul>
-<li>通过<code>System.arraycopy()</code>方法来实现数组的拷贝</li>
-<li><code>System.arraycopy()</code> 方法是本地的方法，不需要导入任何包</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">arraycopy</span><span class="params">(Object src, <span class="type">int</span> srcPos, Object dest, <span class="type">int</span> desPos, <span class="type">int</span> length)</span></span><br><span class="line"><span class="comment">//形参列表的含义</span></span><br><span class="line"><span class="comment">//（原数组，原数组的开始位置，目标数组，目标数组的开始位置，拷贝元素个数）</span></span><br><span class="line"><span class="comment">//其中目标数组是要拷贝到的数组</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数组的排序<sup><a href="#ref1">2</a></sup></p>
-<ul>
-<li>通过<code>Arrays.sort()</code>方法实现数组的排序</li>
-<li><code>Arrays.sort(T[] a)</code>: 对指定的 T 型数组按数字升序排序</li>
-<li><code>Arrays.sort(T[] a, int formIndex, int toIndex)</code>: 对指定的 T 型数组在下标 [formIndex, toIndex] 之间排序</li>
-<li><code>Arrays.sort(T[] a, Comparator&lt;? supre T&gt; c)</code>: 根据比较器产生的顺序对指定对象数组进行排序</li>
-<li><code>Arrasy.sort(T[] a, int formIndex, int toIndex, Comparator&lt;? supre T&gt; c</code>): …</li>
-</ul>
-</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//当两个数组都有序时</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] intersect(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2) &#123;</span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">        Arrays.sort(nums2);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> nums1.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> nums2.length;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> len1 &lt; len2 ? len1 : len2;<span class="comment">//取较小值</span></span><br><span class="line">        <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = <span class="number">0</span>;<span class="comment">//用于遍历两个数组的指针;</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//用于遍历res指针</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (i &lt; len1 &amp;&amp; j &lt; len2) &#123;</span><br><span class="line">            <span class="comment">//不等，则小的移动</span></span><br><span class="line">            <span class="keyword">if</span> (nums1[i] &lt; nums2[j]) &#123;</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i] &gt; nums2[j])&#123;</span><br><span class="line">                j ++;</span><br><span class="line">            <span class="comment">//相等，则都移动</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i] == nums2[j])&#123;</span><br><span class="line">                res[k] = nums1[i];</span><br><span class="line">                k ++;</span><br><span class="line">                i ++;</span><br><span class="line">                j ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//拷贝前面有记录的部分</span></span><br><span class="line">      	<span class="comment">//注意不能是只拷贝非0的部分，因为可能nums1和nums2中有0元素重复</span></span><br><span class="line">        <span class="type">int</span>[] fianl = <span class="keyword">new</span> <span class="title class_">int</span>[k];</span><br><span class="line">        System.arraycopy(res,<span class="number">0</span>,fianl,<span class="number">0</span>,k);</span><br><span class="line">        <span class="keyword">return</span> fianl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><span name = "ref1"><a href="https://keveinkk.github.io/2022/11/08/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/">https://keveinkk.github.io/2022/11/08/算法/旋转数组/</a></span></p>
-<p><span name = "ref2"><a href="https://keveinkk.github.io/2022/11/07/%E7%AE%97%E6%B3%95/%E6%AF%94%E8%BE%83%E5%99%A8%20&amp;%20%E5%AF%B9%E6%95%B0%E5%99%A8/">https://keveinkk.github.io/2022/11/07/算法/比较器%20&amp;%20对数器/</a></span></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>加一</title>
-    <url>/2022/11/24/%E7%AE%97%E6%B3%95/%E5%8A%A0%E4%B8%80/</url>
-    <content><![CDATA[<h1 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数0之外，这个整数不会以零开头。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：digits = [1,2,3]</span><br><span class="line">输出：[1,2,4]</span><br><span class="line">解释：输入数组表示数字123，对其加一，输出124。</span><br><span class="line"></span><br><span class="line">输入：digits = [9]</span><br><span class="line">输出：[1，0]</span><br><span class="line">解释：输入数组表示数字9，对其加一，输出10。</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题在模拟对数字进行加一的运算结果，如果整个<code>digits</code>数组中末尾没有9的话其实非常简单，直接将<code>digits[len-1]</code>最后这个数修改一下，然后返回<code>digits</code>即可；如果数组中其他位置出现了9的话其实也没有影响，因为后面不进位的话前面也不会有改变。我们着重需要考虑的是末尾有9，或者说末尾有连续个9的情况。</p>
-<ol>
-<li>如果末尾有若干个9，但第一个数字不是，例如[1,2,9,9]。那么将最后一位设置成0，然后向前面进位，如果还是9，则将倒数第二位再设置成0，再进位…这样最后的结果和<code>digits</code>数组的长度是一样的，因为第一位不会再进位了</li>
-<li>如果全部是9，即第一位数字也是9，例如[9，9]。那么按照上面的步骤，最后<code>digits</code>的结果就是[10,0,0]，我们首先不得不申请一个大一点的数组res，将digits后面的几位复制给<code>res</code>，然后再将<code>res</code>的第一位设置成1，第二位设置成0即可。</li>
-</ol>
-<ul>
-<li>时间复杂度：$O(N)$，这种方法只用将<code>digits</code>数组遍历一遍即可结束</li>
-<li>空间复杂度：$O(N)$，这种方法由于需要复制数组，所以需要申请额外的辅助空间</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">				<span class="comment">//如果最后一位是9</span></span><br><span class="line">      	<span class="comment">//分两种情况：首位不是9和首位是9</span></span><br><span class="line">        <span class="keyword">if</span> (digits[len - <span class="number">1</span>] == <span class="number">9</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len-<span class="number">1</span>;</span><br><span class="line">            digits[i] ++;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; digits[i] == <span class="number">10</span>) &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">                i --;<span class="comment">//指针前移</span></span><br><span class="line">                digits[i] ++;<span class="comment">//进位</span></span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//首位是9</span></span><br><span class="line">          	<span class="comment">//则需要申请一个更大的空间</span></span><br><span class="line">            <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len+<span class="number">1</span>];</span><br><span class="line">                System.arraycopy(digits,<span class="number">1</span>,res,<span class="number">2</span>,len-<span class="number">1</span>);</span><br><span class="line">                res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                res[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            <span class="comment">//首位不是9</span></span><br><span class="line">            <span class="comment">//则只用修改最后一位</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">                System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//如果最后一位不是9</span></span><br><span class="line">        <span class="comment">//直接复制整个数组，然后修改最后一位即可</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">            System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">            res[len-<span class="number">1</span>] = res[len-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>在方法一中，由于我一直采用先申请一个辅助空间，然后对辅助空间进行复制、修改操作，这样导致我的空间复杂度在任何一种情况下都是$O(N)$。但其实，我完全可以调整思路，直接对<code>digits</code>进行操作，然后最后返回<code>digits</code>；除非万不得已，整个<code>digits</code>数组全部都是9，这样我再申请一个更大的空间去存放数据。</p>
-<p>同时，对两种情况分辨的标准也可以优化。在方法一中，我是根据末尾是否为9这个标准进行分类。但我们可以换个思路，我们可以看看在进行加一操作后结果是否为0。这二者的区别有点类似<code>while</code>和<code>do( )while</code>：方法一中我们需要先判断，如果是不同的情况，则需要进入不同的<code>while</code>循环，这样代码很长；然而方法二中，我们先进行操作，如果末位加一操作后不为0，那么直接可以跳出循环，这样只用写一种情况下的循环体。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          	<span class="comment">//直接先进行加一操作</span></span><br><span class="line">            digits[i] = (digits[i] + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">          	<span class="comment">//这里只用针对当前这个一个数是否为0进行判断，并不只考虑最后一个数</span></span><br><span class="line">          	<span class="comment">//如果这个数不为0，则代表没有发生进位，那这个数前面的都不用改了</span></span><br><span class="line">          	<span class="comment">//此时，加一操作之后的结果已经在数组中修改了，那么直接返回digits即可</span></span><br><span class="line">            <span class="keyword">if</span> (digits[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果这个数等于0</span></span><br><span class="line">          	<span class="comment">//则会发生进位现象，前面的数也需要+1</span></span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//循环完全退出则代表digits中原来全部为9</span></span><br><span class="line">      	<span class="comment">//此时再申请新的数组空间</span></span><br><span class="line">        digits = <span class="keyword">new</span> <span class="title class_">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        digits[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计数排序</title>
     <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h1 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h1><h5 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h5><ul>
@@ -3288,41 +3425,6 @@
       <tags>
         <tag>算法</tag>
         <tag>排序算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo搭建博客过程中，4000端口被占用</title>
-    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
-<ul>
-<li>更改hexo使用的端口</li>
-<li>杀掉正在占用4000端口的其他进程</li>
-</ul>
-<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
-<ul>
-<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
-<ul>
-<li><code>sudo lsof -i tcp:端口号</code></li>
-<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
-<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
-</li>
-<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
-<ul>
-<li><code>sudo kill -9 PID</code></li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
