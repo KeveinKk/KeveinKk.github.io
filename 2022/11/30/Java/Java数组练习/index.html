@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"keveinkk.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Java学习-Java数组练习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java数组练习">
+<meta property="og:url" content="https://keveinkk.github.io/2022/11/30/Java/Java%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Kevin&#39;s study Blog">
+<meta property="og:description" content="Java学习-Java数组练习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8naazq8g9j30fv0e5mxr.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8nay8el91j30jk1b9diy.jpg">
+<meta property="article:published_time" content="2022-11-30T11:40:38.497Z">
+<meta property="article:modified_time" content="2022-11-30T11:40:38.497Z">
+<meta property="article:author" content="Kevin He">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8naazq8g9j30fv0e5mxr.jpg">
+
+<link rel="canonical" href="https://keveinkk.github.io/2022/11/30/Java/Java%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Java数组练习 | Kevin's study Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kevin's study Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">40</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://keveinkk.github.io/2022/11/30/Java/Java%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Kevin He">
+      <meta itemprop="description" content="我的学习博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kevin's study Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java数组练习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-30 19:40:38" itemprop="dateCreated datePublished" datetime="2022-11-30T19:40:38+08:00">2022-11-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Java学习-Java数组练习</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Java练习"><a href="#Java练习" class="headerlink" title="Java练习"></a>Java练习</h1><h2 id="用数组模拟栈"><a href="#用数组模拟栈" class="headerlink" title="用数组模拟栈"></a>用数组模拟栈</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><ul>
+<li>使用一个一维数组模拟栈的数据结构</li>
+<li>这个栈可以存储Java中任何的引用类型的数据</li>
+<li>在栈中提供push方法模拟压栈（栈满有提示）</li>
+<li>在栈中提供pop方法模拟弹栈（栈空有提示）</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyStack</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Object[] mySatck;<span class="comment">//Object数据类型就可以存储任何类型的引用数据</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> top;<span class="comment">//指向栈顶的指针(下一个压栈元素要进入的位置)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> len;<span class="comment">//栈的长度</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (check() &gt; <span class="number">0</span>)&#123;<span class="comment">//栈满则不能在入栈</span></span><br><span class="line">            System.out.println(<span class="string">&quot;栈满，无法入栈&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(obj + <span class="string">&quot;  成功入栈&quot;</span>);<span class="comment">//调用Object的toString方法</span></span><br><span class="line">        mySatck[top++] = obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (check() &lt; <span class="number">0</span>)&#123;<span class="comment">//栈空则不能出栈</span></span><br><span class="line">            System.out.println(<span class="string">&quot;栈空，无法出栈&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;<span class="comment">//返回null</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> mySatck[--top];</span><br><span class="line">        System.out.println(obj + <span class="string">&quot; 成功出栈&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyStack</span><span class="params">(Object[] mySatck)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.mySatck = mySatck;</span><br><span class="line">        <span class="built_in">this</span>.top = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.len = mySatck.length;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//判断栈状态的方法</span></span><br><span class="line">  	<span class="comment">//栈满返回1，栈空返回-1，正常返回0</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">check</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (top == len)&#123;<span class="comment">//栈满</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (top == <span class="number">0</span>) &#123;<span class="comment">//栈空</span></span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Animal[] animals = <span class="keyword">new</span> <span class="title class_">Animal</span>[<span class="number">3</span>];</span><br><span class="line">        <span class="type">MyStack</span> <span class="variable">myStack</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyStack</span>(animals);</span><br><span class="line"></span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="string">&quot;Tom&quot;</span>,<span class="string">&quot;Husky&quot;</span>);</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fish</span>(<span class="string">&quot;Jerry&quot;</span>,<span class="number">100</span>);</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>(<span class="string">&quot;Mary&quot;</span>,<span class="string">&quot;blue&quot;</span>);</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();</span><br><span class="line"></span><br><span class="line">      	<span class="comment">//将每个元素如栈</span></span><br><span class="line">        myStack.push(animal1);</span><br><span class="line">        myStack.push(animal2);</span><br><span class="line">        myStack.push(animal3);</span><br><span class="line">        myStack.push(animal4);<span class="comment">//此时应该有提示</span></span><br><span class="line"></span><br><span class="line">      	<span class="comment">//将栈中所有元素弹出</span></span><br><span class="line">        <span class="keyword">while</span> (myStack.check() != -<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> myStack.pop();</span><br><span class="line">          	<span class="comment">//弹出并调用该对象的特殊方法</span></span><br><span class="line">            <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Animal)&#123;</span><br><span class="line">                <span class="type">Animal</span> <span class="variable">ani</span> <span class="operator">=</span> (Animal) obj;</span><br><span class="line">                display(ani);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;EORROR&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">(Animal animal)</span>&#123;</span><br><span class="line">        animal.move();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot; is moving!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Animal</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Animal</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//每写一个类都要重载其toString方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String type;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="built_in">super</span>.name + <span class="string">&quot; is a &quot;</span> + type + <span class="string">&quot; dog and it&#x27;s running&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Dog</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Dog</span><span class="params">(String name, String type)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(name);<span class="comment">//调用父类构造方法</span></span><br><span class="line">        <span class="built_in">this</span>.type = type;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Fish</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> speed;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="built_in">super</span>.name + <span class="string">&quot; is swimming at the speed of &quot;</span> + speed);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Fish</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Fish</span><span class="params">(String name, <span class="type">int</span> speed)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(name);</span><br><span class="line">        <span class="built_in">this</span>.speed = speed;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String color;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="built_in">super</span>.name + <span class="string">&quot; in &quot;</span> + color + <span class="string">&quot; is flying&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Bird</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Bird</span><span class="params">(String name, String color)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(name);</span><br><span class="line">        <span class="built_in">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8naazq8g9j30fv0e5mxr.jpg"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><code>Object</code>类型的数组可以存储任何类型的引用类型数据<ul>
+<li><code>Object[] arr = &#123;new Animal(), new Uer(), &quot;abc&quot;&#125;</code></li>
+<li>这些元素之间<ul>
+<li>可以有关系：所有的元素都是同一个类，或者它们之间有继承关系</li>
+<li>也可以没有关系</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>调用一个对象时，默认调用的是该对象所在类的<code>toString()</code>方法</li>
+<li>当方法必须有返回值时，又需要返回一个空或者错误信息<ul>
+<li>返回<code>null</code></li>
+</ul>
+</li>
+<li>每写一个类都要重载其<code>toString()</code>和<code>equals()</code>方法</li>
+</ul>
+<h2 id="模拟酒店预定系统"><a href="#模拟酒店预定系统" class="headerlink" title="模拟酒店预定系统"></a>模拟酒店预定系统</h2><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><ul>
+<li>为某个酒店编写程序：酒店管理系统，模拟退房、订房、打印所有房间状态</li>
+<li>酒店使用一个二维数组来模拟：<code>Room[][] rooms</code></li>
+<li>酒店中每一个房间应该是一个对象<code>Room</code></li>
+<li>每个房间应该有：房间号、房间类型、房间状态</li>
+<li>对外提供的功能：<ul>
+<li>预定房间：输入房间号，订房</li>
+<li>退房：输入房间号，退房</li>
+<li>查看所有房间状态</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyHotel</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Room[][] rooms;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> floorNum;<span class="comment">//楼层数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> roomNum;<span class="comment">//每一层的房间数</span></span><br><span class="line">		<span class="comment">//预定房间</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reserve</span><span class="params">(<span class="type">int</span> number)</span>&#123;</span><br><span class="line">        <span class="type">int</span>[] locate = check(number);<span class="comment">//通过房间号获得房间的楼层、房间信息</span></span><br><span class="line">        <span class="keyword">if</span> (locate[<span class="number">0</span>] &lt; <span class="number">0</span> || locate[<span class="number">1</span>] &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;房间号码错误！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!rooms[locate[<span class="number">0</span>]][locate[<span class="number">1</span>]].getState())&#123;<span class="comment">//房间如果还未预定出去</span></span><br><span class="line">            rooms[locate[<span class="number">0</span>]][locate[<span class="number">1</span>]].setState(<span class="literal">true</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;房间号为：&quot;</span> + number + <span class="string">&quot;的房间预定成功！&quot;</span>);</span><br><span class="line">            System.out.println(rooms[locate[<span class="number">0</span>]][locate[<span class="number">1</span>]].toString());</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;房间号为：&quot;</span> + number + <span class="string">&quot;的房间已经被预订！&quot;</span>);</span><br><span class="line">          	System.out.println(rooms[locate[<span class="number">0</span>]][locate[<span class="number">1</span>]].toString());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//退房</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">checkOut</span><span class="params">(<span class="type">int</span> number)</span>&#123;</span><br><span class="line">        <span class="type">int</span>[] locate = check(number);</span><br><span class="line">        <span class="keyword">if</span> (locate[<span class="number">0</span>] &lt; <span class="number">0</span> || locate[<span class="number">1</span>] &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;房间号码错误！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (rooms[locate[<span class="number">0</span>]][locate[<span class="number">1</span>]].getState())&#123;<span class="comment">//房间如果已经被预定出去</span></span><br><span class="line">            rooms[locate[<span class="number">0</span>]][locate[<span class="number">1</span>]].setState(<span class="literal">false</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;房间号为：&quot;</span> + number + <span class="string">&quot;的房间归还成功！&quot;</span>);</span><br><span class="line">            System.out.println(rooms[locate[<span class="number">0</span>]][locate[<span class="number">1</span>]].toString());</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;房间号为：&quot;</span> + number + <span class="string">&quot;的房间还为被预订！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//显示酒店里所有房间的信息</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; floorNum; i ++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; roomNum; j++)&#123;</span><br><span class="line">                System.out.println(rooms[i][j].toString());</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.print(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输入房间号，返回它的楼层和房间</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] check(<span class="type">int</span> num)&#123;</span><br><span class="line">        <span class="keyword">if</span> (num &lt;= <span class="number">0</span>)<span class="comment">//房间号不能为负</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="type">int</span> <span class="variable">room</span> <span class="operator">=</span> <span class="number">0</span>, floor = <span class="number">0</span>;</span><br><span class="line">        room = num % <span class="number">100</span>;<span class="comment">//房间号是号码的后两位</span></span><br><span class="line">        <span class="keyword">if</span> (room &gt; roomNum)<span class="comment">//房间号非法</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">        floor = num / <span class="number">100</span>;<span class="comment">//楼层号是号码的前几位</span></span><br><span class="line">        <span class="keyword">if</span> (floor &gt; floorNum)<span class="comment">//楼层号非法</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;--floor,--room&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//构造方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyHotel</span><span class="params">(Room[][] rooms)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.rooms = rooms;</span><br><span class="line">        <span class="built_in">this</span>.floorNum = rooms.length;</span><br><span class="line">        <span class="built_in">this</span>.roomNum = rooms[<span class="number">0</span>].length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Room</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> floor;<span class="comment">//楼层</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> room;<span class="comment">//房间</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> num;<span class="comment">//编号</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> state;<span class="comment">//状态</span></span><br><span class="line">    <span class="keyword">private</span> String type;<span class="comment">//类型</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Room</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Room</span><span class="params">(<span class="type">int</span> floor, <span class="type">int</span> room, String type)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.floor = floor-<span class="number">1</span>;</span><br><span class="line">        <span class="built_in">this</span>.room = room-<span class="number">1</span>;</span><br><span class="line">      	<span class="comment">//通过楼层和房间获取编号</span></span><br><span class="line">        <span class="type">StringBuffer</span> <span class="variable">stringBuffer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">        stringBuffer.append(floor);</span><br><span class="line">      	<span class="comment">//如果房间号只有一位，则需要补一个0，例如509</span></span><br><span class="line">        <span class="keyword">if</span> (room &lt; <span class="number">10</span>)</span><br><span class="line">            stringBuffer.append(<span class="number">0</span>);</span><br><span class="line">        stringBuffer.append(room);</span><br><span class="line">      	<span class="comment">//房间编号是楼层号和房间号好的拼接</span></span><br><span class="line">        <span class="built_in">this</span>.num = Integer.valueOf(stringBuffer.toString());</span><br><span class="line">      	<span class="comment">//默认没有人住</span></span><br><span class="line">        <span class="built_in">this</span>.state = <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">this</span>.type = type;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//重载toString()</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="string">&quot; [房间号： &quot;</span> + <span class="built_in">this</span>.getNum() + <span class="string">&quot; 类型： &quot;</span> + <span class="built_in">this</span>.getType() + <span class="string">&quot; 状态： &quot;</span> + <span class="built_in">this</span>.getState() + <span class="string">&quot;] &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//重载equals</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="literal">null</span> || !(obj <span class="keyword">instanceof</span> Room))<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span> == obj)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="type">Room</span> <span class="variable">room</span> <span class="operator">=</span> (Room) obj;</span><br><span class="line">        <span class="keyword">return</span> room.getNum()==<span class="built_in">this</span>.num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getNum</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">getState</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> state;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setState</span><span class="params">(<span class="type">boolean</span> state)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.state = state;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getType</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> type;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      	<span class="comment">//此时rooms还是为空引用，不能用于构造MyHotel</span></span><br><span class="line">        Room[][] rooms = <span class="keyword">new</span> <span class="title class_">Room</span>[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i ++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">10</span>; j++)&#123;</span><br><span class="line">              	<span class="comment">//前五个房间为单人间，后五个房间为双人间</span></span><br><span class="line">                <span class="keyword">if</span>(j &lt; <span class="number">5</span>)&#123;</span><br><span class="line">                    rooms[i][j] = <span class="keyword">new</span> <span class="title class_">Room</span>(i+<span class="number">1</span>,j+<span class="number">1</span>,<span class="string">&quot;单人间&quot;</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    rooms[i][j] = <span class="keyword">new</span> <span class="title class_">Room</span>(i+<span class="number">1</span>,j+<span class="number">1</span>,<span class="string">&quot;双人间&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">MyHotel</span> <span class="variable">myHotel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyHotel</span>(rooms);</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;欢迎使用酒店管理系统，请选择相关功能&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;\t1:显示所有房间信息&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;\t2:预定房间&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;\t3:退房&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;\t4:退出系统&quot;</span>);</span><br><span class="line">        <span class="keyword">while</span> (flag)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">fun</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">            <span class="keyword">switch</span> (fun)&#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                    System.out.println(<span class="string">&quot;显示所有房间信息&quot;</span>);</span><br><span class="line">                    myHotel.display();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                    System.out.println(<span class="string">&quot;预定房间\t请输入房间编号&quot;</span>);</span><br><span class="line">                    <span class="type">int</span> <span class="variable">num1</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">                    myHotel.reserve(num1);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                    System.out.println(<span class="string">&quot;退房\t请输入房间编号&quot;</span>);</span><br><span class="line">                    <span class="type">int</span> <span class="variable">num2</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">                    myHotel.checkOut(num2);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                    System.out.println(<span class="string">&quot;谢谢&quot;</span>);</span><br><span class="line">                    flag = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    System.out.print(<span class="string">&quot;请重新输入&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8nay8el91j30jk1b9diy.jpg"></p>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><p><code>equals</code>方法的重载格式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span> &#123;</span><br><span class="line">      	<span class="comment">//先判断是否为空或者是否类型相匹配</span></span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="literal">null</span> || !(obj <span class="keyword">instanceof</span> Room))<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      	<span class="comment">//在判断引用是否指向同一块空间</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span> == obj)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      	<span class="comment">//强制类型转换</span></span><br><span class="line">        <span class="type">Room</span> <span class="variable">room</span> <span class="operator">=</span> (Room) obj;</span><br><span class="line">      	<span class="comment">//直接返回判定的结果</span></span><br><span class="line">        <span class="keyword">return</span> room.getNum()==<span class="built_in">this</span>.num;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/11/30/Java/%E6%95%B0%E7%BB%842/" rel="prev" title="数组2">
+      <i class="fa fa-chevron-left"></i> 数组2
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E7%BB%83%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">Java练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%95%B0%E7%BB%84%E6%A8%A1%E6%8B%9F%E6%A0%88"><span class="nav-number">1.1.</span> <span class="nav-text">用数组模拟栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.1.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E9%85%92%E5%BA%97%E9%A2%84%E5%AE%9A%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.2.</span> <span class="nav-text">模拟酒店预定系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kevin He"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Kevin He</p>
+  <div class="site-description" itemprop="description">我的学习博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/KeveinKk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;KeveinKk" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:kevin001025@foxmail.com" title="E-Mail → mailto:kevin001025@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/KkandTi" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;KkandTi" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin He</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
