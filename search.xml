@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo搭建博客过程中，4000端口被占用</title>
+    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
+<ul>
+<li>更改hexo使用的端口</li>
+<li>杀掉正在占用4000端口的其他进程</li>
+</ul>
+<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
+<ul>
+<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
+<ul>
+<li><code>sudo lsof -i tcp:端口号</code></li>
+<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
+<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
+</li>
+<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
+<ul>
+<li><code>sudo kill -9 PID</code></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java - 1st Week - Summary</title>
     <url>/2022/11/07/Java/Java%20-%201st%20Week%20-%20Summary/</url>
     <content><![CDATA[<h1 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h1><p align="right">10.26-11.05</p>
@@ -3274,6 +3309,221 @@
       </tags>
   </entry>
   <entry>
+    <title>反转字符串中的单词</title>
+    <url>/2022/11/16/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/</url>
+    <content><![CDATA[<h1 id="反转字符串中的单词"><a href="#反转字符串中的单词" class="headerlink" title="反转字符串中的单词"></a>反转字符串中的单词</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串 <code>s</code> ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><ul>
+<li><p>在Java中处理字符串常用的有三种类型：<code>String</code>、<code>StringBuffer</code>以及<code>StringBuilder</code>。这里我们着重介绍前两种</p>
+<ol>
+<li><code>String</code>和<code>StringBuffer</code>都是由final所修饰的，无法再被继承</li>
+<li>它们的主要区别是：<code>String</code>的长度和内容是不可变的，<code>StringBuffer</code>的长度和内容是可变的</li>
+<li><code>String</code>是不可变的对象，每次对<code>String</code>类进行改变时都会生成一个新的<code>String</code>类对象，然后将引用指向新的对象。因此如果需要改变字符串的长度，我们通常不会使用<code>String</code>类</li>
+<li>使用<code>StringBuffer</code>时，我们每次都会对<code>StringBuffer</code>对象本身进行操作，而不会生成一个新的对象。当需要经常需要修改字符串时，我们推荐使用<code>StringBuffer</code>类</li>
+</ol>
+</li>
+<li><p>遍历字符串<code>String</code>的方式</p>
+<ol>
+<li><p>调用<code>String</code>类的<code>toCharArray()</code>方法，先将字符串转变成一个字符数组，然后遍历数组。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;This is Kevin&#x27;s Blog&quot;</span>;</span><br><span class="line"><span class="type">char</span>[] arr = str.toCharArray();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用<code>String</code>类的<code>charAt(int i)</code>方法，在遍历字符串的过程中，每扫描到下标为<code>i</code>的一个字符就将它提取出来变成字符类型</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;This is Kevin&#x27;s Blog&quot;</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; str.length()l i++)&#123;</span><br><span class="line">  System.out.print(str.charAt(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，获得字符串的长度时需要使用<code>String</code>类的<code>length()</code>方法，而获得数组的长度时可以直接方法数组中的<code>length</code>属性</p>
+</li>
+<li><p>调用<code>String</code>类的<code>subString(i,i+1)</code>方法，将字符串中的每个字符按照子串的形式提取出来</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;This is Kevin&#x27;s Blog&quot;</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; str.length()l i++)&#123;</span><br><span class="line">  System.out.print(str.subString(i,i+<span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>s = str.substring(int beginIndex)</code>：将<code>str</code>从首字母起长度为<code>beginIndex</code>的字符串截取下来，将剩余的部分赋值给s</li>
+<li><code>s = str.substring(int beginIndex,int endIndex)</code>：将str中下标从beginIndex到<code>endIndex</code>之间的字符串截取下来给s</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><code>StringBuffer</code>常用操作</p>
+<ol>
+<li><p><code>StringBuffer append(char c)</code>：添加字符<code>c</code>到<code>StringBuffer</code>对象中</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuffer</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">str.append(<span class="string">&#x27;d&#x27;</span>);</span><br><span class="line"><span class="comment">//str = &quot;abcd&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>StringBuffer deleteCharAt(int index)</code>：移除下标为<code>index</code>的字符</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuffer</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">str.deleteCharAt(<span class="number">2</span>);</span><br><span class="line"><span class="comment">//str = &quot;ab&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>StringBuffer delete(int start,int end)</code>：移除下标从<code>start</code>到<code>end</code>之间的字符串</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuffer</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(<span class="string">&quot;abcdef&quot;</span>);</span><br><span class="line">str.delete(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//str = &quot;def&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>String toString()</code>：将<code>StringBuffer</code>转换成<code>String</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuffer</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> str.toString();</span><br><span class="line"><span class="comment">//s = &quot;abc&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>StringBuffer reverse()</code>：将此<code>StringBuffer</code>逆序</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuffer</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">str.reverse();</span><br><span class="line"><span class="comment">//str = &quot;cba&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>开辟一个新字符串<code>res</code>。扫描原来的字符串s，每扫描到一个新的单词，就暂停扫描，先将扫描到的单词逆序放到<code>res</code>，然后再继续向后扫描。为了达到这个效果我们需要两个指针，一个指针控制字符串<code>s</code>的扫描，另一个指针记录每个单词起始的位置。由于我们需要不停的增加<code>res</code>中的内容，所以考虑申请<code>StringBuffer</code>类型的<code>res</code>，每次添加新的单词时调用<code>append(char c)</code>方法</p>
+<ul>
+<li>时间复杂度$O(N)$</li>
+<li>空间复杂度$O(N)$，由于在Java中字符串类型是不能修改的，所以无法做到原地工作</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">reverseWords</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">StringBuffer</span> <span class="variable">res</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();<span class="comment">//申请StringBuffer类型的辅助空间</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//用于遍历整个字符串</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; s.length()) &#123;</span><br><span class="line">        <span class="comment">//不采用for循环是因为循环控制语句不好设置，在扫描s字符串时，有很多情况下都会导致继续向前扫描</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">startWord</span> <span class="operator">=</span> i;<span class="comment">//一个指向单词的首字母的指针，记录下每个单词的起始位置</span></span><br><span class="line">            <span class="keyword">while</span>(i &lt; s.length() &amp;&amp; s.charAt(i) != <span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">            <span class="comment">//在while循环中，如果使用短路与的判断的话，优先将更重要的条件放到第一个表达式是位置，这样更安全，避免index溢出</span></span><br><span class="line">            <span class="comment">//如果扫描到的是正常的字母，则继续向后扫描，尝试找到一整个单词</span></span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//跳出循环代表一个单词结束，或者遍历完了整个数组</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i-<span class="number">1</span>;<span class="comment">//记录下一个单词最后的字母下标</span></span><br><span class="line">            <span class="comment">//不需要再设置一个逆序函数，让整个单词逆序后再加入res</span></span><br><span class="line">          	<span class="comment">//直接从后向前扫描，将后面的字母放到前面去即可</span></span><br><span class="line">            <span class="keyword">while</span>(j &gt;= startWord)&#123;</span><br><span class="line">                res.append(s.charAt(j--));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//可能一个单词之后有多个空格</span></span><br><span class="line">            <span class="keyword">while</span>(i &lt; s.length() &amp;&amp; s.charAt(i) == <span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">                i++;</span><br><span class="line">                res.append(<span class="string">&#x27; &#x27;</span>);<span class="comment">//每扫描到一个空格，那就加一个空格</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//由于方法的返回值类型是String，最后还需要进行一下类型转换</span></span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>调试过程我发现，在使用短路与时<code>while(i &lt; s.length() &amp;&amp; s.charAt(i) != &#39; &#39;)</code>，如果将<code>s.charAt(i) != &#39; &#39;</code>放在表达式1的位置，很容易编译器报错。</p>
+<p>假设此时已经遍历完字符串中的最后一个字符(<code>i=s.length</code>)按照我们的设计，下一轮应该直接跳出循环。从逻辑上表达式1和表达式2的位置不是很重要，如果<code>s.charAt(i) != &#39; &#39;</code>放在表达式1的位置，<code>i=s.length</code>，那么程序会先判断<code>s.charAt(i) != &#39; &#39;</code>，在判断过程中就会发生下标越界的错误。但是如果<code>i &lt; s.length()</code> 放在表达式1的位置，在判断过程中不会报错，而会根据表达式结果直接跳出循环！</p>
+<p>因此在之后设计下标的逻辑判断时，优先判断下标关系！</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字符串中第一个唯一字符</title>
+    <url>/2022/12/01/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%94%AF%E4%B8%80%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<h1 id="字符串中第一个唯一字符"><a href="#字符串中第一个唯一字符" class="headerlink" title="字符串中第一个唯一字符"></a>字符串中第一个唯一字符</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个字符串 <code>s</code> ，找到 <em>它的第一个不重复的字符，并返回它的索引</em> 。如果不存在，则返回 <code>-1</code></p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>看到这道题我的第一个联想到的是存在重复元素<sup><a href="#ref1">1</a></sup>，先将字符串里的元素进行排序，排好序后有重复的字符都会紧挨在一起，如果一个元素和左右两个元素都不相等，那这个元素就是不重复的。</p>
+<p>但是这个思路有些问题：</p>
+<ol>
+<li>排序会打乱字符串中字符的顺序，导致输出的字符索引并不是初始的</li>
+<li>输出的第一个不重复的字符并不是在字符串中第一个不重复的字符，而是所有不重复字符中ASCII码最小的那个</li>
+</ol>
+<p>但是这个思路还是给了我很大的启发，既然排序会打乱字符串中字符的顺序，那我就不使用排序好了。那有没有其他的办法可以统计字符出现的次数呢？</p>
+<p>我想到了<strong>计数排序</strong>。这道题刚好只有26个字符，那我申请一个长度为26的数组来统计每个字符出现的频率。我按照字符串中字符的顺序遍历，每遍历到一个字符<code>a</code>，我就将其转换为<code>int</code>得到它的<code>ASCII</code>码，再减去97（<code>a</code>的<code>ASCII</code>码为97），这样就能将其放到我申请的数组中了。这样一次遍历后我就能得到所有字符出现的频率，我提取出所有只出现了一次的字符，重新组成一个新的数组，不妨称为<code>uniq</code>数组，如果<code>uniq</code>数组为空，那么程序直接返回-1即可。</p>
+<p>但这样仍然不能解决第一个问题，即我得到的字符的顺序是按照<code>ASCII</code>码的顺序排列的，我不清楚原始字符串中的顺序。那么我再遍历一次原来的字符串，把字符串中的每个字符都与<code>uniq</code>数组中的每一个字符进行比较，如果有先匹配到的那我就直接返回这个字符，程序结束。</p>
+<ul>
+<li>时间复杂度：$O(N^{2})$，主要的问题出现在最后一步，我为了得到原始字符串中第一个出现的字符，我不得不将字符串与<code>uniq</code>数组进行一一比较</li>
+<li>空间复杂度:$O(1)$</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">firstUniqChar</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">char</span>[] chars = s.toCharArray();<span class="comment">//将字符串转换为字符数组</span></span><br><span class="line">      	<span class="comment">//计数排序</span></span><br><span class="line">        <span class="type">int</span>[] ascii = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; chars.length; i++)&#123;</span><br><span class="line">            ascii[(<span class="type">int</span>)chars[i] - <span class="number">97</span>] ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">char</span>[] uniq = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; ascii.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (ascii[i] == <span class="number">1</span>)</span><br><span class="line">                uniq[j++] = (<span class="type">char</span>) (i + <span class="number">97</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="keyword">if</span>(uniq == <span class="literal">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;<span class="comment">//如果uniq数组为空，则代表没有唯一的字符</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; chars.length; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>; k &lt; j + <span class="number">1</span>; k++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (chars[i] == uniq[k])&#123;</span><br><span class="line">                   <span class="keyword">return</span> i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>方法一之所以出现时间复杂度很高的情况，归根结底还是我是按照<code>ASCII</code>码的顺序来遍历字符串，如果我能优化<code>uniq</code>数组就能解决这个问题。<code>uniq</code>数组的出现是为了将所有只出现了一次的数都归纳起来，那我是否可以通过直接遍历<code>ascii</code>数组来省掉<code>uniq</code>呢。我直接遍历<code>ascii</code>数组，如果一个元素的值不是1，那我就直接忽略这个字符，它肯定不是我想要的，那如果它的值是1，那就有可能是我想要的结果。那现在的重点就是我按照什么顺序去遍历<code>ascii</code></p>
+<p>我们可以不用按照<code>ASCII</code>码的顺序来遍历<code>uniq</code>数组，我们可以直接按照字符串的顺序来遍历数组。就像我们在统计<code>ascii</code>这个数组时，我们并非是用<code>for(int i = 97; i &lt; 97 + 26; i++)</code>的顺序，而是在按照<code>str</code>的顺序，每找到一个字符，就直接把它放到对应的<code>ascii</code>数组中。</p>
+<p>那么同理，在方法一的第三个循环中，我们不用拿着字符串和<code>uniq</code>数组进行比较，而是可以直接按照字符串的顺序再读一遍<code>ascii</code>数组，如果<code>ascii</code>数组中记录的该字符的出现的频率是1那么就返回它好了。</p>
+<p>同时在代码细节上还有许多可以优化的地方</p>
+<ol>
+<li><p>遍历字符串时不一定要先将其转换为字符数组再遍历</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; str.length(); i++)&#123;</span><br><span class="line">		str.charAt(i)....<span class="comment">//提取出字符串中第i个字符</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符ASCII码的转化</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(<span class="type">int</span>)chars[i] - <span class="number">97</span></span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="type">char</span>[i] - <span class="string">&#x27;a&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>时间复杂度：由于没有了<code>uniq</code>数组，更不需要将字符串与<code>uniq</code>数组一一比较，时间复杂度为$O(1)$</li>
+<li>空间复杂度：$O(1)$</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution2</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">firstUniqChar</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] times = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">26</span>];<span class="comment">//原ascii数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            times[s.charAt(i)-<span class="string">&#x27;a&#x27;</span>]++ ;<span class="comment">//按照字符串的顺序填写times数组</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (times[s.charAt(i)-<span class="string">&#x27;a&#x27;</span>] == <span class="number">1</span>) &#123;<span class="comment">//按照字符串的顺序遍历times数组</span></span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><span name = "ref1"><a href="https://keveinkk.github.io/2022/11/21/%E7%AE%97%E6%B3%95/%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/">https://keveinkk.github.io/2022/11/21/算法/存在重复元素/</a></span></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>存在重复元素</title>
     <url>/2022/11/21/%E7%AE%97%E6%B3%95/%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</url>
     <content><![CDATA[<h1 id="存在重复元素"><a href="#存在重复元素" class="headerlink" title="存在重复元素"></a>存在重复元素</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> ，返回 <code>true</code> ；如果数组中每个元素互不相同，返回 <code>false</code></p>
@@ -3679,6 +3929,38 @@
       </tags>
   </entry>
   <entry>
+    <title>猜数游戏</title>
+    <url>/2022/11/22/%E7%AE%97%E6%B3%95/%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F/</url>
+    <content><![CDATA[<h1 id="猜数游戏"><a href="#猜数游戏" class="headerlink" title="猜数游戏"></a>猜数游戏</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>我在做Java一个简单的猜数游戏时突发奇想，能不能编写一个程序让计算机自己产生一个随机数，自己再猜。</p>
+<h2 id="方法一：二分查找法"><a href="#方法一：二分查找法" class="headerlink" title="方法一：二分查找法"></a>方法一：二分查找法</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>解决这个问题很容易就能想到用二分查找来高效的解决，但是我在实际做的过程中发现自己对二分查找的理解还是差了一点。</p>
+<p>先看看我的第一个版本的代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">guessNum</span><span class="params">(<span class="type">int</span> flag, <span class="type">int</span> low, <span class="type">int</span> high)</span>&#123;</span><br><span class="line">  <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> low + (high - low) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(flag &lt; <span class="number">0</span>)&#123;<span class="comment">//猜小了，则输出右半部分的中点</span></span><br><span class="line">    <span class="keyword">return</span> (mid + high) / <span class="number">2</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;<span class="comment">//猜大了，则输出左半部分的中点</span></span><br><span class="line">    <span class="keyword">return</span> (low + mid) / <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (count &lt;= <span class="number">100</span> &amp;&amp; guess != numToguess)&#123;</span><br><span class="line">	<span class="keyword">if</span> (guess &gt; numToguess)&#123;</span><br><span class="line">		System.out.println(guess + <span class="string">&quot; 大于 &quot;</span> + numToguess + <span class="string">&quot;猜大了，请再试一次&quot;</span>);</span><br><span class="line">		guess = guessNum(<span class="number">1</span>,a,guess);</span><br><span class="line">		count ++;</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		System.out.println(guess + <span class="string">&quot; 小于 &quot;</span> + numToguess + <span class="string">&quot;猜小了，请再试一次&quot;</span>);</span><br><span class="line">    a = guess;</span><br><span class="line">    guess = guessNum(-<span class="number">1</span>,guess,b);</span><br><span class="line">    count ++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>二分查找的精髓在于<u>每一次查找之后都能舍弃另一半的信息</u>，然而运行我上面的代码会发现，我每次猜测的数据都在左右不停的摇摆。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8dp35qixlj30vm0midhs.jpg"></p>
+<p>在熟悉通过数组来实现二分查找后，我发现自己并不能很轻松的解决这个问题，我开始思考原因。</p>
+<p>在数组里之所以每次都能做到精确的划分出目标所在的区间，是因为我们巧妙的设置了<code>low</code>和<code>high</code>两个指针。每一次比较之后，都根据目标和中间数据的大小关系来调整<code>low</code>或者<code>high</code>指针，而每次查找的数据都是在<code>low</code>和<code>high</code>指针之间查找，并不会超过这个区域。也就是说，<u>二分查找之所以能每查找一轮都能舍弃另一半的原因，在于只在<code>low</code>和<code>high</code>指针之间查找，每查找一轮都要修改这个区间</u>。</p>
+<p>那么想要解决我现在的问题我们就要重新检查我们是否真的发挥了<code>low</code>和<code>high</code>指针的作用。不难发现，在<code>guess = guessNum(1,a,guess);</code>和<code>guess = guessNum(-1,guess,b);</code>两个关键的划分区间的操作中，我的a和b指针从来都没有发生过改变，也就是查找的范围一直没有变：要么就在最左边查找、要么就在最右边查找，无法做到真正的二分。</p>
+<p>要解决这个问题，我们只需要根据每一轮查到的结果来及时调整<code>low</code>或者<code>high</code>指针即可，以下是完整的代码。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Random</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> random;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> low;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> high;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getLow</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getHigh</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> high;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getRandom</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setRandom</span><span class="params">(<span class="type">int</span> random)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setLow</span><span class="params">(<span class="type">int</span> low)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.low = low;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setHigh</span><span class="params">(<span class="type">int</span> high)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.high = high;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Random()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    Random(<span class="type">int</span> random)&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    Random(<span class="type">int</span> random, <span class="type">int</span> low, <span class="type">int</span> high)&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">        <span class="built_in">this</span>.low = low;</span><br><span class="line">        <span class="built_in">this</span>.high = high;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//产生一个在low～high之间的随机数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">randGen</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个数字区间&quot;</span>);</span><br><span class="line">        java.util.<span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.util.Scanner((System.in));</span><br><span class="line">        setLow(scanner.nextInt());</span><br><span class="line">        setHigh(scanner.nextInt());</span><br><span class="line">        <span class="type">int</span> <span class="variable">ran</span> <span class="operator">=</span> getLow() - <span class="number">1</span> + (<span class="type">int</span>)(Math.random() *(getHigh()-getLow()));</span><br><span class="line">        setRandom(ran);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//返回low与high的中点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">mid</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">this</span>.getLow() + <span class="built_in">this</span>.getHigh()) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Guess</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">LIMIT_GUESS</span> <span class="operator">=</span> <span class="number">100</span>;<span class="comment">//控制猜测的次数，避免死循环</span></span><br><span class="line">    <span class="keyword">private</span> Random random;<span class="comment">//Random是Guess的一个属性</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Guess</span><span class="params">(Random random)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> Random <span class="title function_">getRandom</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> random;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">guess</span><span class="params">()</span>&#123;</span><br><span class="line">        getRandom().randGen();<span class="comment">//产生随机数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">guess</span> <span class="operator">=</span> getRandom().mid();<span class="comment">//猜测中点的数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (count &lt;= LIMIT_GUESS &amp;&amp; guess != getRandom().getRandom())&#123;</span><br><span class="line">            <span class="keyword">if</span> (guess &gt; getRandom().getRandom())&#123;</span><br><span class="line">                System.out.println(guess + <span class="string">&quot; 大于 &quot;</span> + getRandom().getRandom() + <span class="string">&quot;猜大了，请再试一次&quot;</span>);</span><br><span class="line">                getRandom().setHigh(guess);<span class="comment">//猜大了，则及时调整high指针</span></span><br><span class="line">                guess = getRandom().mid();</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(guess + <span class="string">&quot; 小于 &quot;</span> + getRandom().getRandom() + <span class="string">&quot;猜小了，请再试一次&quot;</span>);</span><br><span class="line">                getRandom().setLow(guess);<span class="comment">//猜小了，则及时调整low指针</span></span><br><span class="line">                guess = getRandom().mid();</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;恭喜！猜对了，是 &quot;</span> + guess);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">Guess</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Guess</span>(random);</span><br><span class="line">        test.guess();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8dq3yz1rjj30vm0tutbc.jpg"></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>移动零</title>
     <url>/2022/11/11/%E7%AE%97%E6%B3%95/%E7%A7%BB%E5%8A%A8%E9%9B%B6/</url>
     <content><![CDATA[<h1 id="移动零"><a href="#移动零" class="headerlink" title="移动零"></a>移动零</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。<strong>请注意</strong> ，必须在不复制数组的情况下原地对数组进行操作。</p>
@@ -3745,144 +4027,6 @@
       <tags>
         <tag>算法</tag>
         <tag>排序算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo搭建博客过程中，4000端口被占用</title>
-    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
-<ul>
-<li>更改hexo使用的端口</li>
-<li>杀掉正在占用4000端口的其他进程</li>
-</ul>
-<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
-<ul>
-<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
-<ul>
-<li><code>sudo lsof -i tcp:端口号</code></li>
-<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
-<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
-</li>
-<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
-<ul>
-<li><code>sudo kill -9 PID</code></li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>猜数游戏</title>
-    <url>/2022/11/22/%E7%AE%97%E6%B3%95/%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F/</url>
-    <content><![CDATA[<h1 id="猜数游戏"><a href="#猜数游戏" class="headerlink" title="猜数游戏"></a>猜数游戏</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>我在做Java一个简单的猜数游戏时突发奇想，能不能编写一个程序让计算机自己产生一个随机数，自己再猜。</p>
-<h2 id="方法一：二分查找法"><a href="#方法一：二分查找法" class="headerlink" title="方法一：二分查找法"></a>方法一：二分查找法</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>解决这个问题很容易就能想到用二分查找来高效的解决，但是我在实际做的过程中发现自己对二分查找的理解还是差了一点。</p>
-<p>先看看我的第一个版本的代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">guessNum</span><span class="params">(<span class="type">int</span> flag, <span class="type">int</span> low, <span class="type">int</span> high)</span>&#123;</span><br><span class="line">  <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> low + (high - low) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(flag &lt; <span class="number">0</span>)&#123;<span class="comment">//猜小了，则输出右半部分的中点</span></span><br><span class="line">    <span class="keyword">return</span> (mid + high) / <span class="number">2</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;<span class="comment">//猜大了，则输出左半部分的中点</span></span><br><span class="line">    <span class="keyword">return</span> (low + mid) / <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (count &lt;= <span class="number">100</span> &amp;&amp; guess != numToguess)&#123;</span><br><span class="line">	<span class="keyword">if</span> (guess &gt; numToguess)&#123;</span><br><span class="line">		System.out.println(guess + <span class="string">&quot; 大于 &quot;</span> + numToguess + <span class="string">&quot;猜大了，请再试一次&quot;</span>);</span><br><span class="line">		guess = guessNum(<span class="number">1</span>,a,guess);</span><br><span class="line">		count ++;</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		System.out.println(guess + <span class="string">&quot; 小于 &quot;</span> + numToguess + <span class="string">&quot;猜小了，请再试一次&quot;</span>);</span><br><span class="line">    a = guess;</span><br><span class="line">    guess = guessNum(-<span class="number">1</span>,guess,b);</span><br><span class="line">    count ++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>二分查找的精髓在于<u>每一次查找之后都能舍弃另一半的信息</u>，然而运行我上面的代码会发现，我每次猜测的数据都在左右不停的摇摆。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8dp35qixlj30vm0midhs.jpg"></p>
-<p>在熟悉通过数组来实现二分查找后，我发现自己并不能很轻松的解决这个问题，我开始思考原因。</p>
-<p>在数组里之所以每次都能做到精确的划分出目标所在的区间，是因为我们巧妙的设置了<code>low</code>和<code>high</code>两个指针。每一次比较之后，都根据目标和中间数据的大小关系来调整<code>low</code>或者<code>high</code>指针，而每次查找的数据都是在<code>low</code>和<code>high</code>指针之间查找，并不会超过这个区域。也就是说，<u>二分查找之所以能每查找一轮都能舍弃另一半的原因，在于只在<code>low</code>和<code>high</code>指针之间查找，每查找一轮都要修改这个区间</u>。</p>
-<p>那么想要解决我现在的问题我们就要重新检查我们是否真的发挥了<code>low</code>和<code>high</code>指针的作用。不难发现，在<code>guess = guessNum(1,a,guess);</code>和<code>guess = guessNum(-1,guess,b);</code>两个关键的划分区间的操作中，我的a和b指针从来都没有发生过改变，也就是查找的范围一直没有变：要么就在最左边查找、要么就在最右边查找，无法做到真正的二分。</p>
-<p>要解决这个问题，我们只需要根据每一轮查到的结果来及时调整<code>low</code>或者<code>high</code>指针即可，以下是完整的代码。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Random</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> random;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> low;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> high;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getLow</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getHigh</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> high;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getRandom</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setRandom</span><span class="params">(<span class="type">int</span> random)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setLow</span><span class="params">(<span class="type">int</span> low)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.low = low;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setHigh</span><span class="params">(<span class="type">int</span> high)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.high = high;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Random()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    Random(<span class="type">int</span> random)&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    Random(<span class="type">int</span> random, <span class="type">int</span> low, <span class="type">int</span> high)&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">        <span class="built_in">this</span>.low = low;</span><br><span class="line">        <span class="built_in">this</span>.high = high;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//产生一个在low～high之间的随机数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">randGen</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个数字区间&quot;</span>);</span><br><span class="line">        java.util.<span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.util.Scanner((System.in));</span><br><span class="line">        setLow(scanner.nextInt());</span><br><span class="line">        setHigh(scanner.nextInt());</span><br><span class="line">        <span class="type">int</span> <span class="variable">ran</span> <span class="operator">=</span> getLow() - <span class="number">1</span> + (<span class="type">int</span>)(Math.random() *(getHigh()-getLow()));</span><br><span class="line">        setRandom(ran);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//返回low与high的中点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">mid</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">this</span>.getLow() + <span class="built_in">this</span>.getHigh()) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Guess</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">LIMIT_GUESS</span> <span class="operator">=</span> <span class="number">100</span>;<span class="comment">//控制猜测的次数，避免死循环</span></span><br><span class="line">    <span class="keyword">private</span> Random random;<span class="comment">//Random是Guess的一个属性</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Guess</span><span class="params">(Random random)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> Random <span class="title function_">getRandom</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> random;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">guess</span><span class="params">()</span>&#123;</span><br><span class="line">        getRandom().randGen();<span class="comment">//产生随机数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">guess</span> <span class="operator">=</span> getRandom().mid();<span class="comment">//猜测中点的数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (count &lt;= LIMIT_GUESS &amp;&amp; guess != getRandom().getRandom())&#123;</span><br><span class="line">            <span class="keyword">if</span> (guess &gt; getRandom().getRandom())&#123;</span><br><span class="line">                System.out.println(guess + <span class="string">&quot; 大于 &quot;</span> + getRandom().getRandom() + <span class="string">&quot;猜大了，请再试一次&quot;</span>);</span><br><span class="line">                getRandom().setHigh(guess);<span class="comment">//猜大了，则及时调整high指针</span></span><br><span class="line">                guess = getRandom().mid();</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(guess + <span class="string">&quot; 小于 &quot;</span> + getRandom().getRandom() + <span class="string">&quot;猜小了，请再试一次&quot;</span>);</span><br><span class="line">                getRandom().setLow(guess);<span class="comment">//猜小了，则及时调整low指针</span></span><br><span class="line">                guess = getRandom().mid();</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;恭喜！猜对了，是 &quot;</span> + guess);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">Guess</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Guess</span>(random);</span><br><span class="line">        test.guess();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8dq3yz1rjj30vm0tutbc.jpg"></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>二分查找</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>反转字符串中的单词</title>
-    <url>/2022/11/16/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/</url>
-    <content><![CDATA[<h1 id="反转字符串中的单词"><a href="#反转字符串中的单词" class="headerlink" title="反转字符串中的单词"></a>反转字符串中的单词</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串 <code>s</code> ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><ul>
-<li><p>在Java中处理字符串常用的有三种类型：<code>String</code>、<code>StringBuffer</code>以及<code>StringBuilder</code>。这里我们着重介绍前两种</p>
-<ol>
-<li><code>String</code>和<code>StringBuffer</code>都是由final所修饰的，无法再被继承</li>
-<li>它们的主要区别是：<code>String</code>的长度和内容是不可变的，<code>StringBuffer</code>的长度和内容是可变的</li>
-<li><code>String</code>是不可变的对象，每次对<code>String</code>类进行改变时都会生成一个新的<code>String</code>类对象，然后将引用指向新的对象。因此如果需要改变字符串的长度，我们通常不会使用<code>String</code>类</li>
-<li>使用<code>StringBuffer</code>时，我们每次都会对<code>StringBuffer</code>对象本身进行操作，而不会生成一个新的对象。当需要经常需要修改字符串时，我们推荐使用<code>StringBuffer</code>类</li>
-</ol>
-</li>
-<li><p>遍历字符串<code>String</code>的方式</p>
-<ol>
-<li><p>调用<code>String</code>类的<code>toCharArray()</code>方法，先将字符串转变成一个字符数组，然后遍历数组。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;This is Kevin&#x27;s Blog&quot;</span>;</span><br><span class="line"><span class="type">char</span>[] arr = str.toCharArray();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>调用<code>String</code>类的<code>charAt(int i)</code>方法，在遍历字符串的过程中，每扫描到下标为<code>i</code>的一个字符就将它提取出来变成字符类型</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;This is Kevin&#x27;s Blog&quot;</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; str.length()l i++)&#123;</span><br><span class="line">  System.out.print(str.charAt(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是，获得字符串的长度时需要使用<code>String</code>类的<code>length()</code>方法，而获得数组的长度时可以直接方法数组中的<code>length</code>属性</p>
-</li>
-<li><p>调用<code>String</code>类的<code>subString(i,i+1)</code>方法，将字符串中的每个字符按照子串的形式提取出来</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;This is Kevin&#x27;s Blog&quot;</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; str.length()l i++)&#123;</span><br><span class="line">  System.out.print(str.subString(i,i+<span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>s = str.substring(int beginIndex)</code>：将<code>str</code>从首字母起长度为<code>beginIndex</code>的字符串截取下来，将剩余的部分赋值给s</li>
-<li><code>s = str.substring(int beginIndex,int endIndex)</code>：将str中下标从beginIndex到<code>endIndex</code>之间的字符串截取下来给s</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p><code>StringBuffer</code>常用操作</p>
-<ol>
-<li><p><code>StringBuffer append(char c)</code>：添加字符<code>c</code>到<code>StringBuffer</code>对象中</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuffer</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">str.append(<span class="string">&#x27;d&#x27;</span>);</span><br><span class="line"><span class="comment">//str = &quot;abcd&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>StringBuffer deleteCharAt(int index)</code>：移除下标为<code>index</code>的字符</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuffer</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">str.deleteCharAt(<span class="number">2</span>);</span><br><span class="line"><span class="comment">//str = &quot;ab&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>StringBuffer delete(int start,int end)</code>：移除下标从<code>start</code>到<code>end</code>之间的字符串</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuffer</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(<span class="string">&quot;abcdef&quot;</span>);</span><br><span class="line">str.delete(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//str = &quot;def&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>String toString()</code>：将<code>StringBuffer</code>转换成<code>String</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuffer</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> str.toString();</span><br><span class="line"><span class="comment">//s = &quot;abc&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>StringBuffer reverse()</code>：将此<code>StringBuffer</code>逆序</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringBuffer</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">str.reverse();</span><br><span class="line"><span class="comment">//str = &quot;cba&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ul>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>开辟一个新字符串<code>res</code>。扫描原来的字符串s，每扫描到一个新的单词，就暂停扫描，先将扫描到的单词逆序放到<code>res</code>，然后再继续向后扫描。为了达到这个效果我们需要两个指针，一个指针控制字符串<code>s</code>的扫描，另一个指针记录每个单词起始的位置。由于我们需要不停的增加<code>res</code>中的内容，所以考虑申请<code>StringBuffer</code>类型的<code>res</code>，每次添加新的单词时调用<code>append(char c)</code>方法</p>
-<ul>
-<li>时间复杂度$O(N)$</li>
-<li>空间复杂度$O(N)$，由于在Java中字符串类型是不能修改的，所以无法做到原地工作</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">reverseWords</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">StringBuffer</span> <span class="variable">res</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();<span class="comment">//申请StringBuffer类型的辅助空间</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//用于遍历整个字符串</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; s.length()) &#123;</span><br><span class="line">        <span class="comment">//不采用for循环是因为循环控制语句不好设置，在扫描s字符串时，有很多情况下都会导致继续向前扫描</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">startWord</span> <span class="operator">=</span> i;<span class="comment">//一个指向单词的首字母的指针，记录下每个单词的起始位置</span></span><br><span class="line">            <span class="keyword">while</span>(i &lt; s.length() &amp;&amp; s.charAt(i) != <span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">            <span class="comment">//在while循环中，如果使用短路与的判断的话，优先将更重要的条件放到第一个表达式是位置，这样更安全，避免index溢出</span></span><br><span class="line">            <span class="comment">//如果扫描到的是正常的字母，则继续向后扫描，尝试找到一整个单词</span></span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//跳出循环代表一个单词结束，或者遍历完了整个数组</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i-<span class="number">1</span>;<span class="comment">//记录下一个单词最后的字母下标</span></span><br><span class="line">            <span class="comment">//不需要再设置一个逆序函数，让整个单词逆序后再加入res</span></span><br><span class="line">          	<span class="comment">//直接从后向前扫描，将后面的字母放到前面去即可</span></span><br><span class="line">            <span class="keyword">while</span>(j &gt;= startWord)&#123;</span><br><span class="line">                res.append(s.charAt(j--));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//可能一个单词之后有多个空格</span></span><br><span class="line">            <span class="keyword">while</span>(i &lt; s.length() &amp;&amp; s.charAt(i) == <span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">                i++;</span><br><span class="line">                res.append(<span class="string">&#x27; &#x27;</span>);<span class="comment">//每扫描到一个空格，那就加一个空格</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//由于方法的返回值类型是String，最后还需要进行一下类型转换</span></span><br><span class="line">        <span class="keyword">return</span> res.toString();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>调试过程我发现，在使用短路与时<code>while(i &lt; s.length() &amp;&amp; s.charAt(i) != &#39; &#39;)</code>，如果将<code>s.charAt(i) != &#39; &#39;</code>放在表达式1的位置，很容易编译器报错。</p>
-<p>假设此时已经遍历完字符串中的最后一个字符(<code>i=s.length</code>)按照我们的设计，下一轮应该直接跳出循环。从逻辑上表达式1和表达式2的位置不是很重要，如果<code>s.charAt(i) != &#39; &#39;</code>放在表达式1的位置，<code>i=s.length</code>，那么程序会先判断<code>s.charAt(i) != &#39; &#39;</code>，在判断过程中就会发生下标越界的错误。但是如果<code>i &lt; s.length()</code> 放在表达式1的位置，在判断过程中不会报错，而会根据表达式结果直接跳出循环！</p>
-<p>因此在之后设计下标的逻辑判断时，优先判断下标关系！</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>双指针</tag>
       </tags>
   </entry>
 </search>
