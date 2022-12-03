@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo搭建博客过程中，4000端口被占用</title>
-    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
-<ul>
-<li>更改hexo使用的端口</li>
-<li>杀掉正在占用4000端口的其他进程</li>
-</ul>
-<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
-<ul>
-<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
-<ul>
-<li><code>sudo lsof -i tcp:端口号</code></li>
-<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
-<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
-</li>
-<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
-<ul>
-<li><code>sudo kill -9 PID</code></li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java - 1st Week - Summary</title>
     <url>/2022/11/07/Java/Java%20-%201st%20Week%20-%20Summary/</url>
     <content><![CDATA[<h1 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h1><p align="right">10.26-11.05</p>
@@ -3014,6 +2979,105 @@
       </tags>
   </entry>
   <entry>
+    <title>验证回文串</title>
+    <url>/2022/12/03/Java/%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E4%B8%B2/</url>
+    <content><![CDATA[<h1 id="验证回文串"><a href="#验证回文串" class="headerlink" title="验证回文串"></a>验证回文串</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。（字母和数字都属于字母数字字符）</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>我们首先观察回文串的特点，也就是正着读和反着读的顺序是相同的，那么借助这个特点，我首先想到的是用双指针的方法来解决这道题。设立两个指针，分别从头到尾，和从尾到头的遍历这个字符串，如果这个字符串是一个回文串的话，那头指针和尾指针指向的字符应该永远都是一样的。</p>
+<p>当然这个题还有一个点需要考虑，那么就是要移除所有的非字母数字字符，并且忽略大小写。这一点其实也很容易实现，根据遍历到的字符的ASCII码做相应的处理即可。如果是非字母数字字符则直接跳过，如果是大写字符那么就统一将其转换为小写。</p>
+<ul>
+<li>时间复杂度：$O(N)$，只需要将字符串遍历一遍即可</li>
+<li>空间复杂度：$O(1)$</li>
+</ul>
+<h3 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h3><ul>
+<li><p><code>public static boolean isLetterOrDigit(char ch)</code></p>
+<blockquote>
+<p>Determines if the specified character is a letter or digit.（判断一个字符是字母或者是数字）</p>
+<p>A character is considered to be a letter or digit if either <code>Character.isLetter(char ch)</code> or <code>Character.isDigit(char ch)</code> returns <code>true</code> for the character.</p>
+</blockquote>
+<ul>
+<li>在<code>java.lang.Character</code>下提供了一个静态方法来判断一个字符的属性，我们不需要再单独写一个方法去通过ASCII码实现该功能</li>
+</ul>
+</li>
+<li><p><code>public static char toLowerCase(char ch)</code></p>
+<blockquote>
+<p>Converts the character argument to lowercase using case mapping information from the UnicodeData file.（将大些字母转换为小写字母）</p>
+</blockquote>
+<ul>
+<li>在<code>java.lang.Character</code>下提供了一个静态方法来实现大小写字母的转化</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = s.length() - <span class="number">1</span>;<span class="comment">//两个指针</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; j)&#123;<span class="comment">//不需要带等号，因为如果i和j指向同一个字符时，那必然是相等的</span></span><br><span class="line">          	<span class="comment">//忽略非字母数字字符</span></span><br><span class="line">            <span class="keyword">while</span> (i &lt; j &amp;&amp; isChar(s.charAt(i)) == <span class="string">&#x27;\u0000&#x27;</span>)&#123;</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//忽略非字母数字字符</span></span><br><span class="line">            <span class="keyword">while</span> (i &lt; j &amp;&amp; isChar(s.charAt(j)) == <span class="string">&#x27;\u0000&#x27;</span>)&#123;</span><br><span class="line">                j --;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果两个指针指向的内容不一样，则肯定不是回文串</span></span><br><span class="line">            <span class="keyword">if</span> (isChar(s.charAt(i)) != isChar(s.charAt(j)))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            i ++;<span class="comment">//指针移动</span></span><br><span class="line">            j --;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//判断字符是否是字母数字字符，是的话返回数字或者小写字符，否则返回0</span></span><br><span class="line">  	<span class="comment">//等价于实现了isLetterOrDigit(char ch)和toLowerCase(char ch)方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">char</span> <span class="title function_">isChar</span><span class="params">(<span class="type">char</span> c)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">asc</span> <span class="operator">=</span> (<span class="type">int</span>) c;</span><br><span class="line">        <span class="keyword">if</span> (asc &lt; <span class="number">48</span>) <span class="keyword">return</span> <span class="string">&#x27;\u0000&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span> (asc &gt; <span class="number">57</span> &amp;&amp; asc &lt; <span class="number">65</span>) <span class="keyword">return</span> <span class="string">&#x27;\u0000&#x27;</span>;</span><br><span class="line">        <span class="comment">//将大写字母转换为小写字母</span></span><br><span class="line">        <span class="keyword">if</span> (asc &gt; <span class="number">64</span> &amp;&amp; asc &lt; <span class="number">91</span>) <span class="keyword">return</span> (<span class="type">char</span>) (c + <span class="number">32</span>);</span><br><span class="line">        <span class="keyword">if</span> (asc &gt; <span class="number">90</span> &amp;&amp; asc &lt; <span class="number">97</span>) <span class="keyword">return</span> <span class="string">&#x27;\u0000&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span> (asc &gt; <span class="number">122</span>) <span class="keyword">return</span> <span class="string">&#x27;\u0000&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = s.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; !Character.isLetterOrDigit(s.charAt(i)))&#123;</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; !Character.isLetterOrDigit(s.charAt(j)))&#123;</span><br><span class="line">                j --;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (Character.toLowerCase(s.charAt(i ++)) != Character.toLowerCase(s.charAt(j --)))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>当然还有一个更直接的方法。既然回文串满足将字符串反过来读还是一样的的特点，那我们就直接反转一个字符串，如果反转之后的和反转之前是一样的话，那它就是一个回文串。这里的反转不能直接反转，我们需要将字符串里的非字母数字字符去掉之后再进行反转。</p>
+<p>由于需要对字符串的内容进行修改，我们这里考虑使用<code>StringBuffer</code>的数据类型</p>
+<ul>
+<li>时间复杂度：我们首先要遍历一遍原来的字符串，去掉其中的非字母数字字符，然后将其翻转之后再与原来的字符串进行比较，时间复杂度是$O(N)$</li>
+<li>空间复杂度：我们需要用一个<code>StringBuffer</code>来装载之前的字符串信息，空间复杂度是$O(N)$</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s.length(); i++)&#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> s.charAt(i);</span><br><span class="line">          	<span class="comment">//将非字母数字字符 并且将其统一为小写后 加入sb</span></span><br><span class="line">            <span class="keyword">if</span> (Character.isLetterOrDigit(c))</span><br><span class="line">                sb.append(Character.toLowerCase(c));</span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//new StringBuffer(sb.reverse())会报错</span></span><br><span class="line">        <span class="type">StringBuffer</span> <span class="variable">sbReverse</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(sb).reverse();</span><br><span class="line">      	<span class="comment">//是sb与sbReverse比较，而不是s和sbReverse比较</span></span><br><span class="line">        <span class="keyword">return</span> sb.toString().equals(sbReverse.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>字符串</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>整数反转</title>
     <url>/2022/11/28/%E7%AE%97%E6%B3%95/%20%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</url>
     <content><![CDATA[<h1 id="整数反转"><a href="#整数反转" class="headerlink" title="整数反转"></a>整数反转</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个32位的有符号整数x ，返回将x中的数字部分反转后的结果。如果反转后整数超过32位的有符号整数的范围$[−2^{31},2^{31} − 1]$，就返回 0。</p>
@@ -3276,36 +3340,6 @@
       <tags>
         <tag>算法</tag>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>加一</title>
-    <url>/2022/11/24/%E7%AE%97%E6%B3%95/%E5%8A%A0%E4%B8%80/</url>
-    <content><![CDATA[<h1 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数0之外，这个整数不会以零开头。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：digits = [1,2,3]</span><br><span class="line">输出：[1,2,4]</span><br><span class="line">解释：输入数组表示数字123，对其加一，输出124。</span><br><span class="line"></span><br><span class="line">输入：digits = [9]</span><br><span class="line">输出：[1，0]</span><br><span class="line">解释：输入数组表示数字9，对其加一，输出10。</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题在模拟对数字进行加一的运算结果，如果整个<code>digits</code>数组中末尾没有9的话其实非常简单，直接将<code>digits[len-1]</code>最后这个数修改一下，然后返回<code>digits</code>即可；如果数组中其他位置出现了9的话其实也没有影响，因为后面不进位的话前面也不会有改变。我们着重需要考虑的是末尾有9，或者说末尾有连续个9的情况。</p>
-<ol>
-<li>如果末尾有若干个9，但第一个数字不是，例如[1,2,9,9]。那么将最后一位设置成0，然后向前面进位，如果还是9，则将倒数第二位再设置成0，再进位…这样最后的结果和<code>digits</code>数组的长度是一样的，因为第一位不会再进位了</li>
-<li>如果全部是9，即第一位数字也是9，例如[9，9]。那么按照上面的步骤，最后<code>digits</code>的结果就是[10,0,0]，我们首先不得不申请一个大一点的数组res，将digits后面的几位复制给<code>res</code>，然后再将<code>res</code>的第一位设置成1，第二位设置成0即可。</li>
-</ol>
-<ul>
-<li>时间复杂度：$O(N)$，这种方法只用将<code>digits</code>数组遍历一遍即可结束</li>
-<li>空间复杂度：$O(N)$，这种方法由于需要复制数组，所以需要申请额外的辅助空间</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">				<span class="comment">//如果最后一位是9</span></span><br><span class="line">      	<span class="comment">//分两种情况：首位不是9和首位是9</span></span><br><span class="line">        <span class="keyword">if</span> (digits[len - <span class="number">1</span>] == <span class="number">9</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len-<span class="number">1</span>;</span><br><span class="line">            digits[i] ++;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; digits[i] == <span class="number">10</span>) &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">                i --;<span class="comment">//指针前移</span></span><br><span class="line">                digits[i] ++;<span class="comment">//进位</span></span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//首位是9</span></span><br><span class="line">          	<span class="comment">//则需要申请一个更大的空间</span></span><br><span class="line">            <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len+<span class="number">1</span>];</span><br><span class="line">                System.arraycopy(digits,<span class="number">1</span>,res,<span class="number">2</span>,len-<span class="number">1</span>);</span><br><span class="line">                res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                res[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            <span class="comment">//首位不是9</span></span><br><span class="line">            <span class="comment">//则只用修改最后一位</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">                System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//如果最后一位不是9</span></span><br><span class="line">        <span class="comment">//直接复制整个数组，然后修改最后一位即可</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">            System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">            res[len-<span class="number">1</span>] = res[len-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>在方法一中，由于我一直采用先申请一个辅助空间，然后对辅助空间进行复制、修改操作，这样导致我的空间复杂度在任何一种情况下都是$O(N)$。但其实，我完全可以调整思路，直接对<code>digits</code>进行操作，然后最后返回<code>digits</code>；除非万不得已，整个<code>digits</code>数组全部都是9，这样我再申请一个更大的空间去存放数据。</p>
-<p>同时，对两种情况分辨的标准也可以优化。在方法一中，我是根据末尾是否为9这个标准进行分类。但我们可以换个思路，我们可以看看在进行加一操作后结果是否为0。这二者的区别有点类似<code>while</code>和<code>do( )while</code>：方法一中我们需要先判断，如果是不同的情况，则需要进入不同的<code>while</code>循环，这样代码很长；然而方法二中，我们先进行操作，如果末位加一操作后不为0，那么直接可以跳出循环，这样只用写一种情况下的循环体。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          	<span class="comment">//直接先进行加一操作</span></span><br><span class="line">            digits[i] = (digits[i] + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">          	<span class="comment">//这里只用针对当前这个一个数是否为0进行判断，并不只考虑最后一个数</span></span><br><span class="line">          	<span class="comment">//如果这个数不为0，则代表没有发生进位，那这个数前面的都不用改了</span></span><br><span class="line">          	<span class="comment">//此时，加一操作之后的结果已经在数组中修改了，那么直接返回digits即可</span></span><br><span class="line">            <span class="keyword">if</span> (digits[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果这个数等于0</span></span><br><span class="line">          	<span class="comment">//则会发生进位现象，前面的数也需要+1</span></span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//循环完全退出则代表digits中原来全部为9</span></span><br><span class="line">      	<span class="comment">//此时再申请新的数组空间</span></span><br><span class="line">        digits = <span class="keyword">new</span> <span class="title class_">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        digits[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -3727,124 +3761,6 @@
       </tags>
   </entry>
   <entry>
-    <title>有效的数独</title>
-    <url>/2022/11/25/%E7%AE%97%E6%B3%95/%E6%9C%89%E6%95%88%E7%9A%84%E6%95%B0%E7%8B%AC/</url>
-    <content><![CDATA[<h1 id="有效的数独"><a href="#有效的数独" class="headerlink" title="有效的数独"></a>有效的数独</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请你判断一个$9\times9$的数独是否有效。只需要根据以下规则 ，验证已经填入的数字是否有效即可。</p>
-<ol>
-<li>数字 1-9 在每一行只能出现一次。</li>
-<li>数字 1-9 在每一列只能出现一次。</li>
-<li>数字 1-9 在每一个以粗实线分隔的$3\times3$宫内只能出现一次</li>
-</ol>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>最直接的思路就是按照三条规则进行判断，看看每一行、每一列、每一个九宫格是否都满足要求</p>
-<ul>
-<li>时间复杂度：每检查一条规则就需要遍历一次二维数组，所以时间复杂度是$O(3N^{2} )$</li>
-<li>空间复杂度：这种方法需要申请三个一维数组来记录每个数字出现的次数，空间复杂度是$O(3N)$</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isValidSudoku</span><span class="params">(<span class="type">char</span>[][] board)</span> &#123;</span><br><span class="line">      	<span class="comment">//遍历每一行以及每一列，检查每一行/列是否有效</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">9</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!judge(board,i))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//检查每一个九宫格是否有效</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">9</span>; i = i + <span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">9</span>; j = j + <span class="number">3</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!judge(board,i,j))</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断第n行和第n列是否正确</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">judge</span><span class="params">(<span class="type">char</span>[][] board,<span class="type">int</span> n)</span>&#123;</span><br><span class="line">        <span class="type">int</span>[] times1 = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">9</span>];<span class="comment">//记录每一个数字出现的次数</span></span><br><span class="line">      	<span class="comment">//检查第n行</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">9</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (board[n][i] != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">              	<span class="comment">//通过Character.getNumericValue(char)来获取字符内的数字</span></span><br><span class="line">                times1[Character.getNumericValue(board[n][i])]++;</span><br><span class="line">                <span class="keyword">if</span>(times1[Character.getNumericValue(board[n][i])] == <span class="number">2</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//检查第n列</span></span><br><span class="line">        <span class="type">int</span>[] times2 = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">9</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">9</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (board[i][n] != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">                times2[Character.getNumericValue(board[i][n])]]++;</span><br><span class="line">                <span class="keyword">if</span>(times2[Character.getNumericValue(board[i][n])]] == <span class="number">2</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断第一格为n，m的九宫格是否正确</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">judge</span><span class="params">(<span class="type">char</span>[][] board,<span class="type">int</span> n, <span class="type">int</span> m)</span>&#123;</span><br><span class="line">        <span class="type">int</span>[] times = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">9</span>];</span><br><span class="line">      	<span class="comment">//三个数字三个数字的跳跃</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (board[n+i][m+j] != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">                    times[Character.getNumericValue(board[n+i][m+j])]]++;</span><br><span class="line">                    <span class="keyword">if</span>(times[Character.getNumericValue(board[n+i][m+j])]] == <span class="number">2</span>)</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
-<li><p>字符的比较</p>
-<ul>
-<li><code>char</code>是一个基本数据类型，只能用<code>==</code>来比较相等，如果想用<code>equals()</code>方法来比较，则要用<code>char</code>的封装对象<code>Character</code></li>
-<li><code>String</code>是一个引用数据类型，用<code>==</code>来比较时比较的是两个字符串的引用是否指向同一个地址，要比较字符串内容是否相等时需要使用<code>equals()</code>方法</li>
-</ul>
-</li>
-<li><p>字符的转化</p>
-<ul>
-<li>将<code>char</code>转化为<code>int</code></li>
-<li><code>char</code>不能直接转化为<code>int</code>，直接转化得到的是相应字符的ASCII编码</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> (<span class="type">int</span>)a;</span><br><span class="line"><span class="comment">//num=51,51是3的ASCII编码</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>利用<code>char</code>的封装类<code>Character</code>, 通过如下静态方法就可以直接实现</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">getNumericValue</span><span class="params">(<span class="type">char</span> ch)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> getNumericValue((<span class="type">int</span>)ch);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> Character.getNumericValue(a);</span><br><span class="line"><span class="comment">//num=3</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>通过两个字符直接相减（减’0’）就可以得到<code>int</code>值</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> a - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line"><span class="comment">//num=3</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>方法一每检查一条规则就需要重新遍历一遍二维数组，这样其实很浪费时间，我们可以采用<strong>空间换时间</strong>的方法。</p>
-<p>我们可以只用将数组遍历一遍，在这一次遍历的过程中记录下数组的三个信息，即</p>
-<ol>
-<li>每一行数字出现的次数 <code>row[i][j]= 3</code>代表第<code>i</code>行，数值为j的数出现了3次</li>
-<li>每一列数字出现的次数 <code>colum[i][j] = 2</code>代表第<code>i</code>列，数值为<code>j</code>的数出现了2次</li>
-<li>每一个九宫格内数字出现的次数 <code>subbox[i][j][k] = 1</code>代表在第<code>[i,j]</code>的九宫格里数字<code>k</code>出现了1次</li>
-</ol>
-<ul>
-<li>时间复杂度：只用遍历一遍二维数组，时间复杂度为$O(N^{2})$</li>
-<li>空间复杂度：需要两个二维数组、一个$3\times 3\times 9$的三维数组，空间复杂度是$O(3N^{2} )$</li>
-</ul>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isValidSudoku</span><span class="params">(<span class="type">char</span>[][] board)</span> &#123;</span><br><span class="line">      	<span class="comment">//第一个9代表有9行，第二个9代表最多数值有9个（数独里没有10和0）</span></span><br><span class="line">        <span class="type">int</span>[][] rows = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">9</span>][<span class="number">9</span>];</span><br><span class="line">      	<span class="comment">//同理</span></span><br><span class="line">        <span class="type">int</span>[][] columns = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">9</span>][<span class="number">9</span>];</span><br><span class="line">      	<span class="comment">//第一个3代表九宫格最多有3行，第二个3代表九宫格最多有3列，第三个9代表数值有9个</span></span><br><span class="line">        <span class="type">int</span>[][][] subboxes = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">3</span>][<span class="number">3</span>][<span class="number">9</span>];</span><br><span class="line">      	<span class="comment">//遍历数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">9</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">9</span>; j++) &#123;</span><br><span class="line">              	<span class="comment">//获取每个格子里的字符数据</span></span><br><span class="line">                <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> board[i][j];</span><br><span class="line">              	<span class="comment">//只要是数字</span></span><br><span class="line">                <span class="keyword">if</span> (c != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">                  	<span class="comment">//减&#x27;0&#x27;是为了获取int数据</span></span><br><span class="line">                  	<span class="comment">//减1是为了将数据和数组下标需要匹配上，数值为1存储在0，数值为9存储在8</span></span><br><span class="line">                    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> c - <span class="string">&#x27;0&#x27;</span> - <span class="number">1</span>;</span><br><span class="line">                  	<span class="comment">//在一次遍历中，可以更新三个数组的信息</span></span><br><span class="line">                    rows[i][index]++;<span class="comment">//在第i行，该数字出现了一次</span></span><br><span class="line">                    columns[j][index]++;<span class="comment">//在第j列，该数字出现了一次</span></span><br><span class="line">                    subboxes[i/<span class="number">3</span>][j/<span class="number">3</span>][index]++;<span class="comment">//在该数字出现的九宫格里，该数字出现了一次</span></span><br><span class="line">                    <span class="keyword">if</span> (rows[i][index] &gt; <span class="number">1</span> || columns[j][index] &gt; <span class="number">1</span> || subboxes[i / <span class="number">3</span>][j / <span class="number">3</span>][index] &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//只要有一个条件不满子就无效</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>对数器和比较器</title>
     <url>/2022/11/07/%E7%AE%97%E6%B3%95/%E6%AF%94%E8%BE%83%E5%99%A8%20&amp;%20%E5%AF%B9%E6%95%B0%E5%99%A8/</url>
     <content><![CDATA[<h1 id="对数器"><a href="#对数器" class="headerlink" title="对数器"></a>对数器</h1><ul>
@@ -3977,6 +3893,159 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo搭建博客过程中，4000端口被占用</title>
+    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
+<ul>
+<li>更改hexo使用的端口</li>
+<li>杀掉正在占用4000端口的其他进程</li>
+</ul>
+<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
+<ul>
+<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
+<ul>
+<li><code>sudo lsof -i tcp:端口号</code></li>
+<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
+<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
+</li>
+<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
+<ul>
+<li><code>sudo kill -9 PID</code></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>有效的数独</title>
+    <url>/2022/11/25/%E7%AE%97%E6%B3%95/%E6%9C%89%E6%95%88%E7%9A%84%E6%95%B0%E7%8B%AC/</url>
+    <content><![CDATA[<h1 id="有效的数独"><a href="#有效的数独" class="headerlink" title="有效的数独"></a>有效的数独</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请你判断一个$9\times9$的数独是否有效。只需要根据以下规则 ，验证已经填入的数字是否有效即可。</p>
+<ol>
+<li>数字 1-9 在每一行只能出现一次。</li>
+<li>数字 1-9 在每一列只能出现一次。</li>
+<li>数字 1-9 在每一个以粗实线分隔的$3\times3$宫内只能出现一次</li>
+</ol>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>最直接的思路就是按照三条规则进行判断，看看每一行、每一列、每一个九宫格是否都满足要求</p>
+<ul>
+<li>时间复杂度：每检查一条规则就需要遍历一次二维数组，所以时间复杂度是$O(3N^{2} )$</li>
+<li>空间复杂度：这种方法需要申请三个一维数组来记录每个数字出现的次数，空间复杂度是$O(3N)$</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isValidSudoku</span><span class="params">(<span class="type">char</span>[][] board)</span> &#123;</span><br><span class="line">      	<span class="comment">//遍历每一行以及每一列，检查每一行/列是否有效</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">9</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!judge(board,i))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//检查每一个九宫格是否有效</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">9</span>; i = i + <span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">9</span>; j = j + <span class="number">3</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!judge(board,i,j))</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断第n行和第n列是否正确</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">judge</span><span class="params">(<span class="type">char</span>[][] board,<span class="type">int</span> n)</span>&#123;</span><br><span class="line">        <span class="type">int</span>[] times1 = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">9</span>];<span class="comment">//记录每一个数字出现的次数</span></span><br><span class="line">      	<span class="comment">//检查第n行</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">9</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (board[n][i] != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">              	<span class="comment">//通过Character.getNumericValue(char)来获取字符内的数字</span></span><br><span class="line">                times1[Character.getNumericValue(board[n][i])]++;</span><br><span class="line">                <span class="keyword">if</span>(times1[Character.getNumericValue(board[n][i])] == <span class="number">2</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//检查第n列</span></span><br><span class="line">        <span class="type">int</span>[] times2 = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">9</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">9</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (board[i][n] != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">                times2[Character.getNumericValue(board[i][n])]]++;</span><br><span class="line">                <span class="keyword">if</span>(times2[Character.getNumericValue(board[i][n])]] == <span class="number">2</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断第一格为n，m的九宫格是否正确</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">judge</span><span class="params">(<span class="type">char</span>[][] board,<span class="type">int</span> n, <span class="type">int</span> m)</span>&#123;</span><br><span class="line">        <span class="type">int</span>[] times = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">9</span>];</span><br><span class="line">      	<span class="comment">//三个数字三个数字的跳跃</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (board[n+i][m+j] != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">                    times[Character.getNumericValue(board[n+i][m+j])]]++;</span><br><span class="line">                    <span class="keyword">if</span>(times[Character.getNumericValue(board[n+i][m+j])]] == <span class="number">2</span>)</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li><p>字符的比较</p>
+<ul>
+<li><code>char</code>是一个基本数据类型，只能用<code>==</code>来比较相等，如果想用<code>equals()</code>方法来比较，则要用<code>char</code>的封装对象<code>Character</code></li>
+<li><code>String</code>是一个引用数据类型，用<code>==</code>来比较时比较的是两个字符串的引用是否指向同一个地址，要比较字符串内容是否相等时需要使用<code>equals()</code>方法</li>
+</ul>
+</li>
+<li><p>字符的转化</p>
+<ul>
+<li>将<code>char</code>转化为<code>int</code></li>
+<li><code>char</code>不能直接转化为<code>int</code>，直接转化得到的是相应字符的ASCII编码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> (<span class="type">int</span>)a;</span><br><span class="line"><span class="comment">//num=51,51是3的ASCII编码</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>利用<code>char</code>的封装类<code>Character</code>, 通过如下静态方法就可以直接实现</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">getNumericValue</span><span class="params">(<span class="type">char</span> ch)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> getNumericValue((<span class="type">int</span>)ch);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> Character.getNumericValue(a);</span><br><span class="line"><span class="comment">//num=3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通过两个字符直接相减（减’0’）就可以得到<code>int</code>值</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> a - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line"><span class="comment">//num=3</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>方法一每检查一条规则就需要重新遍历一遍二维数组，这样其实很浪费时间，我们可以采用<strong>空间换时间</strong>的方法。</p>
+<p>我们可以只用将数组遍历一遍，在这一次遍历的过程中记录下数组的三个信息，即</p>
+<ol>
+<li>每一行数字出现的次数 <code>row[i][j]= 3</code>代表第<code>i</code>行，数值为j的数出现了3次</li>
+<li>每一列数字出现的次数 <code>colum[i][j] = 2</code>代表第<code>i</code>列，数值为<code>j</code>的数出现了2次</li>
+<li>每一个九宫格内数字出现的次数 <code>subbox[i][j][k] = 1</code>代表在第<code>[i,j]</code>的九宫格里数字<code>k</code>出现了1次</li>
+</ol>
+<ul>
+<li>时间复杂度：只用遍历一遍二维数组，时间复杂度为$O(N^{2})$</li>
+<li>空间复杂度：需要两个二维数组、一个$3\times 3\times 9$的三维数组，空间复杂度是$O(3N^{2} )$</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isValidSudoku</span><span class="params">(<span class="type">char</span>[][] board)</span> &#123;</span><br><span class="line">      	<span class="comment">//第一个9代表有9行，第二个9代表最多数值有9个（数独里没有10和0）</span></span><br><span class="line">        <span class="type">int</span>[][] rows = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">9</span>][<span class="number">9</span>];</span><br><span class="line">      	<span class="comment">//同理</span></span><br><span class="line">        <span class="type">int</span>[][] columns = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">9</span>][<span class="number">9</span>];</span><br><span class="line">      	<span class="comment">//第一个3代表九宫格最多有3行，第二个3代表九宫格最多有3列，第三个9代表数值有9个</span></span><br><span class="line">        <span class="type">int</span>[][][] subboxes = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">3</span>][<span class="number">3</span>][<span class="number">9</span>];</span><br><span class="line">      	<span class="comment">//遍历数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">9</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">9</span>; j++) &#123;</span><br><span class="line">              	<span class="comment">//获取每个格子里的字符数据</span></span><br><span class="line">                <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> board[i][j];</span><br><span class="line">              	<span class="comment">//只要是数字</span></span><br><span class="line">                <span class="keyword">if</span> (c != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">                  	<span class="comment">//减&#x27;0&#x27;是为了获取int数据</span></span><br><span class="line">                  	<span class="comment">//减1是为了将数据和数组下标需要匹配上，数值为1存储在0，数值为9存储在8</span></span><br><span class="line">                    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> c - <span class="string">&#x27;0&#x27;</span> - <span class="number">1</span>;</span><br><span class="line">                  	<span class="comment">//在一次遍历中，可以更新三个数组的信息</span></span><br><span class="line">                    rows[i][index]++;<span class="comment">//在第i行，该数字出现了一次</span></span><br><span class="line">                    columns[j][index]++;<span class="comment">//在第j列，该数字出现了一次</span></span><br><span class="line">                    subboxes[i/<span class="number">3</span>][j/<span class="number">3</span>][index]++;<span class="comment">//在该数字出现的九宫格里，该数字出现了一次</span></span><br><span class="line">                    <span class="keyword">if</span> (rows[i][index] &gt; <span class="number">1</span> || columns[j][index] &gt; <span class="number">1</span> || subboxes[i / <span class="number">3</span>][j / <span class="number">3</span>][index] &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//只要有一个条件不满子就无效</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计数排序</title>
     <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h1 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h1><h5 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h5><ul>
@@ -4006,6 +4075,36 @@
       <tags>
         <tag>算法</tag>
         <tag>排序算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>加一</title>
+    <url>/2022/11/24/%E7%AE%97%E6%B3%95/%E5%8A%A0%E4%B8%80/</url>
+    <content><![CDATA[<h1 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数0之外，这个整数不会以零开头。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：digits = [1,2,3]</span><br><span class="line">输出：[1,2,4]</span><br><span class="line">解释：输入数组表示数字123，对其加一，输出124。</span><br><span class="line"></span><br><span class="line">输入：digits = [9]</span><br><span class="line">输出：[1，0]</span><br><span class="line">解释：输入数组表示数字9，对其加一，输出10。</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题在模拟对数字进行加一的运算结果，如果整个<code>digits</code>数组中末尾没有9的话其实非常简单，直接将<code>digits[len-1]</code>最后这个数修改一下，然后返回<code>digits</code>即可；如果数组中其他位置出现了9的话其实也没有影响，因为后面不进位的话前面也不会有改变。我们着重需要考虑的是末尾有9，或者说末尾有连续个9的情况。</p>
+<ol>
+<li>如果末尾有若干个9，但第一个数字不是，例如[1,2,9,9]。那么将最后一位设置成0，然后向前面进位，如果还是9，则将倒数第二位再设置成0，再进位…这样最后的结果和<code>digits</code>数组的长度是一样的，因为第一位不会再进位了</li>
+<li>如果全部是9，即第一位数字也是9，例如[9，9]。那么按照上面的步骤，最后<code>digits</code>的结果就是[10,0,0]，我们首先不得不申请一个大一点的数组res，将digits后面的几位复制给<code>res</code>，然后再将<code>res</code>的第一位设置成1，第二位设置成0即可。</li>
+</ol>
+<ul>
+<li>时间复杂度：$O(N)$，这种方法只用将<code>digits</code>数组遍历一遍即可结束</li>
+<li>空间复杂度：$O(N)$，这种方法由于需要复制数组，所以需要申请额外的辅助空间</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">				<span class="comment">//如果最后一位是9</span></span><br><span class="line">      	<span class="comment">//分两种情况：首位不是9和首位是9</span></span><br><span class="line">        <span class="keyword">if</span> (digits[len - <span class="number">1</span>] == <span class="number">9</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len-<span class="number">1</span>;</span><br><span class="line">            digits[i] ++;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; digits[i] == <span class="number">10</span>) &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">                i --;<span class="comment">//指针前移</span></span><br><span class="line">                digits[i] ++;<span class="comment">//进位</span></span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//首位是9</span></span><br><span class="line">          	<span class="comment">//则需要申请一个更大的空间</span></span><br><span class="line">            <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len+<span class="number">1</span>];</span><br><span class="line">                System.arraycopy(digits,<span class="number">1</span>,res,<span class="number">2</span>,len-<span class="number">1</span>);</span><br><span class="line">                res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                res[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            <span class="comment">//首位不是9</span></span><br><span class="line">            <span class="comment">//则只用修改最后一位</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">                System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//如果最后一位不是9</span></span><br><span class="line">        <span class="comment">//直接复制整个数组，然后修改最后一位即可</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">            System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">            res[len-<span class="number">1</span>] = res[len-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>在方法一中，由于我一直采用先申请一个辅助空间，然后对辅助空间进行复制、修改操作，这样导致我的空间复杂度在任何一种情况下都是$O(N)$。但其实，我完全可以调整思路，直接对<code>digits</code>进行操作，然后最后返回<code>digits</code>；除非万不得已，整个<code>digits</code>数组全部都是9，这样我再申请一个更大的空间去存放数据。</p>
+<p>同时，对两种情况分辨的标准也可以优化。在方法一中，我是根据末尾是否为9这个标准进行分类。但我们可以换个思路，我们可以看看在进行加一操作后结果是否为0。这二者的区别有点类似<code>while</code>和<code>do( )while</code>：方法一中我们需要先判断，如果是不同的情况，则需要进入不同的<code>while</code>循环，这样代码很长；然而方法二中，我们先进行操作，如果末位加一操作后不为0，那么直接可以跳出循环，这样只用写一种情况下的循环体。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          	<span class="comment">//直接先进行加一操作</span></span><br><span class="line">            digits[i] = (digits[i] + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">          	<span class="comment">//这里只用针对当前这个一个数是否为0进行判断，并不只考虑最后一个数</span></span><br><span class="line">          	<span class="comment">//如果这个数不为0，则代表没有发生进位，那这个数前面的都不用改了</span></span><br><span class="line">          	<span class="comment">//此时，加一操作之后的结果已经在数组中修改了，那么直接返回digits即可</span></span><br><span class="line">            <span class="keyword">if</span> (digits[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果这个数等于0</span></span><br><span class="line">          	<span class="comment">//则会发生进位现象，前面的数也需要+1</span></span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//循环完全退出则代表digits中原来全部为9</span></span><br><span class="line">      	<span class="comment">//此时再申请新的数组空间</span></span><br><span class="line">        digits = <span class="keyword">new</span> <span class="title class_">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        digits[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
 </search>
