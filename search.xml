@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo搭建博客过程中，4000端口被占用</title>
-    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
-<ul>
-<li>更改hexo使用的端口</li>
-<li>杀掉正在占用4000端口的其他进程</li>
-</ul>
-<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
-<ul>
-<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
-<ul>
-<li><code>sudo lsof -i tcp:端口号</code></li>
-<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
-<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
-</li>
-<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
-<ul>
-<li><code>sudo kill -9 PID</code></li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>整数反转</title>
     <url>/2022/11/28/%E7%AE%97%E6%B3%95/%20%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</url>
     <content><![CDATA[<h1 id="整数反转"><a href="#整数反转" class="headerlink" title="整数反转"></a>整数反转</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个32位的有符号整数x ，返回将x中的数字部分反转后的结果。如果反转后整数超过32位的有符号整数的范围$[−2^{31},2^{31} − 1]$，就返回 0。</p>
@@ -98,6 +63,39 @@
       </tags>
   </entry>
   <entry>
+    <title>两数之和</title>
+    <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+    <content><![CDATA[<h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个下标从 1 开始的整数数组<code>numbers</code> ，该数组已按<u>非递减顺序排列</u>，请你从数组中找出满足相加之和等于目标数<code>target</code>的两个数。如果设这两个数分别是<code>numbers[index1]</code>和<code>numbers[index2]</code>，则<code>1 &lt;= index1 &lt; index2 &lt;= numbers.length</code>。</p>
+<p>你可以假设每个输入 只对应唯一的答案 ，而且你不可以重复使用相同的元素。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这个问题可以等价于先固定<code>numbers[index1]</code>这个数，要求我们在数组中找到<code>target-numbers[index1]</code>这个数的下标。由于当前的数组是有序的，所以我们首先考虑到通过二分法来解决这个问题。为了避免重复，我们可以每次在numbers[index1]这个数右边寻找。</p>
+<ul>
+<li>采用这种方法时，<code>index1</code>的下标需要将整个数组遍历一遍来确定第一个数，在<code>index1</code>遍历的一轮中，对剩下的数采用二分法来查找<code>index2</code>，一轮二分法查找需要$O(logN)$的时间，而一共需要$N$轮，总的时间复杂度为$O(NlogN)$</li>
+<li>这种方法不需要申请额外的辅助空间，空间复杂度为$O(1)$</li>
+<li>注意：如果将二分查找封装成一个函数，那么可能会因为频繁调用函数而造成超时</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//在每一轮中采用二分法来查找</span></span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;<span class="comment">//否则查找失败</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="针对上述方法的优化"><a href="#针对上述方法的优化" class="headerlink" title="针对上述方法的优化"></a>针对上述方法的优化</h3><p>我们仔细思考可以发现，如果当<code>index1</code>过小，以至于index2指向数组中最末尾的数时，它们的二者之和也不能大于或者等于<code>target</code>时，那么就可以直接略过这一轮，直接对下一个更大的<code>index1</code>进行查找</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//如果index1和数组中最大的数相加都小了，则直接跳过这一轮</span></span><br><span class="line">            <span class="keyword">if</span>(numbers[index1] + numbers[high] &lt; target)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>使用双指针的方法，初始化时低位的指针指向最左边的元素，高位的指针指向最右边的元素，判断这二者之和与<code>target</code>的关系，如果大了，则代表<code>high</code>指针指向的元素过大，<code>high</code>指针左移。如果小了，则代表<code>low</code>指针指向的元素过小，low<code>指针</code>右移。如果刚好等于，则输出<code>low</code>和<code>high</code>指针即可。</p>
+<p>这里我们会疑惑，这样的移动会不会造成正确答案被我们遗漏。我们假定<code>numbers[i]+numbers[j]=target</code>.初始时两个指针分别指向下标<code>0</code>和下标<br><code>numbers.length−1</code>，左指针指向的下标小于或等于 <code>i</code>，右指针指向的下标大于或等于 <code>j</code>。除非初始时左指针和右指针已经位于下标<code>i</code>和<code>j,</code>否则一定是左指针先到达下标<code>i</code>的位置或者右指针先到达下标<code>j</code> 的位置。<br>如果左指针先到达下标<code>i</code>的位置，此时右指针还在下标<code>j</code> 的右侧，因此一定是右指针左移，左指针不可能移<code>i</code>的右侧。对应的同理。由此可见，在整个移动过程中，左指针不可能移到<code>i</code>的右侧，右指针不可能移到<code>j</code> 的左侧，因此不会把可能的解过滤掉。由于题目确保有唯一的答案，因此使用双指针一定可以找到答案。</p>
+<ul>
+<li>这种方法时间只用遍历一遍数组，时间复杂度是$O(N)$</li>
+<li>空间复杂度显然是$O(1)$</li>
+</ul>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> numbers[low] + numbers[high];</span><br><span class="line">        <span class="keyword">while</span>(sum != target)&#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                high --;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low ++;</span><br><span class="line">            &#125;</span><br><span class="line">            sum = numbers[low] + numbers[high];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++low,++high&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>两个数组的交集</title>
     <url>/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/</url>
     <content><![CDATA[<h1 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你两个整数数组<code>nums1</code>和<code>nums2</code>，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。</p>
@@ -149,28 +147,25 @@
       </tags>
   </entry>
   <entry>
-    <title>两数之和</title>
-    <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
-    <content><![CDATA[<h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个下标从 1 开始的整数数组<code>numbers</code> ，该数组已按<u>非递减顺序排列</u>，请你从数组中找出满足相加之和等于目标数<code>target</code>的两个数。如果设这两个数分别是<code>numbers[index1]</code>和<code>numbers[index2]</code>，则<code>1 &lt;= index1 &lt; index2 &lt;= numbers.length</code>。</p>
-<p>你可以假设每个输入 只对应唯一的答案 ，而且你不可以重复使用相同的元素。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这个问题可以等价于先固定<code>numbers[index1]</code>这个数，要求我们在数组中找到<code>target-numbers[index1]</code>这个数的下标。由于当前的数组是有序的，所以我们首先考虑到通过二分法来解决这个问题。为了避免重复，我们可以每次在numbers[index1]这个数右边寻找。</p>
-<ul>
-<li>采用这种方法时，<code>index1</code>的下标需要将整个数组遍历一遍来确定第一个数，在<code>index1</code>遍历的一轮中，对剩下的数采用二分法来查找<code>index2</code>，一轮二分法查找需要$O(logN)$的时间，而一共需要$N$轮，总的时间复杂度为$O(NlogN)$</li>
-<li>这种方法不需要申请额外的辅助空间，空间复杂度为$O(1)$</li>
-<li>注意：如果将二分查找封装成一个函数，那么可能会因为频繁调用函数而造成超时</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//在每一轮中采用二分法来查找</span></span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;<span class="comment">//否则查找失败</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>加一</title>
+    <url>/2022/11/24/%E7%AE%97%E6%B3%95/%E5%8A%A0%E4%B8%80/</url>
+    <content><![CDATA[<h1 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数0之外，这个整数不会以零开头。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：digits = [1,2,3]</span><br><span class="line">输出：[1,2,4]</span><br><span class="line">解释：输入数组表示数字123，对其加一，输出124。</span><br><span class="line"></span><br><span class="line">输入：digits = [9]</span><br><span class="line">输出：[1，0]</span><br><span class="line">解释：输入数组表示数字9，对其加一，输出10。</span><br></pre></td></tr></table></figure>
 
-<h3 id="针对上述方法的优化"><a href="#针对上述方法的优化" class="headerlink" title="针对上述方法的优化"></a>针对上述方法的优化</h3><p>我们仔细思考可以发现，如果当<code>index1</code>过小，以至于index2指向数组中最末尾的数时，它们的二者之和也不能大于或者等于<code>target</code>时，那么就可以直接略过这一轮，直接对下一个更大的<code>index1</code>进行查找</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//如果index1和数组中最大的数相加都小了，则直接跳过这一轮</span></span><br><span class="line">            <span class="keyword">if</span>(numbers[index1] + numbers[high] &lt; target)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>使用双指针的方法，初始化时低位的指针指向最左边的元素，高位的指针指向最右边的元素，判断这二者之和与<code>target</code>的关系，如果大了，则代表<code>high</code>指针指向的元素过大，<code>high</code>指针左移。如果小了，则代表<code>low</code>指针指向的元素过小，low<code>指针</code>右移。如果刚好等于，则输出<code>low</code>和<code>high</code>指针即可。</p>
-<p>这里我们会疑惑，这样的移动会不会造成正确答案被我们遗漏。我们假定<code>numbers[i]+numbers[j]=target</code>.初始时两个指针分别指向下标<code>0</code>和下标<br><code>numbers.length−1</code>，左指针指向的下标小于或等于 <code>i</code>，右指针指向的下标大于或等于 <code>j</code>。除非初始时左指针和右指针已经位于下标<code>i</code>和<code>j,</code>否则一定是左指针先到达下标<code>i</code>的位置或者右指针先到达下标<code>j</code> 的位置。<br>如果左指针先到达下标<code>i</code>的位置，此时右指针还在下标<code>j</code> 的右侧，因此一定是右指针左移，左指针不可能移<code>i</code>的右侧。对应的同理。由此可见，在整个移动过程中，左指针不可能移到<code>i</code>的右侧，右指针不可能移到<code>j</code> 的左侧，因此不会把可能的解过滤掉。由于题目确保有唯一的答案，因此使用双指针一定可以找到答案。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题在模拟对数字进行加一的运算结果，如果整个<code>digits</code>数组中末尾没有9的话其实非常简单，直接将<code>digits[len-1]</code>最后这个数修改一下，然后返回<code>digits</code>即可；如果数组中其他位置出现了9的话其实也没有影响，因为后面不进位的话前面也不会有改变。我们着重需要考虑的是末尾有9，或者说末尾有连续个9的情况。</p>
+<ol>
+<li>如果末尾有若干个9，但第一个数字不是，例如[1,2,9,9]。那么将最后一位设置成0，然后向前面进位，如果还是9，则将倒数第二位再设置成0，再进位…这样最后的结果和<code>digits</code>数组的长度是一样的，因为第一位不会再进位了</li>
+<li>如果全部是9，即第一位数字也是9，例如[9，9]。那么按照上面的步骤，最后<code>digits</code>的结果就是[10,0,0]，我们首先不得不申请一个大一点的数组res，将digits后面的几位复制给<code>res</code>，然后再将<code>res</code>的第一位设置成1，第二位设置成0即可。</li>
+</ol>
 <ul>
-<li>这种方法时间只用遍历一遍数组，时间复杂度是$O(N)$</li>
-<li>空间复杂度显然是$O(1)$</li>
+<li>时间复杂度：$O(N)$，这种方法只用将<code>digits</code>数组遍历一遍即可结束</li>
+<li>空间复杂度：$O(N)$，这种方法由于需要复制数组，所以需要申请额外的辅助空间</li>
 </ul>
-<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> numbers[low] + numbers[high];</span><br><span class="line">        <span class="keyword">while</span>(sum != target)&#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                high --;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low ++;</span><br><span class="line">            &#125;</span><br><span class="line">            sum = numbers[low] + numbers[high];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++low,++high&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">				<span class="comment">//如果最后一位是9</span></span><br><span class="line">      	<span class="comment">//分两种情况：首位不是9和首位是9</span></span><br><span class="line">        <span class="keyword">if</span> (digits[len - <span class="number">1</span>] == <span class="number">9</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len-<span class="number">1</span>;</span><br><span class="line">            digits[i] ++;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; digits[i] == <span class="number">10</span>) &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">                i --;<span class="comment">//指针前移</span></span><br><span class="line">                digits[i] ++;<span class="comment">//进位</span></span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//首位是9</span></span><br><span class="line">          	<span class="comment">//则需要申请一个更大的空间</span></span><br><span class="line">            <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len+<span class="number">1</span>];</span><br><span class="line">                System.arraycopy(digits,<span class="number">1</span>,res,<span class="number">2</span>,len-<span class="number">1</span>);</span><br><span class="line">                res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                res[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            <span class="comment">//首位不是9</span></span><br><span class="line">            <span class="comment">//则只用修改最后一位</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">                System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//如果最后一位不是9</span></span><br><span class="line">        <span class="comment">//直接复制整个数组，然后修改最后一位即可</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">            System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">            res[len-<span class="number">1</span>] = res[len-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>在方法一中，由于我一直采用先申请一个辅助空间，然后对辅助空间进行复制、修改操作，这样导致我的空间复杂度在任何一种情况下都是$O(N)$。但其实，我完全可以调整思路，直接对<code>digits</code>进行操作，然后最后返回<code>digits</code>；除非万不得已，整个<code>digits</code>数组全部都是9，这样我再申请一个更大的空间去存放数据。</p>
+<p>同时，对两种情况分辨的标准也可以优化。在方法一中，我是根据末尾是否为9这个标准进行分类。但我们可以换个思路，我们可以看看在进行加一操作后结果是否为0。这二者的区别有点类似<code>while</code>和<code>do( )while</code>：方法一中我们需要先判断，如果是不同的情况，则需要进入不同的<code>while</code>循环，这样代码很长；然而方法二中，我们先进行操作，如果末位加一操作后不为0，那么直接可以跳出循环，这样只用写一种情况下的循环体。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          	<span class="comment">//直接先进行加一操作</span></span><br><span class="line">            digits[i] = (digits[i] + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">          	<span class="comment">//这里只用针对当前这个一个数是否为0进行判断，并不只考虑最后一个数</span></span><br><span class="line">          	<span class="comment">//如果这个数不为0，则代表没有发生进位，那这个数前面的都不用改了</span></span><br><span class="line">          	<span class="comment">//此时，加一操作之后的结果已经在数组中修改了，那么直接返回digits即可</span></span><br><span class="line">            <span class="keyword">if</span> (digits[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果这个数等于0</span></span><br><span class="line">          	<span class="comment">//则会发生进位现象，前面的数也需要+1</span></span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//循环完全退出则代表digits中原来全部为9</span></span><br><span class="line">      	<span class="comment">//此时再申请新的数组空间</span></span><br><span class="line">        digits = <span class="keyword">new</span> <span class="title class_">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        digits[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -178,7 +173,7 @@
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>二分查找</tag>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -301,36 +296,6 @@
       </tags>
   </entry>
   <entry>
-    <title>加一</title>
-    <url>/2022/11/24/%E7%AE%97%E6%B3%95/%E5%8A%A0%E4%B8%80/</url>
-    <content><![CDATA[<h1 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数0之外，这个整数不会以零开头。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：digits = [1,2,3]</span><br><span class="line">输出：[1,2,4]</span><br><span class="line">解释：输入数组表示数字123，对其加一，输出124。</span><br><span class="line"></span><br><span class="line">输入：digits = [9]</span><br><span class="line">输出：[1，0]</span><br><span class="line">解释：输入数组表示数字9，对其加一，输出10。</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题在模拟对数字进行加一的运算结果，如果整个<code>digits</code>数组中末尾没有9的话其实非常简单，直接将<code>digits[len-1]</code>最后这个数修改一下，然后返回<code>digits</code>即可；如果数组中其他位置出现了9的话其实也没有影响，因为后面不进位的话前面也不会有改变。我们着重需要考虑的是末尾有9，或者说末尾有连续个9的情况。</p>
-<ol>
-<li>如果末尾有若干个9，但第一个数字不是，例如[1,2,9,9]。那么将最后一位设置成0，然后向前面进位，如果还是9，则将倒数第二位再设置成0，再进位…这样最后的结果和<code>digits</code>数组的长度是一样的，因为第一位不会再进位了</li>
-<li>如果全部是9，即第一位数字也是9，例如[9，9]。那么按照上面的步骤，最后<code>digits</code>的结果就是[10,0,0]，我们首先不得不申请一个大一点的数组res，将digits后面的几位复制给<code>res</code>，然后再将<code>res</code>的第一位设置成1，第二位设置成0即可。</li>
-</ol>
-<ul>
-<li>时间复杂度：$O(N)$，这种方法只用将<code>digits</code>数组遍历一遍即可结束</li>
-<li>空间复杂度：$O(N)$，这种方法由于需要复制数组，所以需要申请额外的辅助空间</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">				<span class="comment">//如果最后一位是9</span></span><br><span class="line">      	<span class="comment">//分两种情况：首位不是9和首位是9</span></span><br><span class="line">        <span class="keyword">if</span> (digits[len - <span class="number">1</span>] == <span class="number">9</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len-<span class="number">1</span>;</span><br><span class="line">            digits[i] ++;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; digits[i] == <span class="number">10</span>) &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">                i --;<span class="comment">//指针前移</span></span><br><span class="line">                digits[i] ++;<span class="comment">//进位</span></span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//首位是9</span></span><br><span class="line">          	<span class="comment">//则需要申请一个更大的空间</span></span><br><span class="line">            <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len+<span class="number">1</span>];</span><br><span class="line">                System.arraycopy(digits,<span class="number">1</span>,res,<span class="number">2</span>,len-<span class="number">1</span>);</span><br><span class="line">                res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                res[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            <span class="comment">//首位不是9</span></span><br><span class="line">            <span class="comment">//则只用修改最后一位</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">                System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//如果最后一位不是9</span></span><br><span class="line">        <span class="comment">//直接复制整个数组，然后修改最后一位即可</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">            System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">            res[len-<span class="number">1</span>] = res[len-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>在方法一中，由于我一直采用先申请一个辅助空间，然后对辅助空间进行复制、修改操作，这样导致我的空间复杂度在任何一种情况下都是$O(N)$。但其实，我完全可以调整思路，直接对<code>digits</code>进行操作，然后最后返回<code>digits</code>；除非万不得已，整个<code>digits</code>数组全部都是9，这样我再申请一个更大的空间去存放数据。</p>
-<p>同时，对两种情况分辨的标准也可以优化。在方法一中，我是根据末尾是否为9这个标准进行分类。但我们可以换个思路，我们可以看看在进行加一操作后结果是否为0。这二者的区别有点类似<code>while</code>和<code>do( )while</code>：方法一中我们需要先判断，如果是不同的情况，则需要进入不同的<code>while</code>循环，这样代码很长；然而方法二中，我们先进行操作，如果末位加一操作后不为0，那么直接可以跳出循环，这样只用写一种情况下的循环体。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          	<span class="comment">//直接先进行加一操作</span></span><br><span class="line">            digits[i] = (digits[i] + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">          	<span class="comment">//这里只用针对当前这个一个数是否为0进行判断，并不只考虑最后一个数</span></span><br><span class="line">          	<span class="comment">//如果这个数不为0，则代表没有发生进位，那这个数前面的都不用改了</span></span><br><span class="line">          	<span class="comment">//此时，加一操作之后的结果已经在数组中修改了，那么直接返回digits即可</span></span><br><span class="line">            <span class="keyword">if</span> (digits[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果这个数等于0</span></span><br><span class="line">          	<span class="comment">//则会发生进位现象，前面的数也需要+1</span></span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//循环完全退出则代表digits中原来全部为9</span></span><br><span class="line">      	<span class="comment">//此时再申请新的数组空间</span></span><br><span class="line">        digits = <span class="keyword">new</span> <span class="title class_">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        digits[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>反转字符串中的单词</title>
     <url>/2022/11/16/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/</url>
     <content><![CDATA[<h1 id="反转字符串中的单词"><a href="#反转字符串中的单词" class="headerlink" title="反转字符串中的单词"></a>反转字符串中的单词</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串 <code>s</code> ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p>
@@ -402,28 +367,6 @@
       </tags>
   </entry>
   <entry>
-    <title>存在重复元素</title>
-    <url>/2022/11/21/%E7%AE%97%E6%B3%95/%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<h1 id="存在重复元素"><a href="#存在重复元素" class="headerlink" title="存在重复元素"></a>存在重复元素</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> ，返回 <code>true</code> ；如果数组中每个元素互不相同，返回 <code>false</code></p>
-<h2 id="方法一：利用排序"><a href="#方法一：利用排序" class="headerlink" title="方法一：利用排序"></a>方法一：利用排序</h2><p>在对数字从小到大排序之后，数组的重复元素一定出现在相邻位置中。因此，我们可以扫描已排序的数组，每次判断相邻的两个元素是否相等，如果相等则说明存在重复的元素。</p>
-<p>在进行排序时，我们其实可以先导入<code>java.util.Arrays</code>的包，直接利用<code>sort</code>方法进行排序</p>
-<ul>
-<li>时间复杂度：$O(NlogN)$，排序的时间复杂度</li>
-<li>空间复杂度：$O(logN)$，快排的递归深度</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsDuplicate</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == nums[i-<span class="number">1</span>]) </span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这道题并不能通过位运算的技巧来快速解决，通过排序解决应该是最简单的办法</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>排序算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>字符串中第一个唯一字符</title>
     <url>/2022/12/01/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%94%AF%E4%B8%80%E5%AD%97%E7%AC%A6/</url>
     <content><![CDATA[<h1 id="字符串中第一个唯一字符"><a href="#字符串中第一个唯一字符" class="headerlink" title="字符串中第一个唯一字符"></a>字符串中第一个唯一字符</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个字符串 <code>s</code> ，找到 <em>它的第一个不重复的字符，并返回它的索引</em> 。如果不存在，则返回 <code>-1</code></p>
@@ -467,6 +410,153 @@
       <tags>
         <tag>算法</tag>
         <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字符串转换整形</title>
+    <url>/2022/12/04/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E5%BD%A2/</url>
+    <content><![CDATA[<h1 id="字符串转换整形"><a href="#字符串转换整形" class="headerlink" title="字符串转换整形"></a>字符串转换整形</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请你来实现一个<code>myAtoi(string s)</code>函数，使其能将字符串转换成一个 32 位有符号整数。</p>
+<p>函数<code>myAtoi(string s)</code>的算法如下：</p>
+<ol>
+<li>读入字符串并丢弃无用的前导空格</li>
+<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。</li>
+<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。</li>
+<li>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。</li>
+<li>如果整数数超过 32 位有符号整数范围 [−231,  231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。</li>
+<li>返回整数作为最终结果。</li>
+<li>注意：<ul>
+<li>本题中的空白字符只包括空格字符 ‘ ‘ </li>
+<li>除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符</li>
+</ul>
+</li>
+</ol>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题主要考察对输入种类的判断，以及边界情况（溢出）的处理。思路上没有什么难点，但是在细节上有很多需要注意的。</p>
+<ul>
+<li><p>对溢出的判断</p>
+<ol>
+<li><p>方法一</p>
+<ul>
+<li>每一轮的结果计算公式如下：$res&#x3D;res\times 10+temp$</li>
+<li>用一个变量<code>pre</code>记录上一轮的计算结果，<code>res</code>代表这一轮的计算结果<ul>
+<li>如果发生溢出的话$pre\ne res {\div} 10$</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> res;</span><br><span class="line">res = res * <span class="number">10</span> + Character.getNumericValue(s.charAt(i));</span><br><span class="line"><span class="keyword">if</span>(pre != res/<span class="number">10</span>)</span><br><span class="line">	<span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法二</p>
+<ul>
+<li><p><code>int</code>型发生溢出的话我们考虑使用<code>long</code>型来存储数据</p>
+</li>
+<li><p>用一个<code>long</code>型的变量<code>res</code>来记录每一轮的计算结果</p>
+<ul>
+<li>如果是正数发生溢出</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">res &gt; Integer.MAX_VALUE;</span><br><span class="line"><span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果是负数发生溢出</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">res &lt; Integer.MIN_VALUE;</span><br><span class="line"><span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>将字符转化为<code>int</code></p>
+<ol>
+<li><p>通过Character类中的方法</p>
+<ul>
+<li><p><code>public static int getNumericValue(char ch)</code></p>
+<blockquote>
+<p>Returns the int value that the specified Unicode character represents</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>通过字符之间的运算</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;5&#x27;</span>;<span class="comment">//0~9</span></span><br><span class="line">c - <span class="string">&#x27;0&#x27;</span><span class="comment">//5</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>时间复杂度：遍历一遍字符串即可，$O(N)$</p>
+</li>
+<li><p>空间复杂度：$O(1)$</p>
+</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">myAtoi</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录结果</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> <span class="literal">true</span>;<span class="comment">//默认是正数</span></span><br><span class="line">        s = s.trim();</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> <span class="variable">firChar</span> <span class="operator">=</span> s.charAt(<span class="number">0</span>);<span class="comment">//判断第一个字符</span></span><br><span class="line">        <span class="keyword">if</span> (firChar == <span class="string">&#x27;-&#x27;</span>) &#123;<span class="comment">//判断条件太多</span></span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (firChar == <span class="string">&#x27;+&#x27;</span>) &#123;</span><br><span class="line">            flag = <span class="literal">true</span>;<span class="comment">//非常多余</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Character.isDigit(firChar)) &#123;</span><br><span class="line">            res = Character.getNumericValue(firChar);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (Character.isDigit(c)) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> res;</span><br><span class="line">                res = res * <span class="number">10</span> + Character.getNumericValue(c);</span><br><span class="line">                <span class="keyword">if</span> (pre != res / <span class="number">10</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (flag) &#123;<span class="comment">//可以通过三目运算符来优化</span></span><br><span class="line">                        <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span> * res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">myAtoi</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        s = s.trim();</span><br><span class="line">        <span class="comment">//将直接返回的条件写在一起</span></span><br><span class="line">        <span class="comment">//长度为0直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> <span class="variable">firChar</span> <span class="operator">=</span> s.charAt(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">//第一个字符既不是数字、也不是正负符号，直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (!Character.isDigit(firChar) &amp;&amp; firChar != <span class="string">&#x27;-&#x27;</span> &amp;&amp; firChar != <span class="string">&#x27;+&#x27;</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//此时字符串第一个字符要么是数字，要么是正负号</span></span><br><span class="line">        <span class="comment">//判断符号</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">neg</span> <span class="operator">=</span> (firChar == <span class="string">&#x27;-&#x27;</span>);<span class="comment">//如果符号位是负，则neg为真，其余情况都为正</span></span><br><span class="line">        <span class="comment">//如果第0位是数字，那从第0为开始遍历数组</span></span><br><span class="line">        <span class="comment">//如果第0为是符号，那从第1为开始遍历</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> Character.isDigit(firChar) ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//最后的结果</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0L</span>;</span><br><span class="line">        <span class="comment">//第一个条件用于正常遍历字符串</span></span><br><span class="line">        <span class="comment">//第二个条件用于：当字符串数字遍历完了之后，舍弃后面的其他字符</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; Character.isDigit(s.charAt(i)))&#123;</span><br><span class="line">            <span class="comment">//此时i指向的一定是数字</span></span><br><span class="line">            ans = ans * <span class="number">10</span> + (s.charAt(i++) - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            <span class="comment">//判断溢出情况</span></span><br><span class="line">            <span class="keyword">if</span> (neg &amp;&amp; -ans &lt; Integer.MIN_VALUE)</span><br><span class="line">                <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">            <span class="keyword">if</span> (!neg &amp;&amp; ans &gt; Integer.MAX_VALUE)</span><br><span class="line">                <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//不用写-1*ans</span></span><br><span class="line">        <span class="keyword">return</span> neg ? (<span class="type">int</span>)-ans : (<span class="type">int</span>)ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>存在重复元素</title>
+    <url>/2022/11/21/%E7%AE%97%E6%B3%95/%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h1 id="存在重复元素"><a href="#存在重复元素" class="headerlink" title="存在重复元素"></a>存在重复元素</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> ，返回 <code>true</code> ；如果数组中每个元素互不相同，返回 <code>false</code></p>
+<h2 id="方法一：利用排序"><a href="#方法一：利用排序" class="headerlink" title="方法一：利用排序"></a>方法一：利用排序</h2><p>在对数字从小到大排序之后，数组的重复元素一定出现在相邻位置中。因此，我们可以扫描已排序的数组，每次判断相邻的两个元素是否相等，如果相等则说明存在重复的元素。</p>
+<p>在进行排序时，我们其实可以先导入<code>java.util.Arrays</code>的包，直接利用<code>sort</code>方法进行排序</p>
+<ul>
+<li>时间复杂度：$O(NlogN)$，排序的时间复杂度</li>
+<li>空间复杂度：$O(logN)$，快排的递归深度</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsDuplicate</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == nums[i-<span class="number">1</span>]) </span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这道题并不能通过位运算的技巧来快速解决，通过排序解决应该是最简单的办法</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>排序算法</tag>
       </tags>
   </entry>
   <entry>
@@ -4240,6 +4330,35 @@
       </tags>
   </entry>
   <entry>
+    <title>计算柱体体积</title>
+    <url>/2022/11/25/Java/%E8%AE%A1%E7%AE%97%E6%9F%B1%E4%BD%93%E4%BD%93%E7%A7%AF/</url>
+    <content><![CDATA[<h1 id="计算柱体体积"><a href="#计算柱体体积" class="headerlink" title="计算柱体体积"></a>计算柱体体积</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ul>
+<li>为柱体的底面设计一个接口Geometry，包含计算面积的方法<code>getArea()</code></li>
+<li>为柱体设计类Pillar，要求<ul>
+<li>有两个成员变量，底面和高度。底面可以是任何可以计算面积的几何形状</li>
+<li>实现构造方法，对成员变量赋值</li>
+<li>设计成员方法，计算柱体pillar的体积</li>
+</ul>
+</li>
+<li>编写测试类圆形类、矩形类，实现Geometry接口，编写测试类Test</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Pillar</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Geometry bottom;<span class="comment">//底面</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">double</span> hight;<span class="comment">//高度</span></span><br><span class="line">    <span class="comment">//构造函数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Pillar</span><span class="params">(Geometry shape, <span class="type">double</span> hight)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.bottom = shape;</span><br><span class="line">        <span class="built_in">this</span>.hight = hight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回体积</span></span><br><span class="line">    <span class="comment">//由于不同的底面计算面积时需要的参数个数不同，因此这里直接设置不需要参数</span></span><br><span class="line">    <span class="comment">//通过调用Geometry中的getArea()方法获得面积</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getSize</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bottom.getArea() * hight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//几何形状接口</span></span><br><span class="line"><span class="comment">//插上几何形状接口后就能获得面积</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Geometry</span>&#123;</span><br><span class="line">    <span class="type">double</span> <span class="title function_">getArea</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//圆形类实现几何形状</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span> <span class="keyword">implements</span> <span class="title class_">Geometry</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> radius;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">double</span> <span class="variable">PI</span> <span class="operator">=</span> <span class="number">3.14</span>;<span class="comment">//常量</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//实现getArea()方法</span></span><br><span class="line">    <span class="comment">//在实现接口中的方法时注意不能用重载的方法实现</span></span><br><span class="line">    <span class="comment">//即不能改变其形参列表</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getArea</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> PI * radius * radius;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//构造方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Circle</span><span class="params">(<span class="type">int</span> radius)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.radius = radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rectangle</span> <span class="keyword">implements</span> <span class="title class_">Geometry</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> length;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> width;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getArea</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> length * width;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Rectangle</span><span class="params">(<span class="type">int</span> length, <span class="type">int</span> width)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.length = length;</span><br><span class="line">        <span class="built_in">this</span>.width = width;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//多态，父类型引用指向子类型对象</span></span><br><span class="line">        <span class="comment">//Shape类的引用指向一个半径为10的圆形</span></span><br><span class="line">        <span class="type">Geometry</span> <span class="variable">shape1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Circle</span>(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">//构造一个以半径为10的圆形为底，高为10的圆柱</span></span><br><span class="line">        <span class="type">Pillar</span> <span class="variable">pillar1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pillar</span>(shape1,<span class="number">10</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;体积是 &quot;</span> + pillar1.getSize());</span><br><span class="line"></span><br><span class="line">        <span class="type">Geometry</span> <span class="variable">shape2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Rectangle</span>(<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">        <span class="type">Pillar</span> <span class="variable">pillar2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pillar</span>(shape2,<span class="number">10</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;体积是 &quot;</span> + pillar2.getSize());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8hd94zauzj30fu08574h.jpg"></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>在一开始我做这个题目时，我被Geometry中计算面积的方法<code>getArea()</code>方法难到了。考虑到接口中不能设计变量，我不能也不方便给每一种几何图形都设置计算面积时所需要的变量，那<code>getArea()</code>方法的形参列表我就很难去设计。<u>此时我的第一反应是在不同的几何形状类中用重载的方式去实现接口中的抽象方法。</u>但是事实证明这个思路是行不通的，<strong>在类中实现一个接口时我们需要完完全全的照抄接口中的抽象方法，不能修改它的返回类型以及形参列表</strong>。</li>
+<li>在这之后其实换一个思路就好了。既然每种几何图形的面积计算都需要不同的形参列表，那我不如直接不需要形参好了，在<code>getArea()</code>方法中直接去调用每个几何形状方法的成员变量。这种方法就不用再去担心计算不同面积时需要不同参数的情况。</li>
+<li>这次的一个小练习也真正的让我感受到了多态的便利之处。通过一个 Geometry接口，我们能用非常简单的方式来计算各种类型柱体的体积。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>验证回文串</title>
     <url>/2022/12/03/Java/%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E4%B8%B2/</url>
     <content><![CDATA[<h1 id="验证回文串"><a href="#验证回文串" class="headerlink" title="验证回文串"></a>验证回文串</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。（字母和数字都属于字母数字字符）</p>
@@ -4339,32 +4458,38 @@
       </tags>
   </entry>
   <entry>
-    <title>计算柱体体积</title>
-    <url>/2022/11/25/Java/%E8%AE%A1%E7%AE%97%E6%9F%B1%E4%BD%93%E4%BD%93%E7%A7%AF/</url>
-    <content><![CDATA[<h1 id="计算柱体体积"><a href="#计算柱体体积" class="headerlink" title="计算柱体体积"></a>计算柱体体积</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ul>
-<li>为柱体的底面设计一个接口Geometry，包含计算面积的方法<code>getArea()</code></li>
-<li>为柱体设计类Pillar，要求<ul>
-<li>有两个成员变量，底面和高度。底面可以是任何可以计算面积的几何形状</li>
-<li>实现构造方法，对成员变量赋值</li>
-<li>设计成员方法，计算柱体pillar的体积</li>
+    <title>hexo搭建博客过程中，4000端口被占用</title>
+    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
+<ul>
+<li>更改hexo使用的端口</li>
+<li>杀掉正在占用4000端口的其他进程</li>
 </ul>
+<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
+<ul>
+<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
+<ul>
+<li><code>sudo lsof -i tcp:端口号</code></li>
+<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
+<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
 </li>
-<li>编写测试类圆形类、矩形类，实现Geometry接口，编写测试类Test</li>
+<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
+<ul>
+<li><code>sudo kill -9 PID</code></li>
 </ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Pillar</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Geometry bottom;<span class="comment">//底面</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">double</span> hight;<span class="comment">//高度</span></span><br><span class="line">    <span class="comment">//构造函数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Pillar</span><span class="params">(Geometry shape, <span class="type">double</span> hight)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.bottom = shape;</span><br><span class="line">        <span class="built_in">this</span>.hight = hight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回体积</span></span><br><span class="line">    <span class="comment">//由于不同的底面计算面积时需要的参数个数不同，因此这里直接设置不需要参数</span></span><br><span class="line">    <span class="comment">//通过调用Geometry中的getArea()方法获得面积</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getSize</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bottom.getArea() * hight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//几何形状接口</span></span><br><span class="line"><span class="comment">//插上几何形状接口后就能获得面积</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Geometry</span>&#123;</span><br><span class="line">    <span class="type">double</span> <span class="title function_">getArea</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//圆形类实现几何形状</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span> <span class="keyword">implements</span> <span class="title class_">Geometry</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> radius;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">double</span> <span class="variable">PI</span> <span class="operator">=</span> <span class="number">3.14</span>;<span class="comment">//常量</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//实现getArea()方法</span></span><br><span class="line">    <span class="comment">//在实现接口中的方法时注意不能用重载的方法实现</span></span><br><span class="line">    <span class="comment">//即不能改变其形参列表</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getArea</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> PI * radius * radius;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//构造方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Circle</span><span class="params">(<span class="type">int</span> radius)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.radius = radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rectangle</span> <span class="keyword">implements</span> <span class="title class_">Geometry</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> length;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> width;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getArea</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> length * width;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Rectangle</span><span class="params">(<span class="type">int</span> length, <span class="type">int</span> width)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.length = length;</span><br><span class="line">        <span class="built_in">this</span>.width = width;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//多态，父类型引用指向子类型对象</span></span><br><span class="line">        <span class="comment">//Shape类的引用指向一个半径为10的圆形</span></span><br><span class="line">        <span class="type">Geometry</span> <span class="variable">shape1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Circle</span>(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">//构造一个以半径为10的圆形为底，高为10的圆柱</span></span><br><span class="line">        <span class="type">Pillar</span> <span class="variable">pillar1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pillar</span>(shape1,<span class="number">10</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;体积是 &quot;</span> + pillar1.getSize());</span><br><span class="line"></span><br><span class="line">        <span class="type">Geometry</span> <span class="variable">shape2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Rectangle</span>(<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">        <span class="type">Pillar</span> <span class="variable">pillar2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pillar</span>(shape2,<span class="number">10</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;体积是 &quot;</span> + pillar2.getSize());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8hd94zauzj30fu08574h.jpg"></p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
-<li>在一开始我做这个题目时，我被Geometry中计算面积的方法<code>getArea()</code>方法难到了。考虑到接口中不能设计变量，我不能也不方便给每一种几何图形都设置计算面积时所需要的变量，那<code>getArea()</code>方法的形参列表我就很难去设计。<u>此时我的第一反应是在不同的几何形状类中用重载的方式去实现接口中的抽象方法。</u>但是事实证明这个思路是行不通的，<strong>在类中实现一个接口时我们需要完完全全的照抄接口中的抽象方法，不能修改它的返回类型以及形参列表</strong>。</li>
-<li>在这之后其实换一个思路就好了。既然每种几何图形的面积计算都需要不同的形参列表，那我不如直接不需要形参好了，在<code>getArea()</code>方法中直接去调用每个几何形状方法的成员变量。这种方法就不用再去担心计算不同面积时需要不同参数的情况。</li>
-<li>这次的一个小练习也真正的让我感受到了多态的便利之处。通过一个 Geometry接口，我们能用非常简单的方式来计算各种类型柱体的体积。</li>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
+</li>
 </ul>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Java</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
