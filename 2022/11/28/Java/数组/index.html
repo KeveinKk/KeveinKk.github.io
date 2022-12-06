@@ -258,153 +258,185 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="数组-1"><a href="#数组-1" class="headerlink" title="数组"></a>数组</h2><ul>
-<li>Java中的数组是一个<u>引用数据类型</u>，其父类是<code>Object</code><ul>
+        <h1 id="数组"><a class="markdownIt-Anchor" href="#数组"></a> 数组</h1>
+<h2 id="数组-2"><a class="markdownIt-Anchor" href="#数组-2"></a> 数组</h2>
+<ul>
+<li>Java中的数组是一个<u>引用数据类型</u>，其父类是<code>Object</code>
+<ul>
 <li>数组存储于堆内存中</li>
 </ul>
 </li>
 <li>数组实际上是一个<strong>容器</strong>，可以容纳多个元素</li>
-<li>数组中可以存储基本数据类型，也可以存储引用数据类型<ul>
+<li>数组中可以存储基本数据类型，也可以存储引用数据类型
+<ul>
 <li>存储引用属于类型时，存储的是对象的引用</li>
 </ul>
 </li>
 <li>在Java数组一旦创建，中长度不可变</li>
-<li>数组的分类<ul>
+<li>数组的分类
+<ul>
 <li>一维数组：最常用</li>
 <li>二维数组</li>
 <li>多维数组：很少用</li>
 </ul>
 </li>
 <li>所有的数组对象都有<code>length</code>属性，用来获取数组中元素的个数</li>
-<li>Java要求数组中的元素类型统一<ul>
+<li>Java要求数组中的元素类型统一
+<ul>
 <li><code>int</code>型数组只能存储<code>int</code>型元素</li>
 </ul>
 </li>
 <li>数组中元素的内存地址是连续的</li>
-<li>数组中首元素的内存地址作为整个数组对象的内存地址<ul>
+<li>数组中首元素的内存地址作为整个数组对象的内存地址
+<ul>
 <li>数组中元素的内存地址是连续的，知道第一个元素的地址就可以推算出其他元素的地址</li>
 </ul>
 </li>
 </ul>
-<h2 id="数组的优缺点"><a href="#数组的优缺点" class="headerlink" title="数组的优缺点"></a>数组的优缺点</h2><ul>
-<li>优点<ol>
-<li>检索效率高<ul>
+<h2 id="数组的优缺点"><a class="markdownIt-Anchor" href="#数组的优缺点"></a> 数组的优缺点</h2>
+<ul>
+<li>优点
+<ol>
+<li>检索效率高
+<ul>
 <li>知道第一个元素的内存地址、知道每个元素占用的空间大小，可以通过下标直接定位出每个元素的内存地址</li>
 </ul>
 </li>
 <li>存储效率高</li>
 </ol>
 </li>
-<li>缺点<ol>
-<li>增加&#x2F;删除元素效率低<ul>
+<li>缺点
+<ol>
+<li>增加/删除元素效率低
+<ul>
 <li>对于数组中最后一个元素的增删是没有效率影响的</li>
 </ul>
 </li>
-<li>数组很难存储大量的数据<ul>
+<li>数组很难存储大量的数据
+<ul>
 <li>无法在内存中开辟一大块连续的空间</li>
 </ul>
 </li>
 </ol>
 </li>
 </ul>
-<h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3><h4 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataType[] arrayRefVar;</span><br><span class="line"><span class="comment">//int[] arr1;</span></span><br><span class="line"><span class="comment">//User[] array;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><ul>
-<li><p>分为静态初始化和动态初始化</p>
+<h2 id="一维数组"><a class="markdownIt-Anchor" href="#一维数组"></a> 一维数组</h2>
+<h3 id="语法格式"><a class="markdownIt-Anchor" href="#语法格式"></a> 语法格式</h3>
+<h4 id="声明"><a class="markdownIt-Anchor" href="#声明"></a> 声明</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataType[] arrayRefVar;</span><br><span class="line"><span class="comment">//int[] arr1;</span></span><br><span class="line"><span class="comment">//User[] array;</span></span><br></pre></td></tr></table></figure>
+<h4 id="初始化"><a class="markdownIt-Anchor" href="#初始化"></a> 初始化</h4>
+<ul>
+<li>
+<p>分为静态初始化和动态初始化</p>
 </li>
-<li><p>静态初始化</p>
+<li>
+<p>静态初始化</p>
 <ul>
 <li>当创建数组时就确定数组中存储的元素，那么采用静态初始化</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dataType[] arrayRefVar = &#123;value0, value1, ..., valuek&#125;;</span><br><span class="line"><span class="comment">//这条语句包括两个步骤</span></span><br><span class="line"><span class="comment">//&quot;数据类型[] 数组名&quot;是声明了一个数组</span></span><br><span class="line"><span class="comment">//然后通过静态的方式给新创建的数组赋值</span></span><br><span class="line"><span class="comment">//int[] arr = &#123;1,2,3&#125;; </span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>动态初始化</p>
+<li>
+<p>动态初始化</p>
 <ul>
 <li>通过动态初始化的数组元素默认值为0</li>
 <li>预先为数组元素分配内存空间，在后期可以修改数组元素的值</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dataType[] arrayRefVar = <span class="keyword">new</span> <span class="title class_">dataType</span>[arraySize];</span><br><span class="line"><span class="comment">//通过&quot;dataType[arraySize]&quot;声明了一个数组</span></span><br><span class="line"><span class="comment">//将新创建的数组赋给arrayRefVar</span></span><br><span class="line"><span class="comment">//int[] arr = new int[3];</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dataType[] arrayRefVar = <span class="keyword">new</span> <span class="title class_">dataType</span>[arraySize];</span><br><span class="line"><span class="comment">//通过&quot;dataType[arraySize]&quot;声明了一个数组</span></span><br><span class="line"><span class="comment">//将新创建的数组赋给arrayRefVar</span></span><br><span class="line"><span class="comment">//int[] arr = new int[3];</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h4 id="数组的遍历"><a href="#数组的遍历" class="headerlink" title="数组的遍历"></a>数组的遍历</h4><ul>
-<li><p><code>ArrayIndexOutOfBoundsException</code></p>
+<h4 id="数组的遍历"><a class="markdownIt-Anchor" href="#数组的遍历"></a> 数组的遍历</h4>
+<ul>
+<li>
+<p><code>ArrayIndexOutOfBoundsException</code></p>
 <ul>
 <li>数组下标越界异常：当访问的元素的下标超出或者小于数组元素的范围时抛出的异常</li>
 </ul>
 </li>
-<li><p>For - Each循环</p>
+<li>
+<p>For - Each循环</p>
 <ul>
 <li>可以在不适用下标的情况下遍历数组</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(dataType element: arrayRefVar)&#123;</span><br><span class="line">    System.out.println(element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//举个例子</span></span><br><span class="line"><span class="type">double</span>[] arr = &#123;<span class="number">1.3</span>,<span class="number">4.6</span>,<span class="number">2.6</span>,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">double</span> element: arr)&#123;</span><br><span class="line">   System.out.println(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(dataType element: arrayRefVar)&#123;</span><br><span class="line">    System.out.println(element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//举个例子</span></span><br><span class="line"><span class="type">double</span>[] arr = &#123;<span class="number">1.3</span>,<span class="number">4.6</span>,<span class="number">2.6</span>,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">double</span> element: arr)&#123;</span><br><span class="line">   System.out.println(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h4 id="数组作为方法的参数"><a href="#数组作为方法的参数" class="headerlink" title="数组作为方法的参数"></a>数组作为方法的参数</h4><ul>
+<h4 id="数组作为方法的参数"><a class="markdownIt-Anchor" href="#数组作为方法的参数"></a> 数组作为方法的参数</h4>
+<ul>
 <li>数组可以作为参数传递给方法</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(<span class="type">int</span>[] arr)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> elemnt: arr) &#123;</span><br><span class="line">            System.out.print(elemnt + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] arr1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line">        <span class="type">int</span>[] arr2 = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;通过静态方法初始化的数组&quot;</span>);</span><br><span class="line">        print(arr1);</span><br><span class="line">        System.out.println(<span class="string">&quot;通过动态方法初始化的数组&quot;</span>);</span><br><span class="line">        print(arr2);</span><br><span class="line">        System.out.println(<span class="string">&quot;通过动态方法初始化的数组&quot;</span>);</span><br><span class="line">        print(<span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">5</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8lsy8ycupj30ft0andg9.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8lsy8ycupj30ft0andg9.jpg" alt="" /></p>
 <ul>
 <li>直接传递静态数组的方法</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">dataType</span>[]&#123;value0, value1, ..., valuek&#125;</span><br><span class="line"><span class="comment">//举个例子</span></span><br><span class="line">print(&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;);<span class="comment">//报错</span></span><br><span class="line">print(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;)<span class="comment">//编译通过</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="main方法的形参列表"><a href="#main方法的形参列表" class="headerlink" title="main方法的形参列表"></a>main方法的形参列表</h2><ul>
-<li><p>JVM负责调用<code>main</code>方法，<code>main</code>方法的形参列表是<code>String[] args</code></p>
+<h2 id="main方法的形参列表"><a class="markdownIt-Anchor" href="#main方法的形参列表"></a> main方法的形参列表</h2>
+<ul>
+<li>
+<p>JVM负责调用<code>main</code>方法，<code>main</code>方法的形参列表是<code>String[] args</code></p>
 </li>
-<li><p>JVM传递的实参并不是一个空引用，但并没有存储数据</p>
+<li>
+<p>JVM传递的实参并不是一个空引用，但并没有存储数据</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;String[] args的长度是 &quot;</span> + args.length);</span><br><span class="line">  			<span class="comment">//等价于</span></span><br><span class="line">  			<span class="comment">//String[] strs = &#123;&#125;;</span></span><br><span class="line">  			<span class="comment">//引用指向一个数组，但是数组中没有存储任何数据</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>String[] args</code>是用来接受用户在控制台上输入的参数的</p>
+<li>
+<p><code>String[] args</code>是用来接受用户在控制台上输入的参数的</p>
 <ul>
-<li>用户通过<code>java</code>命令来输入参数<ul>
+<li>用户通过<code>java</code>命令来输入参数
+<ul>
 <li><code>java + 类名 + 参数</code></li>
 </ul>
 </li>
 <li>JVM将用户输入的参数按照空格的方式进行分离，分离转化完成后自动放到<code>String[] args</code>中</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainTest</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;String[] args的长度为 &quot;</span> + args.length);</span><br><span class="line">		<span class="keyword">for</span>(String element: args)&#123;</span><br><span class="line">			System.out.println(element);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ltevppqoj30la0em0ts.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ltevppqoj30la0em0ts.jpg" alt="" /></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (args.length != <span class="number">2</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;请输入用户名和密码！&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">  	<span class="comment">//有效避免空指针异常</span></span><br><span class="line">  	<span class="comment">//用&quot;admin&quot;去调用equals方法</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="string">&quot;admin&quot;</span>.equals(args[<span class="number">0</span>]) &amp;&amp; <span class="string">&quot;123&quot;</span>.equals(args[<span class="number">1</span>]) )&#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;欢迎&quot;</span> + args[<span class="number">0</span>] + <span class="string">&quot;回来&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;用户名密码错误！&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ltol9acej30ni0fa3zl.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ltol9acej30ni0fa3zl.jpg" alt="" /></p>
 </li>
 </ul>
-<h2 id="引用类型的数组"><a href="#引用类型的数组" class="headerlink" title="引用类型的数组"></a>引用类型的数组</h2><ul>
+<h2 id="引用类型的数组"><a class="markdownIt-Anchor" href="#引用类型的数组"></a> 引用类型的数组</h2>
+<ul>
 <li>当数组中存储引用数据类型时，会涉及到多态的概念</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      	<span class="comment">//创建一个父类的数组</span></span><br><span class="line">      	<span class="comment">//父类的数组中可以存储不同的子类对象</span></span><br><span class="line">        Animal[] animals = &#123;<span class="keyword">new</span> <span class="title class_">Bird</span>(), <span class="keyword">new</span> <span class="title class_">Fish</span>()&#125;;</span><br><span class="line">      	<span class="comment">//调用父类的的方法</span></span><br><span class="line">      	<span class="comment">//最后会调用每个子类对父类方法的重写</span></span><br><span class="line">        <span class="keyword">for</span>(Animal element : animals)&#123;</span><br><span class="line">            element.move();</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//调用某个子类特有的方法</span></span><br><span class="line">      	<span class="comment">//需要向下转型（转型之前用instanceof来判断）</span></span><br><span class="line">        <span class="keyword">for</span> (Animal animal: animals)&#123;</span><br><span class="line">            <span class="keyword">if</span> (animal <span class="keyword">instanceof</span> Bird)&#123;</span><br><span class="line">                <span class="type">Bird</span> <span class="variable">bird</span> <span class="operator">=</span> (Bird) animal;</span><br><span class="line">                bird.hatch();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Animal is moving&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Bird is flying&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hatch</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Bird is hatching its baby&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Fish</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Fish is swimming&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="数组的扩容"><a href="#数组的扩容" class="headerlink" title="数组的扩容"></a>数组的扩容</h2><ul>
-<li>扩容的过程<ul>
+<h2 id="数组的扩容"><a class="markdownIt-Anchor" href="#数组的扩容"></a> 数组的扩容</h2>
+<ul>
+<li>扩容的过程
+<ul>
 <li>当原数组元素满了的时候</li>
 <li>新建一个大容量的数组，将之前数组中的数据一个一个的拷贝到大数组中</li>
 </ul>
 </li>
-<li>扩容的效率很低<ul>
+<li>扩容的效率很低
+<ul>
 <li>在设置数组时需要提前估计好数组的长度，避免发生拷贝</li>
 </ul>
 </li>
 </ul>
-<h3 id="数组的拷贝"><a href="#数组的拷贝" class="headerlink" title="数组的拷贝"></a>数组的拷贝</h3><ul>
-<li><p><code>System.arraycopy(Object src,int srcPos,Object dest, int destPos, int length)</code></p>
+<h3 id="数组的拷贝"><a class="markdownIt-Anchor" href="#数组的拷贝"></a> 数组的拷贝</h3>
+<ul>
+<li>
+<p><code>System.arraycopy(Object src,int srcPos,Object dest, int destPos, int length)</code></p>
 <blockquote>
-<p>Copies an array from the specified source array, beginning at the specified position, to the specified position of the destination array. A subsequence of array components are copied from the source array referenced by <code>src</code> （从src数组中复制）to the destination array referenced by <code>dest</code>（复制到dest数组中）. The number of components copied is equal to the <code>length</code> argument（拷贝元素的长度）. The components at positions <code>srcPos</code> through <code>srcPos+length-1</code> in the source array are copied into positions <code>destPos</code>through <code>destPos+length-1</code>, respectively, of the destination array.              </p>
+<p>Copies an array from the specified source array, beginning at the specified position, to the specified position of the destination array. A subsequence of array components are copied from the source array referenced by <code>src</code> （从src数组中复制）to the destination array referenced by <code>dest</code>（复制到dest数组中）. The number of components copied is equal to the <code>length</code> argument（拷贝元素的长度）. The components at positions <code>srcPos</code> through <code>srcPos+length-1</code> in the source array are copied into positions <code>destPos</code>through <code>destPos+length-1</code>, respectively, of the destination array.</p>
 </blockquote>
 <ul>
 <li>用<code>Object</code>可以更好的兼容各种数组类型</li>
 <li>所有的数组都继承了<code>Object</code>类</li>
 </ul>
 </li>
-<li><p><strong>从<code>src</code>数组的<code>srcPos</code>的位置开始复制，拷贝到到<code>dest</code>数组从<code>destPos</code>位置开始的地方，一共复制<code>length</code>个元素，</strong></p>
+<li>
+<p><strong>从<code>src</code>数组的<code>srcPos</code>的位置开始复制，拷贝到到<code>dest</code>数组从<code>destPos</code>位置开始的地方，一共复制<code>length</code>个元素，</strong></p>
 </li>
-<li><p>拷贝的内容不仅可以拷贝基本类型的数据，还可以拷贝引用类型的数据</p>
+<li>
+<p>拷贝的内容不仅可以拷贝基本类型的数据，还可以拷贝引用类型的数据</p>
 <ul>
 <li>拷贝引用类型的数据时拷贝的是其地址</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        String[] arr = &#123;<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;World&quot;</span>,<span class="string">&quot;Test&quot;</span>,<span class="string">&quot;Java&quot;</span>&#125;;</span><br><span class="line">        String[] arrNew = <span class="keyword">new</span> <span class="title class_">String</span>[arr.length];</span><br><span class="line">  			<span class="comment">//拷贝引用内容</span></span><br><span class="line">        System.arraycopy(arr,<span class="number">0</span>,arrNew,<span class="number">0</span>,arr.length);</span><br><span class="line">        <span class="keyword">for</span>(String str : arrNew)&#123;</span><br><span class="line">            System.out.print(str + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Object[] objects = &#123;<span class="keyword">new</span> <span class="title class_">Object</span>(), <span class="keyword">new</span> <span class="title class_">Object</span>(), <span class="keyword">new</span> <span class="title class_">Object</span>(), <span class="keyword">new</span> <span class="title class_">Object</span>()&#125;;</span><br><span class="line">        Object[] objects1 = <span class="keyword">new</span> <span class="title class_">Object</span>[objects.length + <span class="number">5</span>];</span><br><span class="line">        System.arraycopy(objects,<span class="number">0</span>,objects1,<span class="number">0</span>,objects.length);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; objects1.length; i++)&#123;</span><br><span class="line">          	<span class="comment">//输出拷贝的内容</span></span><br><span class="line">          	<span class="comment">//在Java中直接输出一个类的对象时会默认调用该对象的toString方法</span></span><br><span class="line">          	<span class="comment">//默认的toString方法是输出 类名@地址</span></span><br><span class="line">            System.out.println(objects1[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8m3vyvx0hj30fu0dm3yz.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8m3vyvx0hj30fu0dm3yz.jpg" alt="" /></p>
 </li>
 </ul>
 
@@ -491,7 +523,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84-1"><span class="nav-number">1.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">数组的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">1.3.</span> <span class="nav-text">一维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">语法格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">数组的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E6%96%B9%E6%B3%95%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">数组作为方法的参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#main%E6%96%B9%E6%B3%95%E7%9A%84%E5%BD%A2%E5%8F%82%E5%88%97%E8%A1%A8"><span class="nav-number">1.4.</span> <span class="nav-text">main方法的形参列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E7%BB%84"><span class="nav-number">1.5.</span> <span class="nav-text">引用类型的数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%AE%B9"><span class="nav-number">1.6.</span> <span class="nav-text">数组的扩容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.6.1.</span> <span class="nav-text">数组的拷贝</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text"> 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84-2"><span class="nav-number">1.1.</span> <span class="nav-text"> 数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text"> 数组的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">1.3.</span> <span class="nav-text"> 一维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 语法格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-number">1.3.1.1.</span> <span class="nav-text"> 声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.3.1.2.</span> <span class="nav-text"> 初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-number">1.3.1.3.</span> <span class="nav-text"> 数组的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E6%96%B9%E6%B3%95%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">1.3.1.4.</span> <span class="nav-text"> 数组作为方法的参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#main%E6%96%B9%E6%B3%95%E7%9A%84%E5%BD%A2%E5%8F%82%E5%88%97%E8%A1%A8"><span class="nav-number">1.4.</span> <span class="nav-text"> main方法的形参列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E7%BB%84"><span class="nav-number">1.5.</span> <span class="nav-text"> 引用类型的数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%AE%B9"><span class="nav-number">1.6.</span> <span class="nav-text"> 数组的扩容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.6.1.</span> <span class="nav-text"> 数组的拷贝</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

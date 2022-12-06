@@ -249,161 +249,190 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Integer类"><a href="#Integer类" class="headerlink" title="Integer类"></a>Integer类</h1><h2 id="八种包装类"><a href="#八种包装类" class="headerlink" title="八种包装类"></a>八种包装类</h2><ul>
-<li><p>Java中为8种 基本数据类型准备了8种包装类，这8种包装类属于引用数据类型，其父类是<code>Object</code></p>
+        <h1 id="integer类"><a class="markdownIt-Anchor" href="#integer类"></a> Integer类</h1>
+<h2 id="八种包装类"><a class="markdownIt-Anchor" href="#八种包装类"></a> 八种包装类</h2>
+<ul>
+<li>
+<p>Java中为8种 基本数据类型准备了8种包装类，这8种包装类属于引用数据类型，其父类是<code>Object</code></p>
 </li>
-<li><p>基本数据类型的缺陷</p>
+<li>
+<p>基本数据类型的缺陷</p>
 <ul>
 <li>无法作为参数传入某些方法中</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//无法向doSome方法中直接传入int型参数</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">doSome</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">		System.out.println(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyInt</span>&#123;<span class="comment">//自己编写一个类将int封装起来</span></span><br><span class="line">    <span class="type">int</span> myInt;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyInt</span><span class="params">(<span class="type">int</span> myInt)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.myInt = myInt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		doSome(<span class="keyword">new</span> <span class="title class_">MyInt</span>(<span class="number">10</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>八种包装类</p>
+<li>
+<p>八种包装类</p>
 </li>
 </ul>
 <table>
 <thead>
 <tr>
-<th align="center">基本数据类型</th>
-<th align="center">包装类型</th>
+<th style="text-align:center">基本数据类型</th>
+<th style="text-align:center">包装类型</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><code>byte</code></td>
-<td align="center"><code>java.lang.Byte</code>（父类是<code>Number</code>）</td>
+<tbody>
+<tr>
+<td style="text-align:center"><code>byte</code></td>
+<td style="text-align:center"><code>java.lang.Byte</code>（父类是<code>Number</code>）</td>
 </tr>
 <tr>
-<td align="center"><code>short</code></td>
-<td align="center"><code>java.lang.Short（父类是</code>Number<code>）</code></td>
+<td style="text-align:center"><code>short</code></td>
+<td style="text-align:center"><code>java.lang.Short（父类是</code>Number<code>）</code></td>
 </tr>
 <tr>
-<td align="center"><code>int</code></td>
-<td align="center"><code>java.lang.Integer</code>（父类是<code>Number</code>）</td>
+<td style="text-align:center"><code>int</code></td>
+<td style="text-align:center"><code>java.lang.Integer</code>（父类是<code>Number</code>）</td>
 </tr>
 <tr>
-<td align="center"><code>long</code></td>
-<td align="center"><code>java.lang.Long</code>（父类是<code>Number</code>）</td>
+<td style="text-align:center"><code>long</code></td>
+<td style="text-align:center"><code>java.lang.Long</code>（父类是<code>Number</code>）</td>
 </tr>
 <tr>
-<td align="center"><code>float</code></td>
-<td align="center"><code>java.lang.Float</code>（父类是<code>Number</code>）</td>
+<td style="text-align:center"><code>float</code></td>
+<td style="text-align:center"><code>java.lang.Float</code>（父类是<code>Number</code>）</td>
 </tr>
 <tr>
-<td align="center"><code>double</code></td>
-<td align="center"><code>java.lang.Double</code>（父类是<code>Number</code>）</td>
+<td style="text-align:center"><code>double</code></td>
+<td style="text-align:center"><code>java.lang.Double</code>（父类是<code>Number</code>）</td>
 </tr>
 <tr>
-<td align="center"><code>boolean</code></td>
-<td align="center"><code>java.lang.Boolean</code>（父类是<code>Object</code>）</td>
+<td style="text-align:center"><code>boolean</code></td>
+<td style="text-align:center"><code>java.lang.Boolean</code>（父类是<code>Object</code>）</td>
 </tr>
 <tr>
-<td align="center"><code>char</code></td>
-<td align="center"><code>java.lang.Character</code>（父类是<code>Object</code>）</td>
+<td style="text-align:center"><code>char</code></td>
+<td style="text-align:center"><code>java.lang.Character</code>（父类是<code>Object</code>）</td>
 </tr>
-</tbody></table>
-<h2 id="Number类"><a href="#Number类" class="headerlink" title="Number类"></a>Number类</h2><ul>
-<li><p>抽象类，无法实例化对象</p>
+</tbody>
+</table>
+<h2 id="number类"><a class="markdownIt-Anchor" href="#number类"></a> Number类</h2>
+<ul>
+<li>
+<p>抽象类，无法实例化对象</p>
 </li>
-<li><p>抽象方法</p>
+<li>
+<p>抽象方法</p>
 <ul>
 <li>负责拆箱</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">int</span> <span class="title function_">intValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">long</span> <span class="title function_">longValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">float</span> <span class="title function_">floatValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">double</span> <span class="title function_">doubleValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="type">byte</span> <span class="title function_">byteValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="type">short</span> <span class="title function_">shortValue</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><u>基本数据类型</u>向<u>引用数据类型</u>转换（<strong>装箱</strong>）</p>
+<li>
+<p><u>基本数据类型</u>向<u>引用数据类型</u>转换（<strong>装箱</strong>）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">num</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>引用数据类型向基本数据类型转换（<strong>拆箱</strong>）</p>
+<li>
+<p>引用数据类型向基本数据类型转换（<strong>拆箱</strong>）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> <span class="variable">f</span> <span class="operator">=</span> num.floatValue();<span class="comment">//10.0</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> num.intValue();<span class="comment">//10</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>构造方法</p>
+<li>
+<p>构造方法</p>
 <ul>
 <li>负责装箱</li>
 </ul>
 </li>
 </ul>
-<h2 id="Integer的构造方法"><a href="#Integer的构造方法" class="headerlink" title="Integer的构造方法"></a>Integer的构造方法</h2><ol>
-<li><code>public Integer(int value)</code><ul>
+<h2 id="integer的构造方法"><a class="markdownIt-Anchor" href="#integer的构造方法"></a> Integer的构造方法</h2>
+<ol>
+<li><code>public Integer(int value)</code>
+<ul>
 <li>在Java9之后不建议使用这种构造方法</li>
 </ul>
 </li>
-<li><code>public Integer(String s)</code><ul>
+<li><code>public Integer(String s)</code>
+<ul>
 <li>在Java9之后不建议使用这种构造方法</li>
 </ul>
 </li>
 </ol>
 <ul>
-<li><p><strong>自动装箱&#x2F;拆箱</strong></p>
+<li>
+<p><strong>自动装箱/拆箱</strong></p>
 <ul>
-<li><p>自动装箱：基本数据类型自动转换为包装类</p>
+<li>
+<p>自动装箱：基本数据类型自动转换为包装类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>此时<code>i</code>指向的还是一块内存空间，等价于<code>Integer i = new Integer(100)</code></li>
 </ul>
 </li>
-<li><p>自动拆箱：包装类自动转换为基本数据类型</p>
+<li>
+<p>自动拆箱：包装类自动转换为基本数据类型</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> i;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> i + <span class="number">100</span>;<span class="comment">//自动拆箱，将i变为基本数据类型</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="comment">//==并不会引发自动拆箱机制，比较的是两个引用指向的地址是否相同</span></span><br><span class="line">a == b;<span class="comment">//false</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="comment">//==并不会引发自动拆箱机制，比较的是两个引用指向的地址是否相同</span></span><br><span class="line">a == b;<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
-<h2 id="Integer中的常量"><a href="#Integer中的常量" class="headerlink" title="Integer中的常量"></a>Integer中的常量</h2><blockquote>
+<h2 id="integer中的常量"><a class="markdownIt-Anchor" href="#integer中的常量"></a> Integer中的常量</h2>
+<blockquote>
 <p>A constant holding the minimum value an int can have, $-2^{31} $</p>
-<p>A constant holding the maximum value an int can have, $2^{31} -1$.</p>
+<p>A constant holding the maximum value an int can have, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{31} -1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>   <span class="variable">MIN_VALUE</span> <span class="operator">=</span> <span class="number">0x80000000</span></span><br><span class="line"><span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>   <span class="variable">MAX_VALUE</span> <span class="operator">=</span> <span class="number">0x7fffffff</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="整数型常量池"><a href="#整数型常量池" class="headerlink" title="整数型常量池"></a>整数型常量池</h2><ul>
-<li>Java中为了提高程序的执行效率，将$[-128\sim 127]$之间所有的<u><strong>包装对象</strong></u>全部提前创建好，放到一个<u>方法区的</u>整数型常量池中</li>
+<h2 id="整数型常量池"><a class="markdownIt-Anchor" href="#整数型常量池"></a> 整数型常量池</h2>
+<ul>
+<li>Java中为了提高程序的执行效率，将<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mo>−</mo><mn>128</mn><mo>∼</mo><mn>127</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[-128\sim 127]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord">1</span><span class="mord">2</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord">7</span><span class="mclose">]</span></span></span></span>之间所有的<u><strong>包装对象</strong></u>全部提前创建好，放到一个<u>方法区的</u>整数型常量池中</li>
 <li>和<code>String</code>类似，整数型常量池在类（<code>Integer</code>类）加载时就会<u>提 前</u>注入方法区内存</li>
 <li>是以静态代码块<code>static</code>的形式实现</li>
 <li>只要用这个区间的数据，我们就不需要再创建新的对象，直接从整数型常量池中取出来即可</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">127</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">127</span>;</span><br><span class="line"><span class="comment">//x引用指向的地址和y引用指向的地址是整数型常量池中的同一块地址</span></span><br><span class="line">x == y;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line"><span class="comment">//128不再是常量池中的数据，因此x和y指向的是不同的对象</span></span><br><span class="line">x == y;<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>Cache to support the object identity semantics of autoboxing for values between -128 and 127 (inclusive) as required by JLS. The cache is initialized on first usage. （在程序运行的初始阶段就被初始化）The size of the cache may be controlled by the -XX:AutoBoxCacheMax&#x3D;<size> option. During VM initialization, java.lang.Integer.IntegerCache.high property may be set and saved in the private system properties in the jdk.internal.misc.VM class. </p>
+<p>Cache to support the object identity semantics of autoboxing for values between -128 and 127 (inclusive) as required by JLS. The cache is initialized on first usage. （在程序运行的初始阶段就被初始化）The size of the cache may be controlled by the -XX:AutoBoxCacheMax=<size> option. During VM initialization, java.lang.Integer.IntegerCache.high property may be set and saved in the private system properties in the jdk.internal.misc.VM class.</p>
 </blockquote>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8s09tq6otj30nt0irabx.jpg"></p>
-<h3 id="NumberFormatException"><a href="#NumberFormatException" class="headerlink" title="NumberFormatException"></a><code>NumberFormatException</code></h3><ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8s09tq6otj30nt0irabx.jpg" alt="" /></p>
+<h3 id="numberformatexception"><a class="markdownIt-Anchor" href="#numberformatexception"></a> <code>NumberFormatException</code></h3>
+<ul>
 <li>数字格式异常</li>
 <li>针对<code>Integer(String str)</code>的构造方法，如果字符串中包含非数字的字符，会抛出“数字格式异常”</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">Integer</span><span class="params">(String s)</span> <span class="keyword">throws</span> NumberFormatException &#123;</span><br><span class="line">    <span class="built_in">this</span>.value = parseInt(s, <span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>Constructs a newly allocated Integer object that represents the int value indicated by the String parameter. The string is converted to an int value in exactly the manner used by the parseInt method for radix 10.<br>Params:<br>s – the String to be converted to an Integer.<br>Throws:<br>NumberFormatException – if the String does not contain a parsable integer.</p>
+<p>Constructs a newly allocated Integer object that represents the int value indicated by the String parameter. The string is converted to an int value in exactly the manner used by the parseInt method for radix 10.<br />
+Params:<br />
+s – the String to be converted to an Integer.<br />
+Throws:<br />
+NumberFormatException – if the String does not contain a parsable integer.</p>
 </blockquote>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><h3 id="public-static-int-parseInt-String-s"><a href="#public-static-int-parseInt-String-s" class="headerlink" title="public static int parseInt(String s)"></a><code>public static int parseInt(String s)</code></h3><blockquote>
-<p>Parses the string argument as a signed decimal integer. （将字符串转换为int型）The characters in the string must all be decimal digits,（字符型中一定得是十进制的数字，否则会抛出数字格式化异常） except that the first character may be an ASCII minus sign ‘-‘ (‘\u002D’) to indicate a negative value or an ASCII plus sign ‘+’ (‘\u002B’) to indicate a positive value. The resulting integer value is returned, exactly as if the argument and the radix 10 were given as arguments to the parseInt(String, int) method.</p>
+<h2 id="常用方法"><a class="markdownIt-Anchor" href="#常用方法"></a> 常用方法</h2>
+<h3 id="public-static-int-parseintstring-s"><a class="markdownIt-Anchor" href="#public-static-int-parseintstring-s"></a> <code>public static int parseInt(String s)</code></h3>
+<blockquote>
+<p>Parses the string argument as a signed decimal integer. （将字符串转换为int型）The characters in the string must all be decimal digits,（字符型中一定得是十进制的数字，否则会抛出数字格式化异常） except that the first character may be an ASCII minus sign '-' ('\u002D') to indicate a negative value or an ASCII plus sign '+' ('\u002B') to indicate a positive value. The resulting integer value is returned, exactly as if the argument and the radix 10 were given as arguments to the parseInt(String, int) method.</p>
 </blockquote>
-<h3 id="十进制与其他进制的转换"><a href="#十进制与其他进制的转换" class="headerlink" title="十进制与其他进制的转换"></a>十进制与其他进制的转换</h3><h4 id="public-static-String-toBinaryString-int-i"><a href="#public-static-String-toBinaryString-int-i" class="headerlink" title="public static String toBinaryString(int i)"></a><code>public static String toBinaryString(int i)</code></h4><h4 id="public-static-String-toHexString-int-i"><a href="#public-static-String-toHexString-int-i" class="headerlink" title="public static String toHexString(int i)"></a><code>public static String toHexString(int i)</code></h4><ul>
+<h3 id="十进制与其他进制的转换"><a class="markdownIt-Anchor" href="#十进制与其他进制的转换"></a> 十进制与其他进制的转换</h3>
+<h4 id="public-static-string-tobinarystringint-i"><a class="markdownIt-Anchor" href="#public-static-string-tobinarystringint-i"></a> <code>public static String toBinaryString(int i)</code></h4>
+<h4 id="public-static-string-tohexstringint-i"><a class="markdownIt-Anchor" href="#public-static-string-tohexstringint-i"></a> <code>public static String toHexString(int i)</code></h4>
+<ul>
 <li><code>Object</code>类中的<code>toStirng()</code>方法</li>
 <li>将地址从十进制转换为十六进制</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> getClass().getName() + <span class="string">&quot;@&quot;</span> + Integer.toHexString(hashCode());</span><br><span class="line">&#125;	<span class="number">8</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="public-static-String-toOctalString-int-i"><a href="#public-static-String-toOctalString-int-i" class="headerlink" title="public static String toOctalString(int i)"></a><code>public static String toOctalString(int i)</code></h4><h3 id="public-static-Integer-valueOf-String-s"><a href="#public-static-Integer-valueOf-String-s" class="headerlink" title="public static Integer valueOf(String s)"></a><code>public static Integer valueOf(String s)</code></h3><blockquote>
-<p>Returns an Integer object holding the value of the specified String.（返回和字符串值相同的一个Integer对象） The argument is interpreted as representing a signed decimal integer, exactly as if the argument were given to the parseInt(String) method. The result is an Integer object that represents the integer value specified by the string.<br>In other words, this method returns an Integer object equal to the value of:<br>new Integer(Integer.parseInt(s))</p>
+<h4 id="public-static-string-tooctalstringint-i"><a class="markdownIt-Anchor" href="#public-static-string-tooctalstringint-i"></a> <code>public static String toOctalString(int i)</code></h4>
+<h3 id="public-static-integer-valueofstring-s"><a class="markdownIt-Anchor" href="#public-static-integer-valueofstring-s"></a> <code>public static Integer valueOf(String s)</code></h3>
+<blockquote>
+<p>Returns an Integer object holding the value of the specified String.（返回和字符串值相同的一个Integer对象） The argument is interpreted as representing a signed decimal integer, exactly as if the argument were given to the parseInt(String) method. The result is an Integer object that represents the integer value specified by the string.<br />
+In other words, this method returns an Integer object equal to the value of:<br />
+new Integer(Integer.parseInt(s))</p>
 </blockquote>
-<h3 id="String-Integer以及int三种类型的相互转化"><a href="#String-Integer以及int三种类型的相互转化" class="headerlink" title="String Integer以及int三种类型的相互转化"></a><code>String</code> <code>Integer</code>以及<code>int</code>三种类型的相互转化</h3><p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8s26d8wyfj31hn0u0q78.jpg"></p>
+<h3 id="string-integer以及int三种类型的相互转化"><a class="markdownIt-Anchor" href="#string-integer以及int三种类型的相互转化"></a> <code>String</code> <code>Integer</code>以及<code>int</code>三种类型的相互转化</h3>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8s26d8wyfj31hn0u0q78.jpg" alt="" /></p>
 <ul>
-<li><p>转换成引用数据类型</p>
+<li>
+<p>转换成引用数据类型</p>
 <ul>
 <li>调用该引用数据类型的<code>Valueof()</code>方法</li>
 </ul>
 </li>
-<li><p>转换成基本数据类型</p>
+<li>
+<p>转换成基本数据类型</p>
 <ul>
 <li>调用该基本类型的包装类的<code>parse()</code>方法</li>
 </ul>
@@ -492,7 +521,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Integer%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">Integer类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E7%A7%8D%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">八种包装类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text">Number类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integer%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">Integer的构造方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integer%E4%B8%AD%E7%9A%84%E5%B8%B8%E9%87%8F"><span class="nav-number">1.4.</span> <span class="nav-text">Integer中的常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E6%95%B0%E5%9E%8B%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-number">1.5.</span> <span class="nav-text">整数型常量池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NumberFormatException"><span class="nav-number">1.5.1.</span> <span class="nav-text">NumberFormatException</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.6.</span> <span class="nav-text">常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-static-int-parseInt-String-s"><span class="nav-number">1.6.1.</span> <span class="nav-text">public static int parseInt(String s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8E%E5%85%B6%E4%BB%96%E8%BF%9B%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.6.2.</span> <span class="nav-text">十进制与其他进制的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#public-static-String-toBinaryString-int-i"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">public static String toBinaryString(int i)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#public-static-String-toHexString-int-i"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">public static String toHexString(int i)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#public-static-String-toOctalString-int-i"><span class="nav-number">1.6.2.3.</span> <span class="nav-text">public static String toOctalString(int i)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-static-Integer-valueOf-String-s"><span class="nav-number">1.6.3.</span> <span class="nav-text">public static Integer valueOf(String s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-Integer%E4%BB%A5%E5%8F%8Aint%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E5%8C%96"><span class="nav-number">1.6.4.</span> <span class="nav-text">String Integer以及int三种类型的相互转化</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#integer%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text"> Integer类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E7%A7%8D%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text"> 八种包装类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#number%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text"> Number类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#integer%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text"> Integer的构造方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#integer%E4%B8%AD%E7%9A%84%E5%B8%B8%E9%87%8F"><span class="nav-number">1.4.</span> <span class="nav-text"> Integer中的常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E6%95%B0%E5%9E%8B%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-number">1.5.</span> <span class="nav-text"> 整数型常量池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#numberformatexception"><span class="nav-number">1.5.1.</span> <span class="nav-text"> NumberFormatException</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.6.</span> <span class="nav-text"> 常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-static-int-parseintstring-s"><span class="nav-number">1.6.1.</span> <span class="nav-text"> public static int parseInt(String s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8E%E5%85%B6%E4%BB%96%E8%BF%9B%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.6.2.</span> <span class="nav-text"> 十进制与其他进制的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#public-static-string-tobinarystringint-i"><span class="nav-number">1.6.2.1.</span> <span class="nav-text"> public static String toBinaryString(int i)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#public-static-string-tohexstringint-i"><span class="nav-number">1.6.2.2.</span> <span class="nav-text"> public static String toHexString(int i)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#public-static-string-tooctalstringint-i"><span class="nav-number">1.6.2.3.</span> <span class="nav-text"> public static String toOctalString(int i)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-static-integer-valueofstring-s"><span class="nav-number">1.6.3.</span> <span class="nav-text"> public static Integer valueOf(String s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-integer%E4%BB%A5%E5%8F%8Aint%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E5%8C%96"><span class="nav-number">1.6.4.</span> <span class="nav-text"> String Integer以及int三种类型的相互转化</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
