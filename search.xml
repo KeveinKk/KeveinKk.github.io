@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo搭建博客过程中，4000端口被占用</title>
-    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
-<ul>
-<li>更改hexo使用的端口</li>
-<li>杀掉正在占用4000端口的其他进程</li>
-</ul>
-<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
-<ul>
-<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
-<ul>
-<li><code>sudo lsof -i tcp:端口号</code></li>
-<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
-<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
-</li>
-<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
-<ul>
-<li><code>sudo kill -9 PID</code></li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>整数反转</title>
     <url>/2022/11/28/%E7%AE%97%E6%B3%95/%20%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</url>
     <content><![CDATA[<h1 id="整数反转"><a href="#整数反转" class="headerlink" title="整数反转"></a>整数反转</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个32位的有符号整数x ，返回将x中的数字部分反转后的结果。如果反转后整数超过32位的有符号整数的范围$[−2^{31},2^{31} − 1]$，就返回 0。</p>
@@ -98,6 +63,39 @@
       </tags>
   </entry>
   <entry>
+    <title>两数之和</title>
+    <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+    <content><![CDATA[<h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个下标从 1 开始的整数数组<code>numbers</code> ，该数组已按<u>非递减顺序排列</u>，请你从数组中找出满足相加之和等于目标数<code>target</code>的两个数。如果设这两个数分别是<code>numbers[index1]</code>和<code>numbers[index2]</code>，则<code>1 &lt;= index1 &lt; index2 &lt;= numbers.length</code>。</p>
+<p>你可以假设每个输入 只对应唯一的答案 ，而且你不可以重复使用相同的元素。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这个问题可以等价于先固定<code>numbers[index1]</code>这个数，要求我们在数组中找到<code>target-numbers[index1]</code>这个数的下标。由于当前的数组是有序的，所以我们首先考虑到通过二分法来解决这个问题。为了避免重复，我们可以每次在numbers[index1]这个数右边寻找。</p>
+<ul>
+<li>采用这种方法时，<code>index1</code>的下标需要将整个数组遍历一遍来确定第一个数，在<code>index1</code>遍历的一轮中，对剩下的数采用二分法来查找<code>index2</code>，一轮二分法查找需要$O(logN)$的时间，而一共需要$N$轮，总的时间复杂度为$O(NlogN)$</li>
+<li>这种方法不需要申请额外的辅助空间，空间复杂度为$O(1)$</li>
+<li>注意：如果将二分查找封装成一个函数，那么可能会因为频繁调用函数而造成超时</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//在每一轮中采用二分法来查找</span></span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;<span class="comment">//否则查找失败</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="针对上述方法的优化"><a href="#针对上述方法的优化" class="headerlink" title="针对上述方法的优化"></a>针对上述方法的优化</h3><p>我们仔细思考可以发现，如果当<code>index1</code>过小，以至于index2指向数组中最末尾的数时，它们的二者之和也不能大于或者等于<code>target</code>时，那么就可以直接略过这一轮，直接对下一个更大的<code>index1</code>进行查找</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//如果index1和数组中最大的数相加都小了，则直接跳过这一轮</span></span><br><span class="line">            <span class="keyword">if</span>(numbers[index1] + numbers[high] &lt; target)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>使用双指针的方法，初始化时低位的指针指向最左边的元素，高位的指针指向最右边的元素，判断这二者之和与<code>target</code>的关系，如果大了，则代表<code>high</code>指针指向的元素过大，<code>high</code>指针左移。如果小了，则代表<code>low</code>指针指向的元素过小，low<code>指针</code>右移。如果刚好等于，则输出<code>low</code>和<code>high</code>指针即可。</p>
+<p>这里我们会疑惑，这样的移动会不会造成正确答案被我们遗漏。我们假定<code>numbers[i]+numbers[j]=target</code>.初始时两个指针分别指向下标<code>0</code>和下标<br><code>numbers.length−1</code>，左指针指向的下标小于或等于 <code>i</code>，右指针指向的下标大于或等于 <code>j</code>。除非初始时左指针和右指针已经位于下标<code>i</code>和<code>j,</code>否则一定是左指针先到达下标<code>i</code>的位置或者右指针先到达下标<code>j</code> 的位置。<br>如果左指针先到达下标<code>i</code>的位置，此时右指针还在下标<code>j</code> 的右侧，因此一定是右指针左移，左指针不可能移<code>i</code>的右侧。对应的同理。由此可见，在整个移动过程中，左指针不可能移到<code>i</code>的右侧，右指针不可能移到<code>j</code> 的左侧，因此不会把可能的解过滤掉。由于题目确保有唯一的答案，因此使用双指针一定可以找到答案。</p>
+<ul>
+<li>这种方法时间只用遍历一遍数组，时间复杂度是$O(N)$</li>
+<li>空间复杂度显然是$O(1)$</li>
+</ul>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> numbers[low] + numbers[high];</span><br><span class="line">        <span class="keyword">while</span>(sum != target)&#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                high --;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low ++;</span><br><span class="line">            &#125;</span><br><span class="line">            sum = numbers[low] + numbers[high];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++low,++high&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>两个数组的交集</title>
     <url>/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/</url>
     <content><![CDATA[<h1 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你两个整数数组<code>nums1</code>和<code>nums2</code>，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。</p>
@@ -146,39 +144,6 @@
       <tags>
         <tag>算法</tag>
         <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>两数之和</title>
-    <url>/2022/11/14/%E7%AE%97%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
-    <content><![CDATA[<h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个下标从 1 开始的整数数组<code>numbers</code> ，该数组已按<u>非递减顺序排列</u>，请你从数组中找出满足相加之和等于目标数<code>target</code>的两个数。如果设这两个数分别是<code>numbers[index1]</code>和<code>numbers[index2]</code>，则<code>1 &lt;= index1 &lt; index2 &lt;= numbers.length</code>。</p>
-<p>你可以假设每个输入 只对应唯一的答案 ，而且你不可以重复使用相同的元素。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这个问题可以等价于先固定<code>numbers[index1]</code>这个数，要求我们在数组中找到<code>target-numbers[index1]</code>这个数的下标。由于当前的数组是有序的，所以我们首先考虑到通过二分法来解决这个问题。为了避免重复，我们可以每次在numbers[index1]这个数右边寻找。</p>
-<ul>
-<li>采用这种方法时，<code>index1</code>的下标需要将整个数组遍历一遍来确定第一个数，在<code>index1</code>遍历的一轮中，对剩下的数采用二分法来查找<code>index2</code>，一轮二分法查找需要$O(logN)$的时间，而一共需要$N$轮，总的时间复杂度为$O(NlogN)$</li>
-<li>这种方法不需要申请额外的辅助空间，空间复杂度为$O(1)$</li>
-<li>注意：如果将二分查找封装成一个函数，那么可能会因为频繁调用函数而造成超时</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//在每一轮中采用二分法来查找</span></span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;<span class="comment">//否则查找失败</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="针对上述方法的优化"><a href="#针对上述方法的优化" class="headerlink" title="针对上述方法的优化"></a>针对上述方法的优化</h3><p>我们仔细思考可以发现，如果当<code>index1</code>过小，以至于index2指向数组中最末尾的数时，它们的二者之和也不能大于或者等于<code>target</code>时，那么就可以直接略过这一轮，直接对下一个更大的<code>index1</code>进行查找</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">index1</span> <span class="operator">=</span> <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index1 &lt; numbers.length; index1++) &#123;</span><br><span class="line">            low = index1 + <span class="number">1</span>;</span><br><span class="line">            high = numbers.length - <span class="number">1</span>;</span><br><span class="line">          	<span class="comment">//如果index1和数组中最大的数相加都小了，则直接跳过这一轮</span></span><br><span class="line">            <span class="keyword">if</span>(numbers[index1] + numbers[high] &lt; target)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (numbers[index1] + numbers[mid] &gt; target) &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1] + numbers[mid] &lt; target)&#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    index2 = mid;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++index1,++index2&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>使用双指针的方法，初始化时低位的指针指向最左边的元素，高位的指针指向最右边的元素，判断这二者之和与<code>target</code>的关系，如果大了，则代表<code>high</code>指针指向的元素过大，<code>high</code>指针左移。如果小了，则代表<code>low</code>指针指向的元素过小，low<code>指针</code>右移。如果刚好等于，则输出<code>low</code>和<code>high</code>指针即可。</p>
-<p>这里我们会疑惑，这样的移动会不会造成正确答案被我们遗漏。我们假定<code>numbers[i]+numbers[j]=target</code>.初始时两个指针分别指向下标<code>0</code>和下标<br><code>numbers.length−1</code>，左指针指向的下标小于或等于 <code>i</code>，右指针指向的下标大于或等于 <code>j</code>。除非初始时左指针和右指针已经位于下标<code>i</code>和<code>j,</code>否则一定是左指针先到达下标<code>i</code>的位置或者右指针先到达下标<code>j</code> 的位置。<br>如果左指针先到达下标<code>i</code>的位置，此时右指针还在下标<code>j</code> 的右侧，因此一定是右指针左移，左指针不可能移<code>i</code>的右侧。对应的同理。由此可见，在整个移动过程中，左指针不可能移到<code>i</code>的右侧，右指针不可能移到<code>j</code> 的左侧，因此不会把可能的解过滤掉。由于题目确保有唯一的答案，因此使用双指针一定可以找到答案。</p>
-<ul>
-<li>这种方法时间只用遍历一遍数组，时间复杂度是$O(N)$</li>
-<li>空间复杂度显然是$O(1)$</li>
-</ul>
-<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> numbers[low] + numbers[high];</span><br><span class="line">        <span class="keyword">while</span>(sum != target)&#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                high --;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low ++;</span><br><span class="line">            &#125;</span><br><span class="line">            sum = numbers[low] + numbers[high];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;++low,++high&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>二分查找</tag>
       </tags>
   </entry>
   <entry>
@@ -4741,6 +4706,41 @@
         <tag>算法</tag>
         <tag>双指针</tag>
         <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客过程中，4000端口被占用</title>
+    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
+<ul>
+<li>更改hexo使用的端口</li>
+<li>杀掉正在占用4000端口的其他进程</li>
+</ul>
+<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
+<ul>
+<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
+<ul>
+<li><code>sudo lsof -i tcp:端口号</code></li>
+<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
+<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
+</li>
+<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
+<ul>
+<li><code>sudo kill -9 PID</code></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
