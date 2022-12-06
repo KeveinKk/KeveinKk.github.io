@@ -256,27 +256,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="包"><a class="markdownIt-Anchor" href="#包"></a> 包</h1>
-<h3 id="包机制"><a class="markdownIt-Anchor" href="#包机制"></a> 包机制</h3>
-<ul>
-<li>
-<p>包<code>package</code>，Java中引入包机制主要是为了方便程序管理。不同功能的类被分门别类的放到不同的软件包当中，便于查找、管理依旧维护</p>
+        <h1 id="包"><a href="#包" class="headerlink" title="包"></a>包</h1><h3 id="包机制"><a href="#包机制" class="headerlink" title="包机制"></a>包机制</h3><ul>
+<li><p>包<code>package</code>，Java中引入包机制主要是为了方便程序管理。不同功能的类被分门别类的放到不同的软件包当中，便于查找、管理依旧维护</p>
 </li>
-<li>
-<p><code>package</code>的定义</p>
+<li><p><code>package</code>的定义</p>
 <ul>
 <li>在Java源程序的第一行上编写<code>package</code>语句</li>
 <li><code>package</code>只能编写一个语句</li>
 <li>语法结构：<code>package 包名;</code></li>
 </ul>
 </li>
-<li>
-<p>包的命名规范：</p>
+<li><p>包的命名规范：</p>
 <ul>
-<li>前缀 + 发起者名 + 项目名 + 模块名
-<ul>
-<li>前缀：
-<ul>
+<li>前缀 + 发起者名 + 项目名 + 模块名<ul>
+<li>前缀：<ul>
 <li><code>pers</code>个人项目，独自开发</li>
 <li><code>priv</code>私有项目</li>
 <li><code>team</code>团队项目</li>
@@ -288,52 +281,44 @@
 <li>包名要求<u>全部小写</u>，包名也是标识符，必须遵循标识符的命名规范</li>
 </ul>
 </li>
-<li>
-<p>一个包对应一个目录，目录之间用<code>.</code>分隔开</p>
+<li><p>一个包对应一个目录，目录之间用<code>.</code>分隔开</p>
 <ul>
 <li>例如：<code>pers.kevin.javase.day1117</code>就会生成四个目录</li>
 </ul>
 </li>
-<li>
-<p>一旦使用包机制后，<strong>类的名称就会改变</strong></p>
+<li><p>一旦使用包机制后，<strong>类的名称就会改变</strong></p>
 <ul>
 <li>我们编写一个Test类，当使用如上的包后，Test类的名称就会变成<code>pers.kevin.javase.day1117.Test</code></li>
 <li>当使用<code>javac</code>进行编译时，由于<code>javac</code>后面接的是文件的路径，所以使用包机制后带来的类名的变化影响不大</li>
 <li>我们将<code>java</code>源程序放在<u>其他目录</u>下进行编译</li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87v6qn5vcj30nm09xwez.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87v6qn5vcj30nm09xwez.jpg"></p>
 <ul>
 <li>编译通过，并且在同一个目录下生成了相应的字节码文件</li>
 <li>那么我们尝试在这个目录下对其使用<code>java</code>命令</li>
 </ul>
-<p>![image-20221117092753802](/Users/hewenkai/Library/Application Support/typora-user-images/image-20221117092753802.png)</p>
+<p>![image-20221117092753802](&#x2F;Users&#x2F;hewenkai&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221117092753802.png)</p>
 <ul>
 <li>编译器报错，提示找不到或无法加载主类</li>
 <li>那么我们修改相应的类名</li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87vbgvw9kj30pq0gl40m.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87vbgvw9kj30pq0gl40m.jpg"></p>
 <ul>
 <li>编译器同样报错，提示相同的原因</li>
 <li>我们将字节码文件移动到包所对应的目录下，再次尝试运行</li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87wdcf69nj30pq0gldgm.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87wdcf69nj30pq0gldgm.jpg"></p>
 </li>
-<li>
-<p>包名的省略</p>
+<li><p>包名的省略</p>
 <ul>
-<li>
-<p>当两个类在同一个包下时，可以省略包名</p>
+<li><p>当两个类在同一个包下时，可以省略包名</p>
 </li>
-<li>
-<p>当两个类不在同一个包下时，一定要在类前加上完整的包名</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		pers.kevin.javase.day1117.<span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">pers</span>.kevin.javase.day1117.Test();</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>当两个类不在同一个包下时，一定要在类前加上完整的包名</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		pers.kevin.javase.day1117.<span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">pers</span>.kevin.javase.day1117.Test();</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="import关键字"><a class="markdownIt-Anchor" href="#import关键字"></a> <code>import</code>关键字</h3>
-<ul>
+<h3 id="import关键字"><a href="#import关键字" class="headerlink" title="import关键字"></a><code>import</code>关键字</h3><ul>
 <li>import语句用来完成导入其他类，同一个包下的类不需要倒入，不在同一个包下的类需要手动导入</li>
-<li>语法格式：
-<ul>
+<li>语法格式：<ul>
 <li><code>import 类名;</code></li>
 <li><code>import 包名.*;</code>代表引入这个包下的所有类</li>
 </ul>
@@ -342,6 +327,7 @@
 <li>同样是上面的例子：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pers.kevin.javase.day1117.Test;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test</span>();</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>java.lang.*不需要手动引入</li>
 </ul>
@@ -431,7 +417,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text"> 包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%85%E6%9C%BA%E5%88%B6"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 包机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.0.2.</span> <span class="nav-text"> import关键字</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%85%E6%9C%BA%E5%88%B6"><span class="nav-number">1.0.1.</span> <span class="nav-text">包机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.0.2.</span> <span class="nav-text">import关键字</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

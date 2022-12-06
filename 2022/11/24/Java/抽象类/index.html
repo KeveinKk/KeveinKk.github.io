@@ -249,44 +249,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="抽象类"><a class="markdownIt-Anchor" href="#抽象类"></a> 抽象类</h1>
-<h2 id="抽象类的概念"><a class="markdownIt-Anchor" href="#抽象类的概念"></a> 抽象类的概念</h2>
-<ul>
-<li>
-<p><u>类和类之间具有的共同特征，将这些共同特征提取出来，形成的就是抽象类</u></p>
+        <h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><h2 id="抽象类的概念"><a href="#抽象类的概念" class="headerlink" title="抽象类的概念"></a>抽象类的概念</h2><ul>
+<li><p><u>类和类之间具有的共同特征，将这些共同特征提取出来，形成的就是抽象类</u></p>
 </li>
-<li>
-<p><strong><u>抽象类无法实例化创建对象</u></strong></p>
+<li><p><strong><u>抽象类无法实例化创建对象</u></strong></p>
 <ul>
 <li>类是对对象的抽象，而对象是真实具体的，因此类可以实例化为对象</li>
 <li>抽象类是对类的抽象，类是思维上抽象的，因此抽象类无法实例化为对象</li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8fauvv563j30mw0c075y.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8fauvv563j30mw0c075y.jpg"></p>
 </li>
-<li>
-<p>抽象类属于引用数据类型</p>
+<li><p>抽象类属于引用数据类型</p>
 </li>
-<li>
-<p>抽象类的语法结构</p>
+<li><p>抽象类的语法结构</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[修饰符列表] <span class="keyword">abstract</span> class 类名&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>抽象类是用来被子类继承的</p>
+<li><p>抽象类是用来被子类继承的</p>
 <ul>
-<li>
-<p>抽象类无法实例化，无法创建对象</p>
+<li><p>抽象类无法实例化，无法创建对象</p>
 </li>
-<li>
-<p>继承抽象类的子类也可以是一个抽象类</p>
+<li><p>继承抽象类的子类也可以是一个抽象类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> CreditAccount <span class="keyword">extends</span> <span class="title class_">BankAccount</span>&#123; &#125;;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p><u>抽象类无法被<code>final</code>关键字修饰</u></p>
+<li><p><u>抽象类无法被<code>final</code>关键字修饰</u></p>
 </li>
 </ul>
 </li>
-<li>
-<p>抽象类同样拥有构造方法</p>
+<li><p>抽象类同样拥有构造方法</p>
 <ul>
 <li>虽然抽象类无法实例化对象，但是抽象类仍然有构造方法</li>
 <li>抽象类的构造方法是提供给子类是用的</li>
@@ -294,48 +283,45 @@
 </ul>
 </li>
 </ul>
-<h2 id="抽象方法"><a class="markdownIt-Anchor" href="#抽象方法"></a> 抽象方法</h2>
-<ul>
-<li>
-<p>没有实现的方法、没有方法体的方法称作抽象方法</p>
+<h2 id="抽象方法"><a href="#抽象方法" class="headerlink" title="抽象方法"></a>抽象方法</h2><ul>
+<li><p>没有实现的方法、没有方法体的方法称作抽象方法</p>
 </li>
-<li>
-<p>抽象方法的语法结构</p>
+<li><p>抽象方法的语法结构</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[修饰符列表] <span class="keyword">abstract</span> 返回值类型 方法名(形参列表);</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>抽象方法没有方法体，以分号结尾</p>
+<li><p>抽象方法没有方法体，以分号结尾</p>
 <ul>
 <li>甚至不能有大括号</li>
 </ul>
 </li>
-<li>
-<p>修饰符列表中一定包含<code>abstract</code>关键字</p>
+<li><p>修饰符列表中一定包含<code>abstract</code>关键字</p>
 </li>
-<li>
-<p><strong>抽象方法只能出现在抽象类中</strong></p>
+<li><p><strong>抽象方法只能出现在抽象类中</strong></p>
 <ul>
 <li>但是抽象类中也可以存在非抽象的方法</li>
 </ul>
 </li>
-<li>
-<p><strong>一个非抽象类继承一个抽象类，必须覆盖（抽象）抽象类中的抽象方法</strong></p>
+<li><p><strong>一个非抽象类继承一个抽象类，必须覆盖（抽象）抽象类中的抽象方法</strong></p>
 <ul>
 <li>如果不覆盖，那么非抽象类就会继承抽象方法，然而抽象方法不能出现在非抽象类中</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;<span class="comment">//抽象类</span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>;<span class="comment">//抽象方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;<span class="comment">//非抽象类继承抽象类</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;&#125;<span class="comment">//必须覆盖抽象方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8fy376y2oj319c0k876i.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8fy376y2oj319c0k876i.jpg"></p>
 <ul>
-<li>抽象类去继承抽象类，则父类中的抽象方法不需要一定被覆盖/实现</li>
+<li>抽象类去继承抽象类，则父类中的抽象方法不需要一定被覆盖&#x2F;实现</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;<span class="comment">//抽象类去继承抽象类</span></span><br><span class="line">  <span class="comment">//可以不用实现抽象方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p><strong>抽象类中的多态</strong></p>
+<li><p><strong>抽象类中的多态</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;<span class="comment">//抽象类</span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;<span class="comment">//非抽象类去继承抽象类</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;<span class="comment">//实现抽象方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;鸟儿在飞翔&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      	<span class="comment">//抽象类不能实例化对象，但是抽象类同样可以拥有引用</span></span><br><span class="line">      	<span class="comment">//Bird不是抽象类，可以实例化为对象</span></span><br><span class="line">      	<span class="comment">//animal一个Animal类的引用，指向Bird的一个对象</span></span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();</span><br><span class="line">      	<span class="comment">//编译时，绑定的是Animal类的move()方法</span></span><br><span class="line">      	<span class="comment">//运行时，绑定的是Bird类的move()方法</span></span><br><span class="line">        animal.move();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>如果继承抽象类的非抽象类中，没有实现抽象方法，那么在运行时无法去运行方法体中的代码</li>
 </ul>
@@ -424,7 +410,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text"> 抽象类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text"> 抽象类的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text"> 抽象方法</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">抽象类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">抽象类的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">抽象方法</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

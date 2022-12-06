@@ -255,76 +255,60 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h1>
-<h2 id="接口的概念"><a class="markdownIt-Anchor" href="#接口的概念"></a> 接口的概念</h2>
-<ul>
-<li>
-<p>接口也是一个引用数据类型</p>
+        <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><h2 id="接口的概念"><a href="#接口的概念" class="headerlink" title="接口的概念"></a>接口的概念</h2><ul>
+<li><p>接口也是一个引用数据类型</p>
 <ul>
 <li>虽然接口不是一个类，但它编译之后仍然生成一个<code>.class</code>的字节码文件</li>
 </ul>
 </li>
-<li>
-<p>接口是<strong>完全抽象</strong>的</p>
+<li><p>接口是<strong>完全抽象</strong>的</p>
 <ul>
 <li>接口是一种特殊的抽象类</li>
 <li>抽象类是半抽象的</li>
 </ul>
 </li>
-<li>
-<p>接口的语法格式</p>
+<li><p>接口的语法格式</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[修饰符列表] interface 接口名&#123;</span><br><span class="line">  	<span class="comment">//接口不是一个类，不能用class关键字</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>
-<p>类的定义</p>
+<li><p>类的定义</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[修饰符列表] class 类名&#123;&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>抽象类的定义</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[修饰符列表] <span class="keyword">abstract</span> class 类名&#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>抽象类的定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[修饰符列表] <span class="keyword">abstract</span> class 类名&#123;&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>
-<p>接口支持多继承，一个接口可以继承多个接口</p>
+<li><p>接口支持多继承，一个接口可以继承多个接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">A</span>&#123;</span><br><span class="line">		<span class="comment">//编译生产.class字节码文件</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_">A</span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">C</span> <span class="keyword">extends</span> <span class="title class_">A</span>, B&#123;</span><br><span class="line">		<span class="comment">//支持多继承</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8fzhoo1zzj306b05mmx2.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8fzhoo1zzj306b05mmx2.jpg"></p>
 </li>
-<li>
-<p>接口中只包含两个部分：<u><strong>常量 以及 抽象方法</strong></u></p>
+<li><p>接口中只包含两个部分：<u><strong>常量 以及 抽象方法</strong></u></p>
 </li>
-<li>
-<p>接口中所有的元素都是由<code>public</code>修饰的</p>
+<li><p>接口中所有的元素都是由<code>public</code>修饰的</p>
 <ul>
 <li>在接口中定义方法时，<code>public</code>和<code>abstract</code>两个关键字可以修饰不写</li>
-<li>在接口中声明变量时，<code>publi static final</code>三个关键字不写，并且必须手动赋初始值
-<ul>
+<li>在接口中声明变量时，<code>publi static final</code>三个关键字不写，并且必须手动赋初始值<ul>
 <li>通过接口直接访问</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="接口的实现"><a class="markdownIt-Anchor" href="#接口的实现"></a> 接口的实现</h2>
+<h2 id="接口的实现"><a href="#接口的实现" class="headerlink" title="接口的实现"></a>接口的实现</h2><ul>
+<li><p>类和接之间的继承关系称作<strong>实现</strong>，关键字<code>implements</code></p>
 <ul>
-<li>
-<p>类和接之间的继承关系称作<strong>实现</strong>，关键字<code>implements</code></p>
-<ul>
-<li>
-<p>类和类之间叫做继承，关键字<code>extends</code></p>
+<li><p>类和类之间叫做继承，关键字<code>extends</code></p>
 </li>
-<li>
-<p>抽象类实现接口时，可以不用实现接口中的方法</p>
+<li><p>抽象类实现接口时，可以不用实现接口中的方法</p>
 <ul>
 <li>抽象类中运行存在抽象方法</li>
 </ul>
 </li>
-<li>
-<p>非抽象类实现接口时，必须要实现接口中每一个 的方法</p>
+<li><p>非抽象类实现接口时，必须要实现接口中每一个 的方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">A</span>&#123;<span class="comment">//接口A</span></span><br><span class="line">  	<span class="comment">//常量</span></span><br><span class="line">    <span class="type">double</span> <span class="variable">PI</span> <span class="operator">=</span> <span class="number">3.14</span>;</span><br><span class="line">  	<span class="comment">//抽象方法</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">sub</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">implements</span> <span class="title class_">A</span>&#123;<span class="comment">//非抽象方法实现接口</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>&#123;<span class="comment">//通过快捷键command + N直接生成</span></span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sub</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;<span class="comment">//必须实现接口中的每一个抽象方法</span></span><br><span class="line">        <span class="keyword">return</span> a - b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">C</span> <span class="keyword">implements</span> <span class="title class_">A</span>&#123;&#125;<span class="comment">//抽象方法实现接口</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>在实现接口中的方法时，类中方法的访问控制权限必须是<code>public</code></p>
+<li><p>在实现接口中的方法时，类中方法的访问控制权限必须是<code>public</code></p>
 <ul>
 <li>子类继承父类的方法，访问权限只能更高，不能更低</li>
 </ul>
@@ -332,34 +316,22 @@
 </ul>
 </li>
 </ul>
-<h2 id="接口的多态"><a class="markdownIt-Anchor" href="#接口的多态"></a> 接口的多态</h2>
-<ul>
-<li>
-<p>接口的多态</p>
+<h2 id="接口的多态"><a href="#接口的多态" class="headerlink" title="接口的多态"></a>接口的多态</h2><ul>
+<li><p>接口的多态</p>
 </li>
-<li>
-<pre class="highlight"><code class="java"><span class="type">A</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">B</span>();<span class="comment">//父类型的引用指向子类型的对象</span>
-a.sum(<span class="number">10</span>,<span class="number">20</span>);
-&lt;!--code￼<span class="number">5</span>--&gt;
+<li><p>&#96;&#96;&#96;java<br>A a &#x3D; new B();&#x2F;&#x2F;父类型的引用指向子类型的对象<br>a.sum(10,20);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 类的多实现</span><br><span class="line"></span><br><span class="line">  - 一个类可以实现多个接口</span><br><span class="line">    - 弥补了Java中类只能单继承的缺陷</span><br><span class="line">  - 一个类实现多个接口时，需要将每一个接口中的方法都实现一遍</span><br><span class="line">  - 多实现中的多态</span><br><span class="line"></span><br><span class="line">  ```java</span><br><span class="line">  interface A&#123;</span><br><span class="line">      void fun1();</span><br><span class="line">  &#125;</span><br><span class="line">  interface B&#123;</span><br><span class="line">      void fun2();</span><br><span class="line">  &#125;</span><br><span class="line">  interface C&#123;</span><br><span class="line">      void fun3();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  class D implements A,B,C&#123;//多实现，实现每一个接口中的方法</span><br><span class="line">      @Override</span><br><span class="line">      public void fun1() &#123;&#125;</span><br><span class="line">      @Override</span><br><span class="line">      public void fun2() &#123;&#125;</span><br><span class="line">      @Override</span><br><span class="line">      public void fun3() &#123;&#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
-&lt;!--code￼<span class="number">6</span>--&gt;
-
-
-
-</code></pre>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">A</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">D</span>();<span class="comment">//父类引用指向子类对象</span></span><br><span class="line">        <span class="type">B</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">D</span>();</span><br><span class="line">        <span class="type">C</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">D</span>();</span><br><span class="line">        a.fun1();</span><br><span class="line">        a.fun2();<span class="comment">//编译失败</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8g0s85rx5j30u80jwdhj.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8g0s85rx5j30u80jwdhj.jpg"></p>
 <ul>
-<li>接口的类型转换
-<ul>
-<li>向下类型转换
-<ul>
+<li>接口的类型转换<ul>
+<li>向下类型转换<ul>
 <li>同样需要使用<code>instanceof</code>来判断</li>
 </ul>
 </li>
-<li>强制类型转换
-<ul>
+<li>强制类型转换<ul>
 <li><u>可以两个没有继承关系的接口进行相互转化</u></li>
 <li>编译不会报错，但是运行过程中可能会抛出<code>ClassCastException</code>异常</li>
 <li>在类的类型转换中，无论是向上转型还是向下转型，必须要求两个类有继承关系</li>
@@ -368,25 +340,19 @@ a.sum(<span class="number">10</span>,<span class="number">20</span>);
 </ul>
 </li>
 </ul>
-<h2 id="继承和实现同时存在"><a class="markdownIt-Anchor" href="#继承和实现同时存在"></a> 继承和实现同时存在</h2>
-<ul>
-<li>
-<p><code>extends</code>关键字在前，<code>implements</code>关键字在后</p>
+<h2 id="继承和实现同时存在"><a href="#继承和实现同时存在" class="headerlink" title="继承和实现同时存在"></a>继承和实现同时存在</h2><ul>
+<li><p><code>extends</code>关键字在前，<code>implements</code>关键字在后</p>
 </li>
-<li>
-<p>接口通常提取的是行为动作</p>
+<li><p>接口通常提取的是行为动作</p>
 </li>
-<li>
-<p>一个类实现一个接口，就代表能够完成该接口的动作</p>
+<li><p>一个类实现一个接口，就代表能够完成该接口的动作</p>
 </li>
-<li>
-<p>举一个例子</p>
+<li><p>举一个例子</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>&#123;&#125;</span><br><span class="line"><span class="comment">//接口：接口通常提取的是行为动作</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Flyable</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Flyable通过接口插到猫身上，猫就可以飞翔</span></span><br><span class="line"><span class="comment">//将翅膀插到猫身上，猫就可以飞翔</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> <span class="keyword">implements</span> <span class="title class_">Flyable</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;会飞的猫&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//如果不想让蛇类飞，可以不实现Flyable接口</span></span><br><span class="line"><span class="comment">//没有实现这个接口则表示不能飞</span></span><br><span class="line"><span class="comment">//不给蛇插上翅膀，蛇就不能飞翔</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Snake</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Flyable</span> <span class="variable">fly</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">    fly.fly();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Flyable</span> <span class="variable">fly</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">    fly.fly();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="接口的作用"><a class="markdownIt-Anchor" href="#接口的作用"></a> 接口的作用</h2>
-<ul>
+<h2 id="接口的作用"><a href="#接口的作用" class="headerlink" title="接口的作用"></a>接口的作用</h2><ul>
 <li>面向抽象编程等价于面向接口编程</li>
 <li>有了接口就可以插拔，可插拔代表拓展力强、低耦合度</li>
 <li>接口的使用离不开多态</li>
@@ -394,28 +360,23 @@ a.sum(<span class="number">10</span>,<span class="number">20</span>);
 <li><code>A is a B</code><strong><u>则A是B的子类（继承）</u></strong></li>
 <li>举一个例子：顾客去餐厅可以点餐，既可以点中餐也可以点西餐</li>
 </ul>
-<h2 id="接口和抽象类的区别"><a class="markdownIt-Anchor" href="#接口和抽象类的区别"></a> 接口和抽象类的区别</h2>
-<ol>
-<li>抽象
-<ul>
+<h2 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h2><ol>
+<li>抽象<ul>
 <li>抽象类是半抽象的：可以在里面定义非抽象的方法，<u>也可以定义普通的成员变量</u></li>
 <li>接口是纯抽象的：在接口中定义的方法都是抽象方法，在接口中声明的变量都是静态常量</li>
 </ul>
 </li>
-<li>构造方法
-<ul>
+<li>构造方法<ul>
 <li>抽象类拥有构造方法</li>
 <li>接口中没有构造方法</li>
 </ul>
 </li>
-<li>继承
-<ul>
+<li>继承<ul>
 <li>抽象类只能单继承：一个类只能继承一个抽象类</li>
 <li>接口支持多继承：一个类可以实现多个接口</li>
 </ul>
 </li>
-<li>使用情况
-<ul>
+<li>使用情况<ul>
 <li>抽象类是对行为和数据的抽象，使用的较少</li>
 <li>接口是对行为的抽象</li>
 </ul>
@@ -504,7 +465,7 @@ a.sum(<span class="number">10</span>,<span class="number">20</span>);
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.</span> <span class="nav-text"> 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text"> 接口的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.</span> <span class="nav-text"> 接口的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%A4%9A%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text"> 接口的多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E5%92%8C%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%97%B6%E5%AD%98%E5%9C%A8"><span class="nav-number">1.4.</span> <span class="nav-text"> 继承和实现同时存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.5.</span> <span class="nav-text"> 接口的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.6.</span> <span class="nav-text"> 接口和抽象类的区别</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">接口的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.</span> <span class="nav-text">接口的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%A4%9A%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">接口的多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E5%92%8C%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%97%B6%E5%AD%98%E5%9C%A8"><span class="nav-number">1.4.</span> <span class="nav-text">继承和实现同时存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.5.</span> <span class="nav-text">接口的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.6.</span> <span class="nav-text">接口和抽象类的区别</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
