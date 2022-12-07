@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo搭建博客过程中，4000端口被占用</title>
-    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
-<ul>
-<li>更改hexo使用的端口</li>
-<li>杀掉正在占用4000端口的其他进程</li>
-</ul>
-<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
-<ul>
-<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
-<ul>
-<li><code>sudo lsof -i tcp:端口号</code></li>
-<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
-<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
-</li>
-<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
-<ul>
-<li><code>sudo kill -9 PID</code></li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Integer类</title>
     <url>/2022/12/04/Java/Integer%E7%B1%BB/</url>
     <content><![CDATA[<h1 id="Integer类"><a href="#Integer类" class="headerlink" title="Integer类"></a>Integer类</h1><h2 id="八种包装类"><a href="#八种包装类" class="headerlink" title="八种包装类"></a>八种包装类</h2><ul>
@@ -1820,6 +1785,76 @@
       </tags>
   </entry>
   <entry>
+    <title>this关键字</title>
+    <url>/2022/11/13/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A13/</url>
+    <content><![CDATA[<h1 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h1><h3 id="this关键字-1"><a href="#this关键字-1" class="headerlink" title="this关键字"></a>this关键字</h3><h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p><code>this</code>关键字用于引用方法或构造函数中的当前对象</p>
+<ul>
+<li><code>this</code>是一个引用变量，this中保存的内存地址指向自身</li>
+<li><code>this</code>存储在堆内存中</li>
+<li>在初始化对象过程中，都会初始化该对象的<code>this</code>关键字</li>
+</ul>
+<h5 id="this的使用情况"><a href="#this的使用情况" class="headerlink" title="this的使用情况"></a><code>this</code>的使用情况</h5><ol>
+<li>出现在实例方法中，用于指向当前正在执行这个动作的对象<ul>
+<li>一般通过<code>this</code>访问的都是实例变量&#x2F;方法，而在访问这个实例变量&#x2F;方法的大多都是该对象本身，所以<code>this.</code>可以省略</li>
+<li><code>this</code>不能出现在带有<code>static</code>的方法中</li>
+<li>在<code>static</code>修饰的方法中通过手动创建一个对象来访问实例变量&#x2F;方法</li>
+</ul>
+</li>
+<li>用来区分局部变量和实例变量<ul>
+<li>用于区分时，不能省略<code>this.</code></li>
+</ul>
+</li>
+<li>用来调用其他构造方法</li>
+</ol>
+<h5 id="实例方法-amp-实例变量"><a href="#实例方法-amp-实例变量" class="headerlink" title="实例方法 &amp; 实例变量"></a>实例方法 &amp; 实例变量</h5><ol>
+<li><p>实例变量</p>
+<ul>
+<li>不带<code>static</code>关键字的变量被称为实例变量，通过<code>引用.变量</code>来访问</li>
+<li>当一个变量会因为不同的对象而不同时，这个变量需要被定义为实例变量，不能用<code>static</code>来修饰</li>
+</ul>
+</li>
+<li><p>实例方法</p>
+<ul>
+<li>不带<code>static</code>关键字的方法被称为实例方法，通过<code>引用.方法名(形参列表)</code>来访问</li>
+<li>当一个行为&#x2F;动作执行的过程中需要对象参与时，这个方法需要定义为实例方法，不能用<code>static</code>来修饰</li>
+</ul>
+</li>
+<li><p>实例</p>
+<ul>
+<li>实例代表这个方法&#x2F;变量时对象级别的，而不是类级别的</li>
+<li>访问实例对象&#x2F;方法一定得通过引用来访问</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    String name;<span class="comment">//实例对象</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">(String n)</span>&#123;</span><br><span class="line">        name = n;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pay</span><span class="params">()</span>&#123; <span class="comment">//实例方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;pay&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//实例方法，代表shop这个行为是对象级别的</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">shop</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//实例对象的访问应该通过引用来访问！</span></span><br><span class="line"><span class="comment">//        System.out.println(name + &quot;正在购物&quot;);//省略了引用</span></span><br><span class="line">        <span class="comment">//完整写法</span></span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot;正在购物&quot;</span>);<span class="comment">//this代表当前正在执行这个行为的对象</span></span><br><span class="line">      </span><br><span class="line">      	<span class="comment">//实例方法的调用也应该通过引用来访问！</span></span><br><span class="line"><span class="comment">//        pay();//省略了引用</span></span><br><span class="line">      	<span class="comment">//完整写法</span></span><br><span class="line">        <span class="built_in">this</span>.pay();<span class="comment">//this代表了当前调用这个行为的对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在static修饰的方法中访问实例变量&#x2F;方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">  	<span class="type">int</span> num;<span class="comment">//实例对象</span></span><br><span class="line">  	</span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pay</span><span class="params">()</span>&#123; <span class="comment">//实例方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;pay&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">//在静态方法中访问实例变量的方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNum</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="comment">//        System.out.println(num);//访问失败，必须通过引用.实例变量才能访问，但是this不能出现在static的方法中</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();<span class="comment">//自己手动创建一个对象即可</span></span><br><span class="line">        System.out.println(u.num);</span><br><span class="line"><span class="comment">//				pay()；//调用失败</span></span><br><span class="line">      	u.pay();<span class="comment">//通过手动创建的对象调用</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="用于区分局部变量和实例变量"><a href="#用于区分局部变量和实例变量" class="headerlink" title="用于区分局部变量和实例变量"></a>用于区分局部变量和实例变量</h5><ul>
+<li>在用于区分局部变量和实例变量时，<code>this</code>不能省略</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Customer</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;<span class="comment">//封装</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span>&#123;</span><br><span class="line"><span class="comment">//        name = name;//编译报错，无法区分两个变量</span></span><br><span class="line">        <span class="comment">//通过this来区分实例变量和局部变量</span></span><br><span class="line">        <span class="built_in">this</span>.name = name;<span class="comment">//等号左边的为实例变量，右边的为局部变量</span></span><br><span class="line">    &#125;</span><br><span class="line">  	</span><br><span class="line">  	<span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span>&#123;</span><br><span class="line">      	<span class="comment">//此时this可以省略，因为返回的name是实例变量，不需要区分</span></span><br><span class="line">      	<span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="用来调用其他构造方法"><a href="#用来调用其他构造方法" class="headerlink" title="用来调用其他构造方法"></a>用来调用其他构造方法</h3><ul>
+<li>出现在构造方法中，通过当前构造方法调用其他构造方法</li>
+<li>语法结构<code>this(实参列表)；</code></li>
+<li>用这种方法调用构造方法时，这条语句必须出现在构造方法的<strong>第一行</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Date</span>&#123;</span><br><span class="line">  <span class="keyword">private</span> year;</span><br><span class="line">  <span class="keyword">private</span> month;</span><br><span class="line">  <span class="keyword">private</span> day;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Constructor</span></span><br><span class="line">    <span class="comment">//要求：在调用无参数的构造方法时，默认创建的日期是&quot;2000-10-25&quot;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Date</span><span class="params">(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> day)</span> &#123;</span><br><span class="line">      setYear(year);</span><br><span class="line">      setMonth(month);</span><br><span class="line">      setDay(day);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">public</span> <span class="title function_">Date</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="comment">//这样的方式会创建两个对象</span></span><br><span class="line">      <span class="comment">//调用无参的构造函数会生成一个对象，无参构造函数中又调用一个有参的构造函数再生成一个对象</span></span><br><span class="line">  <span class="comment">//        new Date(2000, 10, 25);//调用构造函数只能通过new的方式</span></span><br><span class="line">      <span class="comment">//采用以下的方式来调用构造函数</span></span><br><span class="line">      <span class="built_in">this</span>(<span class="number">2000</span>,<span class="number">10</span>,<span class="number">25</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123; </span><br><span class="line">      <span class="type">Date</span> <span class="variable">day1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">      System.out.print(<span class="string">&quot;采用无参数的构造函数&quot;</span>);</span><br><span class="line">      day1.printDate();</span><br><span class="line">      </span><br><span class="line">      <span class="type">Date</span> <span class="variable">day2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">2022</span>,<span class="number">11</span>,<span class="number">12</span>);</span><br><span class="line">      System.out.print(<span class="string">&quot;采用带参数的构造函数&quot;</span>);</span><br><span class="line">      day2.printDate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h827qci8k8j312e0kcac7.jpg"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>static关键字</title>
     <url>/2022/11/13/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A14/</url>
     <content><![CDATA[<h1 id="static"><a href="#static" class="headerlink" title="static"></a>static</h1><h3 id="static-1"><a href="#static-1" class="headerlink" title="static"></a>static</h3><ul>
@@ -1907,76 +1942,6 @@
 <ul>
 <li>实例代码块的作用：实例代码块可以用来记录对象初始化时刻</li>
 </ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>this关键字</title>
-    <url>/2022/11/13/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A13/</url>
-    <content><![CDATA[<h1 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h1><h3 id="this关键字-1"><a href="#this关键字-1" class="headerlink" title="this关键字"></a>this关键字</h3><h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p><code>this</code>关键字用于引用方法或构造函数中的当前对象</p>
-<ul>
-<li><code>this</code>是一个引用变量，this中保存的内存地址指向自身</li>
-<li><code>this</code>存储在堆内存中</li>
-<li>在初始化对象过程中，都会初始化该对象的<code>this</code>关键字</li>
-</ul>
-<h5 id="this的使用情况"><a href="#this的使用情况" class="headerlink" title="this的使用情况"></a><code>this</code>的使用情况</h5><ol>
-<li>出现在实例方法中，用于指向当前正在执行这个动作的对象<ul>
-<li>一般通过<code>this</code>访问的都是实例变量&#x2F;方法，而在访问这个实例变量&#x2F;方法的大多都是该对象本身，所以<code>this.</code>可以省略</li>
-<li><code>this</code>不能出现在带有<code>static</code>的方法中</li>
-<li>在<code>static</code>修饰的方法中通过手动创建一个对象来访问实例变量&#x2F;方法</li>
-</ul>
-</li>
-<li>用来区分局部变量和实例变量<ul>
-<li>用于区分时，不能省略<code>this.</code></li>
-</ul>
-</li>
-<li>用来调用其他构造方法</li>
-</ol>
-<h5 id="实例方法-amp-实例变量"><a href="#实例方法-amp-实例变量" class="headerlink" title="实例方法 &amp; 实例变量"></a>实例方法 &amp; 实例变量</h5><ol>
-<li><p>实例变量</p>
-<ul>
-<li>不带<code>static</code>关键字的变量被称为实例变量，通过<code>引用.变量</code>来访问</li>
-<li>当一个变量会因为不同的对象而不同时，这个变量需要被定义为实例变量，不能用<code>static</code>来修饰</li>
-</ul>
-</li>
-<li><p>实例方法</p>
-<ul>
-<li>不带<code>static</code>关键字的方法被称为实例方法，通过<code>引用.方法名(形参列表)</code>来访问</li>
-<li>当一个行为&#x2F;动作执行的过程中需要对象参与时，这个方法需要定义为实例方法，不能用<code>static</code>来修饰</li>
-</ul>
-</li>
-<li><p>实例</p>
-<ul>
-<li>实例代表这个方法&#x2F;变量时对象级别的，而不是类级别的</li>
-<li>访问实例对象&#x2F;方法一定得通过引用来访问</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    String name;<span class="comment">//实例对象</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">(String n)</span>&#123;</span><br><span class="line">        name = n;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pay</span><span class="params">()</span>&#123; <span class="comment">//实例方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;pay&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//实例方法，代表shop这个行为是对象级别的</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">shop</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//实例对象的访问应该通过引用来访问！</span></span><br><span class="line"><span class="comment">//        System.out.println(name + &quot;正在购物&quot;);//省略了引用</span></span><br><span class="line">        <span class="comment">//完整写法</span></span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot;正在购物&quot;</span>);<span class="comment">//this代表当前正在执行这个行为的对象</span></span><br><span class="line">      </span><br><span class="line">      	<span class="comment">//实例方法的调用也应该通过引用来访问！</span></span><br><span class="line"><span class="comment">//        pay();//省略了引用</span></span><br><span class="line">      	<span class="comment">//完整写法</span></span><br><span class="line">        <span class="built_in">this</span>.pay();<span class="comment">//this代表了当前调用这个行为的对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在static修饰的方法中访问实例变量&#x2F;方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">  	<span class="type">int</span> num;<span class="comment">//实例对象</span></span><br><span class="line">  	</span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pay</span><span class="params">()</span>&#123; <span class="comment">//实例方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;pay&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">//在静态方法中访问实例变量的方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNum</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="comment">//        System.out.println(num);//访问失败，必须通过引用.实例变量才能访问，但是this不能出现在static的方法中</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();<span class="comment">//自己手动创建一个对象即可</span></span><br><span class="line">        System.out.println(u.num);</span><br><span class="line"><span class="comment">//				pay()；//调用失败</span></span><br><span class="line">      	u.pay();<span class="comment">//通过手动创建的对象调用</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h5 id="用于区分局部变量和实例变量"><a href="#用于区分局部变量和实例变量" class="headerlink" title="用于区分局部变量和实例变量"></a>用于区分局部变量和实例变量</h5><ul>
-<li>在用于区分局部变量和实例变量时，<code>this</code>不能省略</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Customer</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;<span class="comment">//封装</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span>&#123;</span><br><span class="line"><span class="comment">//        name = name;//编译报错，无法区分两个变量</span></span><br><span class="line">        <span class="comment">//通过this来区分实例变量和局部变量</span></span><br><span class="line">        <span class="built_in">this</span>.name = name;<span class="comment">//等号左边的为实例变量，右边的为局部变量</span></span><br><span class="line">    &#125;</span><br><span class="line">  	</span><br><span class="line">  	<span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span>&#123;</span><br><span class="line">      	<span class="comment">//此时this可以省略，因为返回的name是实例变量，不需要区分</span></span><br><span class="line">      	<span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="用来调用其他构造方法"><a href="#用来调用其他构造方法" class="headerlink" title="用来调用其他构造方法"></a>用来调用其他构造方法</h3><ul>
-<li>出现在构造方法中，通过当前构造方法调用其他构造方法</li>
-<li>语法结构<code>this(实参列表)；</code></li>
-<li>用这种方法调用构造方法时，这条语句必须出现在构造方法的<strong>第一行</strong></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Date</span>&#123;</span><br><span class="line">  <span class="keyword">private</span> year;</span><br><span class="line">  <span class="keyword">private</span> month;</span><br><span class="line">  <span class="keyword">private</span> day;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Constructor</span></span><br><span class="line">    <span class="comment">//要求：在调用无参数的构造方法时，默认创建的日期是&quot;2000-10-25&quot;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Date</span><span class="params">(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> day)</span> &#123;</span><br><span class="line">      setYear(year);</span><br><span class="line">      setMonth(month);</span><br><span class="line">      setDay(day);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">public</span> <span class="title function_">Date</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="comment">//这样的方式会创建两个对象</span></span><br><span class="line">      <span class="comment">//调用无参的构造函数会生成一个对象，无参构造函数中又调用一个有参的构造函数再生成一个对象</span></span><br><span class="line">  <span class="comment">//        new Date(2000, 10, 25);//调用构造函数只能通过new的方式</span></span><br><span class="line">      <span class="comment">//采用以下的方式来调用构造函数</span></span><br><span class="line">      <span class="built_in">this</span>(<span class="number">2000</span>,<span class="number">10</span>,<span class="number">25</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123; </span><br><span class="line">      <span class="type">Date</span> <span class="variable">day1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">      System.out.print(<span class="string">&quot;采用无参数的构造函数&quot;</span>);</span><br><span class="line">      day1.printDate();</span><br><span class="line">      </span><br><span class="line">      <span class="type">Date</span> <span class="variable">day2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">2022</span>,<span class="number">11</span>,<span class="number">12</span>);</span><br><span class="line">      System.out.print(<span class="string">&quot;采用带参数的构造函数&quot;</span>);</span><br><span class="line">      day2.printDate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h827qci8k8j312e0kcac7.jpg"></p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -2399,190 +2364,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Object类</title>
-    <url>/2022/11/26/Java/Object%E7%B1%BB/</url>
-    <content><![CDATA[<h1 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h1><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
-<li>Application Program Interface</li>
-<li>整个JDK的类库就是一个JavaSE的API</li>
-<li>每一个API都会配置一套API的帮助文档<ul>
-<li><a href="https://www.oracle.com/cn/java/technologies/java-se-api-doc.html">https://www.oracle.com/cn/java/technologies/java-se-api-doc.html</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="protected-Object-clone"><a href="#protected-Object-clone" class="headerlink" title="protected Object clone()"></a><code>protected Object clone()</code></h2><blockquote>
-<p>Creates and returns a copy of this object. The precise meaning of “copy” may depend on the class of the object. </p>
-<p>The general intent is that, for any object <code>x</code>, the expression:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&gt;x.clone() != x<span class="comment">//克隆的对象和原对象的地址不同</span></span><br></pre></td></tr></table></figure>
-
-<p>will be true, and that the expression:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&gt;x.clone().getClass() == x.getClass()<span class="comment">//克隆的对象和原对象属于同一类</span></span><br></pre></td></tr></table></figure>
-
-<p>will be <code>true</code>, but these are not absolute requirements. While it is typically the case that:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&gt;x.clone().equals(x)<span class="comment">//克隆的对象和原对象的内容相同</span></span><br></pre></td></tr></table></figure>
-
-<p>will be <code>true</code>, this is not an absolute requirement.</p>
-</blockquote>
-<ul>
-<li><p><code>protected Object clone()</code>‘</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="int-hasCode"><a href="#int-hasCode" class="headerlink" title="int hasCode()"></a><code>int hasCode()</code></h2><blockquote>
-<p>Returns a hash code value for the object. This method is supported for the benefit of hash tables such as those provided by HashMap</p>
-<p>The general contract of <code>hashCode</code> is:</p>
-<ul>
-<li>Whenever it is invoked on the same object more than once during an execution of a Java application, the <code>hashCode</code>method must consistently return the same integer, provided no information used in <code>equals</code> comparisons on the object is modified.（在一次程序的执行中每个对象的哈希值都相同） This integer need not remain consistent from one execution of an application to another execution of the same application.（但是不同的执行中，一个对象的哈希值可能不同）</li>
-<li>If two objects are equal according to the <code>equals(Object)</code> method, then calling the <code>hashCode</code> method on each of the two objects must produce the same integer result.（通过equals方法判断相等两个对象，它们的哈希值相同）</li>
-<li>It is <em>not</em> required that if two objects are unequal according to the <code>equals(java.lang.Object)</code> method, then calling the <code>hashCode</code> method on each of the two objects must produce distinct integer results. （如果equals方法判断不等的两个对象，它们的hash值可能仍然相同）However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hash tables.（每个对象有不同的hash值可以提高程序的性能）</li>
-</ul>
-<p>As much as is reasonably practical, the hashCode method defined by class <code>Object</code> does return distinct integers for distinct objects. (This is typically implemented by converting the internal address of the object into an integer, but this implementation technique is not required by the Java™ programming language.)</p>
-</blockquote>
-<ul>
-<li><p><code>int hasCode()</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span>;<span class="comment">//调用了底层C++的方法</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>hasCode()</code>的作用</p>
-<ul>
-<li>一个Java对象的内存地址，经过哈希算法得到的一个整数值</li>
-<li><strong>等价于返回一个Java对象的内存地址</strong></li>
-<li></li>
-</ul>
-</li>
-</ul>
-<h2 id="boolean-equals-Object-obj"><a href="#boolean-equals-Object-obj" class="headerlink" title="boolean equals(Object obj)"></a><code>boolean equals(Object obj)</code></h2><blockquote>
-<p>Indicates whether some other object is “equal to” this one.</p>
-<p>The <code>equals</code> method implements an equivalence relation on non-null object references:</p>
-<ul>
-<li>It is <em>reflexive</em>（子反性）: for any non-null reference value <code>x</code>, <code>x.equals(x)</code> should return <code>true</code>.</li>
-<li>It is <em>symmetric</em>（对称性）: for any non-null reference values <code>x</code> and <code>y</code>, <code>x.equals(y)</code> should return <code>true</code> if and only if <code>y.equals(x)</code>returns <code>true</code>.</li>
-<li>It is <em>transitive</em>（传递性）: for any non-null reference values <code>x</code>, <code>y</code>, and <code>z</code>, if <code>x.equals(y)</code> returns <code>true</code> and <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
-<li>It is <em>consistent</em>（不变性）: for any non-null reference values <code>x</code> and <code>y</code>, multiple invocations of <code>x.equals(y)</code> consistently return <code>true</code> or consistently return <code>false</code>, provided no information used in <code>equals</code> comparisons on the objects is modified.</li>
-<li>For any non-null reference v、ue <code>x</code>, <code>x.equals(null)</code> should return <code>false</code>.</li>
-</ul>
-<p>The <code>equals</code> method for class <code>Object</code> implements the most discriminating possible equivalence relation on objects; that is, for any non-null reference values <code>x</code> and <code>y</code>, this method returns <code>true</code> if and only if <code>x</code> and <code>y</code> refer to the same object (<code>x == y</code> has the value <code>true</code>).</p>
-<p>Note that it is generally necessary to override the <code>hashCode</code> method whenever this method is overridden, so as to maintain the general contract for the <code>hashCode</code> method, which states that equal objects must have equal hash codes.</p>
-<ul>
-<li><p><strong>Parameters:</strong></p>
-<p><code>obj</code> - the reference object with which to compare.</p>
-</li>
-<li><p><strong>Returns:</strong></p>
-<p><code>true</code> if this object is the same as the obj argument; <code>false</code> otherwise.</p>
-</li>
-</ul>
-</blockquote>
-<ul>
-<li><p><code>equals(Object obj)</code>的默认实现</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="built_in">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>equals(Object obj)</code>的作用</p>
-<ul>
-<li>判断两个对象（<code>this</code>和<code>obj</code>）是否相等</li>
-<li><strong>两个基本数据类型数据相等的判断用</strong><code>==</code></li>
-<li><strong>两个引用数据类型数据相等的判断用</strong><code>equals()</code><ul>
-<li><code>==</code>只能判断两个引用指向的地址是否相同</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="type">int</span> ID;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(<span class="type">int</span> ID)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.ID = ID;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">100</span>);</span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;a == b &quot;</span> + (a==b));</span><br><span class="line">        System.out.println(<span class="string">&quot;stu1 == stu2 &quot;</span> + (stu1==stu2));</span><br><span class="line">        System.out.println(<span class="string">&quot;没有重写的equals：stu1.equals(stu2) &quot;</span> + stu1.equals(stu2));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ibz3y6zwj30vq0g875h.jpg"></p>
-</li>
-<li><p><code>equals(Object obj)</code>的重写</p>
-<ul>
-<li>默认的<code>equals(Object obj)</code>实现还是在用<code>==</code>来判断两个引用数据类型是否相等</li>
-<li>我们需要对其进行重写来满足自己的需求<ul>
-<li><strong>比较的不再是地址，而是两个引用指向的内容</strong></li>
-<li>可以自定义相等的标准</li>
-<li>重写<code>equals(Object obj)</code>的技巧<ul>
-<li>先判断<code>obj</code>是否为空指针，因为调用<code>equals(Object obj)</code>方法的<code>this</code>不可能是空（否则发生空指针异常）</li>
-<li>再通过<code>instanceof</code>判断<code>obj</code>是否可以向下强制类型转换</li>
-<li>这样做的好处是可以省略很多多余的判断</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>需要对每一个类都要重写<code>equals</code>方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="type">int</span> ID;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(<span class="type">int</span> ID)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.ID = ID;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//方法重写时，形参列表要完全一样</span></span><br><span class="line">    <span class="comment">//不可以写equals(Student stu)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">        <span class="comment">//提前判断，避免多余的操作</span></span><br><span class="line">        <span class="keyword">if</span>(obj == <span class="literal">null</span> ||!(obj <span class="keyword">instanceof</span> Student))<span class="comment">//向下强制类型转换时需要判断类型</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span> == obj)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//obj中没有ID的属性</span></span><br><span class="line">        <span class="comment">//向下强制类型转化</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> (Student) obj;</span><br><span class="line">        <span class="keyword">return</span> stu.ID == <span class="built_in">this</span>.ID;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ic8cdsumj30vs0g4wfs.jpg"></p>
-</li>
-</ul>
-<h2 id="String-toString"><a href="#String-toString" class="headerlink" title="String toString()"></a><code>String toString()</code></h2><blockquote>
-<p>Returns a string representation of the object（返回一个对象的字符串表示形式）. In general, the <code>toString</code> method returns a string that “textually represents” （以文本的形式）this object. The result should be a concise but informative representation（简洁但是详实的信息） that is easy for a person to read. It is recommended that all subclasses override this method（建议所有子类都去重写该方法）.</p>
-<p>The <code>toString</code> method for class <code>Object</code> returns a string consisting of the name of the class of which the object is an instance, the at-sign character &#96;&#96;@&#96;’, and the unsigned hexadecimal representation of the hash code of the object. In other words, this method returns a string equal to the value of:</p>
-<blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">getClass().getName() + <span class="string">&#x27;@&#x27;</span> + Integer.toHexString(hashCode())</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><strong>Returns:</strong></p>
-<p>a string representation of the object.</p>
-</blockquote>
-<ul>
-<li><p><code>toString()</code>的返回值是</p>
-<ul>
-<li>“<u>类名</u>@对象内存地址的十六进制形式”</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//默认继承了Object</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTime</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> year;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> mon;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> day;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyTime</span><span class="params">(<span class="type">int</span> year, <span class="type">int</span> mon, <span class="type">int</span> day)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.year = year;</span><br><span class="line">        <span class="built_in">this</span>.mon = mon;</span><br><span class="line">        <span class="built_in">this</span>.day = day;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        MyTime time= <span class="keyword">new</span> <span class="title class_">MyTime</span>(<span class="number">2022</span>,<span class="number">11</span>,<span class="number">26</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> time.toString();</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iailk1arj30vq0ds0tr.jpg"></p>
-</li>
-<li><p><code>toString()</code>的作用</p>
-<ul>
-<li><strong>将一个Java对象转化成字符串表示形式</strong> </li>
-<li>这个字符串必须能简洁而且详实的说明该对象的信息</li>
-</ul>
-</li>
-<li><p><code>toString()</code><strong>重写</strong></p>
-<ul>
-<li>因为默认方法不能做到简洁详实的说明自己编写的类的信息</li>
-<li>因此我们最好在自己编写的每一个类中重写该方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">this</span>.year + <span class="string">&quot;年&quot;</span> + <span class="built_in">this</span>.mon + <span class="string">&quot;月&quot;</span> + <span class="built_in">this</span>.day + <span class="string">&quot;日&quot;</span>;<span class="comment">//简洁详实的输出对象信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iaz66be7j30vi0euaaw.jpg"></p>
-</li>
-</ul>
-<h2 id="protected-void-finalized"><a href="#protected-void-finalized" class="headerlink" title="protected void finalized()"></a><code>protected void finalized()</code></h2><blockquote>
-<p>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object. A subclass overrides the <code>finalize</code> method to dispose of system resources or to perform other cleanup.</p>
-<p>The <code>finalize</code> method of class <code>Object</code> performs no special action; it simply returns normally. Subclasses of <code>Object</code> may override this definition.</p>
-</blockquote>
-<ul>
-<li><p><code>finalized()</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalized</span><span class="params">()</span> <span class="keyword">throws</span> Throwable&#123; &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>由<code>protected</code>修饰，只有一对大括号，方法体中没有代码</li>
-<li>该方法不需要手动调用，JVM的垃圾回收器GC自动调用该方法<ul>
-<li><strong>当一个对象即将被垃圾回收器回收时，垃圾回收器负责调用该方法</strong></li>
-</ul>
-</li>
-<li>该方法提供一个**<u>时机</u>**，即垃圾销毁时机<ul>
-<li>如果希望在对象销毁时执行一些操作的话，可以将这些操作放到<code>finalized()</code>的方法体中</li>
-<li>类似<u>静态代码块</u>，提供类加载时机，可以在类加载时进行一些操作</li>
-</ul>
-</li>
-<li><strong>该方法不需要手动调用，如果有特殊要求，我们只用重写该方法即可</strong></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Pet</span>&#123;</span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Pet</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">  	<span class="comment">//重写之后需要调用</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;一个名叫&quot;</span> + name + <span class="string">&quot;的宠物&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">  	<span class="comment">//只用重写，不用调用</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.toString() + <span class="string">&quot;即将被销毁&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test4</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      	<span class="comment">//垃圾回收器不是每次都能启动，需要一定的数量、在一定的时间下才会启动</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">999999</span>; i ++)&#123;</span><br><span class="line">            <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pet</span>(<span class="string">&quot;Tom&quot;</span>);</span><br><span class="line">            pet = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq1kt7hfj30ek0k2gmx.jpg"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++)&#123;</span><br><span class="line">    <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pet</span>(<span class="string">&quot;Jerry&quot;</span>);</span><br><span class="line">    pet = <span class="literal">null</span>;</span><br><span class="line">    System.gc();<span class="comment">//建议JVM启动垃圾回收器</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">  	System.out.println(<span class="built_in">this</span> + <span class="string">&quot;即将被销毁&quot;</span>);<span class="comment">//输出每个引用的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq9fnh8cj30ee0isdhe.jpg"></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>String类</title>
     <url>/2022/12/02/Java/String%E7%B1%BB/</url>
     <content><![CDATA[<h1 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h1><h2 id="String的存储原理"><a href="#String的存储原理" class="headerlink" title="String的存储原理"></a>String的存储原理</h2><blockquote>
@@ -2840,6 +2621,190 @@
       <tags>
         <tag>Java</tag>
         <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Object类</title>
+    <url>/2022/11/26/Java/Object%E7%B1%BB/</url>
+    <content><![CDATA[<h1 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h1><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
+<li>Application Program Interface</li>
+<li>整个JDK的类库就是一个JavaSE的API</li>
+<li>每一个API都会配置一套API的帮助文档<ul>
+<li><a href="https://www.oracle.com/cn/java/technologies/java-se-api-doc.html">https://www.oracle.com/cn/java/technologies/java-se-api-doc.html</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="protected-Object-clone"><a href="#protected-Object-clone" class="headerlink" title="protected Object clone()"></a><code>protected Object clone()</code></h2><blockquote>
+<p>Creates and returns a copy of this object. The precise meaning of “copy” may depend on the class of the object. </p>
+<p>The general intent is that, for any object <code>x</code>, the expression:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&gt;x.clone() != x<span class="comment">//克隆的对象和原对象的地址不同</span></span><br></pre></td></tr></table></figure>
+
+<p>will be true, and that the expression:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&gt;x.clone().getClass() == x.getClass()<span class="comment">//克隆的对象和原对象属于同一类</span></span><br></pre></td></tr></table></figure>
+
+<p>will be <code>true</code>, but these are not absolute requirements. While it is typically the case that:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&gt;x.clone().equals(x)<span class="comment">//克隆的对象和原对象的内容相同</span></span><br></pre></td></tr></table></figure>
+
+<p>will be <code>true</code>, this is not an absolute requirement.</p>
+</blockquote>
+<ul>
+<li><p><code>protected Object clone()</code>‘</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="int-hasCode"><a href="#int-hasCode" class="headerlink" title="int hasCode()"></a><code>int hasCode()</code></h2><blockquote>
+<p>Returns a hash code value for the object. This method is supported for the benefit of hash tables such as those provided by HashMap</p>
+<p>The general contract of <code>hashCode</code> is:</p>
+<ul>
+<li>Whenever it is invoked on the same object more than once during an execution of a Java application, the <code>hashCode</code>method must consistently return the same integer, provided no information used in <code>equals</code> comparisons on the object is modified.（在一次程序的执行中每个对象的哈希值都相同） This integer need not remain consistent from one execution of an application to another execution of the same application.（但是不同的执行中，一个对象的哈希值可能不同）</li>
+<li>If two objects are equal according to the <code>equals(Object)</code> method, then calling the <code>hashCode</code> method on each of the two objects must produce the same integer result.（通过equals方法判断相等两个对象，它们的哈希值相同）</li>
+<li>It is <em>not</em> required that if two objects are unequal according to the <code>equals(java.lang.Object)</code> method, then calling the <code>hashCode</code> method on each of the two objects must produce distinct integer results. （如果equals方法判断不等的两个对象，它们的hash值可能仍然相同）However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hash tables.（每个对象有不同的hash值可以提高程序的性能）</li>
+</ul>
+<p>As much as is reasonably practical, the hashCode method defined by class <code>Object</code> does return distinct integers for distinct objects. (This is typically implemented by converting the internal address of the object into an integer, but this implementation technique is not required by the Java™ programming language.)</p>
+</blockquote>
+<ul>
+<li><p><code>int hasCode()</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span>;<span class="comment">//调用了底层C++的方法</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>hasCode()</code>的作用</p>
+<ul>
+<li>一个Java对象的内存地址，经过哈希算法得到的一个整数值</li>
+<li><strong>等价于返回一个Java对象的内存地址</strong></li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="boolean-equals-Object-obj"><a href="#boolean-equals-Object-obj" class="headerlink" title="boolean equals(Object obj)"></a><code>boolean equals(Object obj)</code></h2><blockquote>
+<p>Indicates whether some other object is “equal to” this one.</p>
+<p>The <code>equals</code> method implements an equivalence relation on non-null object references:</p>
+<ul>
+<li>It is <em>reflexive</em>（子反性）: for any non-null reference value <code>x</code>, <code>x.equals(x)</code> should return <code>true</code>.</li>
+<li>It is <em>symmetric</em>（对称性）: for any non-null reference values <code>x</code> and <code>y</code>, <code>x.equals(y)</code> should return <code>true</code> if and only if <code>y.equals(x)</code>returns <code>true</code>.</li>
+<li>It is <em>transitive</em>（传递性）: for any non-null reference values <code>x</code>, <code>y</code>, and <code>z</code>, if <code>x.equals(y)</code> returns <code>true</code> and <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+<li>It is <em>consistent</em>（不变性）: for any non-null reference values <code>x</code> and <code>y</code>, multiple invocations of <code>x.equals(y)</code> consistently return <code>true</code> or consistently return <code>false</code>, provided no information used in <code>equals</code> comparisons on the objects is modified.</li>
+<li>For any non-null reference v、ue <code>x</code>, <code>x.equals(null)</code> should return <code>false</code>.</li>
+</ul>
+<p>The <code>equals</code> method for class <code>Object</code> implements the most discriminating possible equivalence relation on objects; that is, for any non-null reference values <code>x</code> and <code>y</code>, this method returns <code>true</code> if and only if <code>x</code> and <code>y</code> refer to the same object (<code>x == y</code> has the value <code>true</code>).</p>
+<p>Note that it is generally necessary to override the <code>hashCode</code> method whenever this method is overridden, so as to maintain the general contract for the <code>hashCode</code> method, which states that equal objects must have equal hash codes.</p>
+<ul>
+<li><p><strong>Parameters:</strong></p>
+<p><code>obj</code> - the reference object with which to compare.</p>
+</li>
+<li><p><strong>Returns:</strong></p>
+<p><code>true</code> if this object is the same as the obj argument; <code>false</code> otherwise.</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><code>equals(Object obj)</code>的默认实现</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="built_in">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>equals(Object obj)</code>的作用</p>
+<ul>
+<li>判断两个对象（<code>this</code>和<code>obj</code>）是否相等</li>
+<li><strong>两个基本数据类型数据相等的判断用</strong><code>==</code></li>
+<li><strong>两个引用数据类型数据相等的判断用</strong><code>equals()</code><ul>
+<li><code>==</code>只能判断两个引用指向的地址是否相同</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="type">int</span> ID;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(<span class="type">int</span> ID)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.ID = ID;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">100</span>);</span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;a == b &quot;</span> + (a==b));</span><br><span class="line">        System.out.println(<span class="string">&quot;stu1 == stu2 &quot;</span> + (stu1==stu2));</span><br><span class="line">        System.out.println(<span class="string">&quot;没有重写的equals：stu1.equals(stu2) &quot;</span> + stu1.equals(stu2));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ibz3y6zwj30vq0g875h.jpg"></p>
+</li>
+<li><p><code>equals(Object obj)</code>的重写</p>
+<ul>
+<li>默认的<code>equals(Object obj)</code>实现还是在用<code>==</code>来判断两个引用数据类型是否相等</li>
+<li>我们需要对其进行重写来满足自己的需求<ul>
+<li><strong>比较的不再是地址，而是两个引用指向的内容</strong></li>
+<li>可以自定义相等的标准</li>
+<li>重写<code>equals(Object obj)</code>的技巧<ul>
+<li>先判断<code>obj</code>是否为空指针，因为调用<code>equals(Object obj)</code>方法的<code>this</code>不可能是空（否则发生空指针异常）</li>
+<li>再通过<code>instanceof</code>判断<code>obj</code>是否可以向下强制类型转换</li>
+<li>这样做的好处是可以省略很多多余的判断</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>需要对每一个类都要重写<code>equals</code>方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="type">int</span> ID;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(<span class="type">int</span> ID)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.ID = ID;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//方法重写时，形参列表要完全一样</span></span><br><span class="line">    <span class="comment">//不可以写equals(Student stu)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">        <span class="comment">//提前判断，避免多余的操作</span></span><br><span class="line">        <span class="keyword">if</span>(obj == <span class="literal">null</span> ||!(obj <span class="keyword">instanceof</span> Student))<span class="comment">//向下强制类型转换时需要判断类型</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span> == obj)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//obj中没有ID的属性</span></span><br><span class="line">        <span class="comment">//向下强制类型转化</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> (Student) obj;</span><br><span class="line">        <span class="keyword">return</span> stu.ID == <span class="built_in">this</span>.ID;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ic8cdsumj30vs0g4wfs.jpg"></p>
+</li>
+</ul>
+<h2 id="String-toString"><a href="#String-toString" class="headerlink" title="String toString()"></a><code>String toString()</code></h2><blockquote>
+<p>Returns a string representation of the object（返回一个对象的字符串表示形式）. In general, the <code>toString</code> method returns a string that “textually represents” （以文本的形式）this object. The result should be a concise but informative representation（简洁但是详实的信息） that is easy for a person to read. It is recommended that all subclasses override this method（建议所有子类都去重写该方法）.</p>
+<p>The <code>toString</code> method for class <code>Object</code> returns a string consisting of the name of the class of which the object is an instance, the at-sign character &#96;&#96;@&#96;’, and the unsigned hexadecimal representation of the hash code of the object. In other words, this method returns a string equal to the value of:</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">getClass().getName() + <span class="string">&#x27;@&#x27;</span> + Integer.toHexString(hashCode())</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>Returns:</strong></p>
+<p>a string representation of the object.</p>
+</blockquote>
+<ul>
+<li><p><code>toString()</code>的返回值是</p>
+<ul>
+<li>“<u>类名</u>@对象内存地址的十六进制形式”</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//默认继承了Object</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTime</span> <span class="keyword">extends</span> <span class="title class_">Object</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> year;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> mon;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> day;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyTime</span><span class="params">(<span class="type">int</span> year, <span class="type">int</span> mon, <span class="type">int</span> day)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.year = year;</span><br><span class="line">        <span class="built_in">this</span>.mon = mon;</span><br><span class="line">        <span class="built_in">this</span>.day = day;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        MyTime time= <span class="keyword">new</span> <span class="title class_">MyTime</span>(<span class="number">2022</span>,<span class="number">11</span>,<span class="number">26</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> time.toString();</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iailk1arj30vq0ds0tr.jpg"></p>
+</li>
+<li><p><code>toString()</code>的作用</p>
+<ul>
+<li><strong>将一个Java对象转化成字符串表示形式</strong> </li>
+<li>这个字符串必须能简洁而且详实的说明该对象的信息</li>
+</ul>
+</li>
+<li><p><code>toString()</code><strong>重写</strong></p>
+<ul>
+<li>因为默认方法不能做到简洁详实的说明自己编写的类的信息</li>
+<li>因此我们最好在自己编写的每一个类中重写该方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">this</span>.year + <span class="string">&quot;年&quot;</span> + <span class="built_in">this</span>.mon + <span class="string">&quot;月&quot;</span> + <span class="built_in">this</span>.day + <span class="string">&quot;日&quot;</span>;<span class="comment">//简洁详实的输出对象信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iaz66be7j30vi0euaaw.jpg"></p>
+</li>
+</ul>
+<h2 id="protected-void-finalized"><a href="#protected-void-finalized" class="headerlink" title="protected void finalized()"></a><code>protected void finalized()</code></h2><blockquote>
+<p>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object. A subclass overrides the <code>finalize</code> method to dispose of system resources or to perform other cleanup.</p>
+<p>The <code>finalize</code> method of class <code>Object</code> performs no special action; it simply returns normally. Subclasses of <code>Object</code> may override this definition.</p>
+</blockquote>
+<ul>
+<li><p><code>finalized()</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalized</span><span class="params">()</span> <span class="keyword">throws</span> Throwable&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>由<code>protected</code>修饰，只有一对大括号，方法体中没有代码</li>
+<li>该方法不需要手动调用，JVM的垃圾回收器GC自动调用该方法<ul>
+<li><strong>当一个对象即将被垃圾回收器回收时，垃圾回收器负责调用该方法</strong></li>
+</ul>
+</li>
+<li>该方法提供一个**<u>时机</u>**，即垃圾销毁时机<ul>
+<li>如果希望在对象销毁时执行一些操作的话，可以将这些操作放到<code>finalized()</code>的方法体中</li>
+<li>类似<u>静态代码块</u>，提供类加载时机，可以在类加载时进行一些操作</li>
+</ul>
+</li>
+<li><strong>该方法不需要手动调用，如果有特殊要求，我们只用重写该方法即可</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Pet</span>&#123;</span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Pet</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">  	<span class="comment">//重写之后需要调用</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;一个名叫&quot;</span> + name + <span class="string">&quot;的宠物&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">  	<span class="comment">//只用重写，不用调用</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.toString() + <span class="string">&quot;即将被销毁&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test4</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      	<span class="comment">//垃圾回收器不是每次都能启动，需要一定的数量、在一定的时间下才会启动</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">999999</span>; i ++)&#123;</span><br><span class="line">            <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pet</span>(<span class="string">&quot;Tom&quot;</span>);</span><br><span class="line">            pet = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq1kt7hfj30ek0k2gmx.jpg"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++)&#123;</span><br><span class="line">    <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pet</span>(<span class="string">&quot;Jerry&quot;</span>);</span><br><span class="line">    pet = <span class="literal">null</span>;</span><br><span class="line">    System.gc();<span class="comment">//建议JVM启动垃圾回收器</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">  	System.out.println(<span class="built_in">this</span> + <span class="string">&quot;即将被销毁&quot;</span>);<span class="comment">//输出每个引用的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq9fnh8cj30ee0isdhe.jpg"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -3541,6 +3506,41 @@
         <tag>字符串</tag>
         <tag>算法</tag>
         <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客过程中，4000端口被占用</title>
+    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
+<ul>
+<li>更改hexo使用的端口</li>
+<li>杀掉正在占用4000端口的其他进程</li>
+</ul>
+<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
+<ul>
+<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
+<ul>
+<li><code>sudo lsof -i tcp:端口号</code></li>
+<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
+<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
+</li>
+<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
+<ul>
+<li><code>sudo kill -9 PID</code></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
