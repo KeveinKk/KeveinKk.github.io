@@ -1,177 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Integer类</title>
-    <url>/2022/12/04/Java/Integer%E7%B1%BB/</url>
-    <content><![CDATA[<h1 id="Integer类"><a href="#Integer类" class="headerlink" title="Integer类"></a>Integer类</h1><h2 id="八种包装类"><a href="#八种包装类" class="headerlink" title="八种包装类"></a>八种包装类</h2><ul>
-<li><p>Java中为8种 基本数据类型准备了8种包装类，这8种包装类属于引用数据类型，其父类是<code>Object</code></p>
-</li>
-<li><p>基本数据类型的缺陷</p>
-<ul>
-<li>无法作为参数传入某些方法中</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//无法向doSome方法中直接传入int型参数</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">doSome</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">		System.out.println(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyInt</span>&#123;<span class="comment">//自己编写一个类将int封装起来</span></span><br><span class="line">    <span class="type">int</span> myInt;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyInt</span><span class="params">(<span class="type">int</span> myInt)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.myInt = myInt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		doSome(<span class="keyword">new</span> <span class="title class_">MyInt</span>(<span class="number">10</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>八种包装类</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">基本数据类型</th>
-<th align="center">包装类型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>byte</code></td>
-<td align="center"><code>java.lang.Byte</code>（父类是<code>Number</code>）</td>
-</tr>
-<tr>
-<td align="center"><code>short</code></td>
-<td align="center"><code>java.lang.Short（父类是</code>Number<code>）</code></td>
-</tr>
-<tr>
-<td align="center"><code>int</code></td>
-<td align="center"><code>java.lang.Integer</code>（父类是<code>Number</code>）</td>
-</tr>
-<tr>
-<td align="center"><code>long</code></td>
-<td align="center"><code>java.lang.Long</code>（父类是<code>Number</code>）</td>
-</tr>
-<tr>
-<td align="center"><code>float</code></td>
-<td align="center"><code>java.lang.Float</code>（父类是<code>Number</code>）</td>
-</tr>
-<tr>
-<td align="center"><code>double</code></td>
-<td align="center"><code>java.lang.Double</code>（父类是<code>Number</code>）</td>
-</tr>
-<tr>
-<td align="center"><code>boolean</code></td>
-<td align="center"><code>java.lang.Boolean</code>（父类是<code>Object</code>）</td>
-</tr>
-<tr>
-<td align="center"><code>char</code></td>
-<td align="center"><code>java.lang.Character</code>（父类是<code>Object</code>）</td>
-</tr>
-</tbody></table>
-<h2 id="Number类"><a href="#Number类" class="headerlink" title="Number类"></a>Number类</h2><ul>
-<li><p>抽象类，无法实例化对象</p>
-</li>
-<li><p>抽象方法</p>
-<ul>
-<li>负责拆箱</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">int</span> <span class="title function_">intValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">long</span> <span class="title function_">longValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">float</span> <span class="title function_">floatValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">double</span> <span class="title function_">doubleValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="type">byte</span> <span class="title function_">byteValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="type">short</span> <span class="title function_">shortValue</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><u>基本数据类型</u>向<u>引用数据类型</u>转换（<strong>装箱</strong>）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">num</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引用数据类型向基本数据类型转换（<strong>拆箱</strong>）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">float</span> <span class="variable">f</span> <span class="operator">=</span> num.floatValue();<span class="comment">//10.0</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> num.intValue();<span class="comment">//10</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>构造方法</p>
-<ul>
-<li>负责装箱</li>
-</ul>
-</li>
-</ul>
-<h2 id="Integer的构造方法"><a href="#Integer的构造方法" class="headerlink" title="Integer的构造方法"></a>Integer的构造方法</h2><ol>
-<li><code>public Integer(int value)</code><ul>
-<li>在Java9之后不建议使用这种构造方法</li>
-</ul>
-</li>
-<li><code>public Integer(String s)</code><ul>
-<li>在Java9之后不建议使用这种构造方法</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><p><strong>自动装箱&#x2F;拆箱</strong></p>
-<ul>
-<li><p>自动装箱：基本数据类型自动转换为包装类</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>此时<code>i</code>指向的还是一块内存空间，等价于<code>Integer i = new Integer(100)</code></li>
-</ul>
-</li>
-<li><p>自动拆箱：包装类自动转换为基本数据类型</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> i;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> i + <span class="number">100</span>;<span class="comment">//自动拆箱，将i变为基本数据类型</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="comment">//==并不会引发自动拆箱机制，比较的是两个引用指向的地址是否相同</span></span><br><span class="line">a == b;<span class="comment">//false</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="Integer中的常量"><a href="#Integer中的常量" class="headerlink" title="Integer中的常量"></a>Integer中的常量</h2><blockquote>
-<p>A constant holding the minimum value an int can have, $-2^{31} $</p>
-<p>A constant holding the maximum value an int can have, $2^{31} -1$.</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>   <span class="variable">MIN_VALUE</span> <span class="operator">=</span> <span class="number">0x80000000</span></span><br><span class="line"><span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>   <span class="variable">MAX_VALUE</span> <span class="operator">=</span> <span class="number">0x7fffffff</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="整数型常量池"><a href="#整数型常量池" class="headerlink" title="整数型常量池"></a>整数型常量池</h2><ul>
-<li>Java中为了提高程序的执行效率，将$[-128\sim 127]$之间所有的<u><strong>包装对象</strong></u>全部提前创建好，放到一个<u>方法区的</u>整数型常量池中</li>
-<li>和<code>String</code>类似，整数型常量池在类（<code>Integer</code>类）加载时就会<u>提 前</u>注入方法区内存</li>
-<li>是以静态代码块<code>static</code>的形式实现</li>
-<li>只要用这个区间的数据，我们就不需要再创建新的对象，直接从整数型常量池中取出来即可</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">127</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">127</span>;</span><br><span class="line"><span class="comment">//x引用指向的地址和y引用指向的地址是整数型常量池中的同一块地址</span></span><br><span class="line">x == y;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line"><span class="comment">//128不再是常量池中的数据，因此x和y指向的是不同的对象</span></span><br><span class="line">x == y;<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Cache to support the object identity semantics of autoboxing for values between -128 and 127 (inclusive) as required by JLS. The cache is initialized on first usage. （在程序运行的初始阶段就被初始化）The size of the cache may be controlled by the -XX:AutoBoxCacheMax&#x3D;<size> option. During VM initialization, java.lang.Integer.IntegerCache.high property may be set and saved in the private system properties in the jdk.internal.misc.VM class. </p>
-</blockquote>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8s09tq6otj30nt0irabx.jpg"></p>
-<h3 id="NumberFormatException"><a href="#NumberFormatException" class="headerlink" title="NumberFormatException"></a><code>NumberFormatException</code></h3><ul>
-<li>数字格式异常</li>
-<li>针对<code>Integer(String str)</code>的构造方法，如果字符串中包含非数字的字符，会抛出“数字格式异常”</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">Integer</span><span class="params">(String s)</span> <span class="keyword">throws</span> NumberFormatException &#123;</span><br><span class="line">    <span class="built_in">this</span>.value = parseInt(s, <span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Constructs a newly allocated Integer object that represents the int value indicated by the String parameter. The string is converted to an int value in exactly the manner used by the parseInt method for radix 10.<br>Params:<br>s – the String to be converted to an Integer.<br>Throws:<br>NumberFormatException – if the String does not contain a parsable integer.</p>
-</blockquote>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><h3 id="public-static-int-parseInt-String-s"><a href="#public-static-int-parseInt-String-s" class="headerlink" title="public static int parseInt(String s)"></a><code>public static int parseInt(String s)</code></h3><blockquote>
-<p>Parses the string argument as a signed decimal integer. （将字符串转换为int型）The characters in the string must all be decimal digits,（字符型中一定得是十进制的数字，否则会抛出数字格式化异常） except that the first character may be an ASCII minus sign ‘-‘ (‘\u002D’) to indicate a negative value or an ASCII plus sign ‘+’ (‘\u002B’) to indicate a positive value. The resulting integer value is returned, exactly as if the argument and the radix 10 were given as arguments to the parseInt(String, int) method.</p>
-</blockquote>
-<h3 id="十进制与其他进制的转换"><a href="#十进制与其他进制的转换" class="headerlink" title="十进制与其他进制的转换"></a>十进制与其他进制的转换</h3><h4 id="public-static-String-toBinaryString-int-i"><a href="#public-static-String-toBinaryString-int-i" class="headerlink" title="public static String toBinaryString(int i)"></a><code>public static String toBinaryString(int i)</code></h4><h4 id="public-static-String-toHexString-int-i"><a href="#public-static-String-toHexString-int-i" class="headerlink" title="public static String toHexString(int i)"></a><code>public static String toHexString(int i)</code></h4><ul>
-<li><code>Object</code>类中的<code>toStirng()</code>方法</li>
-<li>将地址从十进制转换为十六进制</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> getClass().getName() + <span class="string">&quot;@&quot;</span> + Integer.toHexString(hashCode());</span><br><span class="line">&#125;	<span class="number">8</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="public-static-String-toOctalString-int-i"><a href="#public-static-String-toOctalString-int-i" class="headerlink" title="public static String toOctalString(int i)"></a><code>public static String toOctalString(int i)</code></h4><h3 id="public-static-Integer-valueOf-String-s"><a href="#public-static-Integer-valueOf-String-s" class="headerlink" title="public static Integer valueOf(String s)"></a><code>public static Integer valueOf(String s)</code></h3><blockquote>
-<p>Returns an Integer object holding the value of the specified String.（返回和字符串值相同的一个Integer对象） The argument is interpreted as representing a signed decimal integer, exactly as if the argument were given to the parseInt(String) method. The result is an Integer object that represents the integer value specified by the string.<br>In other words, this method returns an Integer object equal to the value of:<br>new Integer(Integer.parseInt(s))</p>
-</blockquote>
-<h3 id="String-Integer以及int三种类型的相互转化"><a href="#String-Integer以及int三种类型的相互转化" class="headerlink" title="String Integer以及int三种类型的相互转化"></a><code>String</code> <code>Integer</code>以及<code>int</code>三种类型的相互转化</h3><p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8s26d8wyfj31hn0u0q78.jpg"></p>
-<ul>
-<li><p>转换成引用数据类型</p>
-<ul>
-<li>调用该引用数据类型的<code>Valueof()</code>方法</li>
-</ul>
-</li>
-<li><p>转换成基本数据类型</p>
-<ul>
-<li>调用该基本类型的包装类的<code>parse()</code>方法</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java - 1st Week - Summary</title>
     <url>/2022/11/07/Java/Java%20-%201st%20Week%20-%20Summary/</url>
     <content><![CDATA[<h1 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h1><p align="right">10.26-11.05</p>
@@ -643,6 +472,177 @@
 <li>方法重载与<u>方法名</u>和参数列表有关，与<u>修饰列表</u>和<u>返回值</u>无关</li>
 </ul>
 <p>Reference <a name="ref1"><font color="black">[1]https://share.api.weibo.cn/share/346380011,4823082769059607.html?weibo_id&#x3D;4823082769059607</font></a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Integer类</title>
+    <url>/2022/12/04/Java/Integer%E7%B1%BB/</url>
+    <content><![CDATA[<h1 id="Integer类"><a href="#Integer类" class="headerlink" title="Integer类"></a>Integer类</h1><h2 id="八种包装类"><a href="#八种包装类" class="headerlink" title="八种包装类"></a>八种包装类</h2><ul>
+<li><p>Java中为8种 基本数据类型准备了8种包装类，这8种包装类属于引用数据类型，其父类是<code>Object</code></p>
+</li>
+<li><p>基本数据类型的缺陷</p>
+<ul>
+<li>无法作为参数传入某些方法中</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//无法向doSome方法中直接传入int型参数</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">doSome</span><span class="params">(Object obj)</span>&#123;</span><br><span class="line">		System.out.println(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyInt</span>&#123;<span class="comment">//自己编写一个类将int封装起来</span></span><br><span class="line">    <span class="type">int</span> myInt;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyInt</span><span class="params">(<span class="type">int</span> myInt)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.myInt = myInt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		doSome(<span class="keyword">new</span> <span class="title class_">MyInt</span>(<span class="number">10</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>八种包装类</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">基本数据类型</th>
+<th align="center">包装类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>byte</code></td>
+<td align="center"><code>java.lang.Byte</code>（父类是<code>Number</code>）</td>
+</tr>
+<tr>
+<td align="center"><code>short</code></td>
+<td align="center"><code>java.lang.Short（父类是</code>Number<code>）</code></td>
+</tr>
+<tr>
+<td align="center"><code>int</code></td>
+<td align="center"><code>java.lang.Integer</code>（父类是<code>Number</code>）</td>
+</tr>
+<tr>
+<td align="center"><code>long</code></td>
+<td align="center"><code>java.lang.Long</code>（父类是<code>Number</code>）</td>
+</tr>
+<tr>
+<td align="center"><code>float</code></td>
+<td align="center"><code>java.lang.Float</code>（父类是<code>Number</code>）</td>
+</tr>
+<tr>
+<td align="center"><code>double</code></td>
+<td align="center"><code>java.lang.Double</code>（父类是<code>Number</code>）</td>
+</tr>
+<tr>
+<td align="center"><code>boolean</code></td>
+<td align="center"><code>java.lang.Boolean</code>（父类是<code>Object</code>）</td>
+</tr>
+<tr>
+<td align="center"><code>char</code></td>
+<td align="center"><code>java.lang.Character</code>（父类是<code>Object</code>）</td>
+</tr>
+</tbody></table>
+<h2 id="Number类"><a href="#Number类" class="headerlink" title="Number类"></a>Number类</h2><ul>
+<li><p>抽象类，无法实例化对象</p>
+</li>
+<li><p>抽象方法</p>
+<ul>
+<li>负责拆箱</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">int</span> <span class="title function_">intValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">long</span> <span class="title function_">longValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">float</span> <span class="title function_">floatValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">double</span> <span class="title function_">doubleValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="type">byte</span> <span class="title function_">byteValue</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="type">short</span> <span class="title function_">shortValue</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><u>基本数据类型</u>向<u>引用数据类型</u>转换（<strong>装箱</strong>）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">num</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引用数据类型向基本数据类型转换（<strong>拆箱</strong>）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">float</span> <span class="variable">f</span> <span class="operator">=</span> num.floatValue();<span class="comment">//10.0</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> num.intValue();<span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li>负责装箱</li>
+</ul>
+</li>
+</ul>
+<h2 id="Integer的构造方法"><a href="#Integer的构造方法" class="headerlink" title="Integer的构造方法"></a>Integer的构造方法</h2><ol>
+<li><code>public Integer(int value)</code><ul>
+<li>在Java9之后不建议使用这种构造方法</li>
+</ul>
+</li>
+<li><code>public Integer(String s)</code><ul>
+<li>在Java9之后不建议使用这种构造方法</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p><strong>自动装箱&#x2F;拆箱</strong></p>
+<ul>
+<li><p>自动装箱：基本数据类型自动转换为包装类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>此时<code>i</code>指向的还是一块内存空间，等价于<code>Integer i = new Integer(100)</code></li>
+</ul>
+</li>
+<li><p>自动拆箱：包装类自动转换为基本数据类型</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> i;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> i + <span class="number">100</span>;<span class="comment">//自动拆箱，将i变为基本数据类型</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"><span class="comment">//==并不会引发自动拆箱机制，比较的是两个引用指向的地址是否相同</span></span><br><span class="line">a == b;<span class="comment">//false</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="Integer中的常量"><a href="#Integer中的常量" class="headerlink" title="Integer中的常量"></a>Integer中的常量</h2><blockquote>
+<p>A constant holding the minimum value an int can have, $-2^{31} $</p>
+<p>A constant holding the maximum value an int can have, $2^{31} -1$.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>   <span class="variable">MIN_VALUE</span> <span class="operator">=</span> <span class="number">0x80000000</span></span><br><span class="line"><span class="meta">@Native</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span>   <span class="variable">MAX_VALUE</span> <span class="operator">=</span> <span class="number">0x7fffffff</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="整数型常量池"><a href="#整数型常量池" class="headerlink" title="整数型常量池"></a>整数型常量池</h2><ul>
+<li>Java中为了提高程序的执行效率，将$[-128\sim 127]$之间所有的<u><strong>包装对象</strong></u>全部提前创建好，放到一个<u>方法区的</u>整数型常量池中</li>
+<li>和<code>String</code>类似，整数型常量池在类（<code>Integer</code>类）加载时就会<u>提 前</u>注入方法区内存</li>
+<li>是以静态代码块<code>static</code>的形式实现</li>
+<li>只要用这个区间的数据，我们就不需要再创建新的对象，直接从整数型常量池中取出来即可</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">127</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">127</span>;</span><br><span class="line"><span class="comment">//x引用指向的地址和y引用指向的地址是整数型常量池中的同一块地址</span></span><br><span class="line">x == y;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line"><span class="comment">//128不再是常量池中的数据，因此x和y指向的是不同的对象</span></span><br><span class="line">x == y;<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Cache to support the object identity semantics of autoboxing for values between -128 and 127 (inclusive) as required by JLS. The cache is initialized on first usage. （在程序运行的初始阶段就被初始化）The size of the cache may be controlled by the -XX:AutoBoxCacheMax&#x3D;<size> option. During VM initialization, java.lang.Integer.IntegerCache.high property may be set and saved in the private system properties in the jdk.internal.misc.VM class. </p>
+</blockquote>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8s09tq6otj30nt0irabx.jpg"></p>
+<h3 id="NumberFormatException"><a href="#NumberFormatException" class="headerlink" title="NumberFormatException"></a><code>NumberFormatException</code></h3><ul>
+<li>数字格式异常</li>
+<li>针对<code>Integer(String str)</code>的构造方法，如果字符串中包含非数字的字符，会抛出“数字格式异常”</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">Integer</span><span class="params">(String s)</span> <span class="keyword">throws</span> NumberFormatException &#123;</span><br><span class="line">    <span class="built_in">this</span>.value = parseInt(s, <span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Constructs a newly allocated Integer object that represents the int value indicated by the String parameter. The string is converted to an int value in exactly the manner used by the parseInt method for radix 10.<br>Params:<br>s – the String to be converted to an Integer.<br>Throws:<br>NumberFormatException – if the String does not contain a parsable integer.</p>
+</blockquote>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><h3 id="public-static-int-parseInt-String-s"><a href="#public-static-int-parseInt-String-s" class="headerlink" title="public static int parseInt(String s)"></a><code>public static int parseInt(String s)</code></h3><blockquote>
+<p>Parses the string argument as a signed decimal integer. （将字符串转换为int型）The characters in the string must all be decimal digits,（字符型中一定得是十进制的数字，否则会抛出数字格式化异常） except that the first character may be an ASCII minus sign ‘-‘ (‘\u002D’) to indicate a negative value or an ASCII plus sign ‘+’ (‘\u002B’) to indicate a positive value. The resulting integer value is returned, exactly as if the argument and the radix 10 were given as arguments to the parseInt(String, int) method.</p>
+</blockquote>
+<h3 id="十进制与其他进制的转换"><a href="#十进制与其他进制的转换" class="headerlink" title="十进制与其他进制的转换"></a>十进制与其他进制的转换</h3><h4 id="public-static-String-toBinaryString-int-i"><a href="#public-static-String-toBinaryString-int-i" class="headerlink" title="public static String toBinaryString(int i)"></a><code>public static String toBinaryString(int i)</code></h4><h4 id="public-static-String-toHexString-int-i"><a href="#public-static-String-toHexString-int-i" class="headerlink" title="public static String toHexString(int i)"></a><code>public static String toHexString(int i)</code></h4><ul>
+<li><code>Object</code>类中的<code>toStirng()</code>方法</li>
+<li>将地址从十进制转换为十六进制</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> getClass().getName() + <span class="string">&quot;@&quot;</span> + Integer.toHexString(hashCode());</span><br><span class="line">&#125;	<span class="number">8</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="public-static-String-toOctalString-int-i"><a href="#public-static-String-toOctalString-int-i" class="headerlink" title="public static String toOctalString(int i)"></a><code>public static String toOctalString(int i)</code></h4><h3 id="public-static-Integer-valueOf-String-s"><a href="#public-static-Integer-valueOf-String-s" class="headerlink" title="public static Integer valueOf(String s)"></a><code>public static Integer valueOf(String s)</code></h3><blockquote>
+<p>Returns an Integer object holding the value of the specified String.（返回和字符串值相同的一个Integer对象） The argument is interpreted as representing a signed decimal integer, exactly as if the argument were given to the parseInt(String) method. The result is an Integer object that represents the integer value specified by the string.<br>In other words, this method returns an Integer object equal to the value of:<br>new Integer(Integer.parseInt(s))</p>
+</blockquote>
+<h3 id="String-Integer以及int三种类型的相互转化"><a href="#String-Integer以及int三种类型的相互转化" class="headerlink" title="String Integer以及int三种类型的相互转化"></a><code>String</code> <code>Integer</code>以及<code>int</code>三种类型的相互转化</h3><p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8s26d8wyfj31hn0u0q78.jpg"></p>
+<ul>
+<li><p>转换成引用数据类型</p>
+<ul>
+<li>调用该引用数据类型的<code>Valueof()</code>方法</li>
+</ul>
+</li>
+<li><p>转换成基本数据类型</p>
+<ul>
+<li>调用该基本类型的包装类的<code>parse()</code>方法</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -3940,6 +3940,59 @@
       </tags>
   </entry>
   <entry>
+    <title>删除链表中的节点</title>
+    <url>/2022/12/14/%E7%AE%97%E6%B3%95/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="删除链表中的节点"><a href="#删除链表中的节点" class="headerlink" title="删除链表中的节点"></a>删除链表中的节点</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有一个单链表的<code>head</code>，我们想删除它其中的一个节点<code>node</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//链表的定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ListNode</span> &#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    ListNode next;</span><br><span class="line">    ListNode(<span class="type">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>经典的删除一个节点方法是找到这个节点<code>node</code>的前驱节点<code>pre</code>，然后修改<code>pre</code>的指针来做到对<code>node</code>的删除。但是这道题没有给我们这个链表的头节点，并且这个还是一个单链表，所以我们无法做到查找到这个节点的前驱。</p>
+<p>那我们换一个角度想想，如果不能让自己消失，那我们不妨让自己变成其他节点，然后再删除那个节点</p>
+<ul>
+<li>时间复杂度：$O(1)$</li>
+<li>空间复杂度：$O(1)$</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteNode</span><span class="params">(ListNode node)</span> &#123;</span><br><span class="line">        node.val = node.next.val;<span class="comment">//让自己变成后一个节点</span></span><br><span class="line">        node.next = node.next.next;<span class="comment">//删除后一个节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>加一</title>
+    <url>/2022/11/24/%E7%AE%97%E6%B3%95/%E5%8A%A0%E4%B8%80/</url>
+    <content><![CDATA[<h1 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数0之外，这个整数不会以零开头。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：digits = [1,2,3]</span><br><span class="line">输出：[1,2,4]</span><br><span class="line">解释：输入数组表示数字123，对其加一，输出124。</span><br><span class="line"></span><br><span class="line">输入：digits = [9]</span><br><span class="line">输出：[1，0]</span><br><span class="line">解释：输入数组表示数字9，对其加一，输出10。</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题在模拟对数字进行加一的运算结果，如果整个<code>digits</code>数组中末尾没有9的话其实非常简单，直接将<code>digits[len-1]</code>最后这个数修改一下，然后返回<code>digits</code>即可；如果数组中其他位置出现了9的话其实也没有影响，因为后面不进位的话前面也不会有改变。我们着重需要考虑的是末尾有9，或者说末尾有连续个9的情况。</p>
+<ol>
+<li>如果末尾有若干个9，但第一个数字不是，例如[1,2,9,9]。那么将最后一位设置成0，然后向前面进位，如果还是9，则将倒数第二位再设置成0，再进位…这样最后的结果和<code>digits</code>数组的长度是一样的，因为第一位不会再进位了</li>
+<li>如果全部是9，即第一位数字也是9，例如[9，9]。那么按照上面的步骤，最后<code>digits</code>的结果就是[10,0,0]，我们首先不得不申请一个大一点的数组res，将digits后面的几位复制给<code>res</code>，然后再将<code>res</code>的第一位设置成1，第二位设置成0即可。</li>
+</ol>
+<ul>
+<li>时间复杂度：$O(N)$，这种方法只用将<code>digits</code>数组遍历一遍即可结束</li>
+<li>空间复杂度：$O(N)$，这种方法由于需要复制数组，所以需要申请额外的辅助空间</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">				<span class="comment">//如果最后一位是9</span></span><br><span class="line">      	<span class="comment">//分两种情况：首位不是9和首位是9</span></span><br><span class="line">        <span class="keyword">if</span> (digits[len - <span class="number">1</span>] == <span class="number">9</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len-<span class="number">1</span>;</span><br><span class="line">            digits[i] ++;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; digits[i] == <span class="number">10</span>) &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">                i --;<span class="comment">//指针前移</span></span><br><span class="line">                digits[i] ++;<span class="comment">//进位</span></span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//首位是9</span></span><br><span class="line">          	<span class="comment">//则需要申请一个更大的空间</span></span><br><span class="line">            <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len+<span class="number">1</span>];</span><br><span class="line">                System.arraycopy(digits,<span class="number">1</span>,res,<span class="number">2</span>,len-<span class="number">1</span>);</span><br><span class="line">                res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                res[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            <span class="comment">//首位不是9</span></span><br><span class="line">            <span class="comment">//则只用修改最后一位</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">                System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//如果最后一位不是9</span></span><br><span class="line">        <span class="comment">//直接复制整个数组，然后修改最后一位即可</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">            System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">            res[len-<span class="number">1</span>] = res[len-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>在方法一中，由于我一直采用先申请一个辅助空间，然后对辅助空间进行复制、修改操作，这样导致我的空间复杂度在任何一种情况下都是$O(N)$。但其实，我完全可以调整思路，直接对<code>digits</code>进行操作，然后最后返回<code>digits</code>；除非万不得已，整个<code>digits</code>数组全部都是9，这样我再申请一个更大的空间去存放数据。</p>
+<p>同时，对两种情况分辨的标准也可以优化。在方法一中，我是根据末尾是否为9这个标准进行分类。但我们可以换个思路，我们可以看看在进行加一操作后结果是否为0。这二者的区别有点类似<code>while</code>和<code>do( )while</code>：方法一中我们需要先判断，如果是不同的情况，则需要进入不同的<code>while</code>循环，这样代码很长；然而方法二中，我们先进行操作，如果末位加一操作后不为0，那么直接可以跳出循环，这样只用写一种情况下的循环体。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          	<span class="comment">//直接先进行加一操作</span></span><br><span class="line">            digits[i] = (digits[i] + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">          	<span class="comment">//这里只用针对当前这个一个数是否为0进行判断，并不只考虑最后一个数</span></span><br><span class="line">          	<span class="comment">//如果这个数不为0，则代表没有发生进位，那这个数前面的都不用改了</span></span><br><span class="line">          	<span class="comment">//此时，加一操作之后的结果已经在数组中修改了，那么直接返回digits即可</span></span><br><span class="line">            <span class="keyword">if</span> (digits[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果这个数等于0</span></span><br><span class="line">          	<span class="comment">//则会发生进位现象，前面的数也需要+1</span></span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//循环完全退出则代表digits中原来全部为9</span></span><br><span class="line">      	<span class="comment">//此时再申请新的数组空间</span></span><br><span class="line">        digits = <span class="keyword">new</span> <span class="title class_">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        digits[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>反转字符串中的单词</title>
     <url>/2022/11/16/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/</url>
     <content><![CDATA[<h1 id="反转字符串中的单词"><a href="#反转字符串中的单词" class="headerlink" title="反转字符串中的单词"></a>反转字符串中的单词</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串 <code>s</code> ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p>
@@ -4087,6 +4140,153 @@
       <tags>
         <tag>字符串</tag>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字符串转换整形</title>
+    <url>/2022/12/04/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E5%BD%A2/</url>
+    <content><![CDATA[<h1 id="字符串转换整形"><a href="#字符串转换整形" class="headerlink" title="字符串转换整形"></a>字符串转换整形</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请你来实现一个<code>myAtoi(string s)</code>函数，使其能将字符串转换成一个 32 位有符号整数。</p>
+<p>函数<code>myAtoi(string s)</code>的算法如下：</p>
+<ol>
+<li>读入字符串并丢弃无用的前导空格</li>
+<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。</li>
+<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。</li>
+<li>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。</li>
+<li>如果整数数超过 32 位有符号整数范围 [−231,  231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。</li>
+<li>返回整数作为最终结果。</li>
+<li>注意：<ul>
+<li>本题中的空白字符只包括空格字符 ‘ ‘ </li>
+<li>除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符</li>
+</ul>
+</li>
+</ol>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题主要考察对输入种类的判断，以及边界情况（溢出）的处理。思路上没有什么难点，但是在细节上有很多需要注意的。</p>
+<ul>
+<li><p>对溢出的判断</p>
+<ol>
+<li><p>方法一</p>
+<ul>
+<li>每一轮的结果计算公式如下：$res&#x3D;res\times 10+temp$</li>
+<li>用一个变量<code>pre</code>记录上一轮的计算结果，<code>res</code>代表这一轮的计算结果<ul>
+<li>如果发生溢出的话$pre\ne res {\div} 10$</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> res;</span><br><span class="line">res = res * <span class="number">10</span> + Character.getNumericValue(s.charAt(i));</span><br><span class="line"><span class="keyword">if</span>(pre != res/<span class="number">10</span>)</span><br><span class="line">	<span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法二</p>
+<ul>
+<li><p><code>int</code>型发生溢出的话我们考虑使用<code>long</code>型来存储数据</p>
+</li>
+<li><p>用一个<code>long</code>型的变量<code>res</code>来记录每一轮的计算结果</p>
+<ul>
+<li>如果是正数发生溢出</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">res &gt; Integer.MAX_VALUE;</span><br><span class="line"><span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果是负数发生溢出</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">res &lt; Integer.MIN_VALUE;</span><br><span class="line"><span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>将字符转化为<code>int</code></p>
+<ol>
+<li><p>通过Character类中的方法</p>
+<ul>
+<li><p><code>public static int getNumericValue(char ch)</code></p>
+<blockquote>
+<p>Returns the int value that the specified Unicode character represents</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>通过字符之间的运算</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;5&#x27;</span>;<span class="comment">//0~9</span></span><br><span class="line">c - <span class="string">&#x27;0&#x27;</span><span class="comment">//5</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>时间复杂度：遍历一遍字符串即可，$O(N)$</p>
+</li>
+<li><p>空间复杂度：$O(1)$</p>
+</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">myAtoi</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录结果</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> <span class="literal">true</span>;<span class="comment">//默认是正数</span></span><br><span class="line">        s = s.trim();</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> <span class="variable">firChar</span> <span class="operator">=</span> s.charAt(<span class="number">0</span>);<span class="comment">//判断第一个字符</span></span><br><span class="line">        <span class="keyword">if</span> (firChar == <span class="string">&#x27;-&#x27;</span>) &#123;<span class="comment">//判断条件太多</span></span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (firChar == <span class="string">&#x27;+&#x27;</span>) &#123;</span><br><span class="line">            flag = <span class="literal">true</span>;<span class="comment">//非常多余</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Character.isDigit(firChar)) &#123;</span><br><span class="line">            res = Character.getNumericValue(firChar);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (Character.isDigit(c)) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> res;</span><br><span class="line">                res = res * <span class="number">10</span> + Character.getNumericValue(c);</span><br><span class="line">                <span class="keyword">if</span> (pre != res / <span class="number">10</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (flag) &#123;<span class="comment">//可以通过三目运算符来优化</span></span><br><span class="line">                        <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span> * res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">myAtoi</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        s = s.trim();</span><br><span class="line">        <span class="comment">//将直接返回的条件写在一起</span></span><br><span class="line">        <span class="comment">//长度为0直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> <span class="variable">firChar</span> <span class="operator">=</span> s.charAt(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">//第一个字符既不是数字、也不是正负符号，直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (!Character.isDigit(firChar) &amp;&amp; firChar != <span class="string">&#x27;-&#x27;</span> &amp;&amp; firChar != <span class="string">&#x27;+&#x27;</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//此时字符串第一个字符要么是数字，要么是正负号</span></span><br><span class="line">        <span class="comment">//判断符号</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">neg</span> <span class="operator">=</span> (firChar == <span class="string">&#x27;-&#x27;</span>);<span class="comment">//如果符号位是负，则neg为真，其余情况都为正</span></span><br><span class="line">        <span class="comment">//如果第0位是数字，那从第0为开始遍历数组</span></span><br><span class="line">        <span class="comment">//如果第0为是符号，那从第1为开始遍历</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> Character.isDigit(firChar) ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//最后的结果</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0L</span>;</span><br><span class="line">        <span class="comment">//第一个条件用于正常遍历字符串</span></span><br><span class="line">        <span class="comment">//第二个条件用于：当字符串数字遍历完了之后，舍弃后面的其他字符</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; Character.isDigit(s.charAt(i)))&#123;</span><br><span class="line">            <span class="comment">//此时i指向的一定是数字</span></span><br><span class="line">            ans = ans * <span class="number">10</span> + (s.charAt(i++) - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            <span class="comment">//判断溢出情况</span></span><br><span class="line">            <span class="keyword">if</span> (neg &amp;&amp; -ans &lt; Integer.MIN_VALUE)</span><br><span class="line">                <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">            <span class="keyword">if</span> (!neg &amp;&amp; ans &gt; Integer.MAX_VALUE)</span><br><span class="line">                <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//不用写-1*ans</span></span><br><span class="line">        <span class="keyword">return</span> neg ? (<span class="type">int</span>)-ans : (<span class="type">int</span>)ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>存在重复元素</title>
+    <url>/2022/11/21/%E7%AE%97%E6%B3%95/%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h1 id="存在重复元素"><a href="#存在重复元素" class="headerlink" title="存在重复元素"></a>存在重复元素</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> ，返回 <code>true</code> ；如果数组中每个元素互不相同，返回 <code>false</code></p>
+<h2 id="方法一：利用排序"><a href="#方法一：利用排序" class="headerlink" title="方法一：利用排序"></a>方法一：利用排序</h2><p>在对数字从小到大排序之后，数组的重复元素一定出现在相邻位置中。因此，我们可以扫描已排序的数组，每次判断相邻的两个元素是否相等，如果相等则说明存在重复的元素。</p>
+<p>在进行排序时，我们其实可以先导入<code>java.util.Arrays</code>的包，直接利用<code>sort</code>方法进行排序</p>
+<ul>
+<li>时间复杂度：$O(NlogN)$，排序的时间复杂度</li>
+<li>空间复杂度：$O(logN)$，快排的递归深度</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsDuplicate</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == nums[i-<span class="number">1</span>]) </span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这道题并不能通过位运算的技巧来快速解决，通过排序解决应该是最简单的办法</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>排序算法</tag>
       </tags>
   </entry>
   <entry>
@@ -4352,25 +4552,15 @@
       </tags>
   </entry>
   <entry>
-    <title>加一</title>
-    <url>/2022/11/24/%E7%AE%97%E6%B3%95/%E5%8A%A0%E4%B8%80/</url>
-    <content><![CDATA[<h1 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数0之外，这个整数不会以零开头。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：digits = [1,2,3]</span><br><span class="line">输出：[1,2,4]</span><br><span class="line">解释：输入数组表示数字123，对其加一，输出124。</span><br><span class="line"></span><br><span class="line">输入：digits = [9]</span><br><span class="line">输出：[1，0]</span><br><span class="line">解释：输入数组表示数字9，对其加一，输出10。</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题在模拟对数字进行加一的运算结果，如果整个<code>digits</code>数组中末尾没有9的话其实非常简单，直接将<code>digits[len-1]</code>最后这个数修改一下，然后返回<code>digits</code>即可；如果数组中其他位置出现了9的话其实也没有影响，因为后面不进位的话前面也不会有改变。我们着重需要考虑的是末尾有9，或者说末尾有连续个9的情况。</p>
-<ol>
-<li>如果末尾有若干个9，但第一个数字不是，例如[1,2,9,9]。那么将最后一位设置成0，然后向前面进位，如果还是9，则将倒数第二位再设置成0，再进位…这样最后的结果和<code>digits</code>数组的长度是一样的，因为第一位不会再进位了</li>
-<li>如果全部是9，即第一位数字也是9，例如[9，9]。那么按照上面的步骤，最后<code>digits</code>的结果就是[10,0,0]，我们首先不得不申请一个大一点的数组res，将digits后面的几位复制给<code>res</code>，然后再将<code>res</code>的第一位设置成1，第二位设置成0即可。</li>
-</ol>
-<ul>
-<li>时间复杂度：$O(N)$，这种方法只用将<code>digits</code>数组遍历一遍即可结束</li>
-<li>空间复杂度：$O(N)$，这种方法由于需要复制数组，所以需要申请额外的辅助空间</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">				<span class="comment">//如果最后一位是9</span></span><br><span class="line">      	<span class="comment">//分两种情况：首位不是9和首位是9</span></span><br><span class="line">        <span class="keyword">if</span> (digits[len - <span class="number">1</span>] == <span class="number">9</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len-<span class="number">1</span>;</span><br><span class="line">            digits[i] ++;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; digits[i] == <span class="number">10</span>) &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">                i --;<span class="comment">//指针前移</span></span><br><span class="line">                digits[i] ++;<span class="comment">//进位</span></span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//首位是9</span></span><br><span class="line">          	<span class="comment">//则需要申请一个更大的空间</span></span><br><span class="line">            <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">10</span>) &#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len+<span class="number">1</span>];</span><br><span class="line">                System.arraycopy(digits,<span class="number">1</span>,res,<span class="number">2</span>,len-<span class="number">1</span>);</span><br><span class="line">                res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                res[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            <span class="comment">//首位不是9</span></span><br><span class="line">            <span class="comment">//则只用修改最后一位</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">                System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">//如果最后一位不是9</span></span><br><span class="line">        <span class="comment">//直接复制整个数组，然后修改最后一位即可</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">            System.arraycopy(digits,<span class="number">0</span>,res,<span class="number">0</span>,len);</span><br><span class="line">            res[len-<span class="number">1</span>] = res[len-<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>在方法一中，由于我一直采用先申请一个辅助空间，然后对辅助空间进行复制、修改操作，这样导致我的空间复杂度在任何一种情况下都是$O(N)$。但其实，我完全可以调整思路，直接对<code>digits</code>进行操作，然后最后返回<code>digits</code>；除非万不得已，整个<code>digits</code>数组全部都是9，这样我再申请一个更大的空间去存放数据。</p>
-<p>同时，对两种情况分辨的标准也可以优化。在方法一中，我是根据末尾是否为9这个标准进行分类。但我们可以换个思路，我们可以看看在进行加一操作后结果是否为0。这二者的区别有点类似<code>while</code>和<code>do( )while</code>：方法一中我们需要先判断，如果是不同的情况，则需要进入不同的<code>while</code>循环，这样代码很长；然而方法二中，我们先进行操作，如果末位加一操作后不为0，那么直接可以跳出循环，这样只用写一种情况下的循环体。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] plusOne(<span class="type">int</span>[] digits) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> digits.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          	<span class="comment">//直接先进行加一操作</span></span><br><span class="line">            digits[i] = (digits[i] + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">          	<span class="comment">//这里只用针对当前这个一个数是否为0进行判断，并不只考虑最后一个数</span></span><br><span class="line">          	<span class="comment">//如果这个数不为0，则代表没有发生进位，那这个数前面的都不用改了</span></span><br><span class="line">          	<span class="comment">//此时，加一操作之后的结果已经在数组中修改了，那么直接返回digits即可</span></span><br><span class="line">            <span class="keyword">if</span> (digits[i] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> digits;</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//如果这个数等于0</span></span><br><span class="line">          	<span class="comment">//则会发生进位现象，前面的数也需要+1</span></span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">//循环完全退出则代表digits中原来全部为9</span></span><br><span class="line">      	<span class="comment">//此时再申请新的数组空间</span></span><br><span class="line">        digits = <span class="keyword">new</span> <span class="title class_">int</span>[len + <span class="number">1</span>];</span><br><span class="line">        digits[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>旋转数组2</title>
+    <url>/2022/11/20/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%842/</url>
+    <content><![CDATA[<h1 id="旋转数组2"><a href="#旋转数组2" class="headerlink" title="旋转数组2"></a>旋转数组2</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个数组，将数组中的元素向右轮转<code>k</code>个位置，其中<code>k</code>是非负数</p>
+<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>在这之前我们已经能用两种方法解决这个问题，分别是申请辅助空间和翻转数组这两种方法。这次的方法是<strong>环状替换</strong>法。</p>
+<p>方法一中使用额外数组的原因在于如果我们直接将每个数字放至它最后的位置，这样被放置位置的元素会被覆盖从而丢失。因此，从另一个角度，我们可以仅仅将被替换的<u>那一个元素</u>保存在变量<code>temp</code>中，从而避免了额外数组的开销。在这种方法里，每一轮可以确定一个数<code>a</code>的最终位置<code>b</code>，我们先将数<code>b</code>拷贝出来，这样就能避免等下将<code>a</code>放过来时覆盖了<code>b</code>的信息，拷贝好信息后我们就能将<code>a</code>直接放过去。然后在下一轮中，我们可以再去考虑<code>b</code>的最终位置，假设是<code>b&#39;</code>，然后不停的重复上述过程。</p>
+<p>具体来说，我们不妨假设一个很长的数组向右移动3个位置。我们从位置<code>0</code>开始，根据规则，位置<code>0</code>的元素将会被放置到<code>(0+3)%n=3</code>的位置上，我们先拷贝这个位置上的元素到临时变量temp里，然后将<code>0</code>位置的元素直接放过来，这样就确定了0位置元素的最终位置。然后我们再考虑位置<code>3</code>的元素的最终位置，它的最终位置是<code>6</code>，我们先拷贝<code>6</code>位置元素的信息，然后再把3位置的元素放过来…以此类推。</p>
+<p>容易发现，当回到初始位置<code>0</code>时，有些数字可能还没有遍历到，此时我们应该从下一个数字开始重复的过程，可是这个时候怎么才算遍历结束呢？我们可以设置一个计数器，每确定好一个数的最终位置，计数器就加一，当计数器的数量刚好等于数组中的元素个数时程序就可以结束了。</p>
+<p>###代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        k = k % nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录交换了多少个数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//从第一个数开始交换</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (count &lt; nums.length) &#123;<span class="comment">//直到所有的数都交换了一遍</span></span><br><span class="line">        <span class="comment">//注意，判断循环结束的条件不能加等号</span></span><br><span class="line">        <span class="comment">//移动了一个数，计数器才加一，如果等于了还进入循环的话，就会移动length+1个数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> nums[start];<span class="comment">//存储上一轮的b</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">toSwap</span> <span class="operator">=</span> (start + k) % nums.length;<span class="comment">//找到a下一个要交换的数b的下标</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(toSwap != start)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> nums[toSwap];<span class="comment">//将b拷贝出来，因为等下a要覆盖它</span></span><br><span class="line">                nums[toSwap] = pre;<span class="comment">//将a（也就是上一轮的b）放到它的位置上</span></span><br><span class="line"></span><br><span class="line">                pre = temp;<span class="comment">//这一轮的b成为下一轮的a</span></span><br><span class="line">                toSwap = (toSwap + k) % nums.length;<span class="comment">//找到下一轮b的位置</span></span><br><span class="line">                count ++;<span class="comment">//找到了一个数a的最终位置</span></span><br><span class="line">            &#125;</span><br><span class="line">          	</span><br><span class="line">            nums[toSwap] = pre;<span class="comment">//当下一个位置与初始位置相同时，将上一轮的数放到初始位置</span></span><br><span class="line">            count ++;</span><br><span class="line">            start ++;<span class="comment">//从下一个数再开始</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -4493,242 +4683,6 @@
       <tags>
         <tag>字符串</tag>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>字符串转换整形</title>
-    <url>/2022/12/04/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E5%BD%A2/</url>
-    <content><![CDATA[<h1 id="字符串转换整形"><a href="#字符串转换整形" class="headerlink" title="字符串转换整形"></a>字符串转换整形</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请你来实现一个<code>myAtoi(string s)</code>函数，使其能将字符串转换成一个 32 位有符号整数。</p>
-<p>函数<code>myAtoi(string s)</code>的算法如下：</p>
-<ol>
-<li>读入字符串并丢弃无用的前导空格</li>
-<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。</li>
-<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。</li>
-<li>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。</li>
-<li>如果整数数超过 32 位有符号整数范围 [−231,  231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。</li>
-<li>返回整数作为最终结果。</li>
-<li>注意：<ul>
-<li>本题中的空白字符只包括空格字符 ‘ ‘ </li>
-<li>除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符</li>
-</ul>
-</li>
-</ol>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题主要考察对输入种类的判断，以及边界情况（溢出）的处理。思路上没有什么难点，但是在细节上有很多需要注意的。</p>
-<ul>
-<li><p>对溢出的判断</p>
-<ol>
-<li><p>方法一</p>
-<ul>
-<li>每一轮的结果计算公式如下：$res&#x3D;res\times 10+temp$</li>
-<li>用一个变量<code>pre</code>记录上一轮的计算结果，<code>res</code>代表这一轮的计算结果<ul>
-<li>如果发生溢出的话$pre\ne res {\div} 10$</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> res;</span><br><span class="line">res = res * <span class="number">10</span> + Character.getNumericValue(s.charAt(i));</span><br><span class="line"><span class="keyword">if</span>(pre != res/<span class="number">10</span>)</span><br><span class="line">	<span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>方法二</p>
-<ul>
-<li><p><code>int</code>型发生溢出的话我们考虑使用<code>long</code>型来存储数据</p>
-</li>
-<li><p>用一个<code>long</code>型的变量<code>res</code>来记录每一轮的计算结果</p>
-<ul>
-<li>如果是正数发生溢出</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">res &gt; Integer.MAX_VALUE;</span><br><span class="line"><span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如果是负数发生溢出</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">res &lt; Integer.MIN_VALUE;</span><br><span class="line"><span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>将字符转化为<code>int</code></p>
-<ol>
-<li><p>通过Character类中的方法</p>
-<ul>
-<li><p><code>public static int getNumericValue(char ch)</code></p>
-<blockquote>
-<p>Returns the int value that the specified Unicode character represents</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>通过字符之间的运算</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;5&#x27;</span>;<span class="comment">//0~9</span></span><br><span class="line">c - <span class="string">&#x27;0&#x27;</span><span class="comment">//5</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>时间复杂度：遍历一遍字符串即可，$O(N)$</p>
-</li>
-<li><p>空间复杂度：$O(1)$</p>
-</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">myAtoi</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录结果</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> <span class="literal">true</span>;<span class="comment">//默认是正数</span></span><br><span class="line">        s = s.trim();</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> <span class="variable">firChar</span> <span class="operator">=</span> s.charAt(<span class="number">0</span>);<span class="comment">//判断第一个字符</span></span><br><span class="line">        <span class="keyword">if</span> (firChar == <span class="string">&#x27;-&#x27;</span>) &#123;<span class="comment">//判断条件太多</span></span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (firChar == <span class="string">&#x27;+&#x27;</span>) &#123;</span><br><span class="line">            flag = <span class="literal">true</span>;<span class="comment">//非常多余</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Character.isDigit(firChar)) &#123;</span><br><span class="line">            res = Character.getNumericValue(firChar);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (Character.isDigit(c)) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> res;</span><br><span class="line">                res = res * <span class="number">10</span> + Character.getNumericValue(c);</span><br><span class="line">                <span class="keyword">if</span> (pre != res / <span class="number">10</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (flag) &#123;<span class="comment">//可以通过三目运算符来优化</span></span><br><span class="line">                        <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span> * res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">myAtoi</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        s = s.trim();</span><br><span class="line">        <span class="comment">//将直接返回的条件写在一起</span></span><br><span class="line">        <span class="comment">//长度为0直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> <span class="variable">firChar</span> <span class="operator">=</span> s.charAt(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">//第一个字符既不是数字、也不是正负符号，直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (!Character.isDigit(firChar) &amp;&amp; firChar != <span class="string">&#x27;-&#x27;</span> &amp;&amp; firChar != <span class="string">&#x27;+&#x27;</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//此时字符串第一个字符要么是数字，要么是正负号</span></span><br><span class="line">        <span class="comment">//判断符号</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">neg</span> <span class="operator">=</span> (firChar == <span class="string">&#x27;-&#x27;</span>);<span class="comment">//如果符号位是负，则neg为真，其余情况都为正</span></span><br><span class="line">        <span class="comment">//如果第0位是数字，那从第0为开始遍历数组</span></span><br><span class="line">        <span class="comment">//如果第0为是符号，那从第1为开始遍历</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> Character.isDigit(firChar) ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//最后的结果</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0L</span>;</span><br><span class="line">        <span class="comment">//第一个条件用于正常遍历字符串</span></span><br><span class="line">        <span class="comment">//第二个条件用于：当字符串数字遍历完了之后，舍弃后面的其他字符</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; Character.isDigit(s.charAt(i)))&#123;</span><br><span class="line">            <span class="comment">//此时i指向的一定是数字</span></span><br><span class="line">            ans = ans * <span class="number">10</span> + (s.charAt(i++) - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            <span class="comment">//判断溢出情况</span></span><br><span class="line">            <span class="keyword">if</span> (neg &amp;&amp; -ans &lt; Integer.MIN_VALUE)</span><br><span class="line">                <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">            <span class="keyword">if</span> (!neg &amp;&amp; ans &gt; Integer.MAX_VALUE)</span><br><span class="line">                <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//不用写-1*ans</span></span><br><span class="line">        <span class="keyword">return</span> neg ? (<span class="type">int</span>)-ans : (<span class="type">int</span>)ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>字符串</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>旋转数组2</title>
-    <url>/2022/11/20/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%842/</url>
-    <content><![CDATA[<h1 id="旋转数组2"><a href="#旋转数组2" class="headerlink" title="旋转数组2"></a>旋转数组2</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个数组，将数组中的元素向右轮转<code>k</code>个位置，其中<code>k</code>是非负数</p>
-<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>在这之前我们已经能用两种方法解决这个问题，分别是申请辅助空间和翻转数组这两种方法。这次的方法是<strong>环状替换</strong>法。</p>
-<p>方法一中使用额外数组的原因在于如果我们直接将每个数字放至它最后的位置，这样被放置位置的元素会被覆盖从而丢失。因此，从另一个角度，我们可以仅仅将被替换的<u>那一个元素</u>保存在变量<code>temp</code>中，从而避免了额外数组的开销。在这种方法里，每一轮可以确定一个数<code>a</code>的最终位置<code>b</code>，我们先将数<code>b</code>拷贝出来，这样就能避免等下将<code>a</code>放过来时覆盖了<code>b</code>的信息，拷贝好信息后我们就能将<code>a</code>直接放过去。然后在下一轮中，我们可以再去考虑<code>b</code>的最终位置，假设是<code>b&#39;</code>，然后不停的重复上述过程。</p>
-<p>具体来说，我们不妨假设一个很长的数组向右移动3个位置。我们从位置<code>0</code>开始，根据规则，位置<code>0</code>的元素将会被放置到<code>(0+3)%n=3</code>的位置上，我们先拷贝这个位置上的元素到临时变量temp里，然后将<code>0</code>位置的元素直接放过来，这样就确定了0位置元素的最终位置。然后我们再考虑位置<code>3</code>的元素的最终位置，它的最终位置是<code>6</code>，我们先拷贝<code>6</code>位置元素的信息，然后再把3位置的元素放过来…以此类推。</p>
-<p>容易发现，当回到初始位置<code>0</code>时，有些数字可能还没有遍历到，此时我们应该从下一个数字开始重复的过程，可是这个时候怎么才算遍历结束呢？我们可以设置一个计数器，每确定好一个数的最终位置，计数器就加一，当计数器的数量刚好等于数组中的元素个数时程序就可以结束了。</p>
-<p>###代码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        k = k % nums.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录交换了多少个数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//从第一个数开始交换</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (count &lt; nums.length) &#123;<span class="comment">//直到所有的数都交换了一遍</span></span><br><span class="line">        <span class="comment">//注意，判断循环结束的条件不能加等号</span></span><br><span class="line">        <span class="comment">//移动了一个数，计数器才加一，如果等于了还进入循环的话，就会移动length+1个数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> nums[start];<span class="comment">//存储上一轮的b</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">toSwap</span> <span class="operator">=</span> (start + k) % nums.length;<span class="comment">//找到a下一个要交换的数b的下标</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(toSwap != start)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> nums[toSwap];<span class="comment">//将b拷贝出来，因为等下a要覆盖它</span></span><br><span class="line">                nums[toSwap] = pre;<span class="comment">//将a（也就是上一轮的b）放到它的位置上</span></span><br><span class="line"></span><br><span class="line">                pre = temp;<span class="comment">//这一轮的b成为下一轮的a</span></span><br><span class="line">                toSwap = (toSwap + k) % nums.length;<span class="comment">//找到下一轮b的位置</span></span><br><span class="line">                count ++;<span class="comment">//找到了一个数a的最终位置</span></span><br><span class="line">            &#125;</span><br><span class="line">          	</span><br><span class="line">            nums[toSwap] = pre;<span class="comment">//当下一个位置与初始位置相同时，将上一轮的数放到初始位置</span></span><br><span class="line">            count ++;</span><br><span class="line">            start ++;<span class="comment">//从下一个数再开始</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>猜数游戏</title>
-    <url>/2022/11/22/%E7%AE%97%E6%B3%95/%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F/</url>
-    <content><![CDATA[<h1 id="猜数游戏"><a href="#猜数游戏" class="headerlink" title="猜数游戏"></a>猜数游戏</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>我在做Java一个简单的猜数游戏时突发奇想，能不能编写一个程序让计算机自己产生一个随机数，自己再猜。</p>
-<h2 id="方法一：二分查找法"><a href="#方法一：二分查找法" class="headerlink" title="方法一：二分查找法"></a>方法一：二分查找法</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>解决这个问题很容易就能想到用二分查找来高效的解决，但是我在实际做的过程中发现自己对二分查找的理解还是差了一点。</p>
-<p>先看看我的第一个版本的代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">guessNum</span><span class="params">(<span class="type">int</span> flag, <span class="type">int</span> low, <span class="type">int</span> high)</span>&#123;</span><br><span class="line">  <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> low + (high - low) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(flag &lt; <span class="number">0</span>)&#123;<span class="comment">//猜小了，则输出右半部分的中点</span></span><br><span class="line">    <span class="keyword">return</span> (mid + high) / <span class="number">2</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;<span class="comment">//猜大了，则输出左半部分的中点</span></span><br><span class="line">    <span class="keyword">return</span> (low + mid) / <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (count &lt;= <span class="number">100</span> &amp;&amp; guess != numToguess)&#123;</span><br><span class="line">	<span class="keyword">if</span> (guess &gt; numToguess)&#123;</span><br><span class="line">		System.out.println(guess + <span class="string">&quot; 大于 &quot;</span> + numToguess + <span class="string">&quot;猜大了，请再试一次&quot;</span>);</span><br><span class="line">		guess = guessNum(<span class="number">1</span>,a,guess);</span><br><span class="line">		count ++;</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		System.out.println(guess + <span class="string">&quot; 小于 &quot;</span> + numToguess + <span class="string">&quot;猜小了，请再试一次&quot;</span>);</span><br><span class="line">    a = guess;</span><br><span class="line">    guess = guessNum(-<span class="number">1</span>,guess,b);</span><br><span class="line">    count ++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>二分查找的精髓在于<u>每一次查找之后都能舍弃另一半的信息</u>，然而运行我上面的代码会发现，我每次猜测的数据都在左右不停的摇摆。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8dp35qixlj30vm0midhs.jpg"></p>
-<p>在熟悉通过数组来实现二分查找后，我发现自己并不能很轻松的解决这个问题，我开始思考原因。</p>
-<p>在数组里之所以每次都能做到精确的划分出目标所在的区间，是因为我们巧妙的设置了<code>low</code>和<code>high</code>两个指针。每一次比较之后，都根据目标和中间数据的大小关系来调整<code>low</code>或者<code>high</code>指针，而每次查找的数据都是在<code>low</code>和<code>high</code>指针之间查找，并不会超过这个区域。也就是说，<u>二分查找之所以能每查找一轮都能舍弃另一半的原因，在于只在<code>low</code>和<code>high</code>指针之间查找，每查找一轮都要修改这个区间</u>。</p>
-<p>那么想要解决我现在的问题我们就要重新检查我们是否真的发挥了<code>low</code>和<code>high</code>指针的作用。不难发现，在<code>guess = guessNum(1,a,guess);</code>和<code>guess = guessNum(-1,guess,b);</code>两个关键的划分区间的操作中，我的a和b指针从来都没有发生过改变，也就是查找的范围一直没有变：要么就在最左边查找、要么就在最右边查找，无法做到真正的二分。</p>
-<p>要解决这个问题，我们只需要根据每一轮查到的结果来及时调整<code>low</code>或者<code>high</code>指针即可，以下是完整的代码。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Random</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> random;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> low;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> high;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getLow</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getHigh</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> high;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getRandom</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setRandom</span><span class="params">(<span class="type">int</span> random)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setLow</span><span class="params">(<span class="type">int</span> low)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.low = low;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setHigh</span><span class="params">(<span class="type">int</span> high)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.high = high;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Random()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    Random(<span class="type">int</span> random)&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    Random(<span class="type">int</span> random, <span class="type">int</span> low, <span class="type">int</span> high)&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">        <span class="built_in">this</span>.low = low;</span><br><span class="line">        <span class="built_in">this</span>.high = high;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//产生一个在low～high之间的随机数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">randGen</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个数字区间&quot;</span>);</span><br><span class="line">        java.util.<span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.util.Scanner((System.in));</span><br><span class="line">        setLow(scanner.nextInt());</span><br><span class="line">        setHigh(scanner.nextInt());</span><br><span class="line">        <span class="type">int</span> <span class="variable">ran</span> <span class="operator">=</span> getLow() - <span class="number">1</span> + (<span class="type">int</span>)(Math.random() *(getHigh()-getLow()));</span><br><span class="line">        setRandom(ran);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//返回low与high的中点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">mid</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">this</span>.getLow() + <span class="built_in">this</span>.getHigh()) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Guess</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">LIMIT_GUESS</span> <span class="operator">=</span> <span class="number">100</span>;<span class="comment">//控制猜测的次数，避免死循环</span></span><br><span class="line">    <span class="keyword">private</span> Random random;<span class="comment">//Random是Guess的一个属性</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Guess</span><span class="params">(Random random)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> Random <span class="title function_">getRandom</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> random;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">guess</span><span class="params">()</span>&#123;</span><br><span class="line">        getRandom().randGen();<span class="comment">//产生随机数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">guess</span> <span class="operator">=</span> getRandom().mid();<span class="comment">//猜测中点的数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (count &lt;= LIMIT_GUESS &amp;&amp; guess != getRandom().getRandom())&#123;</span><br><span class="line">            <span class="keyword">if</span> (guess &gt; getRandom().getRandom())&#123;</span><br><span class="line">                System.out.println(guess + <span class="string">&quot; 大于 &quot;</span> + getRandom().getRandom() + <span class="string">&quot;猜大了，请再试一次&quot;</span>);</span><br><span class="line">                getRandom().setHigh(guess);<span class="comment">//猜大了，则及时调整high指针</span></span><br><span class="line">                guess = getRandom().mid();</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(guess + <span class="string">&quot; 小于 &quot;</span> + getRandom().getRandom() + <span class="string">&quot;猜小了，请再试一次&quot;</span>);</span><br><span class="line">                getRandom().setLow(guess);<span class="comment">//猜小了，则及时调整low指针</span></span><br><span class="line">                guess = getRandom().mid();</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;恭喜！猜对了，是 &quot;</span> + guess);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">Guess</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Guess</span>(random);</span><br><span class="line">        test.guess();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8dq3yz1rjj30vm0tutbc.jpg"></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>二分查找</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>存在重复元素</title>
-    <url>/2022/11/21/%E7%AE%97%E6%B3%95/%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<h1 id="存在重复元素"><a href="#存在重复元素" class="headerlink" title="存在重复元素"></a>存在重复元素</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> ，返回 <code>true</code> ；如果数组中每个元素互不相同，返回 <code>false</code></p>
-<h2 id="方法一：利用排序"><a href="#方法一：利用排序" class="headerlink" title="方法一：利用排序"></a>方法一：利用排序</h2><p>在对数字从小到大排序之后，数组的重复元素一定出现在相邻位置中。因此，我们可以扫描已排序的数组，每次判断相邻的两个元素是否相等，如果相等则说明存在重复的元素。</p>
-<p>在进行排序时，我们其实可以先导入<code>java.util.Arrays</code>的包，直接利用<code>sort</code>方法进行排序</p>
-<ul>
-<li>时间复杂度：$O(NlogN)$，排序的时间复杂度</li>
-<li>空间复杂度：$O(logN)$，快排的递归深度</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsDuplicate</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == nums[i-<span class="number">1</span>]) </span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这道题并不能通过位运算的技巧来快速解决，通过排序解决应该是最简单的办法</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>排序算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>移动零</title>
-    <url>/2022/11/11/%E7%AE%97%E6%B3%95/%E7%A7%BB%E5%8A%A8%E9%9B%B6/</url>
-    <content><![CDATA[<h1 id="移动零"><a href="#移动零" class="headerlink" title="移动零"></a>移动零</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。<strong>请注意</strong> ，必须在不复制数组的情况下原地对数组进行操作。</p>
-<p>实例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [0,1,0,3,12]</span><br><span class="line">输出: [1,3,12,0,0]</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>我最先联想到昨天做过的数组轮转问题，我每找到一个0，我就把这个0移动到数组的最后，这样的情况下前面的非零的数的顺序也不会有变化。</p>
-<p>这是一个非常简单的想法，我再进步一的优化。每一次轮转也不需要轮转数组中的所有元素，只用把第一个为零的元素（前面的元素已经满足要求，不动即可）转移到最后一个不为0的元素（再后面的元素都为0也满足要求）之后就好了。我设置了两个指针low 和 high，分别指向第一个为0的元素，以及最后一个不为0的元素。</p>
-<p>进一步我发现，high指针（从后往前找到第一个非零元素）其实不会怎么移动，每一轮下来要么不动（前面没有0，不需要轮转），要么就向前移动一个（一轮下来只会找到一个0）。然而low指针（从前往后找到第一个零元素）的移动跨度可能会非常大，每一轮都是在上一轮的基础上继续向后寻找，找下一个零元素。所以可以在流程开始之前就确定high指针的位置，然而low指针的位置就要根据每一轮动态的变化了。</p>
-<p>在每一轮里，一旦low指针找到了一个0元素，那么就把low和high之间的元素左轮转一个位置，这样0元素就到了这个区间最后的位置，区间中的数相对位置不变的向前移动了一位。</p>
-<p>一次轮转之后，high指针要前移一位（因为0元素被放到了最后），low指针不变（因为新向前移动的数还没有判断是否为0），所以我们要再次寻找下一个0元素。</p>
-<ul>
-<li>这种方法首先需要遍历一整遍数组，在每一轮中，一旦需要轮转元素，就又要遍历一遍这一轮的所有数，时间复杂度为$O(n^{2} )$，并且由于又要遍历数组，又要实现轮转，代码的长度也很长</li>
-<li>由于不需要额外的辅助空间，空间复杂度为$O(1)$</li>
-</ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">moveZeroes</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = nums.length-<span class="number">1</span>;</span><br><span class="line">		<span class="comment">//low标记第一个为0的下标，high标记最后一个不为0的下标</span></span><br><span class="line">		<span class="comment">//确定high指针的位置</span></span><br><span class="line">		<span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">			<span class="keyword">if</span> (nums[high] != <span class="number">0</span>) </span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			high --;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">			<span class="comment">//i寻找从low 到 high 第一个0</span></span><br><span class="line">			<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> low;</span><br><span class="line">			<span class="keyword">while</span>(i &lt; high)&#123;</span><br><span class="line">				<span class="keyword">if</span> (nums[i] == <span class="number">0</span>) &#123;</span><br><span class="line">					low = i;</span><br><span class="line">					turnLeft(nums,low,high);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				i ++;</span><br><span class="line">			&#125;</span><br><span class="line">			high --;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//nums数组从i到j下标所有数向左轮转一位</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">turnLeft</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">    	reverse(nums,i,j);</span><br><span class="line">    	reverse (nums,i,j-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//交换nums数组中i和j两个数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (i == j) </span><br><span class="line">    		<span class="keyword">return</span>;</span><br><span class="line">    	nums[i] = nums[i] ^ nums[j];</span><br><span class="line">    	nums[j] = nums[i] ^ nums[j];</span><br><span class="line">    	nums[i] = nums[i] ^ nums[j];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使nums数组中i到j间的数逆序</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">    	<span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">    		swap(nums,i++,j--);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>双指针其实不一定要呆板的规定一个指针从前往后遍历，另一个从后往前遍历。我们可以根据不同的特点重新设置两个指针的功能，一般而言双指针可以将数组划分成三个部分，根据三个部分不同的功能再来设置指针的位置。</p>
-<p>比如在这一题中，可以设置一个指针<code>right</code>指向已经整理过的非零数组的末尾，另一个指针left指向待处理的数。也就是说，<code>right</code>指针左边全部是非零元素，<code>left</code>指针右边全部是待处理的元素，<code>right</code>指针和left指针中间都是0</p>
-<p><code>left</code>指针不停的向后移动，<code>left</code>指针每碰到一个数，如果这个数为0，那就跨过它继续向后找，同时<code>right</code>指针向后移动一位；如果不是0，就把它放到非0元素序列的末尾(right指针指向的地方)。</p>
-<p>这样一方面确保了非零元素之间相对位置的有序（按照遍历到的顺序调整的数，所以调整之后也是有序的），并且两个指针移动的方向相同，只用遍历一遍数组，每一轮中也只用交换两个数的位置，操作更简单。</p>
-<ul>
-<li>这种方法只用遍历一遍数组，如果left指针遇到了非零数，也只用做简单的交换操作，时间复杂度为$O(n)$</li>
-<li>空间复杂度为$O(1)$</li>
-</ul>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution2</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">moveZeroes</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//左指针指向非零元素的末尾</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//右指针指向待调整的数</span></span><br><span class="line">		<span class="keyword">while</span> (right &lt; nums.length) &#123;</span><br><span class="line">      <span class="comment">//如果是0，则继续向后遍历</span></span><br><span class="line">      <span class="comment">//如果非0，则将其向前移动</span></span><br><span class="line">			<span class="keyword">if</span> (nums[right] != <span class="number">0</span> ) &#123;</span><br><span class="line">				swap(nums,left,right);</span><br><span class="line">				left ++;</span><br><span class="line">			&#125;</span><br><span class="line">			right ++;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//交换nums数组中i和j两个数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (i == j) </span><br><span class="line">    		<span class="keyword">return</span>;</span><br><span class="line">    	nums[i] = nums[i] ^ nums[j];</span><br><span class="line">    	nums[j] = nums[i] ^ nums[j];</span><br><span class="line">    	nums[i] = nums[i] ^ nums[j];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -4913,38 +4867,72 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo搭建博客过程中，4000端口被占用</title>
-    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
-<ul>
-<li>更改hexo使用的端口</li>
-<li>杀掉正在占用4000端口的其他进程</li>
-</ul>
-<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
-<ul>
-<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
-<ul>
-<li><code>sudo lsof -i tcp:端口号</code></li>
-<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
-<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
-</li>
-<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
-<ul>
-<li><code>sudo kill -9 PID</code></li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
-</li>
-</ul>
+    <title>猜数游戏</title>
+    <url>/2022/11/22/%E7%AE%97%E6%B3%95/%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F/</url>
+    <content><![CDATA[<h1 id="猜数游戏"><a href="#猜数游戏" class="headerlink" title="猜数游戏"></a>猜数游戏</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>我在做Java一个简单的猜数游戏时突发奇想，能不能编写一个程序让计算机自己产生一个随机数，自己再猜。</p>
+<h2 id="方法一：二分查找法"><a href="#方法一：二分查找法" class="headerlink" title="方法一：二分查找法"></a>方法一：二分查找法</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>解决这个问题很容易就能想到用二分查找来高效的解决，但是我在实际做的过程中发现自己对二分查找的理解还是差了一点。</p>
+<p>先看看我的第一个版本的代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">guessNum</span><span class="params">(<span class="type">int</span> flag, <span class="type">int</span> low, <span class="type">int</span> high)</span>&#123;</span><br><span class="line">  <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> low + (high - low) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(flag &lt; <span class="number">0</span>)&#123;<span class="comment">//猜小了，则输出右半部分的中点</span></span><br><span class="line">    <span class="keyword">return</span> (mid + high) / <span class="number">2</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;<span class="comment">//猜大了，则输出左半部分的中点</span></span><br><span class="line">    <span class="keyword">return</span> (low + mid) / <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (count &lt;= <span class="number">100</span> &amp;&amp; guess != numToguess)&#123;</span><br><span class="line">	<span class="keyword">if</span> (guess &gt; numToguess)&#123;</span><br><span class="line">		System.out.println(guess + <span class="string">&quot; 大于 &quot;</span> + numToguess + <span class="string">&quot;猜大了，请再试一次&quot;</span>);</span><br><span class="line">		guess = guessNum(<span class="number">1</span>,a,guess);</span><br><span class="line">		count ++;</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		System.out.println(guess + <span class="string">&quot; 小于 &quot;</span> + numToguess + <span class="string">&quot;猜小了，请再试一次&quot;</span>);</span><br><span class="line">    a = guess;</span><br><span class="line">    guess = guessNum(-<span class="number">1</span>,guess,b);</span><br><span class="line">    count ++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>二分查找的精髓在于<u>每一次查找之后都能舍弃另一半的信息</u>，然而运行我上面的代码会发现，我每次猜测的数据都在左右不停的摇摆。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8dp35qixlj30vm0midhs.jpg"></p>
+<p>在熟悉通过数组来实现二分查找后，我发现自己并不能很轻松的解决这个问题，我开始思考原因。</p>
+<p>在数组里之所以每次都能做到精确的划分出目标所在的区间，是因为我们巧妙的设置了<code>low</code>和<code>high</code>两个指针。每一次比较之后，都根据目标和中间数据的大小关系来调整<code>low</code>或者<code>high</code>指针，而每次查找的数据都是在<code>low</code>和<code>high</code>指针之间查找，并不会超过这个区域。也就是说，<u>二分查找之所以能每查找一轮都能舍弃另一半的原因，在于只在<code>low</code>和<code>high</code>指针之间查找，每查找一轮都要修改这个区间</u>。</p>
+<p>那么想要解决我现在的问题我们就要重新检查我们是否真的发挥了<code>low</code>和<code>high</code>指针的作用。不难发现，在<code>guess = guessNum(1,a,guess);</code>和<code>guess = guessNum(-1,guess,b);</code>两个关键的划分区间的操作中，我的a和b指针从来都没有发生过改变，也就是查找的范围一直没有变：要么就在最左边查找、要么就在最右边查找，无法做到真正的二分。</p>
+<p>要解决这个问题，我们只需要根据每一轮查到的结果来及时调整<code>low</code>或者<code>high</code>指针即可，以下是完整的代码。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Random</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> random;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> low;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> high;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getLow</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getHigh</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> high;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getRandom</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setRandom</span><span class="params">(<span class="type">int</span> random)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setLow</span><span class="params">(<span class="type">int</span> low)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.low = low;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setHigh</span><span class="params">(<span class="type">int</span> high)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.high = high;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Random()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    Random(<span class="type">int</span> random)&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    Random(<span class="type">int</span> random, <span class="type">int</span> low, <span class="type">int</span> high)&#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">        <span class="built_in">this</span>.low = low;</span><br><span class="line">        <span class="built_in">this</span>.high = high;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//产生一个在low～high之间的随机数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">randGen</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个数字区间&quot;</span>);</span><br><span class="line">        java.util.<span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.util.Scanner((System.in));</span><br><span class="line">        setLow(scanner.nextInt());</span><br><span class="line">        setHigh(scanner.nextInt());</span><br><span class="line">        <span class="type">int</span> <span class="variable">ran</span> <span class="operator">=</span> getLow() - <span class="number">1</span> + (<span class="type">int</span>)(Math.random() *(getHigh()-getLow()));</span><br><span class="line">        setRandom(ran);</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//返回low与high的中点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">mid</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">this</span>.getLow() + <span class="built_in">this</span>.getHigh()) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Guess</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">LIMIT_GUESS</span> <span class="operator">=</span> <span class="number">100</span>;<span class="comment">//控制猜测的次数，避免死循环</span></span><br><span class="line">    <span class="keyword">private</span> Random random;<span class="comment">//Random是Guess的一个属性</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Guess</span><span class="params">(Random random)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.random = random;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> Random <span class="title function_">getRandom</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> random;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">guess</span><span class="params">()</span>&#123;</span><br><span class="line">        getRandom().randGen();<span class="comment">//产生随机数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">guess</span> <span class="operator">=</span> getRandom().mid();<span class="comment">//猜测中点的数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (count &lt;= LIMIT_GUESS &amp;&amp; guess != getRandom().getRandom())&#123;</span><br><span class="line">            <span class="keyword">if</span> (guess &gt; getRandom().getRandom())&#123;</span><br><span class="line">                System.out.println(guess + <span class="string">&quot; 大于 &quot;</span> + getRandom().getRandom() + <span class="string">&quot;猜大了，请再试一次&quot;</span>);</span><br><span class="line">                getRandom().setHigh(guess);<span class="comment">//猜大了，则及时调整high指针</span></span><br><span class="line">                guess = getRandom().mid();</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(guess + <span class="string">&quot; 小于 &quot;</span> + getRandom().getRandom() + <span class="string">&quot;猜小了，请再试一次&quot;</span>);</span><br><span class="line">                getRandom().setLow(guess);<span class="comment">//猜小了，则及时调整low指针</span></span><br><span class="line">                guess = getRandom().mid();</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;恭喜！猜对了，是 &quot;</span> + guess);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">Guess</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Guess</span>(random);</span><br><span class="line">        test.guess();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8dq3yz1rjj30vm0tutbc.jpg"></p>
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>算法</tag>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动零</title>
+    <url>/2022/11/11/%E7%AE%97%E6%B3%95/%E7%A7%BB%E5%8A%A8%E9%9B%B6/</url>
+    <content><![CDATA[<h1 id="移动零"><a href="#移动零" class="headerlink" title="移动零"></a>移动零</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。<strong>请注意</strong> ，必须在不复制数组的情况下原地对数组进行操作。</p>
+<p>实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [0,1,0,3,12]</span><br><span class="line">输出: [1,3,12,0,0]</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>我最先联想到昨天做过的数组轮转问题，我每找到一个0，我就把这个0移动到数组的最后，这样的情况下前面的非零的数的顺序也不会有变化。</p>
+<p>这是一个非常简单的想法，我再进步一的优化。每一次轮转也不需要轮转数组中的所有元素，只用把第一个为零的元素（前面的元素已经满足要求，不动即可）转移到最后一个不为0的元素（再后面的元素都为0也满足要求）之后就好了。我设置了两个指针low 和 high，分别指向第一个为0的元素，以及最后一个不为0的元素。</p>
+<p>进一步我发现，high指针（从后往前找到第一个非零元素）其实不会怎么移动，每一轮下来要么不动（前面没有0，不需要轮转），要么就向前移动一个（一轮下来只会找到一个0）。然而low指针（从前往后找到第一个零元素）的移动跨度可能会非常大，每一轮都是在上一轮的基础上继续向后寻找，找下一个零元素。所以可以在流程开始之前就确定high指针的位置，然而low指针的位置就要根据每一轮动态的变化了。</p>
+<p>在每一轮里，一旦low指针找到了一个0元素，那么就把low和high之间的元素左轮转一个位置，这样0元素就到了这个区间最后的位置，区间中的数相对位置不变的向前移动了一位。</p>
+<p>一次轮转之后，high指针要前移一位（因为0元素被放到了最后），low指针不变（因为新向前移动的数还没有判断是否为0），所以我们要再次寻找下一个0元素。</p>
+<ul>
+<li>这种方法首先需要遍历一整遍数组，在每一轮中，一旦需要轮转元素，就又要遍历一遍这一轮的所有数，时间复杂度为$O(n^{2} )$，并且由于又要遍历数组，又要实现轮转，代码的长度也很长</li>
+<li>由于不需要额外的辅助空间，空间复杂度为$O(1)$</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">moveZeroes</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">low</span> <span class="operator">=</span> <span class="number">0</span>, high = nums.length-<span class="number">1</span>;</span><br><span class="line">		<span class="comment">//low标记第一个为0的下标，high标记最后一个不为0的下标</span></span><br><span class="line">		<span class="comment">//确定high指针的位置</span></span><br><span class="line">		<span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">			<span class="keyword">if</span> (nums[high] != <span class="number">0</span>) </span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			high --;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">			<span class="comment">//i寻找从low 到 high 第一个0</span></span><br><span class="line">			<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> low;</span><br><span class="line">			<span class="keyword">while</span>(i &lt; high)&#123;</span><br><span class="line">				<span class="keyword">if</span> (nums[i] == <span class="number">0</span>) &#123;</span><br><span class="line">					low = i;</span><br><span class="line">					turnLeft(nums,low,high);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				i ++;</span><br><span class="line">			&#125;</span><br><span class="line">			high --;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//nums数组从i到j下标所有数向左轮转一位</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">turnLeft</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">    	reverse(nums,i,j);</span><br><span class="line">    	reverse (nums,i,j-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//交换nums数组中i和j两个数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (i == j) </span><br><span class="line">    		<span class="keyword">return</span>;</span><br><span class="line">    	nums[i] = nums[i] ^ nums[j];</span><br><span class="line">    	nums[j] = nums[i] ^ nums[j];</span><br><span class="line">    	nums[i] = nums[i] ^ nums[j];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使nums数组中i到j间的数逆序</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">    	<span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">    		swap(nums,i++,j--);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>双指针其实不一定要呆板的规定一个指针从前往后遍历，另一个从后往前遍历。我们可以根据不同的特点重新设置两个指针的功能，一般而言双指针可以将数组划分成三个部分，根据三个部分不同的功能再来设置指针的位置。</p>
+<p>比如在这一题中，可以设置一个指针<code>right</code>指向已经整理过的非零数组的末尾，另一个指针left指向待处理的数。也就是说，<code>right</code>指针左边全部是非零元素，<code>left</code>指针右边全部是待处理的元素，<code>right</code>指针和left指针中间都是0</p>
+<p><code>left</code>指针不停的向后移动，<code>left</code>指针每碰到一个数，如果这个数为0，那就跨过它继续向后找，同时<code>right</code>指针向后移动一位；如果不是0，就把它放到非0元素序列的末尾(right指针指向的地方)。</p>
+<p>这样一方面确保了非零元素之间相对位置的有序（按照遍历到的顺序调整的数，所以调整之后也是有序的），并且两个指针移动的方向相同，只用遍历一遍数组，每一轮中也只用交换两个数的位置，操作更简单。</p>
+<ul>
+<li>这种方法只用遍历一遍数组，如果left指针遇到了非零数，也只用做简单的交换操作，时间复杂度为$O(n)$</li>
+<li>空间复杂度为$O(1)$</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution2</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">moveZeroes</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//左指针指向非零元素的末尾</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//右指针指向待调整的数</span></span><br><span class="line">		<span class="keyword">while</span> (right &lt; nums.length) &#123;</span><br><span class="line">      <span class="comment">//如果是0，则继续向后遍历</span></span><br><span class="line">      <span class="comment">//如果非0，则将其向前移动</span></span><br><span class="line">			<span class="keyword">if</span> (nums[right] != <span class="number">0</span> ) &#123;</span><br><span class="line">				swap(nums,left,right);</span><br><span class="line">				left ++;</span><br><span class="line">			&#125;</span><br><span class="line">			right ++;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//交换nums数组中i和j两个数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (i == j) </span><br><span class="line">    		<span class="keyword">return</span>;</span><br><span class="line">    	nums[i] = nums[i] ^ nums[j];</span><br><span class="line">    	nums[j] = nums[i] ^ nums[j];</span><br><span class="line">    	nums[i] = nums[i] ^ nums[j];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -4977,6 +4965,41 @@
       <tags>
         <tag>算法</tag>
         <tag>排序算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客过程中，4000端口被占用</title>
+    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
+<ul>
+<li>更改hexo使用的端口</li>
+<li>杀掉正在占用4000端口的其他进程</li>
+</ul>
+<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
+<ul>
+<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
+<ul>
+<li><code>sudo lsof -i tcp:端口号</code></li>
+<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
+<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
+</li>
+<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
+<ul>
+<li><code>sudo kill -9 PID</code></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
