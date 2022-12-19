@@ -19,21 +19,24 @@
     var CONFIG = {"hostname":"keveinkk.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="LeetCode刷题-两个数组的交集">
+  <meta name="description" content="Java学习-集合">
 <meta property="og:type" content="article">
-<meta property="og:title" content="两个数组的交集">
-<meta property="og:url" content="https://keveinkk.github.io/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/index.html">
+<meta property="og:title" content="集合">
+<meta property="og:url" content="https://keveinkk.github.io/2022/12/20/Java/%E9%9B%86%E5%90%88/index.html">
 <meta property="og:site_name" content="Kevin&#39;s study Blog">
-<meta property="og:description" content="LeetCode刷题-两个数组的交集">
+<meta property="og:description" content="Java学习-集合">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-23T09:09:36.031Z">
-<meta property="article:modified_time" content="2022-11-23T09:10:13.949Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGgy1h99nmlsdu4j317a0m2tei.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ny5soe3j31n40om0z6.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ok7cakgj31lc0u0q9d.jpg">
+<meta property="article:published_time" content="2022-12-19T18:27:56.509Z">
+<meta property="article:modified_time" content="2022-12-19T18:30:53.210Z">
 <meta property="article:author" content="Kevin He">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="双指针">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008vxvgGgy1h99nmlsdu4j317a0m2tei.jpg">
 
-<link rel="canonical" href="https://keveinkk.github.io/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/">
+<link rel="canonical" href="https://keveinkk.github.io/2022/12/20/Java/%E9%9B%86%E5%90%88/">
 
 
 <script id="page-configurations">
@@ -46,7 +49,7 @@
   };
 </script>
 
-  <title>两个数组的交集 | Kevin's study Blog</title>
+  <title>集合 | Kevin's study Blog</title>
   
 
 
@@ -199,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://keveinkk.github.io/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="https://keveinkk.github.io/2022/12/20/Java/%E9%9B%86%E5%90%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -212,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          两个数组的交集
+          集合
         </h1>
 
         <div class="post-meta">
@@ -223,7 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-11-23 17:09:36 / 修改时间：17:10:13" itemprop="dateCreated datePublished" datetime="2022-11-23T17:09:36+08:00">2022-11-23</time>
+              <time title="创建时间：2022-12-20 02:27:56 / 修改时间：02:30:53" itemprop="dateCreated datePublished" datetime="2022-12-20T02:27:56+08:00">2022-12-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,12 +234,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">LeetCode刷题-两个数组的交集</div>
+            <div class="post-description">Java学习-集合</div>
 
         </div>
       </header>
@@ -247,45 +250,131 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你两个整数数组<code>nums1</code>和<code>nums2</code>，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>由于我还不会调用Java中的哈希函数相关的内容，所以这道题我只能用一种方法来解决。</p>
-<p>我们可以先让两个数组是有序的，通过使用双指针的方法得到两个数组的交集。</p>
-<ol>
-<li>首先对两个数组进行排序，然后使用两个指针遍历两个数组</li>
-<li>初始时，两个指针分别指向两个数组的头部</li>
-<li>每次比较两个指针指向的两个数组中的数字<ul>
-<li>如果两个数字不相等，则将指向较小数字的指针右移一位</li>
-<li>如果两个数字相等，将该数字添加到答案，并将两个指针都右移一位</li>
+        <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>集合就是一个容器，可以用来容纳其它类型的数据</li>
+<li>作用<ul>
+<li>集合作为一个载体，可以一次性容纳多个对象</li>
 </ul>
 </li>
-<li>当至少有一个指针超出数组范围时，遍历结束</li>
+<li>集合中存储的是对象的<strong>引用</strong><ul>
+<li>集合中不能存储基本数据类型</li>
+<li>集合中也不能直接存储对象</li>
+<li>集合本身也是一个对象，这也意味着，集合中可以存储集合的引用</li>
+</ul>
+</li>
+<li>每一个不同的集合在底层对应不同的<strong>数据结构</strong><ul>
+<li>向不同的集合中增加元素等价于将数据放到了不同的数据结构中</li>
+<li>使用不同的集合等价于使用不同的数据结构</li>
+<li>根据不同的情况，选择不同的集合</li>
+</ul>
+</li>
+<li>所有的集合类以及集合接口都在<code>java.util</code>下</li>
+</ul>
+<h2 id="Collction的继承结构图"><a href="#Collction的继承结构图" class="headerlink" title="Collction的继承结构图"></a><code>Collction</code>的继承结构图</h2><ul>
+<li>Java中集合分为两大类<ol>
+<li>直接存储数据元素的方式<ul>
+<li>其超级父类接口是<code>java.util.Collection</code></li>
+</ul>
+</li>
+<li>以键&#x2F;值对的方式存储数据<ul>
+<li>其超级父类接口是<code>java.util.Map</code></li>
+</ul>
+</li>
 </ol>
-<ul>
-<li>时间复杂度：$O(mlogm+nlogn)$，其中<code>m</code>和<code>n</code>是两个数组的长度。我们首先通过调用系统的排序算法来对数组排序，这个步骤的时间复杂度是$O(mlogm+nlogn)$，然后我们需要遍历两个数组，时间复杂度是$O(m+n)$，那么总的时间符复杂度就是$O(mlogm+nlogn)$</li>
-<li>空间复杂度：$O(min(m,n))$我们需要一个辅助空间来存储重复的数字信息。注意，我们只用申请两个数组中较短的那么大的数组，因为极限情况就是短的数组全部和长的数组重复，即使这样也不过是$O(min(m,n))$，所以不用更大的空间</li>
-</ul>
-<h3 id="知识点回顾"><a href="#知识点回顾" class="headerlink" title="知识点回顾"></a>知识点回顾</h3><ul>
-<li><p>数组的拷贝<sup><a href="#ref1">1</a></sup></p>
-<ul>
-<li>通过<code>System.arraycopy()</code>方法来实现数组的拷贝</li>
-<li><code>System.arraycopy()</code> 方法是本地的方法，不需要导入任何包</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">arraycopy</span><span class="params">(Object src, <span class="type">int</span> srcPos, Object dest, <span class="type">int</span> desPos, <span class="type">int</span> length)</span></span><br><span class="line"><span class="comment">//形参列表的含义</span></span><br><span class="line"><span class="comment">//（原数组，原数组的开始位置，目标数组，目标数组的开始位置，拷贝元素个数）</span></span><br><span class="line"><span class="comment">//其中目标数组是要拷贝到的数组</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数组的排序<sup><a href="#ref1">2</a></sup></p>
-<ul>
-<li>通过<code>Arrays.sort()</code>方法实现数组的排序</li>
-<li><code>Arrays.sort(T[] a)</code>: 对指定的 T 型数组按数字升序排序</li>
-<li><code>Arrays.sort(T[] a, int formIndex, int toIndex)</code>: 对指定的 T 型数组在下标 [formIndex, toIndex] 之间排序</li>
-<li><code>Arrays.sort(T[] a, Comparator&lt;? supre T&gt; c)</code>: 根据比较器产生的顺序对指定对象数组进行排序</li>
-<li><code>Arrasy.sort(T[] a, int formIndex, int toIndex, Comparator&lt;? supre T&gt; c</code>): …</li>
-</ul>
 </li>
 </ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当两个数组都有序时</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] intersect(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2) &#123;</span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">        Arrays.sort(nums2);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> nums1.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> nums2.length;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> len1 &lt; len2 ? len1 : len2;<span class="comment">//取较小值</span></span><br><span class="line">        <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = <span class="number">0</span>;<span class="comment">//用于遍历两个数组的指针;</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//用于遍历res指针</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (i &lt; len1 &amp;&amp; j &lt; len2) &#123;</span><br><span class="line">            <span class="comment">//不等，则小的移动</span></span><br><span class="line">            <span class="keyword">if</span> (nums1[i] &lt; nums2[j]) &#123;</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i] &gt; nums2[j])&#123;</span><br><span class="line">                j ++;</span><br><span class="line">            <span class="comment">//相等，则都移动</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums1[i] == nums2[j])&#123;</span><br><span class="line">                res[k] = nums1[i];</span><br><span class="line">                k ++;</span><br><span class="line">                i ++;</span><br><span class="line">                j ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//拷贝前面有记录的部分</span></span><br><span class="line">      	<span class="comment">//注意不能是只拷贝非0的部分，因为可能nums1和nums2中有0元素重复</span></span><br><span class="line">        <span class="type">int</span>[] fianl = <span class="keyword">new</span> <span class="title class_">int</span>[k];</span><br><span class="line">        System.arraycopy(res,<span class="number">0</span>,fianl,<span class="number">0</span>,k);</span><br><span class="line">        <span class="keyword">return</span> fianl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="public-interface-Iterable-lt-T-gt"><a href="#public-interface-Iterable-lt-T-gt" class="headerlink" title="public interface Iterable&lt;T&gt;"></a><code>public interface Iterable&lt;T&gt;</code></h3><blockquote>
+<p>Implementing this interface allows an object to be the target of the enhanced for statement (sometimes called the “for-each loop” statement).</p>
+</blockquote>
+<ul>
+<li>表示可迭代、可遍历的接口</li>
+<li>实现这个接口代表集合中所有元素都是可以遍历的</li>
+<li>接口中有如下方法：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用于返回一个迭代器来遍历集合中的元素</span></span><br><span class="line">Iterator&lt;T&gt; <span class="title function_">iterator</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
 
-<p><span name = "ref1"><a href="https://keveinkk.github.io/2022/11/08/%E7%AE%97%E6%B3%95/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/">https://keveinkk.github.io/2022/11/08/算法/旋转数组/</a></span></p>
-<p><span name = "ref2"><a href="https://keveinkk.github.io/2022/11/07/%E7%AE%97%E6%B3%95/%E6%AF%94%E8%BE%83%E5%99%A8%20&amp;%20%E5%AF%B9%E6%95%B0%E5%99%A8/">https://keveinkk.github.io/2022/11/07/算法/比较器%20&amp;%20对数器/</a></span></p>
+<h3 id="public-interface-Iterator-lt-E-gt"><a href="#public-interface-Iterator-lt-E-gt" class="headerlink" title="public interface Iterator&lt;E&gt;"></a><code>public interface Iterator&lt;E&gt;</code></h3><blockquote>
+<p>An iterator over a collection. Iterator takes the place of Enumeration in the Java Collections Framework. </p>
+</blockquote>
+<ul>
+<li>集合的迭代器对象</li>
+<li>使用迭代器来遍历整个集合</li>
+<li>接口中有以下三个方法来实现集合的遍历</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="title function_">hasNext</span><span class="params">()</span>;</span><br><span class="line">E <span class="title function_">next</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title function_">remove</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a><code>List</code>接口</h3><ul>
+<li>存储元素的特点<ul>
+<li>有序：存储时的顺序和取出时的顺序一致</li>
+<li>可重复：允许在List中存在重复元素</li>
+<li>存储的元素有下标：下标从0开始</li>
+</ul>
+</li>
+<li>分别有<code>ArrayList</code>、<code>LinkedList</code>、<code>Vector</code>三个类来实现这个接口</li>
+</ul>
+<h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><code>ArrayList</code></h4><ul>
+<li>底层采用<strong>数组</strong>的数据结构</li>
+<li>非线程安全的</li>
+</ul>
+<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a><code>LinkedList</code></h4><ul>
+<li>底层采用<strong>双向链表</strong>的数据结构</li>
+</ul>
+<h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a><code>Vector</code></h4><ul>
+<li>底层采用<strong>数组</strong>的数据结构</li>
+<li>线程安全的<ul>
+<li>方法中关键字<code>synchronize</code>修饰</li>
+<li>效率较低，使用较少</li>
+</ul>
+</li>
+</ul>
+<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a><code>Set</code>接口</h3><ul>
+<li>存储元素的特点<ul>
+<li>无序</li>
+<li>不可重复</li>
+<li>无下标</li>
+</ul>
+</li>
+</ul>
+<h3 id="继承结构图"><a href="#继承结构图" class="headerlink" title="继承结构图"></a>继承结构图</h3><p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99nmlsdu4j317a0m2tei.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ny5soe3j31n40om0z6.jpg"></p>
+<h2 id="Map的继承结构图"><a href="#Map的继承结构图" class="headerlink" title="Map的继承结构图"></a><code>Map</code>的继承结构图</h2><ul>
+<li><code>Map</code>集合与<code>Collection</code>集合无关</li>
+<li><code>Map</code>集合中以键值对的方式（<code>key</code>和<code>value</code>）存储元素<ul>
+<li><code>key</code>和<code>value</code>存储的都是对象的引用</li>
+<li><code>key</code>是无序且不可重复的</li>
+</ul>
+</li>
+<li>分别有<code>HashMap</code>、<code>Hashtable</code>两个类来实现这个接口</li>
+<li>有一个子接口<code>SortedMap</code>，<code>TreeMap</code>实现这个子接口<ul>
+<li><code>SortedMap</code>接口中的<code>key</code>同样是无序且不可重复的</li>
+<li>且集合<code>key</code>部分的元素会自动按照大小进行排序</li>
+<li>区分这里的<strong>排序</strong>和<code>List</code>集合中的<strong>有序</strong>的区别<ul>
+<li>排序是指：从大到小进行排序</li>
+<li>有序是指：存的顺序和取的顺序一致</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a><code>HashMap</code></h3><ul>
+<li>底层采用<strong>哈希表</strong>的数据结构</li>
+<li>非线程安全的</li>
+</ul>
+<h3 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a><code>Hashtable</code></h3><ul>
+<li>底层采用<strong>哈希表</strong>的数据结构</li>
+<li>线程安全的<ul>
+<li>效率较低，使用较少</li>
+</ul>
+</li>
+<li>有一个子类<code>Proprieties</code><ul>
+<li><code>key</code>和<code>value</code>只支持<code>String</code>类型</li>
+</ul>
+</li>
+</ul>
+<h3 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a><code>TreeMap</code></h3><ul>
+<li>底层采用<strong>二叉树</strong>的数据结构</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ok7cakgj31lc0u0q9d.jpg"></p>
 
     </div>
 
@@ -295,8 +384,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
-              <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag"># 双指针</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
           </div>
 
         
@@ -305,13 +393,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/11/23/Java/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4/" rel="prev" title="自定义时间">
-      <i class="fa fa-chevron-left"></i> 自定义时间
+    <a href="/2022/12/19/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" rel="prev" title="反转链表">
+      <i class="fa fa-chevron-left"></i> 反转链表
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/" rel="next" title="hexo搭建博客过程中，4000端口被占用">
-      hexo搭建博客过程中，4000端口被占用 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -370,7 +455,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">两个数组的交集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.0.1.</span> <span class="nav-text">题目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.1.</span> <span class="nav-text">方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.1.1.</span> <span class="nav-text">知识点回顾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collction%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.2.</span> <span class="nav-text">Collction的继承结构图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-interface-Iterable-lt-T-gt"><span class="nav-number">1.2.1.</span> <span class="nav-text">public interface Iterable&lt;T&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-interface-Iterator-lt-E-gt"><span class="nav-number">1.2.2.</span> <span class="nav-text">public interface Iterator&lt;E&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.2.3.</span> <span class="nav-text">List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vector"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">Vector</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.2.4.</span> <span class="nav-text">Set接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.2.5.</span> <span class="nav-text">继承结构图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.3.</span> <span class="nav-text">Map的继承结构图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">1.3.1.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashtable"><span class="nav-number">1.3.2.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeMap"><span class="nav-number">1.3.3.</span> <span class="nav-text">TreeMap</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
