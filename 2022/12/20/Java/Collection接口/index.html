@@ -141,7 +141,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">62</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -248,66 +248,78 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a><code>Collection</code>接口</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><blockquote>
+        <h1 id="collection接口"><a class="markdownIt-Anchor" href="#collection接口"></a> <code>Collection</code>接口</h1>
+<h2 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念"></a> 基本概念</h2>
+<blockquote>
 <p>The root interface in the <em>collection hierarchy</em>（在集合的继承结构中的根接口）. A collection represents a group of objects, known as its <em>elements</em>（代表了多个元素的集合）. Some collections allow duplicate elements and others do not. Some are ordered and others unordered（<code>Collection</code>集合中有的集合中元素有序、且允许有重复元素（<code>List</code>），有的集合中元素无序、且不允许有重复元素（<code>Map</code>））. The JDK does not provide any <em>direct</em> implementations of this interface（没有对这个接口的直接实现）: it provides implementations of more specific subinterfaces like <code>Set</code> and <code>List</code>. This interface is typically used to pass collections around and manipulate （传递和操作集合）them where maximum generality（最大共性） is desired.</p>
 </blockquote>
 <ul>
-<li><code>Collection</code>集合中如果不使用泛型可以存储任何Object类型的引用<ul>
+<li><code>Collection</code>集合中如果不使用泛型可以存储任何Object类型的引用
+<ul>
 <li>是用来泛型后只能存储某个具体类型的引用</li>
 </ul>
 </li>
-<li><code>Collection</code>集合中只能存储Java对象的引用<ul>
-<li>不能存储基本数据类型<ul>
+<li><code>Collection</code>集合中只能存储Java对象的引用
+<ul>
+<li>不能存储基本数据类型
+<ul>
 <li>当要存储基本数据100时，将100自动装箱成<code>Integer</code>类的引用</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><h3 id="boolean-add-E-e"><a href="#boolean-add-E-e" class="headerlink" title="boolean add(E e)"></a><code>boolean add(E e)</code></h3><blockquote>
+<h2 id="常用方法"><a class="markdownIt-Anchor" href="#常用方法"></a> 常用方法</h2>
+<h3 id="boolean-adde-e"><a class="markdownIt-Anchor" href="#boolean-adde-e"></a> <code>boolean add(E e)</code></h3>
+<blockquote>
 <p>Ensures that this collection contains the specified element (optional operation). Returns <code>true</code> if this collection changed as a result of the call. (Returns <code>false</code> if this collection does not permit duplicates and already contains the specified element.)</p>
 <p>Collections that support this operation may place limitations on what elements may be added to this collection. In particular, some collections will refuse to add <code>null</code> elements（不能加入空元素）, and others will impose restrictions on the type of elements that may be added（可能会限制加入元素的类型）. Collection classes should clearly specify in their documentation any restrictions on what elements may be added.</p>
 </blockquote>
 <ul>
 <li>向集合中加入一个元素</li>
-<li>当元素加入成功时返回<code>true</code>，否则返回<code>false</code><ul>
+<li>当元素加入成功时返回<code>true</code>，否则返回<code>false</code>
+<ul>
 <li>有的集合不允许重复元素的存在，所以可能会导致加入元素失败</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//由于无法实例化一个接口，所以在这里实例化一个实现Collection接口的子类</span></span><br><span class="line"><span class="type">Collection</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">c.add(<span class="number">10.1</span>);<span class="comment">//自动装箱，等价于c.add(new Double(10.1));</span></span><br><span class="line">c.add(<span class="literal">true</span>);<span class="comment">//自动装箱</span></span><br><span class="line">c.add(<span class="keyword">new</span> <span class="title class_">Object</span>());</span><br><span class="line">c.add(<span class="literal">null</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="int-size"><a href="#int-size" class="headerlink" title="int size()"></a><code>int size()</code></h3><blockquote>
+<h3 id="int-size"><a class="markdownIt-Anchor" href="#int-size"></a> <code>int size()</code></h3>
+<blockquote>
 <p>Returns the number of elements in this collection. If this collection contains more than <code>Integer.MAX_VALUE</code> elements, returns <code>Integer.MAX_VALUE</code>.</p>
 </blockquote>
 <ul>
-<li>返回集合中元素的个数<ul>
+<li>返回集合中元素的个数
+<ul>
 <li>当集合中元素个数大于<code>Integer.MAX_VALUE</code>时，返回<code>Integer.MAX_VALUE</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="void-clear"><a href="#void-clear" class="headerlink" title="void clear()"></a><code>void clear()</code></h3><blockquote>
+<h3 id="void-clear"><a class="markdownIt-Anchor" href="#void-clear"></a> <code>void clear()</code></h3>
+<blockquote>
 <p>Removes all of the elements from this collection (optional operation). The collection will be empty after this method returns.</p>
 </blockquote>
 <ul>
 <li>清空集合中的所有元素</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Collection</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">c.add(<span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">10.2</span>));</span><br><span class="line">c.add(<span class="literal">true</span>);</span><br><span class="line">c.add(<span class="keyword">new</span> <span class="title class_">Object</span>());</span><br><span class="line">c.add(<span class="literal">null</span>);</span><br><span class="line">System.out.println(c.size());</span><br><span class="line">c.clear();</span><br><span class="line">System.out.println(c.size());</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9aeh5mmilj30fv05at8t.jpg"></p>
-<h3 id="boolean-contains-Object-o"><a href="#boolean-contains-Object-o" class="headerlink" title="boolean contains(Object o)"></a><code>boolean contains(Object o)</code></h3><blockquote>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9aeh5mmilj30fv05at8t.jpg" alt="" /></p>
+<h3 id="boolean-containsobject-o"><a class="markdownIt-Anchor" href="#boolean-containsobject-o"></a> <code>boolean contains(Object o)</code></h3>
+<blockquote>
 <p>Returns <code>true</code> if this collection contains the specified element. More formally, returns <code>true</code> if and only if this collection contains at least one element <code>e</code> such that <code>(o==null ? e==null : o.equals(e))</code>.</p>
 </blockquote>
 <ul>
 <li>判断集合中是否包含某一个元素</li>
-<li>在底层<code>contains</code>通过<code>.equals()</code>方法来判断是否包含某个元素<ul>
+<li>在底层<code>contains</code>通过<code>.equals()</code>方法来判断是否包含某个元素
+<ul>
 <li><strong>是通过内容来判断是否包含</strong>，而非地址</li>
 <li>如果一个类没有重写<code>.equals()</code>方法，那就还是按照地址来判断是否包含</li>
 <li>放在集合里的元素需要重写<code>.equals()</code>方法</li>
 </ul>
 </li>
 </ul>
-<h3 id="boolean-remove-Object-o"><a href="#boolean-remove-Object-o" class="headerlink" title="boolean remove(Object o)"></a><code>boolean remove(Object o)</code></h3><blockquote>
+<h3 id="boolean-removeobject-o"><a class="markdownIt-Anchor" href="#boolean-removeobject-o"></a> <code>boolean remove(Object o)</code></h3>
+<blockquote>
 <p>Removes a single instance of the specified element from this collection, if it is present (optional operation). More formally, removes an element <code>e</code> such that <code>(o==null ? e==null : o.equals(e))</code>, if this collection contains one or more such elements. Returns <code>true</code> if this collection contained the specified element (or equivalently, if this collection changed as a result of the call).</p>
 </blockquote>
 <ul>
@@ -315,58 +327,67 @@
 <li>同样通过<code>.equals()</code>方法来查找要删除的那个元素</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Collection</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">c.add(<span class="number">1</span>);c.add(<span class="number">1</span>);c.add(<span class="number">1</span>);c.add(<span class="number">1</span>);c.add(<span class="number">1</span>);</span><br><span class="line">System.out.println(c.size());<span class="comment">//5</span></span><br><span class="line">c.remove(<span class="number">1</span>);<span class="comment">//只删除一个1</span></span><br><span class="line">System.out.println(c.size());<span class="comment">//4</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="boolean-isEmpty"><a href="#boolean-isEmpty" class="headerlink" title="boolean isEmpty()"></a><code>boolean isEmpty()</code></h3><blockquote>
+<h3 id="boolean-isempty"><a class="markdownIt-Anchor" href="#boolean-isempty"></a> <code>boolean isEmpty()</code></h3>
+<blockquote>
 <p>Returns <code>true</code> if this collection contains no elements.</p>
 </blockquote>
 <ul>
 <li>判断集合是否为空</li>
 </ul>
-<h3 id="Object-toArray"><a href="#Object-toArray" class="headerlink" title="Object[] toArray()"></a><code>Object[] toArray()</code></h3><blockquote>
+<h3 id="object-toarray"><a class="markdownIt-Anchor" href="#object-toarray"></a> <code>Object[] toArray()</code></h3>
+<blockquote>
 <p>Returns an array containing all of the elements in this collection（返回包含集合中所有元素的数组）. If this collection makes any guarantees as to what order its elements are returned by its iterator, this method must return the elements in the same order.（数组中元素的顺序和迭代器中元素的顺序一致）</p>
 </blockquote>
 <ul>
 <li>将集合转化成数组</li>
 </ul>
-<h2 id="集合的迭代"><a href="#集合的迭代" class="headerlink" title="集合的迭代"></a>集合的迭代</h2><h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><ul>
-<li><code>Collection</code>接口继承了<code>Iterator</code>接口，所以<code>Collection</code>中有<code>Iterator&lt;E&gt; iterator()</code>方法<ul>
+<h2 id="集合的迭代"><a class="markdownIt-Anchor" href="#集合的迭代"></a> 集合的迭代</h2>
+<h3 id="迭代器"><a class="markdownIt-Anchor" href="#迭代器"></a> 迭代器</h3>
+<ul>
+<li><code>Collection</code>接口继承了<code>Iterator</code>接口，所以<code>Collection</code>中有<code>Iterator&lt;E&gt; iterator()</code>方法
+<ul>
 <li>该方法返回一个迭代器，用于遍历整个集合</li>
 </ul>
 </li>
-<li>所有实现了<code>Collection</code>接口的子类都可以使用这个方法来遍历整个集合<ul>
+<li>所有实现了<code>Collection</code>接口的子类都可以使用这个方法来遍历整个集合
+<ul>
 <li>在<code>Map</code>集合中不可以使用这个方法</li>
 </ul>
 </li>
-<li>迭代器负责遍历&#x2F;迭代集合中的元素<ul>
+<li>迭代器负责遍历/迭代集合中的元素
+<ul>
 <li>类似指针，迭代器指向一个元素就代表遍历到了它</li>
 <li>迭代器并不是初始化直接指向第一个元素，而是有点类似于指向下标为-1</li>
 </ul>
 </li>
 </ul>
-<h3 id="Interface-Iterator"><a href="#Interface-Iterator" class="headerlink" title="Interface Iterator"></a><code>Interface Iterator</code></h3><ul>
+<h3 id="interface-iterator"><a class="markdownIt-Anchor" href="#interface-iterator"></a> <code>Interface Iterator</code></h3>
+<ul>
 <li>迭代器中的方法</li>
 </ul>
-<h4 id="boolean-hasNext"><a href="#boolean-hasNext" class="headerlink" title="boolean hasNext()"></a><code>boolean hasNext()</code></h4><blockquote>
+<h4 id="boolean-hasnext"><a class="markdownIt-Anchor" href="#boolean-hasnext"></a> <code>boolean hasNext()</code></h4>
+<blockquote>
 <p>Returns <code>true</code> if the iteration has more elements. (In other words, returns <code>true</code> if <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html#next--"><code>next()</code></a> would return an element rather than throwing an exception.)</p>
 </blockquote>
 <ul>
 <li>当还有元素可以迭代时，返回<code>true</code></li>
 <li>返回<code>false</code>时代表没有更多的元素可以迭代了</li>
 </ul>
-<h4 id="Object-next"><a href="#Object-next" class="headerlink" title="Object next()"></a><code>Object next()</code></h4><blockquote>
+<h4 id="object-next"><a class="markdownIt-Anchor" href="#object-next"></a> <code>Object next()</code></h4>
+<blockquote>
 <p>Returns the next element in the iteration.</p>
 </blockquote>
 <ul>
 <li>迭代器前进一位，并且返回迭代器新指向的元素</li>
 </ul>
-<h3 id="Iterator-lt-E-gt-iterator"><a href="#Iterator-lt-E-gt-iterator" class="headerlink" title="Iterator&lt;E&gt; iterator()"></a><code>Iterator&lt;E&gt; iterator()</code></h3><blockquote>
+<h3 id="iteratore-iterator"><a class="markdownIt-Anchor" href="#iteratore-iterator"></a> <code>Iterator&lt;E&gt; iterator()</code></h3>
+<blockquote>
 <p>Returns an iterator over the elements in this collection. There are no guarantees concerning the order in which the elements are returned (unless this collection is an instance of some class that provides a guarantee).</p>
 </blockquote>
 <ul>
 <li>返回集合的迭代器</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Collection</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    c.add(<span class="number">1</span>);c.add(<span class="number">2</span>);c.add(<span class="number">3</span>);c.add(<span class="number">4</span>);c.add(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">Iterator</span> <span class="variable">iterator</span> <span class="operator">=</span> c.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">    		System.out.println(iterator.next());</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -450,7 +471,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.</span> <span class="nav-text">Collection接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-add-E-e"><span class="nav-number">1.2.1.</span> <span class="nav-text">boolean add(E e)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int-size"><span class="nav-number">1.2.2.</span> <span class="nav-text">int size()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void-clear"><span class="nav-number">1.2.3.</span> <span class="nav-text">void clear()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-contains-Object-o"><span class="nav-number">1.2.4.</span> <span class="nav-text">boolean contains(Object o)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-remove-Object-o"><span class="nav-number">1.2.5.</span> <span class="nav-text">boolean remove(Object o)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-isEmpty"><span class="nav-number">1.2.6.</span> <span class="nav-text">boolean isEmpty()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-toArray"><span class="nav-number">1.2.7.</span> <span class="nav-text">Object[] toArray()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%AD%E4%BB%A3"><span class="nav-number">1.3.</span> <span class="nav-text">集合的迭代</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">1.3.1.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interface-Iterator"><span class="nav-number">1.3.2.</span> <span class="nav-text">Interface Iterator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#boolean-hasNext"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">boolean hasNext()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-next"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">Object next()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator-lt-E-gt-iterator"><span class="nav-number">1.3.3.</span> <span class="nav-text">Iterator&lt;E&gt; iterator()</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#collection%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.</span> <span class="nav-text"> Collection接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text"> 基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text"> 常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-adde-e"><span class="nav-number">1.2.1.</span> <span class="nav-text"> boolean add(E e)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int-size"><span class="nav-number">1.2.2.</span> <span class="nav-text"> int size()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void-clear"><span class="nav-number">1.2.3.</span> <span class="nav-text"> void clear()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-containsobject-o"><span class="nav-number">1.2.4.</span> <span class="nav-text"> boolean contains(Object o)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-removeobject-o"><span class="nav-number">1.2.5.</span> <span class="nav-text"> boolean remove(Object o)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-isempty"><span class="nav-number">1.2.6.</span> <span class="nav-text"> boolean isEmpty()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#object-toarray"><span class="nav-number">1.2.7.</span> <span class="nav-text"> Object[] toArray()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%AD%E4%BB%A3"><span class="nav-number">1.3.</span> <span class="nav-text"> 集合的迭代</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interface-iterator"><span class="nav-number">1.3.2.</span> <span class="nav-text"> Interface Iterator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#boolean-hasnext"><span class="nav-number">1.3.2.1.</span> <span class="nav-text"> boolean hasNext()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#object-next"><span class="nav-number">1.3.2.2.</span> <span class="nav-text"> Object next()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iteratore-iterator"><span class="nav-number">1.3.3.</span> <span class="nav-text"> Iterator&lt;E&gt; iterator()</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -466,7 +487,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
