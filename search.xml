@@ -2195,152 +2195,139 @@
       </tags>
   </entry>
   <entry>
-    <title>final关键字</title>
-    <url>/2022/11/16/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A18/</url>
-    <content><![CDATA[<h1 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h1><ul>
-<li><p><code>final</code>关键字的作用</p>
-<ul>
-<li><code>final</code>是一个关键字，表示<u>最终的、不可变的</u></li>
-<li><code>final</code>修饰的类是无法被继承的</li>
-<li><code>final</code>修饰的方法无法被覆盖</li>
-<li><code>final</code>修饰的变量一旦被赋值后，不可重新被赋值</li>
-<li><code>final</code>修饰的实例变量，必须手动赋值，不能采用系统默认值</li>
-<li><code>final</code>修饰的引用一旦指向一个堆内存中的对象后，不可重新指向其他对象</li>
+    <title>多态</title>
+    <url>/2022/11/14/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A17/</url>
+    <content><![CDATA[<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><h3 id="多态中的几个概念"><a href="#多态中的几个概念" class="headerlink" title="多态中的几个概念"></a>多态中的几个概念</h3><ul>
+<li>向上转型upcasting：子类型转向父类型，又被称为自动类型转换</li>
+<li>向下转型downcasting：父类型转向子类型，又被称为强制类型转换</li>
+<li>无论是向上转型还是向下转型，两种类型之间都要<u>满足继承</u>的关系才能转型</li>
 </ul>
-</li>
-<li><p><code>final</code>修饰类时，被修饰的类无法再被继承</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">test1</span> &#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test2</span> <span class="keyword">extends</span> <span class="title class_">test1</span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析一个例子"><a href="#分析一个例子" class="headerlink" title="分析一个例子"></a>分析一个例子</h3><ul>
+<li>有一个动物类，动物类中有移动的方法，动物在移动时输出“动物在移动”</li>
+<li>有一个鸟类，鸟类继承动物类，并且覆盖了移动的方法，鸟在移动时输出“鸟在飞翔”</li>
+<li>在主函数中声明一个指向鸟的动物类引用，试分析整个程序</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;动物在移动&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;鸟在飞翔&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="comment">//父类型的引用指向一个子类型的对象</span></span><br><span class="line">        <span class="comment">//编译时animal是动物</span></span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="comment">//鸟是动物</span></span><br><span class="line">        <span class="comment">//animal是动物类的引用，但指向的是鸟类的堆地址</span></span><br><span class="line">        <span class="comment">//在底层animal还是一个鸟类的引用</span></span><br><span class="line">        <span class="comment">//运行时animal是鸟</span></span><br><span class="line">        animal.move();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h86z6voe8fj314a0dkgmr.jpg"></p>
-</li>
-<li><p><code>final</code>修饰的方法无法被覆盖</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test2</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test3</span> <span class="keyword">extends</span> <span class="title class_">test2</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h86zbb1qijj31ba0eu0uo.jpg"></p>
-</li>
-<li><p><code>final</code>修饰的变量一旦被赋值后，不能重新被赋值</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test2</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">num1</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        num1 = <span class="number">20</span>;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">int</span> <span class="variable">num2</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        num2 = <span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h86zh8bkrpj30xe0pumzh.jpg"></p>
-</li>
-<li><p><code>final</code>修饰的实例变量，必须在声明时就手动赋值</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h84g7y3y5zj30u40bcmxt.jpg"></p>
 <ul>
-<li>实例变量在声明时，如果不手动初始化，系统将会自动为其初始化为0</li>
-<li>但是被<code>final</code>修饰的变量只能被赋值一次，所以如果初始化时不对其进行手动赋值，则它永远也不能被赋值</li>
+<li>Java程序分为<u>编译</u>和<u>运行</u>两个阶段</li>
+<li>在编译阶段<ul>
+<li>如果编译报错，则程序无法运行；编译阶段只检查语法，不会开辟内存空间，也不会运行程序</li>
+<li>编译阶段编译器检查animal这个引用，它声明时的数据类型为Animal</li>
+<li>在Animal.class字节码文件中有move()这个方法，所以调用animal.move()时编译通过</li>
+<li>这个过程我们称为<strong>静态绑定</strong>，也就是在编译阶段绑定</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test3</span> <span class="keyword">extends</span> <span class="title class_">test2</span>&#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> b;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> c;<span class="comment">//编译错误</span></span><br><span class="line">  	<span class="keyword">final</span> <span class="type">int</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">10</span>;<span class="comment">//编译通过</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h86zz7zq7lj30ve0n8gno.jpg"></p>
 </li>
-<li><p><code>final</code>修饰的引用一旦指向一个对象后，就不能再指向其他对象</p>
+<li>在运行阶段<ul>
+<li>运行时animal这个引用指向的堆内存存储的是一个Bird类型的数据</li>
+<li>也就是说在JVM的堆内存中真实创建的对象是一个Bird类型的对象</li>
+<li>那么在运行时调用的就是Bird类中的move()方法</li>
+<li>这个过程我们称为程序的<strong>动态绑定</strong>，在运行阶段绑定</li>
+</ul>
+</li>
+<li>更进一步的</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line"><span class="comment">//    public void move()&#123;</span></span><br><span class="line"><span class="comment">//        System.out.println(&quot;鸟在飞翔&quot;);</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hatch</span><span class="params">()</span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;鸟在孵蛋&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="comment">//父类型的引用指向一个子类型的对象</span></span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="comment">//鸟是动物</span></span><br><span class="line">        animal.move();</span><br><span class="line">      	<span class="comment">//animal.hatch();//编译报错</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h84ggx8rmdj30u60bkgmd.jpg"></p>
 <ul>
-<li>这也意味着，被<code>final</code>修饰的引用指向的对象无法被垃圾回收器回收</li>
-<li>但是被<code>final</code>修饰的引用指向的对象的内存是可以被修改的</li>
+<li>此时animal.move()调用的还是Bird中的move()方法，只不过Bird中的move()方法直接继承了Animal中的方法，没有进行重写</li>
+<li>当animal尝试调用Bird中的hatch()方法时，程序在编译阶段就会报错，因为在Animal.class字节码文件中Animal类没有hatch()方法，静态绑定失败！</li>
+<li>总结<ol>
+<li>编译时只检查语法</li>
+<li><strong>运行时引用指向的是什么对象就调用该对象的方法</strong></li>
+</ol>
+</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test</span>();</span><br><span class="line">test = <span class="keyword">new</span> <span class="title class_">Test</span>();<span class="comment">//编译报错</span></span><br><span class="line">test.num = <span class="number">10</span>;<span class="comment">//编译通过</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><ul>
-<li><p>final修饰的实例变量都是不可变的，这种变量一般都和static联合使用，被称为常量</p>
+<h3 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h3><ul>
+<li><p>当调用的方法&#x2F;属性是<u>子类独有</u>的，在父类中不存在，则必须通过向下转型才能实现调用&#x2F;访问</p>
 <ul>
-<li>不可变的实例变量如果在每个对象中都保存一份的话会造成空间浪费</li>
+<li><code>animal.hatch()</code></li>
 </ul>
+</li>
+<li><p>将父类的引用强制转换为子类</p>
+</li>
+<li><p>强制类型转换语法格式</p>
+<ul>
+<li><p>子类 引用 &#x3D; (父类) 引用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//animal.hatch()编译报错</span></span><br><span class="line"><span class="comment">//编译通过</span></span><br><span class="line"><span class="type">Animal</span> <span class="variable">animal1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();</span><br><span class="line"><span class="type">Bird</span> <span class="variable">animal2</span> <span class="operator">=</span> (Bird) animal1;</span><br><span class="line">animal2.hatch();</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong><code>java.lang.ClassCastException</code></strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Animal</span> <span class="variable">animal3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();</span><br><span class="line"><span class="type">Cat</span> <span class="variable">cat1</span> <span class="operator">=</span> (Cat) animal3;</span><br><span class="line"><span class="comment">//编译通过，但是运行时出错</span></span><br><span class="line"><span class="comment">//Exception in thread &quot;main&quot; java.lang.ClassCastException: class Animal.Bird cannot be cast to class Animal.Cat</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>编译期</p>
+<ul>
+<li><code>animal3</code>是一个父类的引用，声明时指向子类<code>Bird</code>的对象，编译通过</li>
+<li>将<code>animal3</code>这个父类的引用向下转型，转换为子类<code>Cat</code>的引用，编译通过</li>
+</ul>
+</li>
+<li><p>运行期</p>
+<ul>
+<li>运行期间，<code>animal3</code>这个引用初始化时指向的是堆内存中<code>Bird</code>类对象</li>
+<li>在进行强制类型转换时，由于<code>Cat</code>类和<code>Bird</code>类之间不存在继承关系，<code>Bird</code>类对象无法转换成<code>Cat</code>类对象</li>
+<li>出现<code>java.lang.ClassCastException</code>异常</li>
+</ul>
+</li>
+<li><p><strong>这种异常总是在“向下转型”时发生</strong></p>
+</li>
+<li><p>向上转型：只要编译通过了，运行一定不会出现异常</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Animal</span> <span class="variable">animal1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="comment">//父类型引用指向子类型对象</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>向下转型：存在安全隐患，即使编译通过，运行时也可能出现类型转换异常</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Animal</span> <span class="variable">animal3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();</span><br><span class="line"><span class="type">Cat</span> <span class="variable">cat1</span> <span class="operator">=</span> (Cat) animal3;<span class="comment">//父类引用被强制转换为子类引用</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="instanceof运算符"><a href="#instanceof运算符" class="headerlink" title="instanceof运算符"></a>instanceof运算符</h3><ul>
+<li><p>解决向下转型时出现的安全风险</p>
 </li>
 <li><p>语法格式</p>
-<p><code>public static final 数据类型 常量名 = 值;</code></p>
-</li>
-<li><p>常量名的命名规范：所有字母大写，每个单词之间通过下划线来连接</p>
-</li>
-<li><p>由于常量在声明后无法被修改，所以被<code>public</code>修饰也是十分安全的</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>包</title>
-    <url>/2022/11/17/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A19/</url>
-    <content><![CDATA[<h1 id="包"><a href="#包" class="headerlink" title="包"></a>包</h1><h3 id="包机制"><a href="#包机制" class="headerlink" title="包机制"></a>包机制</h3><ul>
-<li><p>包<code>package</code>，Java中引入包机制主要是为了方便程序管理。不同功能的类被分门别类的放到不同的软件包当中，便于查找、管理依旧维护</p>
-</li>
-<li><p><code>package</code>的定义</p>
 <ul>
-<li>在Java源程序的第一行上编写<code>package</code>语句</li>
-<li><code>package</code>只能编写一个语句</li>
-<li>语法结构：<code>package 包名;</code></li>
+<li><code>引用 instanceof 数据类型</code></li>
+<li>例如：<code>a instanceof Animal</code></li>
+<li>以上表达式的运算结果类型是布尔类型<ul>
+<li>当返回值是<code>true</code>时表示这个引用是当前的数据类型</li>
+<li>当返回值是<code>false</code>时表示这个引用不是当前的数据类型</li>
 </ul>
 </li>
-<li><p>包的命名规范：</p>
+</ul>
+</li>
+<li><p>Java规范中要求：在强制类型转换之前，使用<code>instanceof</code>运算符进行判断，避免<code>ClassCastException</code>的发生</p>
 <ul>
-<li>前缀 + 发起者名 + 项目名 + 模块名<ul>
-<li>前缀：<ul>
-<li><code>pers</code>个人项目，独自开发</li>
-<li><code>priv</code>私有项目</li>
-<li><code>team</code>团队项目</li>
-<li><code>com</code>公司项目</li>
+<li>避免上述例子的情况</li>
 </ul>
-</li>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Animal</span> <span class="variable">animal3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="comment">//父类型引用指向子类型对象</span></span><br><span class="line"><span class="keyword">if</span> (animal3 <span class="keyword">instanceof</span> Cat)&#123;<span class="comment">//判断父类引用在底层是否指向需要的类</span></span><br><span class="line">  <span class="type">Cat</span> <span class="variable">cat1</span> <span class="operator">=</span> (Cat) animal3;<span class="comment">//如果是，再进行强制类型转换</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  System.out.println(<span class="string">&quot;不能进行强制类型转换&quot;</span>);<span class="comment">//否则报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-</li>
-<li>包名要求<u>全部小写</u>，包名也是标识符，必须遵循标识符的命名规范</li>
-</ul>
-</li>
-<li><p>一个包对应一个目录，目录之间用<code>.</code>分隔开</p>
+<h3 id="多态的作用"><a href="#多态的作用" class="headerlink" title="多态的作用"></a>多态的作用</h3><ul>
+<li><p>以主人饲养宠物为例</p>
 <ul>
-<li>例如：<code>pers.kevin.javase.day1117</code>就会生成四个目录</li>
+<li>主人可以饲养多种类型的宠物，给不同类型的宠物喂食，不同的宠物会有不同的反应</li>
 </ul>
 </li>
-<li><p>一旦使用包机制后，<strong>类的名称就会改变</strong></p>
+<li><p>不采用多态的方法</p>
 <ul>
-<li>我们编写一个Test类，当使用如上的包后，Test类的名称就会变成<code>pers.kevin.javase.day1117.Test</code></li>
-<li>当使用<code>javac</code>进行编译时，由于<code>javac</code>后面接的是文件的路径，所以使用包机制后带来的类名的变化影响不大</li>
-<li>我们将<code>java</code>源程序放在<u>其他目录</u>下进行编译</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87v6qn5vcj30nm09xwez.jpg"></p>
-<ul>
-<li>编译通过，并且在同一个目录下生成了相应的字节码文件</li>
-<li>那么我们尝试在这个目录下对其使用<code>java</code>命令</li>
-</ul>
-<p>![image-20221117092753802](&#x2F;Users&#x2F;hewenkai&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221117092753802.png)</p>
-<ul>
-<li>编译器报错，提示找不到或无法加载主类</li>
-<li>那么我们修改相应的类名</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87vbgvw9kj30pq0gl40m.jpg"></p>
-<ul>
-<li>编译器同样报错，提示相同的原因</li>
-<li>我们将字节码文件移动到包所对应的目录下，再次尝试运行</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87wdcf69nj30pq0gldgm.jpg"></p>
-</li>
-<li><p>包名的省略</p>
-<ul>
-<li><p>当两个类在同一个包下时，可以省略包名</p>
-</li>
-<li><p>当两个类不在同一个包下时，一定要在类前加上完整的包名</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		pers.kevin.javase.day1117.<span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">pers</span>.kevin.javase.day1117.Test();</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="import关键字"><a href="#import关键字" class="headerlink" title="import关键字"></a><code>import</code>关键字</h3><ul>
-<li>import语句用来完成导入其他类，同一个包下的类不需要倒入，不在同一个包下的类需要手动导入</li>
-<li>语法格式：<ul>
-<li><code>import 类名;</code></li>
-<li><code>import 包名.*;</code>代表引入这个包下的所有类</li>
+<li>针对每一种类型的宠物，都要单独在主人<code>Owner</code>类中编写一个<code>feed(宠物类型 宠物)</code>的方法</li>
 </ul>
 </li>
-<li><code>import</code>语句需要编写到<code>package</code>语句之下，<code>class</code>语句之上</li>
-<li>同样是上面的例子：</li>
+<li><p>采用多态的方法</p>
+<ul>
+<li>让所有猫、狗等不同的宠物类型继承<code>Pet</code>的父类，在Owner中只用编写一个<code>feed(Pet pet)</code>方法</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pers.kevin.javase.day1117.Test;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test</span>();</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Owner</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;<span class="comment">//主人的姓名</span></span><br><span class="line">    <span class="keyword">private</span> Pet pet;<span class="comment">//主人拥有的宠物</span></span><br><span class="line"></span><br><span class="line">  	<span class="comment">//主人喂食</span></span><br><span class="line">  	<span class="comment">//主人面向的是抽象的Pet类，而不是具体的某一种宠物，降低耦合</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">feed</span><span class="params">(Pet pet)</span>&#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot;正在喂东西&quot;</span>);</span><br><span class="line">        pet.eat();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>java.lang.*不需要手动引入</li>
-</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Pet</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;宠物正在吃东西&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Pet</span>&#123;</span><br><span class="line">  	<span class="comment">//覆盖父类的eat方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;小狗正在吃东西&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Pet</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;小猫正在吃东西&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//只用在这里不停的添加新的宠物类型，而不用修改Owner类</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();<span class="comment">//小狗类型的宠物</span></span><br><span class="line">        <span class="type">Owner</span> <span class="variable">owner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Owner</span>(<span class="string">&quot;张三&quot;</span>,pet);<span class="comment">//张三养的宠物是小狗类型</span></span><br><span class="line">        owner.feed(pet);</span><br><span class="line"></span><br><span class="line">        <span class="type">Pet</span> <span class="variable">pet2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();<span class="comment">//张三养的宠物是小狗类型</span></span><br><span class="line">        owner.setPet(pet2);</span><br><span class="line">        owner.feed(pet2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li></li>
+<li><p>多态的作用：<strong>降低程序的耦合度，提高程序的扩展力</strong></p>
+</li>
+<li><p>尽力多使用多态语法，父类型引用指向子类型对象</p>
+</li>
+<li><p><strong>面向抽象编程，而不要面向具体编程</strong></p>
+</li>
 </ul>
 ]]></content>
       <categories>
@@ -2552,6 +2539,162 @@
       </tags>
   </entry>
   <entry>
+    <title>final关键字</title>
+    <url>/2022/11/16/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A18/</url>
+    <content><![CDATA[<h1 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h1><ul>
+<li><p><code>final</code>关键字的作用</p>
+<ul>
+<li><code>final</code>是一个关键字，表示<u>最终的、不可变的</u></li>
+<li><code>final</code>修饰的类是无法被继承的</li>
+<li><code>final</code>修饰的方法无法被覆盖</li>
+<li><code>final</code>修饰的变量一旦被赋值后，不可重新被赋值</li>
+<li><code>final</code>修饰的实例变量，必须手动赋值，不能采用系统默认值</li>
+<li><code>final</code>修饰的引用一旦指向一个堆内存中的对象后，不可重新指向其他对象</li>
+</ul>
+</li>
+<li><p><code>final</code>修饰类时，被修饰的类无法再被继承</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">test1</span> &#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test2</span> <span class="keyword">extends</span> <span class="title class_">test1</span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h86z6voe8fj314a0dkgmr.jpg"></p>
+</li>
+<li><p><code>final</code>修饰的方法无法被覆盖</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test2</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test3</span> <span class="keyword">extends</span> <span class="title class_">test2</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h86zbb1qijj31ba0eu0uo.jpg"></p>
+</li>
+<li><p><code>final</code>修饰的变量一旦被赋值后，不能重新被赋值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test2</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">num1</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        num1 = <span class="number">20</span>;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">int</span> <span class="variable">num2</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        num2 = <span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h86zh8bkrpj30xe0pumzh.jpg"></p>
+</li>
+<li><p><code>final</code>修饰的实例变量，必须在声明时就手动赋值</p>
+<ul>
+<li>实例变量在声明时，如果不手动初始化，系统将会自动为其初始化为0</li>
+<li>但是被<code>final</code>修饰的变量只能被赋值一次，所以如果初始化时不对其进行手动赋值，则它永远也不能被赋值</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test3</span> <span class="keyword">extends</span> <span class="title class_">test2</span>&#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> b;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> c;<span class="comment">//编译错误</span></span><br><span class="line">  	<span class="keyword">final</span> <span class="type">int</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">10</span>;<span class="comment">//编译通过</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h86zz7zq7lj30ve0n8gno.jpg"></p>
+</li>
+<li><p><code>final</code>修饰的引用一旦指向一个对象后，就不能再指向其他对象</p>
+<ul>
+<li>这也意味着，被<code>final</code>修饰的引用指向的对象无法被垃圾回收器回收</li>
+<li>但是被<code>final</code>修饰的引用指向的对象的内存是可以被修改的</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test</span>();</span><br><span class="line">test = <span class="keyword">new</span> <span class="title class_">Test</span>();<span class="comment">//编译报错</span></span><br><span class="line">test.num = <span class="number">10</span>;<span class="comment">//编译通过</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><ul>
+<li><p>final修饰的实例变量都是不可变的，这种变量一般都和static联合使用，被称为常量</p>
+<ul>
+<li>不可变的实例变量如果在每个对象中都保存一份的话会造成空间浪费</li>
+</ul>
+</li>
+<li><p>语法格式</p>
+<p><code>public static final 数据类型 常量名 = 值;</code></p>
+</li>
+<li><p>常量名的命名规范：所有字母大写，每个单词之间通过下划线来连接</p>
+</li>
+<li><p>由于常量在声明后无法被修改，所以被<code>public</code>修饰也是十分安全的</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>包</title>
+    <url>/2022/11/17/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A19/</url>
+    <content><![CDATA[<h1 id="包"><a href="#包" class="headerlink" title="包"></a>包</h1><h3 id="包机制"><a href="#包机制" class="headerlink" title="包机制"></a>包机制</h3><ul>
+<li><p>包<code>package</code>，Java中引入包机制主要是为了方便程序管理。不同功能的类被分门别类的放到不同的软件包当中，便于查找、管理依旧维护</p>
+</li>
+<li><p><code>package</code>的定义</p>
+<ul>
+<li>在Java源程序的第一行上编写<code>package</code>语句</li>
+<li><code>package</code>只能编写一个语句</li>
+<li>语法结构：<code>package 包名;</code></li>
+</ul>
+</li>
+<li><p>包的命名规范：</p>
+<ul>
+<li>前缀 + 发起者名 + 项目名 + 模块名<ul>
+<li>前缀：<ul>
+<li><code>pers</code>个人项目，独自开发</li>
+<li><code>priv</code>私有项目</li>
+<li><code>team</code>团队项目</li>
+<li><code>com</code>公司项目</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>包名要求<u>全部小写</u>，包名也是标识符，必须遵循标识符的命名规范</li>
+</ul>
+</li>
+<li><p>一个包对应一个目录，目录之间用<code>.</code>分隔开</p>
+<ul>
+<li>例如：<code>pers.kevin.javase.day1117</code>就会生成四个目录</li>
+</ul>
+</li>
+<li><p>一旦使用包机制后，<strong>类的名称就会改变</strong></p>
+<ul>
+<li>我们编写一个Test类，当使用如上的包后，Test类的名称就会变成<code>pers.kevin.javase.day1117.Test</code></li>
+<li>当使用<code>javac</code>进行编译时，由于<code>javac</code>后面接的是文件的路径，所以使用包机制后带来的类名的变化影响不大</li>
+<li>我们将<code>java</code>源程序放在<u>其他目录</u>下进行编译</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87v6qn5vcj30nm09xwez.jpg"></p>
+<ul>
+<li>编译通过，并且在同一个目录下生成了相应的字节码文件</li>
+<li>那么我们尝试在这个目录下对其使用<code>java</code>命令</li>
+</ul>
+<p>![image-20221117092753802](&#x2F;Users&#x2F;hewenkai&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221117092753802.png)</p>
+<ul>
+<li>编译器报错，提示找不到或无法加载主类</li>
+<li>那么我们修改相应的类名</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87vbgvw9kj30pq0gl40m.jpg"></p>
+<ul>
+<li>编译器同样报错，提示相同的原因</li>
+<li>我们将字节码文件移动到包所对应的目录下，再次尝试运行</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h87wdcf69nj30pq0gldgm.jpg"></p>
+</li>
+<li><p>包名的省略</p>
+<ul>
+<li><p>当两个类在同一个包下时，可以省略包名</p>
+</li>
+<li><p>当两个类不在同一个包下时，一定要在类前加上完整的包名</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		pers.kevin.javase.day1117.<span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">pers</span>.kevin.javase.day1117.Test();</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="import关键字"><a href="#import关键字" class="headerlink" title="import关键字"></a><code>import</code>关键字</h3><ul>
+<li>import语句用来完成导入其他类，同一个包下的类不需要倒入，不在同一个包下的类需要手动导入</li>
+<li>语法格式：<ul>
+<li><code>import 类名;</code></li>
+<li><code>import 包名.*;</code>代表引入这个包下的所有类</li>
+</ul>
+</li>
+<li><code>import</code>语句需要编写到<code>package</code>语句之下，<code>class</code>语句之上</li>
+<li>同样是上面的例子：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pers.kevin.javase.day1117.Test;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test</span>();</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>java.lang.*不需要手动引入</li>
+</ul>
+</li>
+<li></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Object类</title>
     <url>/2022/11/26/Java/Object%E7%B1%BB/</url>
     <content><![CDATA[<h1 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h1><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
@@ -2727,197 +2870,6 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++)&#123;</span><br><span class="line">    <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pet</span>(<span class="string">&quot;Jerry&quot;</span>);</span><br><span class="line">    pet = <span class="literal">null</span>;</span><br><span class="line">    System.gc();<span class="comment">//建议JVM启动垃圾回收器</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">  	System.out.println(<span class="built_in">this</span> + <span class="string">&quot;即将被销毁&quot;</span>);<span class="comment">//输出每个引用的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8iq9fnh8cj30ee0isdhe.jpg"></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多态</title>
-    <url>/2022/11/14/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A17/</url>
-    <content><![CDATA[<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><h3 id="多态中的几个概念"><a href="#多态中的几个概念" class="headerlink" title="多态中的几个概念"></a>多态中的几个概念</h3><ul>
-<li>向上转型upcasting：子类型转向父类型，又被称为自动类型转换</li>
-<li>向下转型downcasting：父类型转向子类型，又被称为强制类型转换</li>
-<li>无论是向上转型还是向下转型，两种类型之间都要<u>满足继承</u>的关系才能转型</li>
-</ul>
-<h3 id="分析一个例子"><a href="#分析一个例子" class="headerlink" title="分析一个例子"></a>分析一个例子</h3><ul>
-<li>有一个动物类，动物类中有移动的方法，动物在移动时输出“动物在移动”</li>
-<li>有一个鸟类，鸟类继承动物类，并且覆盖了移动的方法，鸟在移动时输出“鸟在飞翔”</li>
-<li>在主函数中声明一个指向鸟的动物类引用，试分析整个程序</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;动物在移动&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;鸟在飞翔&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="comment">//父类型的引用指向一个子类型的对象</span></span><br><span class="line">        <span class="comment">//编译时animal是动物</span></span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="comment">//鸟是动物</span></span><br><span class="line">        <span class="comment">//animal是动物类的引用，但指向的是鸟类的堆地址</span></span><br><span class="line">        <span class="comment">//在底层animal还是一个鸟类的引用</span></span><br><span class="line">        <span class="comment">//运行时animal是鸟</span></span><br><span class="line">        animal.move();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h84g7y3y5zj30u40bcmxt.jpg"></p>
-<ul>
-<li>Java程序分为<u>编译</u>和<u>运行</u>两个阶段</li>
-<li>在编译阶段<ul>
-<li>如果编译报错，则程序无法运行；编译阶段只检查语法，不会开辟内存空间，也不会运行程序</li>
-<li>编译阶段编译器检查animal这个引用，它声明时的数据类型为Animal</li>
-<li>在Animal.class字节码文件中有move()这个方法，所以调用animal.move()时编译通过</li>
-<li>这个过程我们称为<strong>静态绑定</strong>，也就是在编译阶段绑定</li>
-</ul>
-</li>
-<li>在运行阶段<ul>
-<li>运行时animal这个引用指向的堆内存存储的是一个Bird类型的数据</li>
-<li>也就是说在JVM的堆内存中真实创建的对象是一个Bird类型的对象</li>
-<li>那么在运行时调用的就是Bird类中的move()方法</li>
-<li>这个过程我们称为程序的<strong>动态绑定</strong>，在运行阶段绑定</li>
-</ul>
-</li>
-<li>更进一步的</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line"><span class="comment">//    public void move()&#123;</span></span><br><span class="line"><span class="comment">//        System.out.println(&quot;鸟在飞翔&quot;);</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hatch</span><span class="params">()</span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;鸟在孵蛋&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="comment">//父类型的引用指向一个子类型的对象</span></span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="comment">//鸟是动物</span></span><br><span class="line">        animal.move();</span><br><span class="line">      	<span class="comment">//animal.hatch();//编译报错</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h84ggx8rmdj30u60bkgmd.jpg"></p>
-<ul>
-<li>此时animal.move()调用的还是Bird中的move()方法，只不过Bird中的move()方法直接继承了Animal中的方法，没有进行重写</li>
-<li>当animal尝试调用Bird中的hatch()方法时，程序在编译阶段就会报错，因为在Animal.class字节码文件中Animal类没有hatch()方法，静态绑定失败！</li>
-<li>总结<ol>
-<li>编译时只检查语法</li>
-<li><strong>运行时引用指向的是什么对象就调用该对象的方法</strong></li>
-</ol>
-</li>
-</ul>
-<h3 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h3><ul>
-<li><p>当调用的方法&#x2F;属性是<u>子类独有</u>的，在父类中不存在，则必须通过向下转型才能实现调用&#x2F;访问</p>
-<ul>
-<li><code>animal.hatch()</code></li>
-</ul>
-</li>
-<li><p>将父类的引用强制转换为子类</p>
-</li>
-<li><p>强制类型转换语法格式</p>
-<ul>
-<li><p>子类 引用 &#x3D; (父类) 引用</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//animal.hatch()编译报错</span></span><br><span class="line"><span class="comment">//编译通过</span></span><br><span class="line"><span class="type">Animal</span> <span class="variable">animal1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();</span><br><span class="line"><span class="type">Bird</span> <span class="variable">animal2</span> <span class="operator">=</span> (Bird) animal1;</span><br><span class="line">animal2.hatch();</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><strong><code>java.lang.ClassCastException</code></strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Animal</span> <span class="variable">animal3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();</span><br><span class="line"><span class="type">Cat</span> <span class="variable">cat1</span> <span class="operator">=</span> (Cat) animal3;</span><br><span class="line"><span class="comment">//编译通过，但是运行时出错</span></span><br><span class="line"><span class="comment">//Exception in thread &quot;main&quot; java.lang.ClassCastException: class Animal.Bird cannot be cast to class Animal.Cat</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>编译期</p>
-<ul>
-<li><code>animal3</code>是一个父类的引用，声明时指向子类<code>Bird</code>的对象，编译通过</li>
-<li>将<code>animal3</code>这个父类的引用向下转型，转换为子类<code>Cat</code>的引用，编译通过</li>
-</ul>
-</li>
-<li><p>运行期</p>
-<ul>
-<li>运行期间，<code>animal3</code>这个引用初始化时指向的是堆内存中<code>Bird</code>类对象</li>
-<li>在进行强制类型转换时，由于<code>Cat</code>类和<code>Bird</code>类之间不存在继承关系，<code>Bird</code>类对象无法转换成<code>Cat</code>类对象</li>
-<li>出现<code>java.lang.ClassCastException</code>异常</li>
-</ul>
-</li>
-<li><p><strong>这种异常总是在“向下转型”时发生</strong></p>
-</li>
-<li><p>向上转型：只要编译通过了，运行一定不会出现异常</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Animal</span> <span class="variable">animal1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="comment">//父类型引用指向子类型对象</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>向下转型：存在安全隐患，即使编译通过，运行时也可能出现类型转换异常</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Animal</span> <span class="variable">animal3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();</span><br><span class="line"><span class="type">Cat</span> <span class="variable">cat1</span> <span class="operator">=</span> (Cat) animal3;<span class="comment">//父类引用被强制转换为子类引用</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h3 id="instanceof运算符"><a href="#instanceof运算符" class="headerlink" title="instanceof运算符"></a>instanceof运算符</h3><ul>
-<li><p>解决向下转型时出现的安全风险</p>
-</li>
-<li><p>语法格式</p>
-<ul>
-<li><code>引用 instanceof 数据类型</code></li>
-<li>例如：<code>a instanceof Animal</code></li>
-<li>以上表达式的运算结果类型是布尔类型<ul>
-<li>当返回值是<code>true</code>时表示这个引用是当前的数据类型</li>
-<li>当返回值是<code>false</code>时表示这个引用不是当前的数据类型</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Java规范中要求：在强制类型转换之前，使用<code>instanceof</code>运算符进行判断，避免<code>ClassCastException</code>的发生</p>
-<ul>
-<li>避免上述例子的情况</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Animal</span> <span class="variable">animal3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="comment">//父类型引用指向子类型对象</span></span><br><span class="line"><span class="keyword">if</span> (animal3 <span class="keyword">instanceof</span> Cat)&#123;<span class="comment">//判断父类引用在底层是否指向需要的类</span></span><br><span class="line">  <span class="type">Cat</span> <span class="variable">cat1</span> <span class="operator">=</span> (Cat) animal3;<span class="comment">//如果是，再进行强制类型转换</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  System.out.println(<span class="string">&quot;不能进行强制类型转换&quot;</span>);<span class="comment">//否则报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="多态的作用"><a href="#多态的作用" class="headerlink" title="多态的作用"></a>多态的作用</h3><ul>
-<li><p>以主人饲养宠物为例</p>
-<ul>
-<li>主人可以饲养多种类型的宠物，给不同类型的宠物喂食，不同的宠物会有不同的反应</li>
-</ul>
-</li>
-<li><p>不采用多态的方法</p>
-<ul>
-<li>针对每一种类型的宠物，都要单独在主人<code>Owner</code>类中编写一个<code>feed(宠物类型 宠物)</code>的方法</li>
-</ul>
-</li>
-<li><p>采用多态的方法</p>
-<ul>
-<li>让所有猫、狗等不同的宠物类型继承<code>Pet</code>的父类，在Owner中只用编写一个<code>feed(Pet pet)</code>方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Owner</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;<span class="comment">//主人的姓名</span></span><br><span class="line">    <span class="keyword">private</span> Pet pet;<span class="comment">//主人拥有的宠物</span></span><br><span class="line"></span><br><span class="line">  	<span class="comment">//主人喂食</span></span><br><span class="line">  	<span class="comment">//主人面向的是抽象的Pet类，而不是具体的某一种宠物，降低耦合</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">feed</span><span class="params">(Pet pet)</span>&#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot;正在喂东西&quot;</span>);</span><br><span class="line">        pet.eat();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Pet</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;宠物正在吃东西&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Pet</span>&#123;</span><br><span class="line">  	<span class="comment">//覆盖父类的eat方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;小狗正在吃东西&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Pet</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;小猫正在吃东西&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//只用在这里不停的添加新的宠物类型，而不用修改Owner类</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Pet</span> <span class="variable">pet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();<span class="comment">//小狗类型的宠物</span></span><br><span class="line">        <span class="type">Owner</span> <span class="variable">owner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Owner</span>(<span class="string">&quot;张三&quot;</span>,pet);<span class="comment">//张三养的宠物是小狗类型</span></span><br><span class="line">        owner.feed(pet);</span><br><span class="line"></span><br><span class="line">        <span class="type">Pet</span> <span class="variable">pet2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();<span class="comment">//张三养的宠物是小狗类型</span></span><br><span class="line">        owner.setPet(pet2);</span><br><span class="line">        owner.feed(pet2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>多态的作用：<strong>降低程序的耦合度，提高程序的扩展力</strong></p>
-</li>
-<li><p>尽力多使用多态语法，父类型引用指向子类型对象</p>
-</li>
-<li><p><strong>面向抽象编程，而不要面向具体编程</strong></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>内部类</title>
-    <url>/2022/11/28/Java/%E5%86%85%E9%83%A8%E7%B1%BB/</url>
-    <content><![CDATA[<h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><h2 id="内部类-1"><a href="#内部类-1" class="headerlink" title="内部类"></a>内部类</h2><ul>
-<li><p>在类的内部又定义类一个新的类，称为内部类</p>
-</li>
-<li><p>编译后生成<code>$Inner.class文</code>件</p>
-</li>
-<li><p>内部类的分类</p>
-<ol>
-<li>静态内部类：由<code>static</code>修饰</li>
-<li>实例内部类：没有<code>static</code>修饰，需要先创建一个外部类的对象才能访问</li>
-<li>局部内部类：在方法体中定义的类，只能在该方法体中访问</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="comment">//在类里面定义的类</span></span><br><span class="line">  	<span class="comment">//编译后生成$Inner文件</span></span><br><span class="line">    <span class="comment">//由关键字static修饰，称为静态内部类</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Inner1</span>&#123;&#125;</span><br><span class="line">    <span class="comment">//没有static修饰，称为实例内部类</span></span><br><span class="line">    <span class="comment">//new Test1().new Inner2()</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Inner2</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//在方法体中，称为局部内部类</span></span><br><span class="line">        <span class="comment">//只能在该方法中访问</span></span><br><span class="line">        <span class="keyword">class</span> <span class="title class_">Inner3</span>&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8kkk9cly1j30dk0fq3yw.jpg"></p>
-</li>
-<li><p>使用内部类编写的代码可读性很差</p>
-</li>
-</ul>
-<h2 id="匿名类"><a href="#匿名类" class="headerlink" title="匿名类"></a>匿名类</h2><ul>
-<li><p>局部内部类的一种，由于这个类没有名字而得名</p>
-</li>
-<li><p><strong>接口作为方法的形参时</strong></p>
-<ul>
-<li>不采用匿名类技术</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyMath</span> <span class="variable">math</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyMath</span>();</span><br><span class="line">        <span class="comment">//无法直接创建一个Compute的实例当作实参传入myMath()</span></span><br><span class="line">        <span class="comment">//接口无法实例化对象</span></span><br><span class="line">        <span class="comment">//math.myMath(new Compute(),10,20);</span></span><br><span class="line">        <span class="comment">//我们需要编写一个类来实现接口</span></span><br><span class="line">        <span class="comment">//将这个类实例化一个对象当作实参传入方法的形参列表</span></span><br><span class="line">        math.myMath(<span class="keyword">new</span> <span class="title class_">ComputeImp</span>(),<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Compute</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实现接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ComputeImp</span> <span class="keyword">implements</span> <span class="title class_">Compute</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyMath</span>&#123;</span><br><span class="line">    <span class="comment">//传入的参数是一个接口</span></span><br><span class="line">    <span class="comment">//将接口看成一个引用数据类型即可</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">myMath</span><span class="params">(Compute c, <span class="type">int</span> a, <span class="type">int</span> b)</span>&#123;</span><br><span class="line">        <span class="comment">//Compute c = new ComputeImp()</span></span><br><span class="line">        <span class="comment">//父类型引用指向子类型对象</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> c.sum(a,b);</span><br><span class="line">        System.out.println(a + <span class="string">&quot; + &quot;</span> + b + <span class="string">&quot; = &quot;</span> + res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>采用匿名类技术</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyMath</span> <span class="variable">math</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyMath</span>();</span><br><span class="line">        <span class="comment">//匿名类，即ComputeImp这个类没有名字</span></span><br><span class="line">        <span class="comment">//不需要单独写一个类去实现接口</span></span><br><span class="line">        <span class="comment">//在形式上似乎可以直接new一个接口</span></span><br><span class="line">        <span class="comment">//但其实在后面的&#123;&#125;中是对接口的实现</span></span><br><span class="line">        math.myMath(<span class="keyword">new</span> <span class="title class_">Compute</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">                 <span class="keyword">return</span> a + b;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匿名类由于没有名字，<strong>无法重复使用</strong></p>
-</li>
-<li><p>代码太乱，<strong>可读性太差</strong></p>
-</li>
-</ul>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -3184,6 +3136,54 @@
       <tags>
         <tag>Java</tag>
         <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>内部类</title>
+    <url>/2022/11/28/Java/%E5%86%85%E9%83%A8%E7%B1%BB/</url>
+    <content><![CDATA[<h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><h2 id="内部类-1"><a href="#内部类-1" class="headerlink" title="内部类"></a>内部类</h2><ul>
+<li><p>在类的内部又定义类一个新的类，称为内部类</p>
+</li>
+<li><p>编译后生成<code>$Inner.class文</code>件</p>
+</li>
+<li><p>内部类的分类</p>
+<ol>
+<li>静态内部类：由<code>static</code>修饰</li>
+<li>实例内部类：没有<code>static</code>修饰，需要先创建一个外部类的对象才能访问</li>
+<li>局部内部类：在方法体中定义的类，只能在该方法体中访问</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="comment">//在类里面定义的类</span></span><br><span class="line">  	<span class="comment">//编译后生成$Inner文件</span></span><br><span class="line">    <span class="comment">//由关键字static修饰，称为静态内部类</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Inner1</span>&#123;&#125;</span><br><span class="line">    <span class="comment">//没有static修饰，称为实例内部类</span></span><br><span class="line">    <span class="comment">//new Test1().new Inner2()</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Inner2</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//在方法体中，称为局部内部类</span></span><br><span class="line">        <span class="comment">//只能在该方法中访问</span></span><br><span class="line">        <span class="keyword">class</span> <span class="title class_">Inner3</span>&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8kkk9cly1j30dk0fq3yw.jpg"></p>
+</li>
+<li><p>使用内部类编写的代码可读性很差</p>
+</li>
+</ul>
+<h2 id="匿名类"><a href="#匿名类" class="headerlink" title="匿名类"></a>匿名类</h2><ul>
+<li><p>局部内部类的一种，由于这个类没有名字而得名</p>
+</li>
+<li><p><strong>接口作为方法的形参时</strong></p>
+<ul>
+<li>不采用匿名类技术</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyMath</span> <span class="variable">math</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyMath</span>();</span><br><span class="line">        <span class="comment">//无法直接创建一个Compute的实例当作实参传入myMath()</span></span><br><span class="line">        <span class="comment">//接口无法实例化对象</span></span><br><span class="line">        <span class="comment">//math.myMath(new Compute(),10,20);</span></span><br><span class="line">        <span class="comment">//我们需要编写一个类来实现接口</span></span><br><span class="line">        <span class="comment">//将这个类实例化一个对象当作实参传入方法的形参列表</span></span><br><span class="line">        math.myMath(<span class="keyword">new</span> <span class="title class_">ComputeImp</span>(),<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Compute</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实现接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ComputeImp</span> <span class="keyword">implements</span> <span class="title class_">Compute</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyMath</span>&#123;</span><br><span class="line">    <span class="comment">//传入的参数是一个接口</span></span><br><span class="line">    <span class="comment">//将接口看成一个引用数据类型即可</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">myMath</span><span class="params">(Compute c, <span class="type">int</span> a, <span class="type">int</span> b)</span>&#123;</span><br><span class="line">        <span class="comment">//Compute c = new ComputeImp()</span></span><br><span class="line">        <span class="comment">//父类型引用指向子类型对象</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> c.sum(a,b);</span><br><span class="line">        System.out.println(a + <span class="string">&quot; + &quot;</span> + b + <span class="string">&quot; = &quot;</span> + res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>采用匿名类技术</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyMath</span> <span class="variable">math</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyMath</span>();</span><br><span class="line">        <span class="comment">//匿名类，即ComputeImp这个类没有名字</span></span><br><span class="line">        <span class="comment">//不需要单独写一个类去实现接口</span></span><br><span class="line">        <span class="comment">//在形式上似乎可以直接new一个接口</span></span><br><span class="line">        <span class="comment">//但其实在后面的&#123;&#125;中是对接口的实现</span></span><br><span class="line">        math.myMath(<span class="keyword">new</span> <span class="title class_">Compute</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">                 <span class="keyword">return</span> a + b;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>匿名类由于没有名字，<strong>无法重复使用</strong></p>
+</li>
+<li><p>代码太乱，<strong>可读性太差</strong></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -4082,6 +4082,74 @@
       </tags>
   </entry>
   <entry>
+    <title>泛型</title>
+    <url>/2022/12/23/Java/%E6%B3%9B%E5%9E%8B/</url>
+    <content><![CDATA[<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h3 id="泛型的作用"><a href="#泛型的作用" class="headerlink" title="泛型的作用"></a>泛型的作用</h3><ul>
+<li>泛型提供了<strong>编译时</strong>类型安全检测机制，该机制允许程序员在编译时检测到非法的类型<ul>
+<li>在运行期间泛型的作用不大</li>
+</ul>
+</li>
+<li>泛型的好处<ul>
+<li>统一集合中存储的元素类型</li>
+<li>从集合中取出的元素类型都是泛型所指定的类型，不需要进行大量的向下类型转换</li>
+</ul>
+</li>
+<li>泛型的缺点<ul>
+<li>导致集合中存储元素缺乏多样性<ul>
+<li>原本集合中存储的全部都是<code>Object</code>类型</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Animal is moving...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Bird is flying...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">bark</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Dog is barking...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//不实用泛型</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">()</span>&#123;</span><br><span class="line">  	<span class="type">ArrayList</span> <span class="variable">arrayList</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">  	<span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();<span class="type">Bird</span> <span class="variable">bird</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="type">Dog</span> <span class="variable">dog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">    arrayList.add(animal);arrayList.add(bird);arrayList.add(dog);</span><br><span class="line"></span><br><span class="line">    <span class="type">Iterator</span> <span class="variable">iterator</span> <span class="operator">=</span> arrayList.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">      	<span class="comment">//需要向下强制类型转换</span></span><br><span class="line">        <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> iterator.next();</span><br><span class="line">        <span class="keyword">if</span>(obj <span class="keyword">instanceof</span> Animal)&#123;</span><br><span class="line">            <span class="type">Animal</span> <span class="variable">ani</span> <span class="operator">=</span> (Animal) obj;</span><br><span class="line">            ani.move();</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用泛型</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test2</span><span class="params">()</span>&#123;</span><br><span class="line">  	<span class="comment">//使用泛型后，ArrayList只会存储Animal类型的数据</span></span><br><span class="line">    ArrayList&lt;Animal&gt; arrayList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Animal&gt;();</span><br><span class="line">    <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();<span class="type">Bird</span> <span class="variable">bird</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="type">Dog</span> <span class="variable">dog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">    arrayList.add(animal);arrayList.add(bird);arrayList.add(dog);</span><br><span class="line">		<span class="comment">//迭代器也需要使用泛型</span></span><br><span class="line">    Iterator&lt;Animal&gt; iterator = arrayList.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">      	<span class="comment">//当然如果要使用Dog和Bird中的特殊方法，还需要进行向下类型转化</span></span><br><span class="line">        <span class="type">Animal</span> <span class="variable">ani</span> <span class="operator">=</span> iterator.next();</span><br><span class="line">        ani.move();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自动类型推断机制"><a href="#自动类型推断机制" class="headerlink" title="自动类型推断机制"></a>自动类型推断机制</h3><ul>
+<li>JDK8引入的新机制，又称为钻石表达式</li>
+<li>在声明时，只用写前面尖括号中的泛型的类型，后面的类型可以自动推断</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用自动类型推断机制</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test2</span><span class="params">()</span>&#123;</span><br><span class="line">  	<span class="comment">//自动类型推断机制</span></span><br><span class="line">    <span class="comment">//ArrayList&lt;Animal&gt; arrayList = new ArrayList&lt;Animal&gt;();</span></span><br><span class="line">  	ArrayList&lt;Animal&gt; arrayList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();<span class="type">Bird</span> <span class="variable">bird</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();<span class="type">Dog</span> <span class="variable">dog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">    arrayList.add(animal);arrayList.add(bird);arrayList.add(dog);</span><br><span class="line">		</span><br><span class="line">    Iterator&lt;Animal&gt; iterator = arrayList.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">ani</span> <span class="operator">=</span> iterator.next();</span><br><span class="line">        ani.move();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义泛型"><a href="#自定义泛型" class="headerlink" title="自定义泛型"></a>自定义泛型</h3><h4 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h4><ul>
+<li>我们可以自定义一个泛型方法，该方法在调用时可以接收不同类型的参数</li>
+<li>语法规则<ul>
+<li><code>&lt;类型&gt;</code>中的类型只是一个表示符，一般为<code>&lt;T&gt;</code>（Type）或者<code>&lt;E&gt;</code>（Element）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">方法修饰符 &lt;类型&gt;方法返回值 方法名(行参列表)&#123;</span><br><span class="line">		方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    String[] strings = &#123;<span class="string">&quot;123&quot;</span>,<span class="string">&quot;456&quot;</span>,<span class="string">&quot;789&quot;</span>&#125;;</span><br><span class="line">    System.out.println(test(strings));;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;MyClass&gt; MyClass <span class="title function_">test</span><span class="params">(MyClass[] myClasses)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (MyClass element: myClasses)&#123;</span><br><span class="line">    		System.out.println(element);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> myClasses[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h4><ul>
+<li>与泛型方法类似</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        MyClass&lt;Animal&gt; myClass = <span class="keyword">new</span> <span class="title class_">MyClass</span>();</span><br><span class="line">        myClass.setT(<span class="keyword">new</span> <span class="title class_">Animal</span>(<span class="string">&quot;Tom&quot;</span>));</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> myClass.getT();</span><br><span class="line">        System.out.println(animal.name);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T t;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getT</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setT</span><span class="params">(T t)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.t = t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Foreach循环"><a href="#Foreach循环" class="headerlink" title="Foreach循环"></a>Foreach循环</h2><h3 id="增强for循环"><a href="#增强for循环" class="headerlink" title="增强for循环"></a>增强for循环</h3><ul>
+<li>在JDK5之后推出的新特性</li>
+<li>语法格式</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(ElementType 变量名: Arrays/Collection)&#123;</span><br><span class="line">		<span class="comment">//对变量进行操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>缺点：没有下标</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">     LinkedList&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">     list.add(<span class="string">&quot;123&quot;</span>);list.add(<span class="string">&quot;456&quot;</span>);list.add(<span class="string">&quot;789&quot;</span>);</span><br><span class="line">     list.add(<span class="string">&quot;abc&quot;</span>);list.add(<span class="string">&quot;def&quot;</span>);list.add(<span class="string">&quot;ghi&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (String str: list)&#123;</span><br><span class="line">    		System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">   	<span class="comment">//等价于</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list.size(); i++)&#123;</span><br><span class="line">    		System.out.println(list.get(i));</span><br><span class="line">    &#125;</span><br><span class="line">   	<span class="comment">//等价于</span></span><br><span class="line">   Iterator&lt;String&gt; iterator = list.iterator();</span><br><span class="line">   <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">   			System.out.println(iterator.next());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自定义时间</title>
     <url>/2022/11/23/Java/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%B6%E9%97%B4/</url>
     <content><![CDATA[<h1 id="自定义时间"><a href="#自定义时间" class="headerlink" title="自定义时间"></a>自定义时间</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>自定义一个时间类，能够完成对时间的加减操作。</p>
@@ -4413,6 +4481,41 @@
         <tag>字符串</tag>
         <tag>算法</tag>
         <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客过程中，4000端口被占用</title>
+    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
+<ul>
+<li>更改hexo使用的端口</li>
+<li>杀掉正在占用4000端口的其他进程</li>
+</ul>
+<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
+<ul>
+<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
+<ul>
+<li><code>sudo lsof -i tcp:端口号</code></li>
+<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
+<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
+</li>
+<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
+<ul>
+<li><code>sudo kill -9 PID</code></li>
+</ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -5917,41 +6020,6 @@
       <tags>
         <tag>算法</tag>
         <tag>排序算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo搭建博客过程中，4000端口被占用</title>
-    <url>/2022/11/23/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C4000%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="hexo搭建博客过程中，4000端口被占用"><a href="#hexo搭建博客过程中，4000端口被占用" class="headerlink" title="hexo搭建博客过程中，4000端口被占用"></a>hexo搭建博客过程中，4000端口被占用</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我今天准备上传新的博客的时候，我先使用hexo s命令打算在本地先预览一下，然后却报错了，系统提示我4000端口被占用了。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6m4a6xvj30ni0fagp0.jpg"></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>我们知道，hexo在本地使用的是4000端口，那么解决这个问题就有两种方法</p>
-<ul>
-<li>更改hexo使用的端口</li>
-<li>杀掉正在占用4000端口的其他进程</li>
-</ul>
-<p>针对第一种方法，我在hexo的配置文件中没有找到相关端口的配置，所以我放弃了这种方法</p>
-<ul>
-<li><p>在Mac下，查看端口的占用情况使用的命令如下</p>
-<ul>
-<li><code>sudo lsof -i tcp:端口号</code></li>
-<li>其中的意思是：list open files，用于查看打开的文件以及相关联进程信息的工具</li>
-<li>这里说的“文件”不单指一般的文件，还包括目录、socket套接字、设备文件和命名管道</li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6uvj57yj30nk03774i.jpg"></p>
-</li>
-<li><p>然后杀掉这个进程即可，杀掉进程的命令如下</p>
-<ul>
-<li><code>sudo kill -9 PID</code></li>
-</ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8f6wjfcbjj30nj07sq3q.jpg"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
