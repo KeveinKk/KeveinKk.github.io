@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">64</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -256,27 +256,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="string类"><a class="markdownIt-Anchor" href="#string类"></a> String类</h1>
-<h2 id="string的存储原理"><a class="markdownIt-Anchor" href="#string的存储原理"></a> String的存储原理</h2>
-<blockquote>
+        <h1 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h1><h2 id="String的存储原理"><a href="#String的存储原理" class="headerlink" title="String的存储原理"></a>String的存储原理</h2><blockquote>
 <p>The <code>String</code> class represents character strings. All string literals in Java programs, such as <code>&quot;abc&quot;</code>, are implemented as instances of this class.</p>
 <p>Strings are constant; their values cannot be changed after they are created（String是常量，创建之后无法修改）. String buffers support mutable strings. Because String objects are immutable they can be shared.</p>
 </blockquote>
 <ul>
-<li>
-<p><code>String</code>表示字符串类型，属于引用数据类型</p>
+<li><p><code>String</code>表示字符串类型，属于引用数据类型</p>
 <ul>
 <li>在Java中所有用双引号修饰的都是<code>String</code>对象</li>
 </ul>
 </li>
-<li>
-<p>在Java中，字符串对象在创建后是不可以改变的</p>
+<li><p>在Java中，字符串对象在创建后是不可以改变的</p>
 <ul>
-<li><code>String str = &quot;abc&quot;</code>，则在程序中<code>str</code>不会变成&quot;def&quot;，也不会变成&quot;ab&quot;等</li>
+<li><code>String str = &quot;abc&quot;</code>，则在程序中<code>str</code>不会变成”def”，也不会变成”ab”等</li>
 </ul>
 </li>
-<li>
-<p>所有的字符串直接存储在<u>方法区内存</u>的<strong>字符串常量池</strong>中</p>
+<li><p>所有的字符串直接存储在<u>方法区内存</u>的<strong>字符串常量池</strong>中</p>
 <ul>
 <li>字符串的使用非常频繁，为了提高执行效率，所以把字符串放到字符串常量池中</li>
 <li><u>字符串常量池不会被垃圾回收器回收</u></li>
@@ -284,47 +279,48 @@
 <li>常量池也意味着字符串在创建后无法再修改</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//以下两行代码在字符串常量池中一共创建了三个对象</span></span><br><span class="line"><span class="comment">//其中&quot;abc&quot;和“”abcdef&quot;有引用指向，&quot;def&quot;没有引用指向</span></span><br><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;abc&quot;</span> + <span class="string">&quot;def&quot;</span>；</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>特殊情况</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;abc&quot;</span>);</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>通过<code>new</code>方法创建的对象一定都在堆内存中，但是字符串都在方法区内存中</li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8phld6700j31ol0tkdj9.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8phld6700j31ol0tkdj9.jpg"></p>
 <ul>
-<li>字符串&quot;abc&quot;仍然存储在方法区的字符串常量池中，通过<code>new</code>方式在堆内存中创建了一个String对象，但是这个对象不存储字符串信息，<u>而是存储着&quot;abc&quot;在方法区内存的地址</u>，而栈内存中的<code>str</code>引用存储着堆内存中String对象的地址</li>
+<li>字符串”abc”仍然存储在方法区的字符串常量池中，通过<code>new</code>方式在堆内存中创建了一个String对象，但是这个对象不存储字符串信息，<u>而是存储着”abc”在方法区内存的地址</u>，而栈内存中的<code>str</code>引用存储着堆内存中String对象的地址</li>
 <li>更进一步的</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="comment">//str1和str2都指向方法区内存中的同一块地址</span></span><br><span class="line">System.out.println(str1 == str2);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="comment">//s1和s2分别在堆内存中创建了两个不同的对象，两个不同的对象地址当然不同</span></span><br><span class="line"><span class="comment">//但是这两个对象中存储的方法区地址都是相同的</span></span><br><span class="line">System.out.println(s1 == s2);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-</li>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="comment">//s1和s2分别在堆内存中创建了两个不同的对象，两个不同的对象地址当然不同</span></span><br><span class="line"><span class="comment">//但是这两个对象中存储的方法区地址都是相同的</span></span><br><span class="line">System.out.println(s1 == s2);<span class="comment">//false</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="equalsobject-anobject方法"><a class="markdownIt-Anchor" href="#equalsobject-anobject方法"></a> <code>equals(Object anObject)</code>方法</h3>
-<ul>
+<h3 id="equals-Object-anObject-方法"><a href="#equals-Object-anObject-方法" class="headerlink" title="equals(Object anObject)方法"></a><code>equals(Object anObject)</code>方法</h3><ul>
 <li>String类重写了<code>equals()</code>方法</li>
 </ul>
 <blockquote>
 <p>Compares this string to the specified object. The result is true if and only if the argument is not null and is a String object that represents the same sequence of characters as this object（只有当两个字符串都包含相同的字符次序时才会返回真）.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object anObject)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span> == anObject) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">aString</span> <span class="operator">=</span> (String)anObject;</span><br><span class="line">    <span class="keyword">if</span> (!COMPACT_STRINGS || <span class="built_in">this</span>.coder == aString.coder) &#123;</span><br><span class="line">      <span class="keyword">return</span> StringLatin1.equals(value, aString.value);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="comment">//s1和s2代表的字符序列都相同</span></span><br><span class="line"><span class="comment">//此时比较的就不是s1和s2存储的地址，而是字符串s1和s2存储的内容</span></span><br><span class="line">System.out.println(s1.equals(s2));<span class="comment">//true </span></span><br></pre></td></tr></table></figure>
-<h2 id="string的构造方法"><a class="markdownIt-Anchor" href="#string的构造方法"></a> String的构造方法</h2>
-<h3 id="stringbyte-bytes"><a class="markdownIt-Anchor" href="#stringbyte-bytes"></a> String(byte[] bytes)</h3>
-<blockquote>
-<p>Constructs a new <code>String</code> by decoding（解码） the specified array of bytes using the platform's default charset. The length of the new <code>String</code> is a function of the charset, and hence may not be equal to the length of the byte array.</p>
+
+<h2 id="String的构造方法"><a href="#String的构造方法" class="headerlink" title="String的构造方法"></a>String的构造方法</h2><h3 id="String-byte-bytes"><a href="#String-byte-bytes" class="headerlink" title="String(byte[] bytes)"></a>String(byte[] bytes)</h3><blockquote>
+<p>Constructs a new <code>String</code> by decoding（解码） the specified array of bytes using the platform’s default charset. The length of the new <code>String</code> is a function of the charset, and hence may not be equal to the length of the byte array.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span>[] bytes = &#123;<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>&#125;;<span class="comment">//&#x27;a&#x27; = 97</span></span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(bytes);</span><br><span class="line">System.out.println(str);<span class="comment">//abc</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>输出一个引用时会自动调用其toString()方法，默认输出对象的内存地址，String类已经重写了该方法</li>
 </ul>
-<h3 id="tostring"><a class="markdownIt-Anchor" href="#tostring"></a> toString()</h3>
-<blockquote>
+<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h3><blockquote>
 <p>This object (which is already a string!) is itself returned.（返回字符串自己）</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="stringbyte-bytes-int-offset-int-length"><a class="markdownIt-Anchor" href="#stringbyte-bytes-int-offset-int-length"></a> String(byte[] bytes, int offset, int length)</h3>
-<blockquote>
+
+<h3 id="String-byte-bytes-int-offset-int-length"><a href="#String-byte-bytes-int-offset-int-length" class="headerlink" title="String(byte[] bytes, int offset, int length)"></a>String(byte[] bytes, int offset, int length)</h3><blockquote>
 <p>bytes - The bytes to be decoded into characters（待转换的字节数组）</p>
 <p>offset - The index of the first byte to decode（待转换的起始位置）</p>
 <p>length - The number of bytes to decode（待转换的长度）</p>
@@ -333,188 +329,178 @@
 <li><code>bytes</code>数组很长，我们只希望转换其中一部分为<code>String</code>时调用该构造方法</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span>[] bytes = &#123;<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>&#125;;<span class="comment">//&#x27;a&#x27; = 97</span></span><br><span class="line"><span class="comment">//从bytes数组中的下标为一个的位置开始，转换两个字符为String</span></span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(bytes,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">System.out.println(str);<span class="comment">//bc</span></span><br></pre></td></tr></table></figure>
-<h3 id="stringchar-value"><a class="markdownIt-Anchor" href="#stringchar-value"></a> String(char[] value)</h3>
-<ul>
+
+<h3 id="String-char-value"><a href="#String-char-value" class="headerlink" title="String(char[] value)"></a>String(char[] value)</h3><ul>
 <li>与<code>String(byte[] bytes)</code>类似</li>
 </ul>
-<h3 id="stringchar-value-int-offset-int-count"><a class="markdownIt-Anchor" href="#stringchar-value-int-offset-int-count"></a> String(char[] value, int offset, int count)</h3>
-<ul>
+<h3 id="String-char-value-int-offset-int-count"><a href="#String-char-value-int-offset-int-count" class="headerlink" title="String(char[] value, int offset, int count)"></a>String(char[] value, int offset, int count)</h3><ul>
 <li>与<code>String(byte[] bytes, int offset, int length)</code>类似</li>
 </ul>
-<h3 id="stringstring-original"><a class="markdownIt-Anchor" href="#stringstring-original"></a> String(String original)</h3>
-<ul>
+<h3 id="String-String-original"><a href="#String-String-original" class="headerlink" title="String(String original)"></a>String(String original)</h3><ul>
 <li>通过已有的String来构造新的String</li>
 <li><code>String str = new String(&quot;abc&quot;);</code></li>
 </ul>
-<h2 id="string中的常用方法"><a class="markdownIt-Anchor" href="#string中的常用方法"></a> String中的常用方法</h2>
-<h3 id="charatint-index"><a class="markdownIt-Anchor" href="#charatint-index"></a> <code>charAt(int index)</code></h3>
-<blockquote>
-<p>Returns the char value at the specified index（返回字符串中某个下标的字符值）. An index ranges from 0 to length() - 1. The first char value of the sequence is at index 0, the next at index 1, and so on, as for array indexing.<br />
-If the char value specified by the index is a surrogate, the surrogate value is returned.</p>
+<h2 id="String中的常用方法"><a href="#String中的常用方法" class="headerlink" title="String中的常用方法"></a>String中的常用方法</h2><h3 id="charAt-int-index"><a href="#charAt-int-index" class="headerlink" title="charAt(int index)"></a><code>charAt(int index)</code></h3><blockquote>
+<p>Returns the char value at the specified index（返回字符串中某个下标的字符值）. An index ranges from 0 to length() - 1. The first char value of the sequence is at index 0, the next at index 1, and so on, as for array indexing.<br>If the char value specified by the index is a surrogate, the surrogate value is returned.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">char</span> <span class="title function_">charAt</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (isLatin1()) &#123;</span><br><span class="line">    <span class="keyword">return</span> StringLatin1.charAt(value, index);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> StringUTF16.charAt(value, index);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&quot;abcd&quot;</span>.charAt(<span class="number">2</span>);</span><br><span class="line">System.out.println(c);<span class="comment">//c</span></span><br></pre></td></tr></table></figure>
-<h3 id="comparetostring-anotherstring"><a class="markdownIt-Anchor" href="#comparetostring-anotherstring"></a> <code>compareTo(String anotherString)</code></h3>
-<blockquote>
+
+<h3 id="compareTo-String-anotherString"><a href="#compareTo-String-anotherString" class="headerlink" title="compareTo(String anotherString)"></a><code>compareTo(String anotherString)</code></h3><blockquote>
 <p>Compares two strings lexicographically（按字典顺序比较两个字符串）. The comparison is based on the Unicode value of each character in the strings. The character sequence represented by this String object is compared lexicographically to the character sequence represented by the argument string. The result is a negative integer if this String object lexicographically precedes the argument string（str小于anotherString时返回负数）. The result is a positive integer if this String object lexicographically follows the argument string（str大于anotherString时返回正数）. The result is zero if the strings are equal; compareTo returns 0 exactly when the equals(Object) method would return true.（当两个字符串相等时返回0）</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(String anotherString)</span> &#123;</span><br><span class="line">  <span class="type">byte</span> v1[] = value;</span><br><span class="line">  <span class="type">byte</span> v2[] = anotherString.value;</span><br><span class="line">  <span class="type">byte</span> <span class="variable">coder</span> <span class="operator">=</span> coder();</span><br><span class="line">  <span class="keyword">if</span> (coder == anotherString.coder()) &#123;</span><br><span class="line">    <span class="keyword">return</span> coder == LATIN1 ? StringLatin1.compareTo(v1, v2)</span><br><span class="line">      : StringUTF16.compareTo(v1, v2);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> coder == LATIN1 ? StringLatin1.compareToUTF16(v1, v2)</span><br><span class="line">    : StringUTF16.compareToLatin1(v1, v2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><code>str1.compareTo(str2)</code>
-<ul>
+<li><code>str1.compareTo(str2)</code><ul>
 <li><u>等价于<code>str1 - str2</code></u></li>
 <li>当<code>str1</code>大于<code>str2</code>时返回正数</li>
-<li>...小于...返回负数</li>
-<li>...等于...返回0</li>
+<li>…小于…返回负数</li>
+<li>…等于…返回0</li>
 </ul>
 </li>
 </ul>
-<h3 id="indexofstring-str"><a class="markdownIt-Anchor" href="#indexofstring-str"></a> <code>IndexOf(String str)</code></h3>
-<blockquote>
+<h3 id="IndexOf-String-str"><a href="#IndexOf-String-str" class="headerlink" title="IndexOf(String str)"></a><code>IndexOf(String str)</code></h3><blockquote>
 <p>Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.（返回字符串中某一子串第一次出现的下标）</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;abcdefg&quot;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> str.indexOf(<span class="string">&quot;def&quot;</span>);<span class="comment">//index = 3</span></span><br></pre></td></tr></table></figure>
-<h3 id="public-int-lastindexofstring-str"><a class="markdownIt-Anchor" href="#public-int-lastindexofstring-str"></a> <code>public int lastIndexOf(String str)</code></h3>
-<blockquote>
+
+<h3 id="public-int-lastIndexOf-String-str"><a href="#public-int-lastIndexOf-String-str" class="headerlink" title="public int lastIndexOf(String str)"></a><code>public int lastIndexOf(String str)</code></h3><blockquote>
 <p>Returns the index within this string of the last occurrence of the specified character.（返回字符串中某一子串最后一次出现的下标</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;abcabc&quot;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">lastIndex</span> <span class="operator">=</span> str.lastIndexOf(str);<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-<h3 id="public-boolean-containscharsequence-s"><a class="markdownIt-Anchor" href="#public-boolean-containscharsequence-s"></a> <code>public boolean contains(CharSequence s)</code></h3>
-<blockquote>
+
+
+
+<h3 id="public-boolean-contains-CharSequence-s"><a href="#public-boolean-contains-CharSequence-s" class="headerlink" title="public boolean contains(CharSequence s)"></a><code>public boolean contains(CharSequence s)</code></h3><blockquote>
 <p>Returns true if and only if this string contains the specified sequence of char values.（当字符串包含某一部分字符串时返回真）</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">contains</span><span class="params">(CharSequence s)</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> indexOf(s.toString()) &gt;= <span class="number">0</span>;<span class="comment">//即子串s在字符串中出现过</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>字符串<code>str</code>包含字符串<code>s</code>等价于<code>s</code>出现在<code>str</code>中</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;abcdef&quot;</span>;</span><br><span class="line"><span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> str.contains(<span class="string">&quot;bcd&quot;</span>);<span class="comment">//flag = true;</span></span><br></pre></td></tr></table></figure>
-<h3 id="public-boolean-endswithstring-suffix"><a class="markdownIt-Anchor" href="#public-boolean-endswithstring-suffix"></a> <code>public boolean endsWith(String suffix)</code></h3>
-<blockquote>
+
+<h3 id="public-boolean-endsWith-String-suffix"><a href="#public-boolean-endsWith-String-suffix" class="headerlink" title="public boolean endsWith(String suffix)"></a><code>public boolean endsWith(String suffix)</code></h3><blockquote>
 <p>Tests if this string ends with the specified suffix.（判断某个字符串是否以某一个子串结尾）</p>
 </blockquote>
 <ul>
 <li>类似的也有<code>startWith(String prefix)</code></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;MyJava.java&quot;</span>.endWith(<span class="string">&quot;.txt&quot;</span>);<span class="comment">//false</span></span><br><span class="line"><span class="string">&quot;MyJava.java&quot;</span>.endWith(<span class="string">&quot;.java&quot;</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<h3 id="public-boolean-equalsignorecasestring-anotherstring"><a class="markdownIt-Anchor" href="#public-boolean-equalsignorecasestring-anotherstring"></a> <code>public boolean equalsIgnoreCase(String anotherString)</code></h3>
-<blockquote>
+
+<h3 id="public-boolean-equalsIgnoreCase-String-anotherString"><a href="#public-boolean-equalsIgnoreCase-String-anotherString" class="headerlink" title="public boolean equalsIgnoreCase(String anotherString)"></a><code>public boolean equalsIgnoreCase(String anotherString)</code></h3><blockquote>
 <p>Compares this String to another String, ignoring case considerations. （在忽略大小的区别下，比较两个字符串）Two strings are considered equal ignoring case if they are of the same length and corresponding characters in the two strings are equal ignoring case.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;Abc&quot;</span>.equalsIgnoreCase(<span class="string">&quot;Abc&quot;</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<h3 id="public-boolean-isempty"><a class="markdownIt-Anchor" href="#public-boolean-isempty"></a> <code>public boolean isEmpty()</code></h3>
-<blockquote>
+
+<h3 id="public-boolean-isEmpty"><a href="#public-boolean-isEmpty" class="headerlink" title="public boolean isEmpty()"></a><code>public boolean isEmpty()</code></h3><blockquote>
 <p>Returns true if, and only if, length() is 0.（判断某个字符串长度是否为0）</p>
 </blockquote>
 <ul>
-<li>当一个字符串长度为0时，返回true
-<ul>
+<li>当一个字符串长度为0时，返回true<ul>
 <li>判断数组长度时，是调用<code>length</code>属性</li>
 <li>判断字符串长度时，是调用<code>length()</code>方法</li>
 </ul>
 </li>
-<li><strong><u>长度为0并不等价于该字符串为<code>null</code></u></strong>
-<ul>
+<li><strong><u>长度为0并不等价于该字符串为<code>null</code></u></strong><ul>
 <li>空引用调用方法时会出现空指针异常的错误</li>
 </ul>
 </li>
 </ul>
-<h3 id="public-string-replacecharsequence-target-charsequence-replacement"><a class="markdownIt-Anchor" href="#public-string-replacecharsequence-target-charsequence-replacement"></a> <code>public String replace(CharSequence target, CharSequence replacement)</code></h3>
-<blockquote>
-<p>Replaces <u>each substring</u> of this string that matches the literal target sequence with the specified literal replacement sequence.（将字符串中每一个target子串，用replacement串替换） The replacement proceeds from the beginning of the string to the end, for example, replacing &quot;aa&quot; with &quot;b&quot; in the string &quot;aaa&quot; will result in &quot;ba&quot; rather than &quot;ab&quot;.</p>
+<h3 id="public-String-replace-CharSequence-target-CharSequence-replacement"><a href="#public-String-replace-CharSequence-target-CharSequence-replacement" class="headerlink" title="public String replace(CharSequence target, CharSequence replacement)"></a><code>public String replace(CharSequence target, CharSequence replacement)</code></h3><blockquote>
+<p>Replaces <u>each substring</u> of this string that matches the literal target sequence with the specified literal replacement sequence.（将字符串中每一个target子串，用replacement串替换） The replacement proceeds from the beginning of the string to the end, for example, replacing “aa” with “b” in the string “aaa” will result in “ba” rather than “ab”.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;abcdefabc&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> str.replace(<span class="string">&#x27;abc&#x27;</span>,<span class="string">&#x27;一二三&#x27;</span>);<span class="comment">//一二三def一二三</span></span><br></pre></td></tr></table></figure>
-<h3 id="public-string-splitstring-regex"><a class="markdownIt-Anchor" href="#public-string-splitstring-regex"></a> <code>public String[] split(String regex)</code></h3>
-<blockquote>
+
+<h3 id="public-String-split-String-regex"><a href="#public-String-split-String-regex" class="headerlink" title="public String[] split(String regex)"></a><code>public String[] split(String regex)</code></h3><blockquote>
 <p>Splits this string around matches of the given regular expression（用给定的正则表达式拆分原字符串）</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;2022-12-03&quot;</span>;</span><br><span class="line">String[] split = str.split(<span class="string">&quot;-&quot;</span>);<span class="comment">//&#123;&quot;2022&quot;,&quot;12&quot;,&quot;03&quot;&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="public-string-substringint-beginindex-int-endindex"><a class="markdownIt-Anchor" href="#public-string-substringint-beginindex-int-endindex"></a> <code>public String substring(int beginIndex, int endIndex)</code></h3>
-<blockquote>
+
+<h3 id="public-String-substring-int-beginIndex-int-endIndex"><a href="#public-String-substring-int-beginIndex-int-endIndex" class="headerlink" title="public String substring(int beginIndex, int endIndex)"></a><code>public String substring(int beginIndex, int endIndex)</code></h3><blockquote>
 <p>Returns a string that is a substring of this string. The substring begins at the specified beginIndex and extends to the character at index endIndex - 1. （从字符串中截取从beginIndex到endIndex-1之间的子串）（左闭右开）Thus the length of the substring is endIndex-beginIndex.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">&quot;hamburger&quot;</span>.substring(<span class="number">4</span>, <span class="number">8</span>)<span class="comment">//&quot;urge&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="public-char-tochararray"><a class="markdownIt-Anchor" href="#public-char-tochararray"></a> <code>public char[] toCharArray()</code></h3>
-<blockquote>
+
+<h3 id="public-char-toCharArray"><a href="#public-char-toCharArray" class="headerlink" title="public char[] toCharArray()"></a><code>public char[] toCharArray()</code></h3><blockquote>
 <p>Converts this string to a new character array.（将字符串转换为字符数组）</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>[] chars = <span class="string">&quot;abcdef&quot;</span>.toCharArray();</span><br></pre></td></tr></table></figure>
-<h3 id="public-string-tolowercase"><a class="markdownIt-Anchor" href="#public-string-tolowercase"></a> <code>public String toLowerCase()</code></h3>
-<blockquote>
+
+<h3 id="public-String-toLowerCase"><a href="#public-String-toLowerCase" class="headerlink" title="public String toLowerCase()"></a><code>public String toLowerCase()</code></h3><blockquote>
 <p>Converts all of the characters in this String to lower case using the rules of the default locale. （将字符串中所有的字母都转化为小写）</p>
 </blockquote>
-<h3 id="public-string-touppercase"><a class="markdownIt-Anchor" href="#public-string-touppercase"></a> <code>public String toUpperCase()</code></h3>
-<blockquote>
+<h3 id="public-String-toUpperCase"><a href="#public-String-toUpperCase" class="headerlink" title="public String toUpperCase()"></a><code>public String toUpperCase()</code></h3><blockquote>
 <p>Converts all of the characters in this String to upper case using the rules of the default locale. （将字符串中所有的字母都转化为大写）</p>
 </blockquote>
-<h3 id="public-string-trim"><a class="markdownIt-Anchor" href="#public-string-trim"></a> <code>public String trim()</code></h3>
-<blockquote>
-<p>Returns a string whose value is this string, with all leading and trailing space removed, where space is defined as any character whose codepoint is less than or equal to 'U+0020' (the space character).（去掉字符串中前面以及后面的空格，中间的空格不会去掉）</p>
+<h3 id="public-String-trim"><a href="#public-String-trim" class="headerlink" title="public String trim()"></a><code>public String trim()</code></h3><blockquote>
+<p>Returns a string whose value is this string, with all leading and trailing space removed, where space is defined as any character whose codepoint is less than or equal to ‘U+0020’ (the space character).（去掉字符串中前面以及后面的空格，中间的空格不会去掉）</p>
 </blockquote>
-<h3 id="public-static-string-valueofobject-obj"><a class="markdownIt-Anchor" href="#public-static-string-valueofobject-obj"></a> <code>public static String valueOf(Object obj)</code></h3>
-<blockquote>
+<h3 id="public-static-String-valueOf-Object-obj"><a href="#public-static-String-valueOf-Object-obj" class="headerlink" title="public static String valueOf(Object obj)"></a><code>public static String valueOf(Object obj)</code></h3><blockquote>
 <p>Returns the string representation of the Object argument.（将Object obj用字符串的形式表示）（<u>少有的静态方法</u>）</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">valueOf</span><span class="params">(Object obj)</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> (obj == <span class="literal">null</span>) ? <span class="string">&quot;null&quot;</span> : obj.toString();<span class="comment">//在底层调用的是toString()方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><code>valueOf</code>在底层调用的是<code>toString()</code>方法</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> String.valueOf(<span class="literal">true</span>);<span class="comment">//str=&quot;true&quot;</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>&#123;&#125;</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> String.valueOf(<span class="keyword">new</span> <span class="title class_">User</span>());<span class="comment">//调用User的toString()</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><code>println</code>方法在底层调用的是<code>valueOf</code></li>
 </ul>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">println</span><span class="params">(Object x)</span> &#123;</span><br><span class="line">	<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> String.valueOf(x);</span><br><span class="line">	<span class="keyword">if</span> (getClass() == PrintStream.class) &#123;</span><br><span class="line">		<span class="comment">// need to apply String.valueOf again since first invocation</span></span><br><span class="line">		<span class="comment">// might return null</span></span><br><span class="line">		writeln(String.valueOf(s));</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="keyword">synchronized</span> (<span class="built_in">this</span>) &#123;</span><br><span class="line">		print(s);</span><br><span class="line">		newLine();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>
-<p>所有能在控制台上显示的内容都是<strong>字符串</strong></p>
+<li><p>所有能在控制台上显示的内容都是<strong>字符串</strong></p>
 <ul>
 <li>将数据通过<code>valueOf</code>转换成字符串</li>
 </ul>
 </li>
 </ul>
-<h2 id="stringbuffer"><a class="markdownIt-Anchor" href="#stringbuffer"></a> StringBuffer</h2>
-<h3 id="stringbuffer的原理"><a class="markdownIt-Anchor" href="#stringbuffer的原理"></a> StringBuffer的原理</h3>
-<ul>
+<h2 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h2><h3 id="StringBuffer的原理"><a href="#StringBuffer的原理" class="headerlink" title="StringBuffer的原理"></a>StringBuffer的原理</h3><ul>
 <li>由于字符串是不可变的，每一次拼接都会产生一个新的字符串，<u>这样会占用大量的方法区内存，造成空间的浪费</u></li>
 </ul>
-<h4 id="stringbuffer的存储原理"><a class="markdownIt-Anchor" href="#stringbuffer的存储原理"></a> <strong>StringBuffer的存储原理</strong></h4>
-<ul>
+<h4 id="StringBuffer的存储原理"><a href="#StringBuffer的存储原理" class="headerlink" title="StringBuffer的存储原理"></a><strong>StringBuffer的存储原理</strong></h4><ul>
 <li><code>public StringBuffer()</code></li>
 </ul>
 <blockquote>
 <p>Constructs a string buffer with no characters in it and an initial capacity of 16 characters.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">StringBuffer</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="built_in">super</span>(<span class="number">16</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">AbstractStringBuilder(<span class="type">int</span> capacity) &#123;</span><br><span class="line">  <span class="keyword">if</span> (COMPACT_STRINGS) &#123;</span><br><span class="line">    value = <span class="keyword">new</span> <span class="title class_">byte</span>[capacity];</span><br><span class="line">    coder = LATIN1;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    value = StringUTF16.newBytesFor(capacity);</span><br><span class="line">    coder = UTF16;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>StringBuffer的底层是一个byte数组</strong></li>
 <li>初始化容量是16</li>
 </ul>
-<h4 id="stringbuffer的扩容"><a class="markdownIt-Anchor" href="#stringbuffer的扩容"></a> <strong>StringBuffer的扩容</strong></h4>
-<ul>
+<h4 id="StringBuffer的扩容"><a href="#StringBuffer的扩容" class="headerlink" title="StringBuffer的扩容"></a><strong>StringBuffer的扩容</strong></h4><ul>
 <li><code>public synchronized StringBuffer append(CharSequence s)</code></li>
 </ul>
 <blockquote>
 <p>Appends the specified CharSequence to this sequence.</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">synchronized</span> StringBuffer <span class="title function_">append</span><span class="params">(CharSequence s)</span> &#123;</span><br><span class="line">  toStringCache = <span class="literal">null</span>;</span><br><span class="line">  <span class="built_in">super</span>.append(s);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> AbstractStringBuilder <span class="title function_">append</span><span class="params">(String str)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (str == <span class="literal">null</span>) &#123;</span><br><span class="line">  	<span class="keyword">return</span> appendNull();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> str.length();</span><br><span class="line">  ensureCapacityInternal(count + len);</span><br><span class="line">  putStringAt(count, str);</span><br><span class="line">  count += len;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">ensureCapacityInternal</span><span class="params">(<span class="type">int</span> minimumCapacity)</span> &#123;</span><br><span class="line">  <span class="comment">// overflow-conscious code</span></span><br><span class="line">  <span class="type">int</span> <span class="variable">oldCapacity</span> <span class="operator">=</span> value.length &gt;&gt; coder;</span><br><span class="line">  <span class="keyword">if</span> (minimumCapacity - oldCapacity &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    value = Arrays.copyOf(value,</span><br><span class="line">                          newCapacity(minimumCapacity) &lt;&lt; coder);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>
-<p>通过append方法追加追加追加内容时，如果byte数组满了，就通过<strong>数组拷贝</strong>的方式进行自动扩容</p>
+<li><p>通过append方法追加追加追加内容时，如果byte数组满了，就通过<strong>数组拷贝</strong>的方式进行自动扩容</p>
 </li>
-<li>
-<p><u>String类型的底层存储也是通过byte数组，但是该数组由<code>final</code>修饰，无法修改！</u></p>
+<li><p><u>String类型的底层存储也是通过byte数组，但是该数组由<code>final</code>修饰，无法修改！</u></p>
 <ul>
 <li>准确来说一个引用只能指向一块空间，如果扩容了一个新的空间，原来的引用无法指向它</li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8qrnrllyuj30mt0a00tr.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8qrnrllyuj30mt0a00tr.jpg"></p>
 </li>
-<li>
-<p>提高StringBuffer的性能：在创建时就给定一个初始化容量，最好减少底层数组的扩容次数</p>
+<li><p>提高StringBuffer的性能：在创建时就给定一个初始化容量，最好减少底层数组的扩容次数</p>
 </li>
 </ul>
-<h4 id="stringbuffer和stringbuilder的区别"><a class="markdownIt-Anchor" href="#stringbuffer和stringbuilder的区别"></a> StringBuffer和StringBuilder的区别</h4>
-<ul>
+<h4 id="StringBuffer和StringBuilder的区别"><a href="#StringBuffer和StringBuilder的区别" class="headerlink" title="StringBuffer和StringBuilder的区别"></a>StringBuffer和StringBuilder的区别</h4><ul>
 <li>StringBuffer中的方法都有<code>synchronized</code>关键字修饰，表示StringBuffer在多线程环境下运行是安全的</li>
 <li>StringBuilder中的方法没有被<code>synchronized</code>修饰，表示在多线程运行情况下是不安全的</li>
 </ul>
@@ -602,7 +588,7 @@ If the char value specified by the index is a surrogate, the surrogate value is 
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#string%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text"> String类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#string%E7%9A%84%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text"> String的存储原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#equalsobject-anobject%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text"> equals(Object anObject)方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text"> String的构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stringbyte-bytes"><span class="nav-number">1.2.1.</span> <span class="nav-text"> String(byte[] bytes)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tostring"><span class="nav-number">1.2.2.</span> <span class="nav-text"> toString()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stringbyte-bytes-int-offset-int-length"><span class="nav-number">1.2.3.</span> <span class="nav-text"> String(byte[] bytes, int offset, int length)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stringchar-value"><span class="nav-number">1.2.4.</span> <span class="nav-text"> String(char[] value)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stringchar-value-int-offset-int-count"><span class="nav-number">1.2.5.</span> <span class="nav-text"> String(char[] value, int offset, int count)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stringstring-original"><span class="nav-number">1.2.6.</span> <span class="nav-text"> String(String original)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text"> String中的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#charatint-index"><span class="nav-number">1.3.1.</span> <span class="nav-text"> charAt(int index)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comparetostring-anotherstring"><span class="nav-number">1.3.2.</span> <span class="nav-text"> compareTo(String anotherString)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexofstring-str"><span class="nav-number">1.3.3.</span> <span class="nav-text"> IndexOf(String str)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-int-lastindexofstring-str"><span class="nav-number">1.3.4.</span> <span class="nav-text"> public int lastIndexOf(String str)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-boolean-containscharsequence-s"><span class="nav-number">1.3.5.</span> <span class="nav-text"> public boolean contains(CharSequence s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-boolean-endswithstring-suffix"><span class="nav-number">1.3.6.</span> <span class="nav-text"> public boolean endsWith(String suffix)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-boolean-equalsignorecasestring-anotherstring"><span class="nav-number">1.3.7.</span> <span class="nav-text"> public boolean equalsIgnoreCase(String anotherString)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-boolean-isempty"><span class="nav-number">1.3.8.</span> <span class="nav-text"> public boolean isEmpty()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-string-replacecharsequence-target-charsequence-replacement"><span class="nav-number">1.3.9.</span> <span class="nav-text"> public String replace(CharSequence target, CharSequence replacement)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-string-splitstring-regex"><span class="nav-number">1.3.10.</span> <span class="nav-text"> public String[] split(String regex)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-string-substringint-beginindex-int-endindex"><span class="nav-number">1.3.11.</span> <span class="nav-text"> public String substring(int beginIndex, int endIndex)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-char-tochararray"><span class="nav-number">1.3.12.</span> <span class="nav-text"> public char[] toCharArray()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-string-tolowercase"><span class="nav-number">1.3.13.</span> <span class="nav-text"> public String toLowerCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-string-touppercase"><span class="nav-number">1.3.14.</span> <span class="nav-text"> public String toUpperCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-string-trim"><span class="nav-number">1.3.15.</span> <span class="nav-text"> public String trim()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-static-string-valueofobject-obj"><span class="nav-number">1.3.16.</span> <span class="nav-text"> public static String valueOf(Object obj)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stringbuffer"><span class="nav-number">1.4.</span> <span class="nav-text"> StringBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stringbuffer%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">1.4.1.</span> <span class="nav-text"> StringBuffer的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#stringbuffer%E7%9A%84%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="nav-number">1.4.1.1.</span> <span class="nav-text"> StringBuffer的存储原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#stringbuffer%E7%9A%84%E6%89%A9%E5%AE%B9"><span class="nav-number">1.4.1.2.</span> <span class="nav-text"> StringBuffer的扩容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#stringbuffer%E5%92%8Cstringbuilder%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.4.1.3.</span> <span class="nav-text"> StringBuffer和StringBuilder的区别</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">String类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E7%9A%84%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">String的存储原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#equals-Object-anObject-%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">equals(Object anObject)方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">String的构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-byte-bytes"><span class="nav-number">1.2.1.</span> <span class="nav-text">String(byte[] bytes)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toString-NaN"><span class="nav-number">1.2.2.</span> <span class="nav-text">toString()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-byte-bytes-int-offset-int-length"><span class="nav-number">1.2.3.</span> <span class="nav-text">String(byte[] bytes, int offset, int length)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-char-value"><span class="nav-number">1.2.4.</span> <span class="nav-text">String(char[] value)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-char-value-int-offset-int-count"><span class="nav-number">1.2.5.</span> <span class="nav-text">String(char[] value, int offset, int count)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-String-original"><span class="nav-number">1.2.6.</span> <span class="nav-text">String(String original)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">String中的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#charAt-int-index"><span class="nav-number">1.3.1.</span> <span class="nav-text">charAt(int index)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compareTo-String-anotherString"><span class="nav-number">1.3.2.</span> <span class="nav-text">compareTo(String anotherString)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IndexOf-String-str"><span class="nav-number">1.3.3.</span> <span class="nav-text">IndexOf(String str)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-int-lastIndexOf-String-str"><span class="nav-number">1.3.4.</span> <span class="nav-text">public int lastIndexOf(String str)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-boolean-contains-CharSequence-s"><span class="nav-number">1.3.5.</span> <span class="nav-text">public boolean contains(CharSequence s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-boolean-endsWith-String-suffix"><span class="nav-number">1.3.6.</span> <span class="nav-text">public boolean endsWith(String suffix)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-boolean-equalsIgnoreCase-String-anotherString"><span class="nav-number">1.3.7.</span> <span class="nav-text">public boolean equalsIgnoreCase(String anotherString)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-boolean-isEmpty"><span class="nav-number">1.3.8.</span> <span class="nav-text">public boolean isEmpty()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-String-replace-CharSequence-target-CharSequence-replacement"><span class="nav-number">1.3.9.</span> <span class="nav-text">public String replace(CharSequence target, CharSequence replacement)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-String-split-String-regex"><span class="nav-number">1.3.10.</span> <span class="nav-text">public String[] split(String regex)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-String-substring-int-beginIndex-int-endIndex"><span class="nav-number">1.3.11.</span> <span class="nav-text">public String substring(int beginIndex, int endIndex)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-char-toCharArray"><span class="nav-number">1.3.12.</span> <span class="nav-text">public char[] toCharArray()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-String-toLowerCase"><span class="nav-number">1.3.13.</span> <span class="nav-text">public String toLowerCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-String-toUpperCase"><span class="nav-number">1.3.14.</span> <span class="nav-text">public String toUpperCase()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-String-trim"><span class="nav-number">1.3.15.</span> <span class="nav-text">public String trim()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-static-String-valueOf-Object-obj"><span class="nav-number">1.3.16.</span> <span class="nav-text">public static String valueOf(Object obj)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuffer"><span class="nav-number">1.4.</span> <span class="nav-text">StringBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuffer%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">1.4.1.</span> <span class="nav-text">StringBuffer的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#StringBuffer%E7%9A%84%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">StringBuffer的存储原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StringBuffer%E7%9A%84%E6%89%A9%E5%AE%B9"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">StringBuffer的扩容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StringBuffer%E5%92%8CStringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">StringBuffer和StringBuilder的区别</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -618,7 +604,7 @@ If the char value specified by the index is a surrogate, the surrogate value is 
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
