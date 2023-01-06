@@ -19,21 +19,21 @@
     var CONFIG = {"hostname":"keveinkk.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="算法-动态规划">
+  <meta name="description" content="LeetCode刷题-买卖股票的最佳时机2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划">
-<meta property="og:url" content="https://keveinkk.github.io/2023/01/05/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
+<meta property="og:title" content="买卖股票的最佳时机2">
+<meta property="og:url" content="https://keveinkk.github.io/2023/01/06/%E7%AE%97%E6%B3%95/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA2/index.html">
 <meta property="og:site_name" content="Kevin&#39;s study Blog">
-<meta property="og:description" content="算法-动态规划">
+<meta property="og:description" content="LeetCode刷题-买卖股票的最佳时机2">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-05T08:31:10.903Z">
-<meta property="article:modified_time" content="2023-01-05T11:18:37.878Z">
+<meta property="article:published_time" content="2023-01-06T12:36:51.070Z">
+<meta property="article:modified_time" content="2023-01-06T12:37:50.245Z">
 <meta property="article:author" content="Kevin He">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="动态规划">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://keveinkk.github.io/2023/01/05/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+<link rel="canonical" href="https://keveinkk.github.io/2023/01/06/%E7%AE%97%E6%B3%95/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA2/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>动态规划 | Kevin's study Blog</title>
+  <title>买卖股票的最佳时机2 | Kevin's study Blog</title>
   
 
 
@@ -199,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://keveinkk.github.io/2023/01/05/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+    <link itemprop="mainEntityOfPage" href="https://keveinkk.github.io/2023/01/06/%E7%AE%97%E6%B3%95/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -212,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          动态规划
+          买卖股票的最佳时机2
         </h1>
 
         <div class="post-meta">
@@ -223,7 +223,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-01-05 16:31:10 / 修改时间：19:18:37" itemprop="dateCreated datePublished" datetime="2023-01-05T16:31:10+08:00">2023-01-05</time>
+              <time title="创建时间：2023-01-06 20:36:51 / 修改时间：20:37:50" itemprop="dateCreated datePublished" datetime="2023-01-06T20:36:51+08:00">2023-01-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -236,7 +236,7 @@
             </span>
 
           
-            <div class="post-description">算法-动态规划</div>
+            <div class="post-description">LeetCode刷题-买卖股票的最佳时机2</div>
 
         </div>
       </header>
@@ -247,54 +247,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
-<li>动态规划Dynamic Programming，通过把原问题分解成相对简单的子问题的方式来解决复杂问题。</li>
-<li>通常具有：<strong>重叠子问题</strong>和<strong>最优子结构性质</strong><ol>
-<li>重叠子问题：同一个子问题在被重复计算<ul>
-<li>例如：计算<code>f(n)</code>时会用到<code>f(1)</code>的计算结果，计算<code>f(n-1)</code>时还会用到<code>f(1)</code>的计算结果</li>
+        <h1 id="买卖股票的最佳时机2"><a href="#买卖股票的最佳时机2" class="headerlink" title="买卖股票的最佳时机2"></a>买卖股票的最佳时机2</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个数组<code>prices</code>，它的第<em>i</em>个元素<code>prices[i]</code>表示一支给定股票第<em>i</em>天的价格。你只能选择某一天买入这只股票，并选择在未来的某一个不同的日子卖出该股票。设计一个算法来计算你所能获取的最大利润。返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0。</p>
+<p>这道题和<a href="https://keveinkk.github.io/2022/11/23/%E7%AE%97%E6%B3%95/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/">买卖股票的最佳时机1</a>的区别在于：我们只能买卖股票一次。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>相较于买卖股票的最佳时机1来说，时机1允许我们多次买入买出，那我们只要在涨价时卖出即可，也就是我们只用统计价格波动图里所有上升区间的和。而这个题只允许我们买入和卖出一次，那我们就只能在价格最低点买入，在价格最高点卖出。因此这道题就可以转换为如何寻找这个数组里的最大值和最小值，并且这个最大值要出现在最小值后面。</p>
+<p>我的第一个想法就是暴力枚举法，从数组第一个数字开始，遍历后面所有的数，找到里面最大的数字，那么就可以求出在第一天买入股票时的最大利润；然后再从第二个数开始向后遍历，找到最大的树，那么就可以求出在第二天买入时的最大利润…</p>
+<ul>
+<li>时间复杂度：$O(N^{2})$</li>
+<li>空间复杂度：$O(1)$</li>
 </ul>
-</li>
-<li>最优子结构性质：可以从子问题的最优结果推出更大规模问题的最优结果<ul>
-<li>例如：已知全校每个班的最高成绩，现在求全校的最高成绩，那么全校的最高成绩肯定是来自于每个班的最高成绩中</li>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">profit</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; prices.length; i++)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">high</span> <span class="operator">=</span> prices[i];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i; j &lt; prices.length; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (prices[j] &gt; high) high = prices[j];</span><br><span class="line">            &#125;</span><br><span class="line">            profit = Math.max(profit,high - prices[i];)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> profit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>方法一显然太慢了。方法一中的最外层循环其实就是在说：遍历到<code>i=1</code>那我们就假定最小的数是<code>prices[1]</code>，遍历到<code>i=5</code>那我们就假定最小的数是<code>prices[5]</code>。所以说，如果我们能通过一次遍历，既找到整个数组中的最小值，又能找到整个数组中的最大值，且最大值出现在最小值之后，我们就能大大优化这个方法。</p>
+<p>这里我们采用动态规划的思想。我们用一个数组来记录最小值，<code>min[i]=k</code>表示数组<code>nums</code>中第<em>i</em>个数之前最小的数是<em>k</em>。那么一个数组中的最小值的状态转移方程是：$min[i]&#x3D;\left {min[i-1],nums[i]  \right } $</p>
+<ul>
+<li>时间复杂度：$O(N)$，我们只用遍历一遍就可以找到数组中的最小值。而数组中的最大值可以不停的用当前遍历到的值减去这个数之前的最小值，然后不停的更新最大值，最后返回最大的最大值</li>
+<li>空间复杂度：$O(N)$，我们用一个数组来记录每个数之前的最小值</li>
 </ul>
-</li>
-</ol>
-</li>
-<li>换句话说<ul>
-<li>对于给定的问题，我们将其拆分成一个一个小的子问题，然后一一解决这些子问题</li>
-<li>我们将这些子问题的结果保存下来，以减少重复计算</li>
-<li>然后根据子问题进行反推，得出原问题</li>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">profit</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span>[] lowPrice = <span class="keyword">new</span> <span class="title class_">int</span>[prices.length];</span><br><span class="line">        lowPrice[<span class="number">0</span>] = prices[<span class="number">0</span>];<span class="comment">//边界条件</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; prices.length; i ++)&#123;</span><br><span class="line">            lowPrice[i] = Math.min(lowPrice[i - <span class="number">1</span>], prices[i]);</span><br><span class="line">            profit = Math.max(prices[i] - lowPrice[i],profit);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> profit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>其实方法二还可以继续优化，我们没有必要存储每个数之前的最小值，我们只用记录当前数之前的最小值即可，因为最大值的计算只会用到当前数的最小值。</p>
+<ul>
+<li>时间复杂度：$O(N)$</li>
+<li>空间复杂度：$O(1)$</li>
 </ul>
-</li>
-</ul>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
-<li>动态规划的核心思想就是<ul>
-<li><strong>拆分子问题，并且记录子问题的解</strong></li>
-</ul>
-</li>
-<li>具体的解题步骤如下：<ol>
-<li>首先用暴力枚举的方法找到解决这个问题的思路</li>
-<li>找规律，确定最优子结构</li>
-<li>确定边界条件</li>
-<li>写出状态转移方程</li>
-</ol>
-</li>
-</ul>
-<h4 id="暴力枚举"><a href="#暴力枚举" class="headerlink" title="暴力枚举"></a>暴力枚举</h4><ul>
-<li>首先针对一个问题，先用最朴素的暴力方法枚举出所有的情况，然后求出最后的解</li>
-</ul>
-<h4 id="确定最优子结构"><a href="#确定最优子结构" class="headerlink" title="确定最优子结构"></a>确定最优子结构</h4><ul>
-<li>根据暴力枚举出来的所有情况，我们找到其中的规律</li>
-<li>看一看后面的解是如何通过前面的解得出的</li>
-</ul>
-<h4 id="确定边界条件"><a href="#确定边界条件" class="headerlink" title="确定边界条件"></a>确定边界条件</h4><ul>
-<li>根据前面找的的最优子结构的规律，这个规律肯定不适用于所有的情况</li>
-<li>一般初始条件都需要我们手动的确立</li>
-</ul>
-<h4 id="写出状态转移方程"><a href="#写出状态转移方程" class="headerlink" title="写出状态转移方程"></a>写出状态转移方程</h4><ul>
-<li>有了前面的最优子结构（规律）以及边界条件，我们就能写出状态转移方程</li>
-<li>这里的状态转移指的就是如何从一个子问题的解求出（转移到）另一个问题的解</li>
-</ul>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">profit</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lowPrice</span> <span class="operator">=</span> prices[<span class="number">0</span>];<span class="comment">//只用一个变量来存储记录当前数的最小值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; prices.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (prices[i] &lt; lowPrice) &#123;</span><br><span class="line">                lowPrice = prices[i];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                profit = Math.max(profit,prices[i]-lowPrice);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> profit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -314,13 +291,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/12/30/%E7%AE%97%E6%B3%95/%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/" rel="prev" title="合并两个有序数组">
-      <i class="fa fa-chevron-left"></i> 合并两个有序数组
+    <a href="/2023/01/05/%E7%AE%97%E6%B3%95/%E7%88%AC%E6%A5%BC%E6%A2%AF/" rel="prev" title="爬楼梯">
+      <i class="fa fa-chevron-left"></i> 爬楼梯
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/01/05/%E7%AE%97%E6%B3%95/%E7%88%AC%E6%A5%BC%E6%A2%AF/" rel="next" title="爬楼梯">
-      爬楼梯 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -379,7 +353,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE"><span class="nav-number">1.2.1.</span> <span class="nav-text">暴力枚举</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%9C%80%E4%BC%98%E5%AD%90%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.2.</span> <span class="nav-text">确定最优子结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.2.3.</span> <span class="nav-text">确定边界条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%87%BA%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B"><span class="nav-number">1.2.4.</span> <span class="nav-text">写出状态转移方程</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA2"><span class="nav-number">1.</span> <span class="nav-text">买卖股票的最佳时机2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.2.</span> <span class="nav-text">方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.2.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-number">1.3.</span> <span class="nav-text">方法二</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89"><span class="nav-number">1.4.</span> <span class="nav-text">方法三</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
