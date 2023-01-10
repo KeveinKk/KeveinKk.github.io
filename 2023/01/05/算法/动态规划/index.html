@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">76</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">77</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -247,32 +247,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+        <h2 id="动态规划"><a class="markdownIt-Anchor" href="#动态规划"></a> 动态规划</h2>
+<h3 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h3>
+<ul>
 <li>动态规划Dynamic Programming，通过把原问题分解成相对简单的子问题的方式来解决复杂问题。</li>
-<li>通常具有：<strong>重叠子问题</strong>和<strong>最优子结构性质</strong><ol>
-<li>重叠子问题：同一个子问题在被重复计算<ul>
+<li>通常具有：<strong>重叠子问题</strong>和<strong>最优子结构性质</strong>
+<ol>
+<li>重叠子问题：同一个子问题在被重复计算
+<ul>
 <li>例如：计算<code>f(n)</code>时会用到<code>f(1)</code>的计算结果，计算<code>f(n-1)</code>时还会用到<code>f(1)</code>的计算结果</li>
 </ul>
 </li>
-<li>最优子结构性质：可以从子问题的最优结果推出更大规模问题的最优结果<ul>
+<li>最优子结构性质：可以从子问题的最优结果推出更大规模问题的最优结果
+<ul>
 <li>例如：已知全校每个班的最高成绩，现在求全校的最高成绩，那么全校的最高成绩肯定是来自于每个班的最高成绩中</li>
 </ul>
 </li>
 </ol>
 </li>
-<li>换句话说<ul>
+<li>换句话说
+<ul>
 <li>对于给定的问题，我们将其拆分成一个一个小的子问题，然后一一解决这些子问题</li>
 <li>我们将这些子问题的结果保存下来，以减少重复计算</li>
 <li>然后根据子问题进行反推，得出原问题</li>
 </ul>
 </li>
 </ul>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
-<li>动态规划的核心思想就是<ul>
+<h3 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h3>
+<ul>
+<li>动态规划的核心思想就是
+<ul>
 <li><strong>拆分子问题，并且记录子问题的解</strong></li>
 </ul>
 </li>
-<li>具体的解题步骤如下：<ol>
+<li>具体的解题步骤如下：
+<ol>
 <li>首先用暴力枚举的方法找到解决这个问题的思路</li>
 <li>找规律，确定最优子结构</li>
 <li>确定边界条件</li>
@@ -280,18 +289,22 @@
 </ol>
 </li>
 </ul>
-<h4 id="暴力枚举"><a href="#暴力枚举" class="headerlink" title="暴力枚举"></a>暴力枚举</h4><ul>
+<h4 id="暴力枚举"><a class="markdownIt-Anchor" href="#暴力枚举"></a> 暴力枚举</h4>
+<ul>
 <li>首先针对一个问题，先用最朴素的暴力方法枚举出所有的情况，然后求出最后的解</li>
 </ul>
-<h4 id="确定最优子结构"><a href="#确定最优子结构" class="headerlink" title="确定最优子结构"></a>确定最优子结构</h4><ul>
+<h4 id="确定最优子结构"><a class="markdownIt-Anchor" href="#确定最优子结构"></a> 确定最优子结构</h4>
+<ul>
 <li>根据暴力枚举出来的所有情况，我们找到其中的规律</li>
 <li>看一看后面的解是如何通过前面的解得出的</li>
 </ul>
-<h4 id="确定边界条件"><a href="#确定边界条件" class="headerlink" title="确定边界条件"></a>确定边界条件</h4><ul>
+<h4 id="确定边界条件"><a class="markdownIt-Anchor" href="#确定边界条件"></a> 确定边界条件</h4>
+<ul>
 <li>根据前面找的的最优子结构的规律，这个规律肯定不适用于所有的情况</li>
 <li>一般初始条件都需要我们手动的确立</li>
 </ul>
-<h4 id="写出状态转移方程"><a href="#写出状态转移方程" class="headerlink" title="写出状态转移方程"></a>写出状态转移方程</h4><ul>
+<h4 id="写出状态转移方程"><a class="markdownIt-Anchor" href="#写出状态转移方程"></a> 写出状态转移方程</h4>
+<ul>
 <li>有了前面的最优子结构（规律）以及边界条件，我们就能写出状态转移方程</li>
 <li>这里的状态转移指的就是如何从一个子问题的解求出（转移到）另一个问题的解</li>
 </ul>
@@ -379,7 +392,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE"><span class="nav-number">1.2.1.</span> <span class="nav-text">暴力枚举</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%9C%80%E4%BC%98%E5%AD%90%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.2.</span> <span class="nav-text">确定最优子结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.2.3.</span> <span class="nav-text">确定边界条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%87%BA%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B"><span class="nav-number">1.2.4.</span> <span class="nav-text">写出状态转移方程</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text"> 动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text"> 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text"> 解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 暴力枚举</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%9C%80%E4%BC%98%E5%AD%90%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 确定最优子结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.2.3.</span> <span class="nav-text"> 确定边界条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%87%BA%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B"><span class="nav-number">1.2.4.</span> <span class="nav-text"> 写出状态转移方程</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -395,7 +408,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

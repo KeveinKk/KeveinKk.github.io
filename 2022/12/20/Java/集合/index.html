@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">76</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">77</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -249,19 +249,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+        <h1 id="集合"><a class="markdownIt-Anchor" href="#集合"></a> 集合</h1>
+<h2 id="概念"><a class="markdownIt-Anchor" href="#概念"></a> 概念</h2>
+<ul>
 <li>集合就是一个容器，可以用来容纳其它类型的数据</li>
-<li>作用<ul>
+<li>作用
+<ul>
 <li>集合作为一个载体，可以一次性容纳多个对象</li>
 </ul>
 </li>
-<li>集合中存储的是对象的<strong>引用</strong><ul>
+<li>集合中存储的是对象的<strong>引用</strong>
+<ul>
 <li>集合中不能存储基本数据类型</li>
 <li>集合中也不能直接存储对象</li>
 <li>集合本身也是一个对象，这也意味着，集合中可以存储集合的引用</li>
 </ul>
 </li>
-<li>每一个不同的集合在底层对应不同的<strong>数据结构</strong><ul>
+<li>每一个不同的集合在底层对应不同的<strong>数据结构</strong>
+<ul>
 <li>向不同的集合中增加元素等价于将数据放到了不同的数据结构中</li>
 <li>使用不同的集合等价于使用不同的数据结构</li>
 <li>根据不同的情况，选择不同的集合</li>
@@ -269,21 +274,26 @@
 </li>
 <li>所有的集合类以及集合接口都在<code>java.util</code>下</li>
 </ul>
-<h2 id="Collction的继承结构图"><a href="#Collction的继承结构图" class="headerlink" title="Collction的继承结构图"></a><code>Collction</code>的继承结构图</h2><ul>
-<li>Java中集合分为两大类<ol>
-<li>直接存储数据元素的方式<ul>
+<h2 id="collction的继承结构图"><a class="markdownIt-Anchor" href="#collction的继承结构图"></a> <code>Collction</code>的继承结构图</h2>
+<ul>
+<li>Java中集合分为两大类
+<ol>
+<li>直接存储数据元素的方式
+<ul>
 <li>其超级父类接口是<code>java.util.Collection</code></li>
 </ul>
 </li>
-<li>以键&#x2F;值对的方式存储数据<ul>
+<li>以键/值对的方式存储数据
+<ul>
 <li>其超级父类接口是<code>java.util.Map</code></li>
 </ul>
 </li>
 </ol>
 </li>
 </ul>
-<h3 id="public-interface-Iterable-lt-T-gt"><a href="#public-interface-Iterable-lt-T-gt" class="headerlink" title="public interface Iterable&lt;T&gt;"></a><code>public interface Iterable&lt;T&gt;</code></h3><blockquote>
-<p>Implementing this interface allows an object to be the target of the enhanced for statement (sometimes called the “for-each loop” statement).</p>
+<h3 id="public-interface-iterablet"><a class="markdownIt-Anchor" href="#public-interface-iterablet"></a> <code>public interface Iterable&lt;T&gt;</code></h3>
+<blockquote>
+<p>Implementing this interface allows an object to be the target of the enhanced for statement (sometimes called the &quot;for-each loop&quot; statement).</p>
 </blockquote>
 <ul>
 <li>表示可迭代、可遍历的接口</li>
@@ -291,9 +301,9 @@
 <li>接口中有如下方法：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用于返回一个迭代器来遍历集合中的元素</span></span><br><span class="line">Iterator&lt;T&gt; <span class="title function_">iterator</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="public-interface-Iterator-lt-E-gt"><a href="#public-interface-Iterator-lt-E-gt" class="headerlink" title="public interface Iterator&lt;E&gt;"></a><code>public interface Iterator&lt;E&gt;</code></h3><blockquote>
-<p>An iterator over a collection. Iterator takes the place of Enumeration in the Java Collections Framework. </p>
+<h3 id="public-interface-iteratore"><a class="markdownIt-Anchor" href="#public-interface-iteratore"></a> <code>public interface Iterator&lt;E&gt;</code></h3>
+<blockquote>
+<p>An iterator over a collection. Iterator takes the place of Enumeration in the Java Collections Framework.</p>
 </blockquote>
 <ul>
 <li>集合的迭代器对象</li>
@@ -301,9 +311,10 @@
 <li>接口中有以下三个方法来实现集合的遍历</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="title function_">hasNext</span><span class="params">()</span>;</span><br><span class="line">E <span class="title function_">next</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title function_">remove</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a><code>List</code>接口</h3><ul>
-<li>存储元素的特点<ul>
+<h3 id="list接口"><a class="markdownIt-Anchor" href="#list接口"></a> <code>List</code>接口</h3>
+<ul>
+<li>存储元素的特点
+<ul>
 <li>有序：存储时的顺序和取出时的顺序一致</li>
 <li>可重复：允许在List中存在重复元素</li>
 <li>存储的元素有下标：下标从0开始</li>
@@ -311,43 +322,54 @@
 </li>
 <li>分别有<code>ArrayList</code>、<code>LinkedList</code>、<code>Vector</code>三个类来实现这个接口</li>
 </ul>
-<h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><code>ArrayList</code></h4><ul>
+<h4 id="arraylist"><a class="markdownIt-Anchor" href="#arraylist"></a> <code>ArrayList</code></h4>
+<ul>
 <li>底层采用<strong>数组</strong>的数据结构</li>
 <li>非线程安全的</li>
 </ul>
-<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a><code>LinkedList</code></h4><ul>
+<h4 id="linkedlist"><a class="markdownIt-Anchor" href="#linkedlist"></a> <code>LinkedList</code></h4>
+<ul>
 <li>底层采用<strong>双向链表</strong>的数据结构</li>
 </ul>
-<h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a><code>Vector</code></h4><ul>
+<h4 id="vector"><a class="markdownIt-Anchor" href="#vector"></a> <code>Vector</code></h4>
+<ul>
 <li>底层采用<strong>数组</strong>的数据结构</li>
-<li>线程安全的<ul>
+<li>线程安全的
+<ul>
 <li>方法中关键字<code>synchronize</code>修饰</li>
 <li>效率较低，使用较少</li>
 </ul>
 </li>
 </ul>
-<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a><code>Set</code>接口</h3><ul>
-<li>存储元素的特点<ul>
+<h3 id="set接口"><a class="markdownIt-Anchor" href="#set接口"></a> <code>Set</code>接口</h3>
+<ul>
+<li>存储元素的特点
+<ul>
 <li>无序</li>
 <li>不可重复</li>
 <li>无下标</li>
 </ul>
 </li>
 </ul>
-<h3 id="继承结构图"><a href="#继承结构图" class="headerlink" title="继承结构图"></a>继承结构图</h3><p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99nmlsdu4j317a0m2tei.jpg"></p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ny5soe3j31n40om0z6.jpg"></p>
-<h2 id="Map的继承结构图"><a href="#Map的继承结构图" class="headerlink" title="Map的继承结构图"></a><code>Map</code>的继承结构图</h2><ul>
+<h3 id="继承结构图"><a class="markdownIt-Anchor" href="#继承结构图"></a> 继承结构图</h3>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99nmlsdu4j317a0m2tei.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ny5soe3j31n40om0z6.jpg" alt="" /></p>
+<h2 id="map的继承结构图"><a class="markdownIt-Anchor" href="#map的继承结构图"></a> <code>Map</code>的继承结构图</h2>
+<ul>
 <li><code>Map</code>集合与<code>Collection</code>集合无关</li>
-<li><code>Map</code>集合中以键值对的方式（<code>key</code>和<code>value</code>）存储元素<ul>
+<li><code>Map</code>集合中以键值对的方式（<code>key</code>和<code>value</code>）存储元素
+<ul>
 <li><code>key</code>和<code>value</code>存储的都是对象的引用</li>
 <li><code>key</code>是无序且不可重复的</li>
 </ul>
 </li>
 <li>分别有<code>HashMap</code>、<code>Hashtable</code>两个类来实现这个接口</li>
-<li>有一个子接口<code>SortedMap</code>，<code>TreeMap</code>实现这个子接口<ul>
+<li>有一个子接口<code>SortedMap</code>，<code>TreeMap</code>实现这个子接口
+<ul>
 <li><code>SortedMap</code>接口中的<code>key</code>同样是无序且不可重复的</li>
 <li>且集合<code>key</code>部分的元素会自动按照大小进行排序</li>
-<li>区分这里的<strong>排序</strong>和<code>List</code>集合中的<strong>有序</strong>的区别<ul>
+<li>区分这里的<strong>排序</strong>和<code>List</code>集合中的<strong>有序</strong>的区别
+<ul>
 <li>排序是指：从大到小进行排序</li>
 <li>有序是指：存的顺序和取的顺序一致</li>
 </ul>
@@ -355,25 +377,30 @@
 </ul>
 </li>
 </ul>
-<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a><code>HashMap</code></h3><ul>
+<h3 id="hashmap"><a class="markdownIt-Anchor" href="#hashmap"></a> <code>HashMap</code></h3>
+<ul>
 <li>底层采用<strong>哈希表</strong>的数据结构</li>
 <li>非线程安全的</li>
 </ul>
-<h3 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a><code>Hashtable</code></h3><ul>
+<h3 id="hashtable"><a class="markdownIt-Anchor" href="#hashtable"></a> <code>Hashtable</code></h3>
+<ul>
 <li>底层采用<strong>哈希表</strong>的数据结构</li>
-<li>线程安全的<ul>
+<li>线程安全的
+<ul>
 <li>效率较低，使用较少</li>
 </ul>
 </li>
-<li>有一个子类<code>Proprieties</code><ul>
+<li>有一个子类<code>Proprieties</code>
+<ul>
 <li><code>key</code>和<code>value</code>只支持<code>String</code>类型</li>
 </ul>
 </li>
 </ul>
-<h3 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a><code>TreeMap</code></h3><ul>
+<h3 id="treemap"><a class="markdownIt-Anchor" href="#treemap"></a> <code>TreeMap</code></h3>
+<ul>
 <li>底层采用<strong>二叉树</strong>的数据结构</li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ok7cakgj31lc0u0q9d.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ok7cakgj31lc0u0q9d.jpg" alt="" /></p>
 
     </div>
 
@@ -457,7 +484,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collction%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.2.</span> <span class="nav-text">Collction的继承结构图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-interface-Iterable-lt-T-gt"><span class="nav-number">1.2.1.</span> <span class="nav-text">public interface Iterable&lt;T&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-interface-Iterator-lt-E-gt"><span class="nav-number">1.2.2.</span> <span class="nav-text">public interface Iterator&lt;E&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.2.3.</span> <span class="nav-text">List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vector"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">Vector</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.2.4.</span> <span class="nav-text">Set接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.2.5.</span> <span class="nav-text">继承结构图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.3.</span> <span class="nav-text">Map的继承结构图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">1.3.1.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashtable"><span class="nav-number">1.3.2.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeMap"><span class="nav-number">1.3.3.</span> <span class="nav-text">TreeMap</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text"> 集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text"> 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collction%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.2.</span> <span class="nav-text"> Collction的继承结构图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-interface-iterablet"><span class="nav-number">1.2.1.</span> <span class="nav-text"> public interface Iterable&lt;T&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-interface-iteratore"><span class="nav-number">1.2.2.</span> <span class="nav-text"> public interface Iterator&lt;E&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.2.3.</span> <span class="nav-text"> List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#arraylist"><span class="nav-number">1.2.3.1.</span> <span class="nav-text"> ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linkedlist"><span class="nav-number">1.2.3.2.</span> <span class="nav-text"> LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vector"><span class="nav-number">1.2.3.3.</span> <span class="nav-text"> Vector</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.2.4.</span> <span class="nav-text"> Set接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.2.5.</span> <span class="nav-text"> 继承结构图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.3.</span> <span class="nav-text"> Map的继承结构图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hashmap"><span class="nav-number">1.3.1.</span> <span class="nav-text"> HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashtable"><span class="nav-number">1.3.2.</span> <span class="nav-text"> Hashtable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#treemap"><span class="nav-number">1.3.3.</span> <span class="nav-text"> TreeMap</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -473,7 +500,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
