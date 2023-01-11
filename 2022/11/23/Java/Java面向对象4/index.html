@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">78</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">79</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -249,43 +249,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="static"><a class="markdownIt-Anchor" href="#static"></a> static</h1>
-<h3 id="static-2"><a class="markdownIt-Anchor" href="#static-2"></a> static</h3>
-<ul>
+        <h1 id="static"><a href="#static" class="headerlink" title="static"></a>static</h1><h3 id="static-1"><a href="#static-1" class="headerlink" title="static"></a>static</h3><ul>
 <li>静态的</li>
 <li><code>static</code>可以用来修饰变量和方法，所修饰的变量称为静态变量，所修饰的方法称为静态方法</li>
 <li><code>static</code>所修饰的元素都是类级别的特征，与具体的对象无关</li>
 <li>直接通过<code>类名.</code>访问<code>static</code>所修饰内容</li>
-<li>静态变量/方法在类加载时就初始化了，<strong>内存在方法区中开辟</strong>，不需要通过创建对象来初始化</li>
+<li>静态变量&#x2F;方法在类加载时就初始化了，<strong>内存在方法区中开辟</strong>，不需要通过创建对象来初始化</li>
 </ul>
-<h3 id="成员变量的类型"><a class="markdownIt-Anchor" href="#成员变量的类型"></a> 成员变量的类型</h3>
-<ol>
-<li>实例变量
-<ul>
+<h3 id="成员变量的类型"><a href="#成员变量的类型" class="headerlink" title="成员变量的类型"></a>成员变量的类型</h3><ol>
+<li>实例变量<ul>
 <li>所有的对象都拥有的属性，但是这个属性随着对象的不同而不同</li>
 </ul>
 </li>
-<li>静态变量
-<ul>
+<li>静态变量<ul>
 <li>用<code>static</code>关键字声明的变量称为静态成员变量</li>
 <li>所有的对象同样拥有这个属性，但是所有对象的这个属性值都相同</li>
-<li>节省内存空间
-<ul>
+<li>节省内存空间<ul>
 <li>当所有的对象都拥有相同的属性值，如果在堆内存中给每个属性都开辟一块空间存储冗余的数据会造成空间浪费</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<h3 id="成员方法的类型"><a class="markdownIt-Anchor" href="#成员方法的类型"></a> 成员方法的类型</h3>
-<ol>
-<li>实例方法
-<ul>
+<h3 id="成员方法的类型"><a href="#成员方法的类型" class="headerlink" title="成员方法的类型"></a>成员方法的类型</h3><ol>
+<li>实例方法<ul>
 <li>方法描述的是动作，每个对象执行实例动作后产生的结果不同</li>
 </ul>
 </li>
-<li>静态方法
-<ul>
+<li>静态方法<ul>
 <li>一个类中所有的对象执行静态方法后产生的结果都相同</li>
 <li>静态方法的动作不属于对象，而是可以提升至类这个级别</li>
 <li>静态方法中无法直接访问实例变量以及实例方法</li>
@@ -294,53 +285,52 @@
 <li>绝大部分动作都定义为实例方法，因为大部分动作的执行都需要对象的参与</li>
 <li>大部分工具类的方法都可以被定义为静态方法，为了方便编程，大部分工具类的方法都不需要对象的参与</li>
 </ol>
-<h3 id="static的访问"><a class="markdownIt-Anchor" href="#static的访问"></a> static的访问</h3>
-<ul>
-<li>
-<p>静态变量可以通过<code>类名.静态变量名</code>来直接访问</p>
+<h3 id="static的访问"><a href="#static的访问" class="headerlink" title="static的访问"></a>static的访问</h3><ul>
+<li><p>静态变量可以通过<code>类名.静态变量名</code>来直接访问</p>
 <ul>
 <li>所有的静态数据既可以通过类名的方式访问，也可以通过引用的方式访问</li>
 <li>当通过引用来访问时，即使这个引用指向null，也不会出现空指针异常的情况</li>
 <li>因为本质上是通过这个引用所在的类来访问静态的数据，不需要引用的存在！</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Chinese</span> &#123;</span><br><span class="line">    <span class="type">int</span> ID;<span class="comment">//实例变量</span></span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">String</span> <span class="variable">country</span> <span class="operator">=</span> <span class="string">&quot;China&quot;</span>;<span class="comment">//静态变量</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//静态变量无需在创建对象时就初始化</span></span><br><span class="line">        <span class="type">Chinese</span> <span class="variable">people1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Chinese</span>(<span class="number">1</span>,<span class="string">&quot;张三&quot;</span>);</span><br><span class="line">        <span class="type">Chinese</span> <span class="variable">people2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Chinese</span>(<span class="number">2</span>,<span class="string">&quot;李四&quot;</span>);</span><br><span class="line">        <span class="type">Chinese</span> <span class="variable">people3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Chinese</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//静态变量通过类名直接访问</span></span><br><span class="line">        System.out.println(people1.ID + <span class="string">&quot; &quot;</span> + people1.name + <span class="string">&quot; &quot;</span> + Chinese.country);</span><br><span class="line">        <span class="comment">//静态变量也可以通过对象访问，但是编译器会警告</span></span><br><span class="line">        System.out.println(people2.ID + <span class="string">&quot; &quot;</span> + people2.name + <span class="string">&quot; &quot;</span> + people2.country);</span><br><span class="line">        <span class="comment">//即使是一个空对象，他的静态变量也会被初始化</span></span><br><span class="line">        System.out.println(people3.ID + <span class="string">&quot; &quot;</span> + people3.name + <span class="string">&quot; &quot;</span> + people3.country);</span><br><span class="line">        <span class="comment">//即使是一个指向空的引用，也能正常访问其静态变量</span></span><br><span class="line">        <span class="comment">//也就是说，静态变量和对象没有任何关系，只和类有关系</span></span><br><span class="line">        people3 = <span class="literal">null</span>;</span><br><span class="line">        System.out.println(people3.country);</span><br><span class="line">        <span class="comment">//但是访问people.ID会出现空指针异常</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83arj3rk4j30vq0gw3zi.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83arj3rk4j30vq0gw3zi.jpg"></p>
 </li>
 </ul>
-<h3 id="静态代码块"><a class="markdownIt-Anchor" href="#静态代码块"></a> 静态代码块</h3>
-<ul>
+<h3 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h3><ul>
 <li>语法格式</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">	Java语句;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>静态代码块在类加载时执行，并且只执行一次</li>
 <li>静态代码块在类中可以编写多个，遵循自上而下依次执行</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StaticCode</span> &#123;</span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;静态代码块1的执行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;静态代码块2的执行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;main begin&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83bcjet5gj30um0eujsg.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83bcjet5gj30um0eujsg.jpg"></p>
 <ul>
-<li>
-<p>静态代码块在加载<code>StaticCode</code>时就执行了，比主函数执行的还要提前</p>
+<li><p>静态代码块在加载<code>StaticCode</code>时就执行了，比主函数执行的还要提前</p>
 </li>
-<li>
-<p><strong>静态代码块的作用</strong></p>
+<li><p><strong>静态代码块的作用</strong></p>
 <ol>
 <li>静态代码块可以用来<u>记录类加载时刻</u>，可以在类加载时刻执行一些特定的动作</li>
 <li>可以在静态代码块中记录日志、完成初始化工作以及一些准备工作</li>
 </ol>
 </li>
 </ul>
-<h3 id="实例代码块"><a class="markdownIt-Anchor" href="#实例代码块"></a> 实例代码块</h3>
-<ul>
+<h3 id="实例代码块"><a href="#实例代码块" class="headerlink" title="实例代码块"></a>实例代码块</h3><ul>
 <li>语法格式</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	Java语句；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>实例代码块可以编写多个，遵循自上而下的顺序依次执行</li>
 <li>实例代码块在构造函数之前执行，构造函数执行一次实例代码块就执行一次</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">InstanceCode</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">InstanceCode</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;构造函数执行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;实例块1&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;实例块2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">InstanceCode</span> <span class="variable">ins1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InstanceCode</span>();</span><br><span class="line">        System.out.println(<span class="string">&quot;主函数执行&quot;</span>);</span><br><span class="line">        <span class="type">InstanceCode</span> <span class="variable">ins2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InstanceCode</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83bjdcoxaj30ua0leabf.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83bjdcoxaj30ua0leabf.jpg"></p>
 <ul>
 <li>实例代码块的作用：实例代码块可以用来记录对象初始化时刻</li>
 </ul>
@@ -427,7 +417,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#static"><span class="nav-number">1.</span> <span class="nav-text"> static</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-2"><span class="nav-number">1.0.1.</span> <span class="nav-text"> static</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 成员变量的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 成员方法的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="nav-number">1.0.4.</span> <span class="nav-text"> static的访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 静态代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">1.0.6.</span> <span class="nav-text"> 实例代码块</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#static"><span class="nav-number">1.</span> <span class="nav-text">static</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-1"><span class="nav-number">1.0.1.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.0.2.</span> <span class="nav-text">成员变量的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.0.3.</span> <span class="nav-text">成员方法的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="nav-number">1.0.4.</span> <span class="nav-text">static的访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">1.0.5.</span> <span class="nav-text">静态代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">1.0.6.</span> <span class="nav-text">实例代码块</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -443,7 +433,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

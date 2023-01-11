@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">78</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">79</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -251,68 +251,56 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="treemap集合"><a class="markdownIt-Anchor" href="#treemap集合"></a> TreeMap集合</h1>
-<h2 id="treemap的存储"><a class="markdownIt-Anchor" href="#treemap的存储"></a> TreeMap的存储</h2>
-<ul>
+        <h1 id="TreeMap集合"><a href="#TreeMap集合" class="headerlink" title="TreeMap集合"></a>TreeMap集合</h1><h2 id="TreeMap的存储"><a href="#TreeMap的存储" class="headerlink" title="TreeMap的存储"></a>TreeMap的存储</h2><ul>
 <li><code>TreeMap</code>是实现了<code>Map</code>接口下的<code>SortedMap</code>接口</li>
-<li><code>TreeMap</code>集合中元素的存储特点
-<ul>
+<li><code>TreeMap</code>集合中元素的存储特点<ul>
 <li>无序不可重复</li>
 <li>集合<code>key</code>部分的元素会自动按照从大到小的顺序排序</li>
 </ul>
 </li>
 <li><code>TreeMap</code>集合底层是一个二叉树</li>
-<li>放到<code>TreeSet</code>集合中的元素等同于放到<code>TreeMap</code>集合的<code>key</code>部分
-<ul>
+<li>放到<code>TreeSet</code>集合中的元素等同于放到<code>TreeMap</code>集合的<code>key</code>部分<ul>
 <li>那么直接按照集合中的元素进行排序</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    TreeSet&lt;String&gt; treeSet = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;();</span><br><span class="line">    <span class="comment">//乱序插入</span></span><br><span class="line">    treeSet.add(<span class="string">&quot;444&quot;</span>);treeSet.add(<span class="string">&quot;111&quot;</span>);</span><br><span class="line">  	treeSet.add(<span class="string">&quot;333&quot;</span>);treeSet.add(<span class="string">&quot;222&quot;</span>);</span><br><span class="line">  </span><br><span class="line">    Iterator&lt;String&gt; iterator = treeSet.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">      <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> iterator.next();</span><br><span class="line">      System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9fuqqnv18j30fs08wq36.jpg" alt="" /></p>
-<h2 id="自平衡二叉树"><a class="markdownIt-Anchor" href="#自平衡二叉树"></a> 自平衡二叉树</h2>
-<ul>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9fuqqnv18j30fs08wq36.jpg"></p>
+<h2 id="自平衡二叉树"><a href="#自平衡二叉树" class="headerlink" title="自平衡二叉树"></a>自平衡二叉树</h2><ul>
 <li>遵循左孩子&lt;根节点&lt;右孩子</li>
-<li><code>TreeSet</code>和<code>Treemap</code>集合采用的是中序遍历
-<ul>
+<li><code>TreeSet</code>和<code>Treemap</code>集合采用的是中序遍历<ul>
 <li>左孩子-&gt;根节点-&gt;右孩子</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Entry&lt;K,V&gt; <span class="title function_">getEntry</span><span class="params">(Object key)</span> &#123;</span><br><span class="line">  	 <span class="comment">//如果有比较器，则通过比较器来实现比较</span></span><br><span class="line">    <span class="keyword">if</span> (comparator != <span class="literal">null</span>)</span><br><span class="line">    		<span class="keyword">return</span> getEntryUsingComparator(key);</span><br><span class="line">    <span class="keyword">if</span> (key == <span class="literal">null</span>)</span><br><span class="line">    		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">    <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">  	 <span class="comment">//否则通过该类所实现的Comparable接口来比较</span></span><br><span class="line">  	 Comparable&lt;? <span class="built_in">super</span> K&gt; k = (Comparable&lt;? <span class="built_in">super</span> K&gt;) key;</span><br><span class="line">    Entry&lt;K,V&gt; p = root;<span class="comment">//从根结点开始向下寻找</span></span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="type">int</span> <span class="variable">cmp</span> <span class="operator">=</span> k.compareTo(p.key);</span><br><span class="line">      <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>)<span class="comment">//小于根节点，则寻找左孩子</span></span><br><span class="line">      		p = p.left;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (cmp &gt; <span class="number">0</span>)<span class="comment">//大于根结点，则寻找右孩子</span></span><br><span class="line">     	 	p = p.right;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">      		<span class="keyword">return</span> p;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>因此我们得到，实现<code>TreeMap</code>或者<code>TreeSet</code>集合中比较功能有<u>两种方法</u>
-<ol>
-<li>该类实现<code>Comparable</code>接口
-<ul>
+<li>因此我们得到，实现<code>TreeMap</code>或者<code>TreeSet</code>集合中比较功能有<u>两种方法</u><ol>
+<li>该类实现<code>Comparable</code>接口<ul>
 <li>一个类只能实现一次<code>Comparable</code>接口，其比较规则不能再改变</li>
 </ul>
 </li>
-<li>重写编写一个<code>Comparator</code>类实现比较器
-<ul>
+<li>重写编写一个<code>Comparator</code>类实现比较器<ul>
 <li>可以编写多个规则的多个比较器的类，使用不同的比较规则就可以传不同的比较器到集合中</li>
 </ul>
 </li>
 </ol>
 </li>
 </ul>
-<h2 id="comparable接口"><a class="markdownIt-Anchor" href="#comparable接口"></a> Comparable接口</h2>
-<h3 id="comparable接口的实现"><a class="markdownIt-Anchor" href="#comparable接口的实现"></a> <code>Comparable</code>接口的实现</h3>
-<ul>
-<li>
-<p><u>放在<code>TreeMap</code>或者<code>TreeSet</code>集合中的元素需要实现<code>java.lang.Comparable</code>接口</u></p>
+<h2 id="Comparable接口"><a href="#Comparable接口" class="headerlink" title="Comparable接口"></a>Comparable接口</h2><h3 id="Comparable接口的实现"><a href="#Comparable接口的实现" class="headerlink" title="Comparable接口的实现"></a><code>Comparable</code>接口的实现</h3><ul>
+<li><p><u>放在<code>TreeMap</code>或者<code>TreeSet</code>集合中的元素需要实现<code>java.lang.Comparable</code>接口</u></p>
 <ul>
 <li>这两个集合通过<code>Comparable</code>接口中<code>compareTo()</code>方法进行排序</li>
 </ul>
 </li>
-<li>
-<p>设计类如果没有实现<code>Comparable</code>接口</p>
+<li><p>设计类如果没有实现<code>Comparable</code>接口</p>
 <ul>
 <li>会抛出<code>ClassCastException</code>异常</li>
 </ul>
 </li>
-<li>
-<p>直接让设计的类实现（<code>implements</code>）<code>Comparable</code>接口即可</p>
+<li><p>直接让设计的类实现（<code>implements</code>）<code>Comparable</code>接口即可</p>
 <ul>
 <li>然后在类中重写<code>compareTo()</code>方法</li>
 <li>在实现接口时可以使用泛型，避免之后在重写方法时还需要向下转型</li>
@@ -320,16 +308,17 @@
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">()</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">(<span class="type">int</span> age, String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="number">10</span>,<span class="string">&quot;aaa&quot;</span>);<span class="type">User</span> <span class="variable">user2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="number">50</span>,<span class="string">&quot;bbb&quot;</span>);</span><br><span class="line">        <span class="type">User</span> <span class="variable">user3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="number">20</span>,<span class="string">&quot;ccc&quot;</span>);<span class="type">User</span> <span class="variable">user4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="number">30</span>,<span class="string">&quot;ddd&quot;</span>);</span><br><span class="line"></span><br><span class="line">        TreeSet&lt;User&gt; treeSet = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;();</span><br><span class="line">        treeSet.add(user1);treeSet.add(user2);</span><br><span class="line">        treeSet.add(user3);treeSet.add(user4);</span><br><span class="line"></span><br><span class="line">        test1(treeSet);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">(TreeSet&lt;User&gt; treeSet)</span>&#123;</span><br><span class="line">        Iterator&lt;User&gt; iterator = treeSet.iterator();</span><br><span class="line">        <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">            <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> iterator.next();</span><br><span class="line">            System.out.println(user);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>实现<code>Comparable</code>接口</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;User&gt;&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">()</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">(<span class="type">int</span> age, String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name + <span class="string">&quot;的年龄是&quot;</span> + age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(User o)</span> &#123;</span><br><span class="line">      	<span class="comment">//按照年龄升序排列</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.age - o.age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9fvsngmwlj30fy07u3yv.jpg" alt="" /></p>
-<h3 id="comparable比较规则"><a class="markdownIt-Anchor" href="#comparable比较规则"></a> <code>Comparable</code>比较规则</h3>
-<ul>
-<li>
-<p><code>compareTo()</code>方法</p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9fvsngmwlj30fy07u3yv.jpg"></p>
+<h3 id="Comparable比较规则"><a href="#Comparable比较规则" class="headerlink" title="Comparable比较规则"></a><code>Comparable</code>比较规则</h3><ul>
+<li><p><code>compareTo()</code>方法</p>
 <ul>
 <li><code>obj1.compareTo(Object obj2)</code></li>
 <li>当<code>obj1</code>的某个属性值<u>大于</u><code>obj2</code>的属性值时，返回正数</li>
@@ -337,80 +326,67 @@
 <li>当<code>obj1</code>的某个属性值<u>小于</u><code>obj2</code>的属性值时，返回负数</li>
 </ul>
 </li>
-<li>
-<p><code>this-obj</code>就是升序，<code>obj-this</code>就是降序</p>
+<li><p><code>this-obj</code>就是升序，<code>obj-this</code>就是降序</p>
 </li>
-<li>
-<p>更复杂的</p>
+<li><p>更复杂的</p>
 <ul>
 <li>按照年龄降序排列，年龄相同的按照姓名升序排列</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="comment">//由于在声明实现接口时已经使用了泛型，所以方法的形参直接是User</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(User o)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.age == o.age)&#123;</span><br><span class="line">      	<span class="comment">//String类已经实现了compareTo()方法，直接调用即可</span></span><br><span class="line">    		<span class="keyword">return</span> <span class="built_in">this</span>.name.compareTo(o.name);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      	<span class="comment">//降序排序</span></span><br><span class="line">    		<span class="keyword">return</span> o.age - <span class="built_in">this</span>.age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9fwhoa1v1j30fy08bglz.jpg" alt="" /></p>
-<h2 id="comparator比较器"><a class="markdownIt-Anchor" href="#comparator比较器"></a> Comparator比较器</h2>
-<ul>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9fwhoa1v1j30fy08bglz.jpg"></p>
+<h2 id="Comparator比较器"><a href="#Comparator比较器" class="headerlink" title="Comparator比较器"></a>Comparator比较器</h2><ul>
 <li>实现<code>TreeSet</code>和<code>TreeMap</code>中比较的第二种方法：单独实现比较器</li>
 <li>比较器实现的是<code>java.util.Comparator</code>，比较接口<code>Comparable</code>是<code>java.lang</code>包下的</li>
-<li>当比较规则比较多变时，可以编写多个比较器
-<ul>
+<li>当比较规则比较多变时，可以编写多个比较器<ul>
 <li>需要哪种比较规则时，就将某一种比较器作为参数传入到集合中</li>
 </ul>
 </li>
 </ul>
-<h3 id="treeset的构造方法"><a class="markdownIt-Anchor" href="#treeset的构造方法"></a> <code>TreeSet</code>的构造方法</h3>
-<h4 id="public-treeset"><a class="markdownIt-Anchor" href="#public-treeset"></a> <code>public TreeSet()</code></h4>
-<ul>
+<h3 id="TreeSet的构造方法"><a href="#TreeSet的构造方法" class="headerlink" title="TreeSet的构造方法"></a><code>TreeSet</code>的构造方法</h3><h4 id="public-TreeSet"><a href="#public-TreeSet" class="headerlink" title="public TreeSet()"></a><code>public TreeSet()</code></h4><ul>
 <li>有无参的构造方法</li>
 </ul>
-<h4 id="public-treesetcomparator-super-e-comparator"><a class="markdownIt-Anchor" href="#public-treesetcomparator-super-e-comparator"></a> <code>public TreeSet(Comparator&lt;? super E&gt; comparator)</code></h4>
-<ul>
-<li>有有参的构造方法
-<ul>
+<h4 id="public-TreeSet-Comparator-lt-super-E-gt-comparator"><a href="#public-TreeSet-Comparator-lt-super-E-gt-comparator" class="headerlink" title="public TreeSet(Comparator&lt;? super E&gt; comparator)"></a><code>public TreeSet(Comparator&lt;? super E&gt; comparator)</code></h4><ul>
+<li>有有参的构造方法<ul>
 <li>参数需要一个比较器</li>
 </ul>
 </li>
-<li>比较器<code>Comparator</code><u>是一个单独的类</u>
-<ul>
+<li>比较器<code>Comparator</code><u>是一个单独的类</u><ul>
 <li>而不是类似实现<code>Comparable</code>接口时，只需要原本的类实现该接口即可</li>
 </ul>
 </li>
 </ul>
-<h3 id="comparator比较器的实现"><a class="markdownIt-Anchor" href="#comparator比较器的实现"></a> <code>Comparator</code>比较器的实现</h3>
-<ul>
-<li>单独编写一个比较器的类来实现<code>Comparator</code>接口
-<ul>
+<h3 id="Comparator比较器的实现"><a href="#Comparator比较器的实现" class="headerlink" title="Comparator比较器的实现"></a><code>Comparator</code>比较器的实现</h3><ul>
+<li>单独编写一个比较器的类来实现<code>Comparator</code>接口<ul>
 <li>这个比较器是专门针对需要比较的类（即存储于<code>TreeMap</code>或者<code>TreeSet</code>中的元素)来实现的</li>
 <li>并不能在多个类之间通用</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Animal</span><span class="params">(<span class="type">int</span> age, String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;动物的名字是 &quot;</span> + name + <span class="string">&quot; 年龄是 &quot;</span> + age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//单独编写一个比较器类，实现比较器的接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AnimalComparator</span> <span class="keyword">implements</span> <span class="title class_">Comparator</span>&lt;Animal&gt; &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Animal o1, Animal o2)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (o1.age == o2.age) <span class="keyword">return</span> o1.name.compareTo(o2.name);</span><br><span class="line">        <span class="keyword">return</span> o1.age- o2.age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>(<span class="number">50</span>,<span class="string">&quot;111&quot;</span>);<span class="type">Animal</span> <span class="variable">animal2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>(<span class="number">20</span>,<span class="string">&quot;222&quot;</span>);</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>(<span class="number">40</span>,<span class="string">&quot;333&quot;</span>);<span class="type">Animal</span> <span class="variable">animal4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>(<span class="number">40</span>,<span class="string">&quot;444&quot;</span>);</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>(<span class="number">50</span>,<span class="string">&quot;555&quot;</span>);</span><br><span class="line">				</span><br><span class="line">      	<span class="comment">//在声明集合时，就需要用构造器的有参构造方法来申请集合</span></span><br><span class="line">        TreeSet&lt;Animal&gt; treeSet = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">AnimalComparator</span>());</span><br><span class="line">        treeSet.add(animal1);treeSet.add(animal2);</span><br><span class="line">        treeSet.add(animal3);treeSet.add(animal4);</span><br><span class="line">        treeSet.add(animal5);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Animal animal: treeSet)&#123;</span><br><span class="line">            System.out.println(animal);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9fy1rvzcfj30ft07jaaj.jpg" alt="" /></p>
-<h3 id="comparator比较器的匿名类实现"><a class="markdownIt-Anchor" href="#comparator比较器的匿名类实现"></a> Comparator比较器的匿名类实现</h3>
-<ul>
-<li>直接通过匿名类的方式来创造一个比较器
-<ul>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9fy1rvzcfj30ft07jaaj.jpg"></p>
+<h3 id="Comparator比较器的匿名类实现"><a href="#Comparator比较器的匿名类实现" class="headerlink" title="Comparator比较器的匿名类实现"></a>Comparator比较器的匿名类实现</h3><ul>
+<li>直接通过匿名类的方式来创造一个比较器<ul>
 <li>一个比较器只用于一个类的比较，没有必要做到复用</li>
 </ul>
 </li>
-<li>匿名类不需要<code>implements</code>关键字
-<ul>
+<li>匿名类不需要<code>implements</code>关键字<ul>
 <li>在匿名类中直接重写<code>compare()</code>方法</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TreeSet&lt;Animal&gt; set = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Animal&gt;() &#123;</span><br><span class="line">  	<span class="comment">//大括号中是对这个匿名类的实现</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Animal o1, Animal o2)</span> &#123;</span><br><span class="line">    		<span class="keyword">return</span> o1.age - o2.age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="collections工具类常用方法"><a class="markdownIt-Anchor" href="#collections工具类常用方法"></a> Collections工具类常用方法</h2>
-<h3 id="public-static-t-extends-comparable-super-t-void-sortlistt-list"><a class="markdownIt-Anchor" href="#public-static-t-extends-comparable-super-t-void-sortlistt-list"></a> <code>public static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list)</code></h3>
-<blockquote>
+
+<h2 id="Collections工具类常用方法"><a href="#Collections工具类常用方法" class="headerlink" title="Collections工具类常用方法"></a>Collections工具类常用方法</h2><h3 id="public-static-lt-T-extends-Comparable-lt-super-T-gt-gt-void-sort-List-lt-T-gt-list"><a href="#public-static-lt-T-extends-Comparable-lt-super-T-gt-gt-void-sort-List-lt-T-gt-list" class="headerlink" title="public static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list)"></a><code>public static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list)</code></h3><blockquote>
 <p>Sorts the specified list into ascending order, according to the natural ordering of its elements. All elements in the list must implement the <code>Comparable</code> interface. Furthermore, all elements in the list must be <em>mutually comparable</em> (that is, <code>e1.compareTo(e2)</code>must not throw a <code>ClassCastException</code> for any elements <code>e1</code> and <code>e2</code> in the list).</p>
 </blockquote>
 <ul>
-<li>用于对集合中的元素进行排序
-<ul>
+<li>用于对集合中的元素进行排序<ul>
 <li>待排序的元素需要实现 <code>Comparable</code>接口</li>
 </ul>
 </li>
@@ -418,11 +394,16 @@
 <li>类似的，也可以通过参数的方式传入一个比较器用于比较</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;Dog&gt;&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Dog</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;小狗的名字是 &quot;</span> + name + <span class="string">&quot;年龄是 &quot;</span> + age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Dog o)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.age == o.age) <span class="keyword">return</span> <span class="built_in">this</span>.name.compareTo(o.name);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.age - o.age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        List&lt;Dog&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        list.add(<span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="string">&quot;aaa&quot;</span>,<span class="number">10</span>));list.add(<span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="string">&quot;bbb&quot;</span>,<span class="number">35</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="string">&quot;ccc&quot;</span>,<span class="number">25</span>));list.add(<span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="string">&quot;ddd&quot;</span>,<span class="number">10</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="string">&quot;eee&quot;</span>,<span class="number">15</span>));</span><br><span class="line">				<span class="comment">//调用Collections工具类的静态方法</span></span><br><span class="line">        Collections.sort(list);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Dog dog: list)&#123;</span><br><span class="line">            System.out.println(dog);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9fzpgb7hhj30fs08q3z2.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9fzpgb7hhj30fs08q3z2.jpg"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Cat</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;小猫的名字是 &quot;</span> + name + <span class="string">&quot; 年龄是 &quot;</span> + age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CatComparator</span> <span class="keyword">implements</span> <span class="title class_">Comparator</span>&lt;Cat&gt;&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Cat o1, Cat o2)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> o1.age - o2.age;<span class="comment">//按照年龄升序排序</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        List&lt;Cat&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">      	<span class="comment">//随机产生10个元素</span></span><br><span class="line">        <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">while</span> (num &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">randomNum</span> <span class="operator">=</span> random.nextInt(num);</span><br><span class="line">            <span class="type">String</span> <span class="variable">randomName</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(String.valueOf(random.nextInt(num)));</span><br><span class="line">            list.add(<span class="keyword">new</span> <span class="title class_">Cat</span>(randomName,randomNum));</span><br><span class="line">            num --;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Collections.sort(list, <span class="keyword">new</span> <span class="title class_">CatComparator</span>());</span><br><span class="line">        <span class="keyword">for</span> (Cat cat: list)&#123;</span><br><span class="line">            System.out.println(cat);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -506,7 +487,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#treemap%E9%9B%86%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text"> TreeMap集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#treemap%E7%9A%84%E5%AD%98%E5%82%A8"><span class="nav-number">1.1.</span> <span class="nav-text"> TreeMap的存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.2.</span> <span class="nav-text"> 自平衡二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comparable%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.3.</span> <span class="nav-text"> Comparable接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#comparable%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text"> Comparable接口的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comparable%E6%AF%94%E8%BE%83%E8%A7%84%E5%88%99"><span class="nav-number">1.3.2.</span> <span class="nav-text"> Comparable比较规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comparator%E6%AF%94%E8%BE%83%E5%99%A8"><span class="nav-number">1.4.</span> <span class="nav-text"> Comparator比较器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#treeset%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.1.</span> <span class="nav-text"> TreeSet的构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#public-treeset"><span class="nav-number">1.4.1.1.</span> <span class="nav-text"> public TreeSet()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#public-treesetcomparator-super-e-comparator"><span class="nav-number">1.4.1.2.</span> <span class="nav-text"> public TreeSet(Comparator&lt;? super E&gt; comparator)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comparator%E6%AF%94%E8%BE%83%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.2.</span> <span class="nav-text"> Comparator比较器的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comparator%E6%AF%94%E8%BE%83%E5%99%A8%E7%9A%84%E5%8C%BF%E5%90%8D%E7%B1%BB%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.3.</span> <span class="nav-text"> Comparator比较器的匿名类实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collections%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text"> Collections工具类常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-static-t-extends-comparable-super-t-void-sortlistt-list"><span class="nav-number">1.5.1.</span> <span class="nav-text"> public static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list)</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeMap%E9%9B%86%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">TreeMap集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap%E7%9A%84%E5%AD%98%E5%82%A8"><span class="nav-number">1.1.</span> <span class="nav-text">TreeMap的存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.2.</span> <span class="nav-text">自平衡二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparable%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.3.</span> <span class="nav-text">Comparable接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparable%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">Comparable接口的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparable%E6%AF%94%E8%BE%83%E8%A7%84%E5%88%99"><span class="nav-number">1.3.2.</span> <span class="nav-text">Comparable比较规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparator%E6%AF%94%E8%BE%83%E5%99%A8"><span class="nav-number">1.4.</span> <span class="nav-text">Comparator比较器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeSet%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.1.</span> <span class="nav-text">TreeSet的构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#public-TreeSet"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">public TreeSet()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#public-TreeSet-Comparator-lt-super-E-gt-comparator"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">public TreeSet(Comparator&lt;? super E&gt; comparator)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparator%E6%AF%94%E8%BE%83%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.2.</span> <span class="nav-text">Comparator比较器的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparator%E6%AF%94%E8%BE%83%E5%99%A8%E7%9A%84%E5%8C%BF%E5%90%8D%E7%B1%BB%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.3.</span> <span class="nav-text">Comparator比较器的匿名类实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collections%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">Collections工具类常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-static-lt-T-extends-Comparable-lt-super-T-gt-gt-void-sort-List-lt-T-gt-list"><span class="nav-number">1.5.1.</span> <span class="nav-text">public static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -522,7 +503,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

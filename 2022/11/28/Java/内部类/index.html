@@ -141,7 +141,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">78</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">79</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -247,50 +247,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="内部类"><a class="markdownIt-Anchor" href="#内部类"></a> 内部类</h1>
-<h2 id="内部类-2"><a class="markdownIt-Anchor" href="#内部类-2"></a> 内部类</h2>
-<ul>
-<li>
-<p>在类的内部又定义类一个新的类，称为内部类</p>
+        <h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><h2 id="内部类-1"><a href="#内部类-1" class="headerlink" title="内部类"></a>内部类</h2><ul>
+<li><p>在类的内部又定义类一个新的类，称为内部类</p>
 </li>
-<li>
-<p>编译后生成<code>$Inner.class文</code>件</p>
+<li><p>编译后生成<code>$Inner.class文</code>件</p>
 </li>
-<li>
-<p>内部类的分类</p>
+<li><p>内部类的分类</p>
 <ol>
 <li>静态内部类：由<code>static</code>修饰</li>
 <li>实例内部类：没有<code>static</code>修饰，需要先创建一个外部类的对象才能访问</li>
 <li>局部内部类：在方法体中定义的类，只能在该方法体中访问</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="comment">//在类里面定义的类</span></span><br><span class="line">  	<span class="comment">//编译后生成$Inner文件</span></span><br><span class="line">    <span class="comment">//由关键字static修饰，称为静态内部类</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Inner1</span>&#123;&#125;</span><br><span class="line">    <span class="comment">//没有static修饰，称为实例内部类</span></span><br><span class="line">    <span class="comment">//new Test1().new Inner2()</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Inner2</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//在方法体中，称为局部内部类</span></span><br><span class="line">        <span class="comment">//只能在该方法中访问</span></span><br><span class="line">        <span class="keyword">class</span> <span class="title class_">Inner3</span>&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8kkk9cly1j30dk0fq3yw.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8kkk9cly1j30dk0fq3yw.jpg"></p>
 </li>
-<li>
-<p>使用内部类编写的代码可读性很差</p>
+<li><p>使用内部类编写的代码可读性很差</p>
 </li>
 </ul>
-<h2 id="匿名类"><a class="markdownIt-Anchor" href="#匿名类"></a> 匿名类</h2>
-<ul>
-<li>
-<p>局部内部类的一种，由于这个类没有名字而得名</p>
+<h2 id="匿名类"><a href="#匿名类" class="headerlink" title="匿名类"></a>匿名类</h2><ul>
+<li><p>局部内部类的一种，由于这个类没有名字而得名</p>
 </li>
-<li>
-<p><strong>接口作为方法的形参时</strong></p>
+<li><p><strong>接口作为方法的形参时</strong></p>
 <ul>
 <li>不采用匿名类技术</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyMath</span> <span class="variable">math</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyMath</span>();</span><br><span class="line">        <span class="comment">//无法直接创建一个Compute的实例当作实参传入myMath()</span></span><br><span class="line">        <span class="comment">//接口无法实例化对象</span></span><br><span class="line">        <span class="comment">//math.myMath(new Compute(),10,20);</span></span><br><span class="line">        <span class="comment">//我们需要编写一个类来实现接口</span></span><br><span class="line">        <span class="comment">//将这个类实例化一个对象当作实参传入方法的形参列表</span></span><br><span class="line">        math.myMath(<span class="keyword">new</span> <span class="title class_">ComputeImp</span>(),<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Compute</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实现接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ComputeImp</span> <span class="keyword">implements</span> <span class="title class_">Compute</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyMath</span>&#123;</span><br><span class="line">    <span class="comment">//传入的参数是一个接口</span></span><br><span class="line">    <span class="comment">//将接口看成一个引用数据类型即可</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">myMath</span><span class="params">(Compute c, <span class="type">int</span> a, <span class="type">int</span> b)</span>&#123;</span><br><span class="line">        <span class="comment">//Compute c = new ComputeImp()</span></span><br><span class="line">        <span class="comment">//父类型引用指向子类型对象</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> c.sum(a,b);</span><br><span class="line">        System.out.println(a + <span class="string">&quot; + &quot;</span> + b + <span class="string">&quot; = &quot;</span> + res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>采用匿名类技术</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyMath</span> <span class="variable">math</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyMath</span>();</span><br><span class="line">        <span class="comment">//匿名类，即ComputeImp这个类没有名字</span></span><br><span class="line">        <span class="comment">//不需要单独写一个类去实现接口</span></span><br><span class="line">        <span class="comment">//在形式上似乎可以直接new一个接口</span></span><br><span class="line">        <span class="comment">//但其实在后面的&#123;&#125;中是对接口的实现</span></span><br><span class="line">        math.myMath(<span class="keyword">new</span> <span class="title class_">Compute</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">                 <span class="keyword">return</span> a + b;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>匿名类由于没有名字，<strong>无法重复使用</strong></p>
+<li><p>匿名类由于没有名字，<strong>无法重复使用</strong></p>
 </li>
-<li>
-<p>代码太乱，<strong>可读性太差</strong></p>
+<li><p>代码太乱，<strong>可读性太差</strong></p>
 </li>
 </ul>
 
@@ -376,7 +367,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text"> 内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB-2"><span class="nav-number">1.1.</span> <span class="nav-text"> 内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text"> 匿名类</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB-1"><span class="nav-number">1.1.</span> <span class="nav-text">内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text">匿名类</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -392,7 +383,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
