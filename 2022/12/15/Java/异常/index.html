@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">80</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">82</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -251,159 +251,184 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h2 id="异常的概念"><a href="#异常的概念" class="headerlink" title="异常的概念"></a>异常的概念</h2><ul>
-<li><p>程序执行过程中发生了不正常的情况，这种情况被称为异常</p>
+        <h1 id="异常"><a class="markdownIt-Anchor" href="#异常"></a> 异常</h1>
+<h2 id="异常的概念"><a class="markdownIt-Anchor" href="#异常的概念"></a> 异常的概念</h2>
+<ul>
+<li>
+<p>程序执行过程中发生了不正常的情况，这种情况被称为异常</p>
 </li>
-<li><p>Java可以对异常进行处理</p>
+<li>
+<p>Java可以对异常进行处理</p>
 <ul>
 <li>将异常信息输出到控制台上，供程序员参考</li>
 <li>提高程序的<u>健壮性</u></li>
 </ul>
 </li>
-<li><p>JVM可以在控制台上输出异常信息</p>
+<li>
+<p>JVM可以在控制台上输出异常信息</p>
 </li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h94fm1yr1xj30rj06umxy.jpg"></p>
-<h2 id="异常以类的形式存在"><a href="#异常以类的形式存在" class="headerlink" title="异常以类的形式存在"></a>异常以类的形式存在</h2><ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h94fm1yr1xj30rj06umxy.jpg" alt="" /></p>
+<h2 id="异常以类的形式存在"><a class="markdownIt-Anchor" href="#异常以类的形式存在"></a> 异常以类的形式存在</h2>
+<ul>
 <li>异常在Java中以<strong>类</strong>的形式存在</li>
 <li>每一个异常类都可以创建异常对象</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过异常类来实例化异常对象</span></span><br><span class="line"><span class="type">ArrayIndexOutOfBoundsException</span> <span class="variable">exception</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayIndexOutOfBoundsException</span>(<span class="string">&quot;数组下标越界异常&quot;</span>);</span><br><span class="line">        System.out.println(exception);</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h94fvgtd5gj30nu06mjrw.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h94fvgtd5gj30nu06mjrw.jpg" alt="" /></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>, b - <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> a / b;<span class="comment">//程序运行到此处时，JVM会实例化一个ArithmeticException异常类的对象</span></span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>每发生一次异常，都会创建一个该异常类的对象<ul>
+<li>每发生一次异常，都会创建一个该异常类的对象
+<ul>
 <li>面向对象编程的思想：</li>
 <li><u>发生即对象！存在即类！</u></li>
 </ul>
 </li>
 </ul>
-<h2 id="异常的继承结构"><a href="#异常的继承结构" class="headerlink" title="异常的继承结构"></a>异常的继承结构</h2><h3 id="UML"><a href="#UML" class="headerlink" title="UML"></a><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80">UML</a></h3><ul>
+<h2 id="异常的继承结构"><a class="markdownIt-Anchor" href="#异常的继承结构"></a> 异常的继承结构</h2>
+<h3 id="uml"><a class="markdownIt-Anchor" href="#uml"></a> <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80">UML</a></h3>
+<ul>
 <li><em>Unified Modeling Language</em>同一建模语言</li>
 <li>一种图标式语言，是一种开放的方法，用于说明、可视化、构建和编写一个<u>面向对象的</u>、软件密集系统的制品的开放方法</li>
 <li>软件设计人员使用UML</li>
 </ul>
-<h3 id="异常的继承结构-1"><a href="#异常的继承结构-1" class="headerlink" title="异常的继承结构"></a>异常的继承结构</h3><p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h94ha3tex2j30xr0geab9.jpg"></p>
+<h3 id="异常的继承结构-2"><a class="markdownIt-Anchor" href="#异常的继承结构-2"></a> 异常的继承结构</h3>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h94ha3tex2j30xr0geab9.jpg" alt="" /></p>
 <ul>
 <li>所有的异常类是从<code>java.lang.Exception</code>类继承的子类。</li>
-<li><code>Exception</code>类是<code>Throwable</code>类的子类。除了<code>Exception</code>类外，<code>Throwable</code>还有一个子类<code>Error</code> <ul>
+<li><code>Exception</code>类是<code>Throwable</code>类的子类。除了<code>Exception</code>类外，<code>Throwable</code>还有一个子类<code>Error</code>
+<ul>
 <li>意味着无论是异常还是错误都是可以抛出的</li>
 <li>所有的错误只要发生，Java都会终止程序的执行，退出JVM</li>
 <li><strong>错误是不能处理的</strong></li>
 </ul>
 </li>
-<li><code>Exception</code>类又分为两大类<ul>
-<li>编译时异常（受控异常）<ul>
+<li><code>Exception</code>类又分为两大类
+<ul>
+<li>编译时异常（受控异常）
+<ul>
 <li><code>Exception</code>的直接子类</li>
 <li>编译时的异常不是在编译阶段发生的，而是说必须在编写程序时<u>预先对这类异常进行处理</u>，如果不处理则无法进行编译！</li>
 <li>也就是说运行程序前不可能存在编译异常</li>
-<li>发生的概率更高<ul>
+<li>发生的概率更高
+<ul>
 <li>对于一些发生概率比较高的异常，我们需要在运行之前对其进行处理</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>运行时异常（非受控异常）<ul>
+<li>运行时异常（非受控异常）
+<ul>
 <li><code>RuntimeException</code></li>
 <li>运行时的异常在编写程序时可以处理也可以不处理</li>
-<li>发生的概率更低<ul>
+<li>发生的概率更低
+<ul>
 <li>对于一些发生概率比较低的异常，我们不需要对其进行处理</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>如果不区分两种异常，即所有异常都需要在编写程序阶段进行预处理<ul>
+<li>如果不区分两种异常，即所有异常都需要在编写程序阶段进行预处理
+<ul>
 <li>程序是绝对安全的</li>
 <li>程序过于复杂，需要处理各种异常</li>
 </ul>
 </li>
-<li>所有的异常都是发生在运行阶段，编译阶段是不会发生异常的。因为编译异常必须在编译时进行处理，否则无法运行。<ul>
+<li>所有的异常都是发生在运行阶段，编译阶段是不会发生异常的。因为编译异常必须在编译时进行处理，否则无法运行。
+<ul>
 <li>异常的出现必须实例化异常对象（<code>new</code>），只有在运行时才可以实例化对象</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="异常的处理"><a href="#异常的处理" class="headerlink" title="异常的处理"></a>异常的处理</h2><h3 id="在方法声明的-位置上，使用throws关键字"><a href="#在方法声明的-位置上，使用throws关键字" class="headerlink" title="在方法声明的 位置上，使用throws关键字"></a>在方法声明的 位置上，使用<code>throws</code>关键字</h3><ul>
-<li><p>异常上抛，交给调用者</p>
+<h2 id="异常的处理"><a class="markdownIt-Anchor" href="#异常的处理"></a> 异常的处理</h2>
+<h3 id="在方法声明的-位置上使用throws关键字"><a class="markdownIt-Anchor" href="#在方法声明的-位置上使用throws关键字"></a> 在方法声明的 位置上，使用<code>throws</code>关键字</h3>
+<ul>
+<li>
+<p>异常上抛，交给调用者</p>
 <ul>
 <li>调用者需要对这个异常进行处理，它处理的方法也是这两种，要么上抛给调用它的上一级，要么自己处理</li>
 <li>当上抛到<code>main</code>方法时，<code>main</code>方法继续上抛，上抛给JVM，则JVM只能终止程序的运行</li>
 </ul>
 </li>
-<li><p>方法声明的异常必须属于<strong>编译时异常</strong></p>
+<li>
+<p>方法声明的异常必须属于<strong>编译时异常</strong></p>
 </li>
-<li><p>因为是编译时异常，所以在调用该方法时必须对这种异常<strong>进行预先处理</strong></p>
+<li>
+<p>因为是编译时异常，所以在调用该方法时必须对这种异常<strong>进行预先处理</strong></p>
 <ul>
 <li>否则编译报错</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      	<span class="comment">//调用该方法时不对异常进行处理</span></span><br><span class="line">        doSome();</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//表示在调用doSome()方法时可能会出现ClassNotFoundException异常</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">doSome</span><span class="params">()</span> <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;doSome&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h94ihrj34dj30ra05ndgk.jpg"></p>
-<h4 id="用throws关键字对异常处理"><a href="#用throws关键字对异常处理" class="headerlink" title="用throws关键字对异常处理"></a>用<code>throws</code>关键字对异常处理</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">  	<span class="comment">//继续向上抛异常</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">        doSome();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">doSome</span><span class="params">()</span> <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;doSome&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h94inawicdj30fv0680sx.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h94ihrj34dj30ra05ndgk.jpg" alt="" /></p>
+<h4 id="用throws关键字对异常处理"><a class="markdownIt-Anchor" href="#用throws关键字对异常处理"></a> 用<code>throws</code>关键字对异常处理</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">  	<span class="comment">//继续向上抛异常</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">        doSome();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">doSome</span><span class="params">()</span> <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;doSome&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h94inawicdj30fv0680sx.jpg" alt="" /></p>
 <ul>
 <li><code>throws</code>关键字后可以跟多个异常，多个异常之间通过逗号隔开</li>
-<li>接受<code>throws</code>抛上来的异常的方法需要对异常进行处理，处理的方法也有两种，要么自己捕获，要么继续向上抛<ul>
+<li>接受<code>throws</code>抛上来的异常的方法需要对异常进行处理，处理的方法也有两种，要么自己捕获，要么继续向上抛
+<ul>
 <li>如果继续向上抛，则抛出的异常必须是接受的异常的父类，或者就是该异常本身</li>
 </ul>
 </li>
-<li><code>main</code>方法一般不再向上抛出异常<ul>
+<li><code>main</code>方法一般不再向上抛出异常
+<ul>
 <li>异常机制的初衷就是为了在发生异常的情况下不影响程序的运行，如果<code>main</code>方法继续上抛异常给JVM，则势必会导致程序的退出</li>
 </ul>
 </li>
 <li>一个方法中如果将异常上报了，<u>则该方法运行结束，不会再运行后续的代码</u></li>
 </ul>
-<h4 id="throw关键字"><a href="#throw关键字" class="headerlink" title="throw关键字"></a><code>throw</code>关键字</h4><ul>
+<h4 id="throw关键字"><a class="markdownIt-Anchor" href="#throw关键字"></a> <code>throw</code>关键字</h4>
+<ul>
 <li>在方法体中抛出主动抛出异常</li>
 <li>语法格式</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//等价于抛出一个异常类的实例</span></span><br><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> 异常名();</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">m4</span><span class="params">(<span class="type">int</span> a)</span> <span class="keyword">throws</span> NoSuchMethodException&#123;</span><br><span class="line">    <span class="comment">//主动抛出异常</span></span><br><span class="line">    <span class="keyword">if</span>(a == <span class="number">0</span>)</span><br><span class="line">    		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NoSuchMethodException</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用try-catch语句和进行异常的捕捉"><a href="#使用try-catch语句和进行异常的捕捉" class="headerlink" title="使用try...catch语句和进行异常的捕捉"></a>使用<code>try...catch</code>语句和进行异常的捕捉</h3><ul>
+<h3 id="使用trycatch语句和进行异常的捕捉"><a class="markdownIt-Anchor" href="#使用trycatch语句和进行异常的捕捉"></a> 使用<code>try...catch</code>语句和进行异常的捕捉</h3>
+<ul>
 <li>自己处理这个异常</li>
 </ul>
-<h4 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="comment">//尝试</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(异常类 异常名)&#123;</span><br><span class="line">		<span class="comment">//捕捉到异常之后的分支</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="语法格式"><a class="markdownIt-Anchor" href="#语法格式"></a> 语法格式</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="comment">//尝试</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(异常类 异常名)&#123;</span><br><span class="line">		<span class="comment">//捕捉到异常之后的分支</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>catch</code>捕捉到的异常必须是发生的或接受到的异常，或者是以上异常的父类</li>
 <li><code>catch</code>后建议只精确的捕捉一个异常，针对某一个异常进行异常处理</li>
 <li><code>catch</code>后跟多个异常时可以用<code>｜</code>来分隔开（JDK8）</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">		doSome();</span><br><span class="line">&#125;<span class="keyword">catch</span>(NoSuchMethodException | ClassNotFoundException e)&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;未找到该方法或者没找到该类&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>一个<code>try</code>后可以跟多个<code>catch</code>，处理多个异常<ul>
+<li>一个<code>try</code>后可以跟多个<code>catch</code>，处理多个异常
+<ul>
 <li>多个<code>catch</code>时会从上到下执行，那么必须遵守多个异常从小到大的原则，一个异常不能被多次捕获</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;main begin&quot;</span>);</span><br><span class="line">        m1();</span><br><span class="line">        System.out.println(<span class="string">&quot;main over&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">m1</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;m1 bigin&quot;</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            m2();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ReflectiveOperationException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;未找到相关方法！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;m1 over&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//m2方法调用了m3方法，因此m2方法需要处理m3向上抛出的异常</span></span><br><span class="line">    <span class="comment">//如果选择继续向上抛出异常，则抛出的异常必须和m3抛上来的异常一致，或者抛出的异常是m3异常的父类</span></span><br><span class="line">    <span class="comment">//抛出m3异常的父类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">m2</span><span class="params">()</span> <span class="keyword">throws</span> ReflectiveOperationException&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;m2 bigin&quot;</span>);</span><br><span class="line">        m3();</span><br><span class="line">        System.out.println(<span class="string">&quot;m2 over&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//采用上抛的方式处理异常</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">m3</span><span class="params">()</span> <span class="keyword">throws</span> NoSuchMethodException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;m3 bigin&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        m4(a);</span><br><span class="line">        System.out.println(<span class="string">&quot;m3 over&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//NoSuchMethodException属于编译时异常</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">m4</span><span class="params">(<span class="type">int</span> a)</span> <span class="keyword">throws</span> NoSuchMethodException&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;m4 bigin&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;m4 doSome&quot;</span>);</span><br><span class="line">        <span class="comment">//主动抛出异常</span></span><br><span class="line">        <span class="keyword">if</span>(a == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NoSuchMethodException</span>();</span><br><span class="line">        System.out.println(<span class="string">&quot;m4 over&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="异常对象的常用方法"><a href="#异常对象的常用方法" class="headerlink" title="异常对象的常用方法"></a>异常对象的常用方法</h2><h3 id="public-String-getMessage"><a href="#public-String-getMessage" class="headerlink" title="public String getMessage()"></a><code>public String getMessage()</code></h3><blockquote>
+<h2 id="异常对象的常用方法"><a class="markdownIt-Anchor" href="#异常对象的常用方法"></a> 异常对象的常用方法</h2>
+<h3 id="public-string-getmessage"><a class="markdownIt-Anchor" href="#public-string-getmessage"></a> <code>public String getMessage()</code></h3>
+<blockquote>
 <p>Returns the detail message string of this Throwable instance (which may be null).</p>
 </blockquote>
 <ul>
-<li>获取异常简单的描述信息<ul>
+<li>获取异常简单的描述信息
+<ul>
 <li>这个信息其实就是构造方法中的字符串参数</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ClassNotFoundException</span> <span class="variable">e</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassNotFoundException</span>(<span class="string">&quot;未找到这个个类&quot;</span>);</span><br><span class="line">System.out.println(e.getMessage());<span class="comment">//输出未找到这个个类</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="printStackTrace"><a href="#printStackTrace" class="headerlink" title="printStackTrace()"></a><code>printStackTrace()</code></h3><blockquote>
+<h3 id="printstacktrace"><a class="markdownIt-Anchor" href="#printstacktrace"></a> <code>printStackTrace()</code></h3>
+<blockquote>
 <p>Prints this throwable and its backtrace to the standard error stream. This method prints a stack trace for this Throwable object on the error output stream that is the value of the field System</p>
 </blockquote>
 <ul>
 <li>获取异常追踪的堆栈信息</li>
-<li>Java后台打印异常堆栈追踪信息时，采用的了异步线程的方式打印<ul>
+<li>Java后台打印异常堆栈追踪信息时，采用的了异步线程的方式打印
+<ul>
 <li>专门有一个线程用于打印这个信息</li>
 </ul>
 </li>
@@ -492,7 +517,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8"><span class="nav-number">1.</span> <span class="nav-text">异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">异常的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E4%BB%A5%E7%B1%BB%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%AD%98%E5%9C%A8"><span class="nav-number">1.2.</span> <span class="nav-text">异常以类的形式存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text">异常的继承结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UML"><span class="nav-number">1.3.1.</span> <span class="nav-text">UML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">异常的继承结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">1.4.</span> <span class="nav-text">异常的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%96%B9%E6%B3%95%E5%A3%B0%E6%98%8E%E7%9A%84-%E4%BD%8D%E7%BD%AE%E4%B8%8A%EF%BC%8C%E4%BD%BF%E7%94%A8throws%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.4.1.</span> <span class="nav-text">在方法声明的 位置上，使用throws关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8throws%E5%85%B3%E9%94%AE%E5%AD%97%E5%AF%B9%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">用throws关键字对异常处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#throw%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">throw关键字</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8try-catch%E8%AF%AD%E5%8F%A5%E5%92%8C%E8%BF%9B%E8%A1%8C%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E6%8D%89"><span class="nav-number">1.4.2.</span> <span class="nav-text">使用try...catch语句和进行异常的捕捉</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">语法格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">异常对象的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-String-getMessage"><span class="nav-number">1.5.1.</span> <span class="nav-text">public String getMessage()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#printStackTrace"><span class="nav-number">1.5.2.</span> <span class="nav-text">printStackTrace()</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8"><span class="nav-number">1.</span> <span class="nav-text"> 异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text"> 异常的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E4%BB%A5%E7%B1%BB%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%AD%98%E5%9C%A8"><span class="nav-number">1.2.</span> <span class="nav-text"> 异常以类的形式存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text"> 异常的继承结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#uml"><span class="nav-number">1.3.1.</span> <span class="nav-text"> UML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84-2"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 异常的继承结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">1.4.</span> <span class="nav-text"> 异常的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%96%B9%E6%B3%95%E5%A3%B0%E6%98%8E%E7%9A%84-%E4%BD%8D%E7%BD%AE%E4%B8%8A%E4%BD%BF%E7%94%A8throws%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.4.1.</span> <span class="nav-text"> 在方法声明的 位置上，使用throws关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8throws%E5%85%B3%E9%94%AE%E5%AD%97%E5%AF%B9%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">1.4.1.1.</span> <span class="nav-text"> 用throws关键字对异常处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#throw%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.4.1.2.</span> <span class="nav-text"> throw关键字</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8trycatch%E8%AF%AD%E5%8F%A5%E5%92%8C%E8%BF%9B%E8%A1%8C%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E6%8D%89"><span class="nav-number">1.4.2.</span> <span class="nav-text"> 使用try...catch语句和进行异常的捕捉</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.2.1.</span> <span class="nav-text"> 语法格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text"> 异常对象的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-string-getmessage"><span class="nav-number">1.5.1.</span> <span class="nav-text"> public String getMessage()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#printstacktrace"><span class="nav-number">1.5.2.</span> <span class="nav-text"> printStackTrace()</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -508,7 +533,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

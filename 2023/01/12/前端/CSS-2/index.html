@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"keveinkk.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="CSS学习2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS-2">
+<meta property="og:url" content="https://keveinkk.github.io/2023/01/12/%E5%89%8D%E7%AB%AF/CSS-2/index.html">
+<meta property="og:site_name" content="Kevin&#39;s study Blog">
+<meta property="og:description" content="CSS学习2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-12T11:51:28.032Z">
+<meta property="article:modified_time" content="2023-01-12T11:52:21.123Z">
+<meta property="article:author" content="Kevin He">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://keveinkk.github.io/2023/01/12/%E5%89%8D%E7%AB%AF/CSS-2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CSS-2 | Kevin's study Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kevin's study Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">82</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://keveinkk.github.io/2023/01/12/%E5%89%8D%E7%AB%AF/CSS-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Kevin He">
+      <meta itemprop="description" content="我的学习博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kevin's study Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS-2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-01-12 19:51:28 / 修改时间：19:52:21" itemprop="dateCreated datePublished" datetime="2023-01-12T19:51:28+08:00">2023-01-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">CSS学习2</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="css"><a class="markdownIt-Anchor" href="#css"></a> CSS</h1>
+<h2 id="css字体"><a class="markdownIt-Anchor" href="#css字体"></a> CSS字体</h2>
+<h3 id="字体大小font-size"><a class="markdownIt-Anchor" href="#字体大小font-size"></a> 字体大小font-size</h3>
+<h4 id="属性值"><a class="markdownIt-Anchor" href="#属性值"></a> 属性值</h4>
+<ul>
+<li>取值：数字+单位</li>
+<li>谷歌浏览器默认文字大小是16px
+<ul>
+<li>单位需要设置，否则无效</li>
+</ul>
+</li>
+<li>我们不能通过调整字体的大小使得一些文字看上去像标题
+<ul>
+<li>标题需要通过<code>&lt;h1&gt;-&lt;h6&gt;</code>的标签来表示</li>
+<li>段落通过<code>&lt;p&gt;</code>标签来表示</li>
+</ul>
+</li>
+</ul>
+<h4 id="单位"><a class="markdownIt-Anchor" href="#单位"></a> 单位</h4>
+<ul>
+<li>px
+<ul>
+<li>控制的是文本的绝对大小</li>
+<li>设置文字的大小与像素，完全控制文字的大小</li>
+<li>默认是16px</li>
+</ul>
+</li>
+<li>em
+<ul>
+<li>控制的是文本的相对大小</li>
+<li>1em和当前的字体大小相等，默认是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>e</mi><mi>m</mi><mo>=</mo><mn>16</mn><mi>p</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">1em=16px</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathnormal">e</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord">6</span><span class="mord mathnormal">p</span><span class="mord mathnormal">x</span></span></span></span></li>
+</ul>
+</li>
+<li>百分比
+<ul>
+<li>控制的是文字的相对大小</li>
+<li>100%和当前的字体大小相等</li>
+</ul>
+</li>
+</ul>
+<h3 id="字体粗细font-weight"><a class="markdownIt-Anchor" href="#字体粗细font-weight"></a> 字体粗细font-weight</h3>
+<h4 id="属性值-2"><a class="markdownIt-Anchor" href="#属性值-2"></a> 属性值</h4>
+<ul>
+<li>关键字
+<ul>
+<li>正常：normal(400)</li>
+<li>加粗：bold(700)</li>
+<li>更粗：bolder(900)</li>
+<li>更细：lighter</li>
+</ul>
+</li>
+<li>数字
+<ul>
+<li>100～900的整百数</li>
+</ul>
+</li>
+<li>并不是所有的字体都提供了九种粗细，因此部分取值在页面中的现实没有变化</li>
+</ul>
+<h3 id="字体样式font-style"><a class="markdownIt-Anchor" href="#字体样式font-style"></a> 字体样式font-style</h3>
+<h4 id="属性值-3"><a class="markdownIt-Anchor" href="#属性值-3"></a> 属性值</h4>
+<ul>
+<li>关键字
+<ul>
+<li>normal：显示一个标准的字体样式</li>
+<li>italic：显示一个倾斜的字体样式</li>
+</ul>
+</li>
+<li>效果等价于<code>&lt;em&gt;</code>以及<code>&lt;i&gt;</code>标签</li>
+</ul>
+<h3 id="字体类型font-family"><a class="markdownIt-Anchor" href="#字体类型font-family"></a> 字体类型font-family</h3>
+<h4 id="属性值-4"><a class="markdownIt-Anchor" href="#属性值-4"></a> 属性值</h4>
+<ul>
+<li>具体的字体名称</li>
+<li>字体1，字体2，字体3…，字体系列</li>
+<li>常见的字体包括：微软雅黑、黑体、宋体等等</li>
+<li>常见的字体系列：<code>sans-serif</code>、<code>serif</code>以及<code>monospace</code>
+<ul>
+<li>无衬线字体<code>sans-serif</code>
+<ul>
+<li>特点：文字笔画粗细均匀，且首尾无装饰</li>
+<li>常用于网页设计</li>
+<li>常见的字体：微软雅黑、黑体</li>
+</ul>
+</li>
+<li>衬线字体<code>serif</code>
+<ul>
+<li>文字笔画粗细不均匀。并且有笔锋等装饰</li>
+<li>常用语书籍报刊的印刷</li>
+<li>常见的字体：宋体、楷体</li>
+</ul>
+</li>
+<li>等宽字体<code>monospace</code>
+<ul>
+<li>每个字母或者文字的宽度相同</li>
+<li>常用于代码的编写</li>
+<li>常见字体：Consolas</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="注意"><a class="markdownIt-Anchor" href="#注意"></a> 注意</h4>
+<ul>
+<li>渲染规则
+<ul>
+<li>从左往右按照顺序查找，如果电脑中未安装该字体，则显示下一个字体</li>
+<li>如果都不支持，会显示最后字体系列中的默认字体</li>
+</ul>
+</li>
+<li>如果字体名称中存在多个单词，则使用<strong>引号</strong>将其包裹</li>
+<li>最后一项的字体序列不需要引号包裹</li>
+<li>尽量使用系统常见的自带字体，保证不同用户浏览网页时都能正常显示</li>
+</ul>
+<h3 id="字体类型font属性连写"><a class="markdownIt-Anchor" href="#字体类型font属性连写"></a> 字体类型font属性连写</h3>
+<h4 id="复合属性"><a class="markdownIt-Anchor" href="#复合属性"></a> 复合属性</h4>
+<ul>
+<li>一个属性冒号可以写多个值</li>
+</ul>
+<h4 id="font符合属性"><a class="markdownIt-Anchor" href="#font符合属性"></a> font符合属性</h4>
+<ul>
+<li>font后可以跟四个属性，顺序分别为：<code>style</code> <code>weight</code> <code>size</code> <code>family</code></li>
+<li>以上顺序不可以错乱</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#id</span>&#123;</span><br><span class="line">  	<span class="comment">/*对id为id的标签，设置其字体 样式为倾斜 粗细为加粗 大小为32px 字体为苹方*/</span></span><br><span class="line">		<span class="attribute">font</span>: italic bold <span class="number">32px</span> <span class="string">&quot;Apple Braille&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>省略
+<ul>
+<li>只能省略样式和粗细，如果省略了相当于设置为默认值</li>
+</ul>
+</li>
+<li>同时设置单独和连写形式
+<ul>
+<li>单独的样式要么写在连写的下面（可能会发生样式的层叠）</li>
+<li>要么写在连写的里面</li>
+</ul>
+</li>
+</ul>
+<h3 id="样式的层叠问题"><a class="markdownIt-Anchor" href="#样式的层叠问题"></a> 样式的层叠问题</h3>
+<ul>
+<li>当给同一个标签设置了相同属性，此时样式会<strong>层叠</strong>（覆盖）</li>
+<li>写在最后的样式会生效</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/12/%E7%AE%97%E6%B3%95/%E6%89%93%E4%B9%B1%E6%95%B0%E7%BB%84/" rel="prev" title="打乱数组">
+      <i class="fa fa-chevron-left"></i> 打乱数组
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/13/%E7%AE%97%E6%B3%95/%E6%9C%80%E5%B0%8F%E6%A0%88/" rel="next" title="最小栈">
+      最小栈 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#css"><span class="nav-number">1.</span> <span class="nav-text"> CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#css%E5%AD%97%E4%BD%93"><span class="nav-number">1.1.</span> <span class="nav-text"> CSS字体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8Ffont-size"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 字体大小font-size</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="nav-number">1.1.1.1.</span> <span class="nav-text"> 属性值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D"><span class="nav-number">1.1.1.2.</span> <span class="nav-text"> 单位</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%B2%97%E7%BB%86font-weight"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 字体粗细font-weight</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC-2"><span class="nav-number">1.1.2.1.</span> <span class="nav-text"> 属性值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8Ffont-style"><span class="nav-number">1.1.3.</span> <span class="nav-text"> 字体样式font-style</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC-3"><span class="nav-number">1.1.3.1.</span> <span class="nav-text"> 属性值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%B1%BB%E5%9E%8Bfont-family"><span class="nav-number">1.1.4.</span> <span class="nav-text"> 字体类型font-family</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC-4"><span class="nav-number">1.1.4.1.</span> <span class="nav-text"> 属性值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">1.1.4.2.</span> <span class="nav-text"> 注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%B1%BB%E5%9E%8Bfont%E5%B1%9E%E6%80%A7%E8%BF%9E%E5%86%99"><span class="nav-number">1.1.5.</span> <span class="nav-text"> 字体类型font属性连写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.5.1.</span> <span class="nav-text"> 复合属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#font%E7%AC%A6%E5%90%88%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.5.2.</span> <span class="nav-text"> font符合属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%B1%82%E5%8F%A0%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.6.</span> <span class="nav-text"> 样式的层叠问题</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kevin He"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Kevin He</p>
+  <div class="site-description" itemprop="description">我的学习博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/KeveinKk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;KeveinKk" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:kevin001025@foxmail.com" title="E-Mail → mailto:kevin001025@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/KkandTi" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;KkandTi" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin He</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
