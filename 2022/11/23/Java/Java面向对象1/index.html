@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">94</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">96</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -249,15 +249,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Java面向对象1"><a href="#Java面向对象1" class="headerlink" title="Java面向对象1"></a>Java面向对象1</h1><h3 id="面向过程和面向对象的区别"><a href="#面向过程和面向对象的区别" class="headerlink" title="面向过程和面向对象的区别"></a>面向过程和面向对象的区别</h3><ul>
-<li>面向过程强调整个流程中的前后因果关系，没有独立体的概念<ul>
+        <h1 id="java面向对象1"><a class="markdownIt-Anchor" href="#java面向对象1"></a> Java面向对象1</h1>
+<h3 id="面向过程和面向对象的区别"><a class="markdownIt-Anchor" href="#面向过程和面向对象的区别"></a> 面向过程和面向对象的区别</h3>
+<ul>
+<li>面向过程强调整个流程中的前后因果关系，没有独立体的概念
+<ul>
 <li>一个步骤和一个步骤之间因为<strong>前后因果关系</strong>组合成一个模块，一个模块和一个模块之间因为因果关系构成一个系统，但是当因果关系破裂时，整个流程都会受到影响</li>
-<li>优点：<ol>
+<li>优点：
+<ol>
 <li>业务逻辑简单时，可以达到快速开发的效果</li>
 <li>前期投入较低</li>
 </ol>
 </li>
-<li>缺点：<ol>
+<li>缺点：
+<ol>
 <li>难以解决非常复杂的业务；</li>
 <li>高耦合，当一个步骤出现问题时，整个系统都会收到影响；</li>
 <li>缺少复用性的功能</li>
@@ -265,90 +270,111 @@
 </li>
 </ul>
 </li>
-<li>面向对象强调的是对象，关心每个独立体所能带来的功能，忽略对象内功能的具体实现<ul>
+<li>面向对象强调的是对象，关心每个独立体所能带来的功能，忽略对象内功能的具体实现
+<ul>
 <li>将现实世界分割成不同的单元，每个单元都是一个独立的对象，在一个确定的环境下，将各个单元协作起来，就可以构成一个系统</li>
 <li>将所需要的独立体以及它们的功能进行组合即可完成整个流程</li>
-<li>优点：<ol>
+<li>优点：
+<ol>
 <li>低耦合</li>
 <li>扩展性强</li>
 <li>可以实现更加复杂的业务</li>
 </ol>
 </li>
-<li>缺点：<ol>
+<li>缺点：
+<ol>
 <li>前期投入成本高，需要进行大量的系统分析与设计</li>
 </ol>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h5 id="三大特征"><a href="#三大特征" class="headerlink" title="三大特征"></a>三大特征</h5><p><strong><u>封装、继承、多态</u></strong></p>
-<h5 id="基于面向对象开发设计三步骤"><a href="#基于面向对象开发设计三步骤" class="headerlink" title="基于面向对象开发设计三步骤"></a>基于面向对象开发设计三步骤</h5><ol>
+<h3 id="面向对象"><a class="markdownIt-Anchor" href="#面向对象"></a> 面向对象</h3>
+<h5 id="三大特征"><a class="markdownIt-Anchor" href="#三大特征"></a> 三大特征</h5>
+<p><strong><u>封装、继承、多态</u></strong></p>
+<h5 id="基于面向对象开发设计三步骤"><a class="markdownIt-Anchor" href="#基于面向对象开发设计三步骤"></a> 基于面向对象开发设计三步骤</h5>
+<ol>
 <li>面向对象的分析：OOA：Object-Oriented-Analysis</li>
 <li>面向对象的设计：OOD</li>
 <li>面向对象的编程：OOP</li>
 </ol>
-<h3 id="类和对象的概念"><a href="#类和对象的概念" class="headerlink" title="类和对象的概念"></a>类和对象的概念</h3><ul>
+<h3 id="类和对象的概念"><a class="markdownIt-Anchor" href="#类和对象的概念"></a> 类和对象的概念</h3>
+<ul>
 <li>对象：对客观事物的抽象</li>
 <li>类：对对象的抽象，代表了一类具有共同特征的事物</li>
 <li>实例化：类通过实例化得到对象，因此对象又被称作实例</li>
 <li>抽象：对对象进行抽象的到类</li>
 </ul>
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><h5 id="语法结构"><a href="#语法结构" class="headerlink" title="语法结构"></a>语法结构</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符列表] class 类名&#123;</span><br><span class="line">	属性;</span><br><span class="line">	方法;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h3 id="类"><a class="markdownIt-Anchor" href="#类"></a> 类</h3>
+<h5 id="语法结构"><a class="markdownIt-Anchor" href="#语法结构"></a> 语法结构</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符列表] class 类名&#123;</span><br><span class="line">	属性;</span><br><span class="line">	方法;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>一个类主要描述的是 <strong>状态</strong> + <strong>动作</strong> 两种信息</p>
 <ul>
 <li>属性：描述的是类的状态信息</li>
 <li>方法：描述的是类的动作信息</li>
 </ul>
-<h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><ul>
-<li>属性通常采用变量的方法是来定义<ul>
+<h5 id="属性"><a class="markdownIt-Anchor" href="#属性"></a> 属性</h5>
+<ul>
+<li>属性通常采用变量的方法是来定义
+<ul>
 <li>因为状态一般都是数据信息，例如身高<code>int</code>、性别char、心情<code>String</code>等，而数据需要以变量的方式存储</li>
 </ul>
 </li>
-<li>在类体当中，方法之外定义的变量称为<strong>成员变量</strong><ul>
+<li>在类体当中，方法之外定义的变量称为<strong>成员变量</strong>
+<ul>
 <li>这里再次回顾 成员变量 和 局部变量之间的区别</li>
 <li>成员变量在没有赋值的情况下可以直接使用，因为系统会自动对其进行初始化为<code>void</code>，存储于内存中的堆内存区</li>
 <li>局部变量（定义在方法体中的变量）在声明后必须进行手动赋值才能使用，存储于内存中的栈区</li>
 </ul>
 </li>
 </ul>
-<h5 id="基本数据类型-和-引用数据类型的区别-1"><a href="#基本数据类型-和-引用数据类型的区别-1" class="headerlink" title="基本数据类型 和 引用数据类型的区别[1]"></a><strong>基本数据类型</strong> 和 <strong>引用数据类型</strong>的区别<sup><a href="#ref1">[1]</a></sup></h5><ul>
+<h5 id="基本数据类型-和-引用数据类型的区别supa-hrefref11asup"><a class="markdownIt-Anchor" href="#基本数据类型-和-引用数据类型的区别supa-hrefref11asup"></a> <strong>基本数据类型</strong> 和 <strong>引用数据类型</strong>的区别<sup><a href="#ref1">[1]</a></sup></h5>
+<ul>
 <li>Java中所有的<code>class</code>都是<strong>引用类型</strong>，而非四大基础数据类型</li>
 <li>Java中数据类型分为两大类，即四大类基本数据类型，以及引用数据类型</li>
 </ul>
 <ol>
-<li><p>存储的数据不同</p>
+<li>
+<p>存储的数据不同</p>
 <ul>
-<li>基本数据类型<ul>
+<li>基本数据类型
+<ul>
 <li>基本类型的数据保存原始值，即它存储的值就是数据本身</li>
 </ul>
 </li>
-<li>引用数据类型<ul>
+<li>引用数据类型
+<ul>
 <li>引用数据类型的数据保存的<strong>引用值</strong>，引用值指向内存空间的地址，代表某个对象的引用，二分该对象本身</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>初始化过程不同</p>
+<li>
+<p>初始化过程不同</p>
 <ul>
-<li>基本数据类型<ul>
+<li>基本数据类型
+<ul>
 <li>基本类型在声明时系统就会为其分配内存空间</li>
 </ul>
 </li>
-<li>引用数据类型<ul>
+<li>引用数据类型
+<ul>
 <li>引用类型在声明时只给变量分配了引用空间，而没有分配数据空间</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>数据传递方式不同</p>
+<li>
+<p>数据传递方式不同</p>
 <ul>
-<li><p>基本数据类型：<strong>值传递</strong></p>
+<li>
+<p>基本数据类型：<strong>值传递</strong></p>
 <ul>
 <li>方法调用时，实际参数把它的值传递给对应的形式参数，函数接收的是原始值的一份拷贝，**后面方法中的操作都是对形参这个值的修改，不影响实际参数的值</li>
 </ul>
 </li>
-<li><p>引用数据类型：<strong>引用传递</strong></p>
+<li>
+<p>引用数据类型：<strong>引用传递</strong></p>
 <ul>
 <li>也称为传地址，方法调用时，实际参数的引用(地址，而不是参数的值)被传递给方法中相对应的形式参数；在方法执行过程中，形参和实参指向同一块内存地址，**方法执行中对引用的操作将会影响到实际对象</li>
 </ul>
@@ -356,9 +382,12 @@
 </ul>
 </li>
 </ol>
-<h3 id="对象的创建与使用"><a href="#对象的创建与使用" class="headerlink" title="对象的创建与使用"></a>对象的创建与使用</h3><ul>
-<li>实例变量<ul>
-<li>在成员变量中存在实例变量和静态变量两种，这里先介绍实例变量<ul>
+<h3 id="对象的创建与使用"><a class="markdownIt-Anchor" href="#对象的创建与使用"></a> 对象的创建与使用</h3>
+<ul>
+<li>实例变量
+<ul>
+<li>在成员变量中存在实例变量和静态变量两种，这里先介绍实例变量
+<ul>
 <li>在一个类中，每个对象可能都有同一种数据。例如：在学生类中，每个学生的都有<code>int num</code>学号信息，但是每个对象的学号都不相同。因此要访问学号信息，必须先创建对象，通过对象来访问这个信息</li>
 <li>如果不创建对象，则实例变量的内存空间是不存在的</li>
 </ul>
@@ -366,8 +395,10 @@
 <li>不能通过“类”直接访问的变量称为实例变量（或者对象变量）</li>
 </ul>
 </li>
-<li>对象的创建<ul>
-<li>语法结构<ul>
+<li>对象的创建
+<ul>
+<li>语法结构
+<ul>
 <li><code>new 类名( );</code></li>
 <li><code>new</code>运算符的作用是创建<strong>对象</strong>，在JVM<u>堆内存</u>中开辟新的内存空间</li>
 </ul>
@@ -375,12 +406,11 @@
 </ul>
 </li>
 </ul>
-<p>	</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Student</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li><code>Student</code> 是一个引用数据类型</li>
-<li><code>s</code> 是一个变量名，这个局部变量存放在栈内存中，它存储的是对象在堆内存的地址<ul>
+<li><code>s</code> 是一个变量名，这个局部变量存放在栈内存中，它存储的是对象在堆内存的地址
+<ul>
 <li>区分引用类型变量和局部类型变量二者之间的关系：</li>
 <li>这两种是对数据类型的不同的分类，局部变量和成员变量是一种分类，引用类型和基本数据类型是另一种分类。</li>
 </ul>
@@ -388,71 +418,81 @@
 <li><code>new Student( )</code> 是一个学生类的对象，这个对象存放在堆内存中</li>
 </ol>
 <ul>
-<li><p>对象与引用</p>
+<li>
+<p>对象与引用</p>
 <ul>
-<li><p>new运算在堆内存中开辟的内存空间称为对象</p>
+<li>
+<p>new运算在堆内存中开辟的内存空间称为对象</p>
 </li>
-<li><p>引用也是一个变量，存储的是另一个Java对象的内存地址</p>
+<li>
+<p>引用也是一个变量，存储的是另一个Java对象的内存地址</p>
 </li>
-<li><p>Java中没有指针的概念，只能通过引用的方式去访问堆内存中对象内部的实例变量。</p>
+<li>
+<p>Java中没有指针的概念，只能通过引用的方式去访问堆内存中对象内部的实例变量。</p>
 </li>
-<li><p>—-&gt;进一步的，当一个对象没有引用指向它时，它就会被自动回收</p>
+<li>
+<p>----&gt;进一步的，当一个对象没有引用指向它时，它就会被自动回收</p>
 </li>
 </ul>
 </li>
-<li><p>访问实例变量</p>
+<li>
+<p>访问实例变量</p>
 <ul>
-<li>语法结构<ul>
+<li>语法结构
+<ul>
 <li>读取数据：<code>引用.变量名</code></li>
 <li>修改数据：<code>引用.变量 = 值</code></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>编写一个例子检验成员变量初始化的值，并对其进行修改</p>
+<li>
+<p>编写一个例子检验成员变量初始化的值，并对其进行修改</p>
 <ul>
 <li>首先写一个Student学生类，在学生类中定义了不同类型的属性</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="type">boolean</span> sex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <ul>
 <li>再在Test类中实例化一个Student对象，检查其初始化后各个属性的默认值是多少；然后对其进行修改</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">		<span class="comment">//通过引用的方式去访问成员变量</span></span><br><span class="line">		System.out.println(stu.age);<span class="comment">//int默认值为0</span></span><br><span class="line">		System.out.println(stu.name);<span class="comment">//String默认值为null</span></span><br><span class="line">		System.out.println(stu.sex);<span class="comment">//boolean默认值为false</span></span><br><span class="line">		<span class="comment">//通过引用的方式修改实例变量</span></span><br><span class="line">		stu.age = <span class="number">20</span>;</span><br><span class="line">		System.out.println(stu.age);</span><br><span class="line">		System.out.println(stu.name);</span><br><span class="line">		System.out.println(stu.sex);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">		<span class="comment">//通过引用的方式去访问成员变量</span></span><br><span class="line">		System.out.println(stu.age);<span class="comment">//int默认值为0</span></span><br><span class="line">		System.out.println(stu.name);<span class="comment">//String默认值为null</span></span><br><span class="line">		System.out.println(stu.sex);<span class="comment">//boolean默认值为false</span></span><br><span class="line">		<span class="comment">//通过引用的方式修改实例变量</span></span><br><span class="line">		stu.age = <span class="number">20</span>;</span><br><span class="line">		System.out.println(stu.age);</span><br><span class="line">		System.out.println(stu.name);</span><br><span class="line">		System.out.println(stu.sex);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>在<code>javac</code>编译过程中，需要保证先进入两个<code>class</code>文件共同的目录下，否则系统会报错，提示找不到<code>Student</code>类</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7yyhst6g2j30tc0fawg4.jpg"></p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7yyl6yacoj30tc0fawfv.jpg"></p>
-<h3 id="JVM内存区的回顾"><a href="#JVM内存区的回顾" class="headerlink" title="JVM内存区的回顾"></a>JVM内存区的回顾</h3><ul>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7yyhst6g2j30tc0fawg4.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7yyl6yacoj30tc0fawfv.jpg" alt="" /></p>
+<h3 id="jvm内存区的回顾"><a class="markdownIt-Anchor" href="#jvm内存区的回顾"></a> JVM内存区的回顾</h3>
+<ul>
 <li>堆内存和方法区内存各有一个，一个线程有一个栈内存</li>
-<li><strong>栈内存：</strong>调用方法时，该方法所需要的内存空间在栈内存中分配，称为压栈；方法执行之后，该方法所分配到的空间释放，称为出栈。栈中主要存储的是方法体中的局部变量</li>
-<li><strong>方法区内存：</strong>方法的代码片段以及<u>整个类的代码片段</u>都被存储到方法区内存中，在类加载时这些代码会载入JVM；<u>成员变量中的静态变量也存储与方法区内存中</u></li>
-<li><strong>栈内存：</strong>程序执行过程中使用<code>new</code>运算符创建的对象存储在堆内存中，对象中的实例变量也存储与堆内存中</li>
+<li>**栈内存：**调用方法时，该方法所需要的内存空间在栈内存中分配，称为压栈；方法执行之后，该方法所分配到的空间释放，称为出栈。栈中主要存储的是方法体中的局部变量</li>
+<li>**方法区内存：**方法的代码片段以及<u>整个类的代码片段</u>都被存储到方法区内存中，在类加载时这些代码会载入JVM；<u>成员变量中的静态变量也存储与方法区内存中</u></li>
+<li>**栈内存：**程序执行过程中使用<code>new</code>运算符创建的对象存储在堆内存中，对象中的实例变量也存储与堆内存中</li>
 </ul>
-<h3 id="空指针异常"><a href="#空指针异常" class="headerlink" title="空指针异常"></a>空指针异常</h3><ul>
-<li><p><code>java.lang.NullPointerException</code></p>
+<h3 id="空指针异常"><a class="markdownIt-Anchor" href="#空指针异常"></a> 空指针异常</h3>
+<ul>
+<li>
+<p><code>java.lang.NullPointerException</code></p>
 </li>
-<li><p>当空引用访问<u>实例相关</u>的数据时一定会发生空指针异常！</p>
+<li>
+<p>当空引用访问<u>实例相关</u>的数据时一定会发生空指针异常！</p>
 </li>
-<li><p>实例相关的数据：这个数据的访问必须有对象的参与</p>
+<li>
+<p>实例相关的数据：这个数据的访问必须有对象的参与</p>
 </li>
-<li><p>例子：</p>
+<li>
+<p>例子：</p>
 <ul>
 <li>编写一个丈夫类和妻子类，他们有自己的姓名，以及对方的姓名</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Husband</span>&#123;</span><br><span class="line">	String name;<span class="comment">//丈夫的姓名</span></span><br><span class="line">	Wife wife;<span class="comment">//丈夫的妻子</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Wife</span>&#123;</span><br><span class="line">	String name;<span class="comment">//妻子的姓名</span></span><br><span class="line">	Husband husband;<span class="comment">//妻子的丈夫</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>编写一个结婚类使他们结婚</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Marry</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">Husband</span> <span class="variable">h</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Husband</span>();</span><br><span class="line">		h.name = <span class="string">&quot;张三&quot;</span>;<span class="comment">//初始化一个名叫张三的丈夫</span></span><br><span class="line"></span><br><span class="line">		<span class="type">Wife</span> <span class="variable">w</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Wife</span>();</span><br><span class="line">		w.name = <span class="string">&quot;李四&quot;</span>;<span class="comment">//初始化一个名叫李四的妻子</span></span><br><span class="line">		<span class="comment">//展示初始化之前对方的伴侣的名字</span></span><br><span class="line">		printName(h);</span><br><span class="line">		printName(w);</span><br><span class="line">    <span class="comment">//结婚</span></span><br><span class="line">		marry(h,w);</span><br><span class="line">    <span class="comment">//展示结婚后对方伴侣的名字</span></span><br><span class="line">		printName(h);</span><br><span class="line">		printName(w);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//使 h 和 w 结婚</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">marry</span><span class="params">(Husband h, Wife w)</span>&#123;</span><br><span class="line">		h.wife = w;</span><br><span class="line">		w.husband = h;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//展示丈夫妻子的名字</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printName</span><span class="params">(Husband h)</span>&#123;</span><br><span class="line">		System.out.println(h.wife.name);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//展示妻子丈夫的名字</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printName</span><span class="params">(Wife w)</span>&#123;</span><br><span class="line">		System.out.println(w.husband.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>运行结果</li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7z0hcsug4j30tc0famxw.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h7z0hcsug4j30tc0famxw.jpg" alt="" /></p>
 <ul>
 <li>在注释掉 展示初始化之前对方的伴侣的名字 这两行代码后，程序正常运行！</li>
 <li>空指针异常可以通过编译，因为其语法没有任何问题，但是在运行期间会报错！</li>
@@ -544,7 +584,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A11"><span class="nav-number">1.</span> <span class="nav-text">Java面向对象1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.0.1.</span> <span class="nav-text">面向过程和面向对象的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.0.2.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">三大特征</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BC%80%E5%8F%91%E8%AE%BE%E8%AE%A1%E4%B8%89%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">基于面向对象开发设计三步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.0.3.</span> <span class="nav-text">类和对象的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-number">1.0.4.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">语法结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%92%8C-%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB-1"><span class="nav-number">1.0.4.0.3.</span> <span class="nav-text">基本数据类型 和 引用数据类型的区别[1]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">1.0.5.</span> <span class="nav-text">对象的创建与使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E5%86%85%E5%AD%98%E5%8C%BA%E7%9A%84%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.0.6.</span> <span class="nav-text">JVM内存区的回顾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E6%8C%87%E9%92%88%E5%BC%82%E5%B8%B8"><span class="nav-number">1.0.7.</span> <span class="nav-text">空指针异常</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A11"><span class="nav-number">1.</span> <span class="nav-text"> Java面向对象1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 面向过程和面向对象的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text"> 三大特征</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BC%80%E5%8F%91%E8%AE%BE%E8%AE%A1%E4%B8%89%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text"> 基于面向对象开发设计三步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 类和对象的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text"> 语法结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text"> 属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%92%8C-%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%ABsupa-hrefref11asup"><span class="nav-number">1.0.4.0.3.</span> <span class="nav-text"> 基本数据类型 和 引用数据类型的区别[1]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 对象的创建与使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jvm%E5%86%85%E5%AD%98%E5%8C%BA%E7%9A%84%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.0.6.</span> <span class="nav-text"> JVM内存区的回顾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E6%8C%87%E9%92%88%E5%BC%82%E5%B8%B8"><span class="nav-number">1.0.7.</span> <span class="nav-text"> 空指针异常</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -560,7 +600,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
