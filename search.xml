@@ -9965,4 +9965,67 @@
         <tag>算法</tag>
       </tags>
   </entry>
+  <entry>
+    <title>JavaScript特殊的对象</title>
+    <url>/2023/01/23/%E5%89%8D%E7%AB%AF/JavaScript%E7%89%B9%E6%AE%8A%E7%9A%84%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h1 id="JavaScript特殊的对象"><a href="#JavaScript特殊的对象" class="headerlink" title="JavaScript特殊的对象"></a>JavaScript特殊的对象</h1><h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><h3 id="Date-1"><a href="#Date-1" class="headerlink" title="Date()"></a>Date()</h3><ul>
+<li>通过<code>Date()</code>方法获得当前的日期</li>
+</ul>
+<h3 id="getFullYear"><a href="#getFullYear" class="headerlink" title="getFullYear()"></a>getFullYear()</h3><ul>
+<li>获得当前的年份</li>
+<li><code>getMonth()</code> <code>getDate()</code>等等</li>
+</ul>
+<h3 id="getTime"><a href="#getTime" class="headerlink" title="getTime()"></a>getTime()</h3><ul>
+<li>获得从1970年1月1日至今的毫秒数</li>
+</ul>
+<h3 id="setFullYear"><a href="#setFullYear" class="headerlink" title="setFullYear()"></a>setFullYear()</h3><ul>
+<li>设置具体时间</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">now;<span class="comment">//Mon Jan 23 2023 21:47:15 GMT+0800</span></span><br><span class="line">now.<span class="title function_">getFullYear</span>();<span class="comment">//2023</span></span><br><span class="line">now.<span class="title function_">getTime</span>();<span class="comment">//1674481677820</span></span><br><span class="line">now.<span class="title function_">setFullYear</span>(<span class="number">2000</span>,<span class="number">10</span>,<span class="number">14</span>);</span><br><span class="line">now;<span class="comment">//Tue Nov 14 2000 21:50:48 GMT+0800</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><ul>
+<li>JSON 英文全称 <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation</li>
+<li>JSON是<strong>用于存储和传输数据的格式</strong></li>
+<li>JSON通常用于服务端向网页传递数据</li>
+<li>任何JS支持的类型都可以用JSON来表示</li>
+</ul>
+<h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><ul>
+<li>数据用键值对的形式存储</li>
+<li>数据由逗号分隔</li>
+<li>大括号保存对象</li>
+<li>中括号保存数组</li>
+</ul>
+<h3 id="JSON数据"><a href="#JSON数据" class="headerlink" title="JSON数据"></a>JSON数据</h3><ul>
+<li>数据是键值对的形式存储</li>
+<li>用双引号包裹键值对</li>
+<li><code>&quot;键&quot;:&quot;值&quot;</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;name&quot;</span>:<span class="string">&quot;Tom&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JSON对象"><a href="#JSON对象" class="headerlink" title="JSON对象"></a>JSON对象</h3><ul>
+<li>JSON对象保存在大括号中</li>
+<li>一个对象中可以保存多个数据</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;Tom&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="string">&quot;20&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JSON数组"><a href="#JSON数组" class="headerlink" title="JSON数组"></a>JSON数组</h3><ul>
+<li>JSON 数组保存在中括号内</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//键是sites，值是一个数组</span></span><br><span class="line"><span class="string">&quot;sites&quot;</span>:[</span><br><span class="line">      &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;taobao&quot;</span>,<span class="string">&quot;url&quot;</span>:<span class="string">&quot;www.taobao.com&quot;</span>&#125;,</span><br><span class="line">      &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;baidu&quot;</span>,<span class="string">&quot;url&quot;</span>:<span class="string">&quot;www.baidu.com&quot;</span>&#125;,</span><br><span class="line">      &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;google&quot;</span>,<span class="string">&quot;url&quot;</span>:<span class="string">&quot;www.google.com&quot;</span>&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h3><h4 id="JSON-parse"><a href="#JSON-parse" class="headerlink" title="JSON.parse()"></a>JSON.parse()</h4><ul>
+<li>用于将一个 JSON 字符串转换为 JavaScript 对象</li>
+</ul>
+<h4 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a>JSON.stringify()</h4><ul>
+<li>用于将 JavaScript 值转换为 JSON 字符串</li>
+</ul>
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
 </search>
