@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">98</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">100</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -247,15 +247,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="结构伪类选择器"><a class="markdownIt-Anchor" href="#结构伪类选择器"></a> 结构伪类选择器</h2>
-<h3 id="作用"><a class="markdownIt-Anchor" href="#作用"></a> 作用</h3>
-<ul>
+        <h2 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
 <li>根据元素在HTML中的结构关系查找元素</li>
 <li>减少对HTML类的依赖，有利于保证代码整洁</li>
 <li>常用于查找某父级选择器的子元素</li>
 </ul>
-<h3 id="选择器"><a class="markdownIt-Anchor" href="#选择器"></a> 选择器</h3>
-<table style="text-align: center">
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><table style="text-align: center">
     <tr>
         <th>选择器</th>
         <th>说明</th>
@@ -277,9 +274,9 @@
         <td>匹配父元素中倒数第n个子元素，并且是E元素</td>
     </tr>
 </table>
+
 <ul>
-<li>n的注意点
-<ul>
+<li>n的注意点<ul>
 <li>n可以是数字，也可以填入公式</li>
 </ul>
 </li>
@@ -306,75 +303,64 @@
         <td>n+5</td>
     </tr>
 </table>
-<h3 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h3>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第1项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第2项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第3项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第4项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第1项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第2项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第3项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第4项<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">		<span class="comment">/*选中第一个孩子*/</span></span><br><span class="line">    <span class="selector-tag">li</span><span class="selector-pseudo">:first</span>-child&#123;</span><br><span class="line">    		<span class="attribute">background-color</span>: pink;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">		<span class="selector-tag">li</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>)&#123;</span><br><span class="line">      <span class="attribute">background-color</span>: pink;</span><br><span class="line">		&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="伪元素"><a class="markdownIt-Anchor" href="#伪元素"></a> 伪元素</h2>
-<h3 id="作用-2"><a class="markdownIt-Anchor" href="#作用-2"></a> 作用</h3>
-<ul>
-<li>一般页面中的非主体内容可以使用伪元素
-<ul>
+
+<h2 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h2><h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><ul>
+<li>一般页面中的非主体内容可以使用伪元素<ul>
 <li>装饰性质小图片</li>
 </ul>
 </li>
 <li>元素是HTML设置的标签</li>
-<li>伪元素是CSS<strong>模拟</strong>出的标签效果
-<ul>
+<li>伪元素是CSS<strong>模拟</strong>出的标签效果<ul>
 <li>模拟出的标签也可以添加各类效果</li>
 </ul>
 </li>
 </ul>
-<h3 id="种类"><a class="markdownIt-Anchor" href="#种类"></a> 种类</h3>
-<table>
+<h3 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h3><table>
 <thead>
 <tr>
-<th style="text-align:center">伪元素</th>
-<th style="text-align:center">作用</th>
+<th align="center">伪元素</th>
+<th align="center">作用</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>::before</code></td>
-<td style="text-align:center">在父元素内容的最前面添加一个伪元素</td>
+<tbody><tr>
+<td align="center"><code>::before</code></td>
+<td align="center">在父元素内容的最前面添加一个伪元素</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>::after</code></td>
-<td style="text-align:center">在父元素内容的最后面添加一个伪元素</td>
+<td align="center"><code>::after</code></td>
+<td align="center">在父元素内容的最后面添加一个伪元素</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <ul>
 <li>必须设置<code>content</code>CSS</li>
 <li>属性才能生效</li>
-<li>伪元素默认是行内元素
-<ul>
+<li>伪元素默认是行内元素<ul>
 <li>不能设置宽高</li>
 </ul>
 </li>
 </ul>
-<h3 id="代码-2"><a class="markdownIt-Anchor" href="#代码-2"></a> 代码</h3>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;father&quot;</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;father&quot;</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="selector-class">.father</span>&#123;</span><br><span class="line">      <span class="attribute">text-align</span>: center;</span><br><span class="line">      <span class="attribute">font-size</span>: <span class="number">64px</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: green;</span><br><span class="line">    &#125;</span><br><span class="line">		 <span class="comment">/*在father标签前面创建了一个标签*/</span></span><br><span class="line">    <span class="selector-class">.father</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">      <span class="attribute">content</span>: <span class="string">&quot;前面的内容&quot;</span>;</span><br><span class="line">      <span class="attribute">color</span>: blue;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">/*在father标签后面创建了一个标签*/</span></span><br><span class="line">    <span class="selector-class">.father</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">      <span class="attribute">content</span>: <span class="string">&quot;后面的内容&quot;</span>;</span><br><span class="line">      <span class="attribute">color</span>: orange;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="标准流"><a class="markdownIt-Anchor" href="#标准流"></a> 标准流</h2>
-<ul>
-<li>又称为文档流，是浏览器在渲染显示网页内容时<strong>默认</strong>采用的一套排版规则，规定了应该用哪种方式排列元素
-<ul>
+
+<h2 id="标准流"><a href="#标准流" class="headerlink" title="标准流"></a>标准流</h2><ul>
+<li>又称为文档流，是浏览器在渲染显示网页内容时<strong>默认</strong>采用的一套排版规则，规定了应该用哪种方式排列元素<ul>
 <li>标签默认的一种显示方式</li>
 </ul>
 </li>
 <li>也就是之前所认识的显示方式<code>display</code>，包括行内显示、块显示</li>
 <li>不能直接用标准流来设置标签的排版，绝大部分的标签都会更改排列方式，不是最初始的排列方式</li>
 </ul>
-<h3 id="常见的标准流排版规则"><a class="markdownIt-Anchor" href="#常见的标准流排版规则"></a> 常见的标准流排版规则</h3>
-<ul>
+<h3 id="常见的标准流排版规则"><a href="#常见的标准流排版规则" class="headerlink" title="常见的标准流排版规则"></a>常见的标准流排版规则</h3><ul>
 <li>块级元素：从上往下，垂直布局，独占一行</li>
-<li>行内元素/行内块元素：从左往右，水平分布，空间不够自动拆行</li>
+<li>行内元素&#x2F;行内块元素：从左往右，水平分布，空间不够自动拆行</li>
 </ul>
-<h2 id="浮动"><a class="markdownIt-Anchor" href="#浮动"></a> 浮动</h2>
-<h3 id="浮动的作用"><a class="markdownIt-Anchor" href="#浮动的作用"></a> 浮动的作用</h3>
-<ul>
-<li>浏览器解析<u>行内块</u>或<u>行内块标签</u>时，如果标签换行书写会产生一个空格的效果
-<ul>
+<h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><h3 id="浮动的作用"><a href="#浮动的作用" class="headerlink" title="浮动的作用"></a>浮动的作用</h3><ul>
+<li>浏览器解析<u>行内块</u>或<u>行内块标签</u>时，如果标签换行书写会产生一个空格的效果<ul>
 <li>将两个<code>div</code>标签换行书写，然后最后调整他们的显示方式为<code>inline-block</code>时，它们两中间会产生一个空格</li>
 <li>并且这个空格不是<code>margin</code>的效果，无法消除</li>
 <li>将两个<code>div</code>标签并排写就可以消除</li>
@@ -384,27 +370,22 @@
 <li>图文环绕</li>
 <li>网页布局</li>
 </ul>
-<h3 id="浮动的特点"><a class="markdownIt-Anchor" href="#浮动的特点"></a> 浮动的特点</h3>
-<ul>
-<li>浮动元素会脱离标准流，<strong>在标准流中不占位置</strong>
-<ul>
+<h3 id="浮动的特点"><a href="#浮动的特点" class="headerlink" title="浮动的特点"></a>浮动的特点</h3><ul>
+<li>浮动元素会脱离标准流，<strong>在标准流中不占位置</strong><ul>
 <li>有点类似浮在上一层</li>
 </ul>
 </li>
-<li>浮动元素比标准流高<strong>半个级别</strong>，可以覆盖标准流中的元素
-<ul>
+<li>浮动元素比标准流高<strong>半个级别</strong>，可以覆盖标准流中的元素<ul>
 <li>可以盖住标签，但不能盖住文字</li>
 </ul>
 </li>
-<li>浮动找浮动，下一个浮动元素会在上一个浮动元素后面左右浮动
-<ul>
+<li>浮动找浮动，下一个浮动元素会在上一个浮动元素后面左右浮动<ul>
 <li>浮动的标签是顶部对齐的</li>
 <li>当有多个元素对齐时，它们会都浮在上一层，然后依次向右边（后边）排开</li>
 <li>剩下不浮动的元素正常占用标准流的位置</li>
 </ul>
 </li>
-<li><strong>浮动元素有特殊的显示效果</strong>
-<ul>
+<li><strong>浮动元素有特殊的显示效果</strong><ul>
 <li>一行显示多个</li>
 <li>可以设置宽高</li>
 <li>类似行内块</li>
@@ -412,31 +393,25 @@
 </li>
 <li>浮动的元素不能通过<code>text-align</code>或者<code>margin:0 center</code>居中</li>
 </ul>
-<h3 id="浮动的代码"><a class="markdownIt-Anchor" href="#浮动的代码"></a> 浮动的代码</h3>
-<ul>
-<li><code>float</code>属性
-<ul>
+<h3 id="浮动的代码"><a href="#浮动的代码" class="headerlink" title="浮动的代码"></a>浮动的代码</h3><ul>
+<li><code>float</code>属性<ul>
 <li><code>left</code>：浮动到靠到最左边</li>
 <li><code>right</code>：浮动到靠到最右边</li>
 </ul>
 </li>
 </ul>
-<h3 id="css代码属性"><a class="markdownIt-Anchor" href="#css代码属性"></a> CSS代码属性</h3>
-<ol>
+<h3 id="CSS代码属性"><a href="#CSS代码属性" class="headerlink" title="CSS代码属性"></a>CSS代码属性</h3><ol>
 <li>定位</li>
-<li>浮动/<code>display</code></li>
-<li>盒子模型：<code>margin</code>/<code>border</code>/宽度高度/背景色</li>
+<li>浮动&#x2F;<code>display</code></li>
+<li>盒子模型：<code>margin</code>&#x2F;<code>border</code>&#x2F;宽度高度&#x2F;背景色</li>
 <li>文字样式</li>
 </ol>
-<h3 id="清除浮动"><a class="markdownIt-Anchor" href="#清除浮动"></a> 清除浮动</h3>
-<ul>
-<li>浮动会带来的影响
-<ul>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><ul>
+<li>浮动会带来的影响<ul>
 <li>如果子元素浮动了，此时子元素不能撑开标准流的块级父元素</li>
 </ul>
 </li>
-<li>清除浮动的方法
-<ul>
+<li>清除浮动的方法<ul>
 <li>直接设置父元素的高度</li>
 <li>额外标签法</li>
 <li>单伪元素清除法</li>
@@ -444,52 +419,43 @@
 </ul>
 </li>
 </ul>
-<h4 id="直接设置父元素的高度"><a class="markdownIt-Anchor" href="#直接设置父元素的高度"></a> 直接设置父元素的高度</h4>
-<ul>
-<li>特点
-<ul>
+<h4 id="直接设置父元素的高度"><a href="#直接设置父元素的高度" class="headerlink" title="直接设置父元素的高度"></a>直接设置父元素的高度</h4><ul>
+<li>特点<ul>
 <li>简单粗暴，方便</li>
 <li>但是有些布局中不能固定父元素的高度，如新闻列表（父元素的高度随着新闻数量不同而不同）</li>
 </ul>
 </li>
 </ul>
-<h4 id="额外标签法"><a class="markdownIt-Anchor" href="#额外标签法"></a> 额外标签法</h4>
-<ul>
-<li>操作
-<ul>
+<h4 id="额外标签法"><a href="#额外标签法" class="headerlink" title="额外标签法"></a>额外标签法</h4><ul>
+<li>操作<ul>
 <li>在父元素内容的最后添加一个<strong>块级</strong>元素</li>
-<li>在给添加的块级元素设置<code>clear:both</code>
-<ul>
+<li>在给添加的块级元素设置<code>clear:both</code><ul>
 <li><code>clear:left</code>代表清除左边的<code>float</code>内容</li>
 <li><code>clear:left</code>代表清除右边的<code>float</code>内容</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>特点
-<ul>
+<li>特点<ul>
 <li>还会在页面中添加额外的HTML标签，让结构更复杂</li>
 </ul>
 </li>
 </ul>
-<h4 id="单伪元素清除法"><a class="markdownIt-Anchor" href="#单伪元素清除法"></a> 单伪元素清除法</h4>
-<ul>
-<li>用伪元素替代了额外标签
-<ul>
+<h4 id="单伪元素清除法"><a href="#单伪元素清除法" class="headerlink" title="单伪元素清除法"></a>单伪元素清除法</h4><ul>
+<li>用伪元素替代了额外标签<ul>
 <li>用CSS创建一个标签</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">		<span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">		<span class="attribute">display</span>: block:<span class="comment">/*块级元素*/</span></span><br><span class="line">		clear: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>特点
-<ul>
+<li>特点<ul>
 <li>使用便捷，直接给标签加类即可清除浮动</li>
 </ul>
 </li>
 </ul>
-<h4 id="给父元素设置overflowhidden"><a class="markdownIt-Anchor" href="#给父元素设置overflowhidden"></a> 给父元素设置<code>overflow:hidden</code></h4>
-
+<h4 id="给父元素设置overflow-hidden"><a href="#给父元素设置overflow-hidden" class="headerlink" title="给父元素设置overflow:hidden"></a>给父元素设置<code>overflow:hidden</code></h4>
     </div>
 
     
@@ -573,7 +539,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text"> 结构伪类选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text"> 作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text"> 选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text"> 代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">2.</span> <span class="nav-text"> 伪元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8-2"><span class="nav-number">2.1.</span> <span class="nav-text"> 作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%8D%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text"> 种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-number">2.3.</span> <span class="nav-text"> 代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E6%B5%81"><span class="nav-number">3.</span> <span class="nav-text"> 标准流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%A0%87%E5%87%86%E6%B5%81%E6%8E%92%E7%89%88%E8%A7%84%E5%88%99"><span class="nav-number">3.1.</span> <span class="nav-text"> 常见的标准流排版规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text"> 浮动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">4.1.</span> <span class="nav-text"> 浮动的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">4.2.</span> <span class="nav-text"> 浮动的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-number">4.3.</span> <span class="nav-text"> 浮动的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css%E4%BB%A3%E7%A0%81%E5%B1%9E%E6%80%A7"><span class="nav-number">4.4.</span> <span class="nav-text"> CSS代码属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="nav-number">4.5.</span> <span class="nav-text"> 清除浮动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E8%AE%BE%E7%BD%AE%E7%88%B6%E5%85%83%E7%B4%A0%E7%9A%84%E9%AB%98%E5%BA%A6"><span class="nav-number">4.5.1.</span> <span class="nav-text"> 直接设置父元素的高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E6%A0%87%E7%AD%BE%E6%B3%95"><span class="nav-number">4.5.2.</span> <span class="nav-text"> 额外标签法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%BC%AA%E5%85%83%E7%B4%A0%E6%B8%85%E9%99%A4%E6%B3%95"><span class="nav-number">4.5.3.</span> <span class="nav-text"> 单伪元素清除法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%99%E7%88%B6%E5%85%83%E7%B4%A0%E8%AE%BE%E7%BD%AEoverflowhidden"><span class="nav-number">4.5.4.</span> <span class="nav-text"> 给父元素设置overflow:hidden</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">结构伪类选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">2.</span> <span class="nav-text">伪元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8-1"><span class="nav-number">2.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%8D%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">2.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E6%B5%81"><span class="nav-number">3.</span> <span class="nav-text">标准流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%A0%87%E5%87%86%E6%B5%81%E6%8E%92%E7%89%88%E8%A7%84%E5%88%99"><span class="nav-number">3.1.</span> <span class="nav-text">常见的标准流排版规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text">浮动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">4.1.</span> <span class="nav-text">浮动的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">4.2.</span> <span class="nav-text">浮动的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-number">4.3.</span> <span class="nav-text">浮动的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS%E4%BB%A3%E7%A0%81%E5%B1%9E%E6%80%A7"><span class="nav-number">4.4.</span> <span class="nav-text">CSS代码属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="nav-number">4.5.</span> <span class="nav-text">清除浮动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E8%AE%BE%E7%BD%AE%E7%88%B6%E5%85%83%E7%B4%A0%E7%9A%84%E9%AB%98%E5%BA%A6"><span class="nav-number">4.5.1.</span> <span class="nav-text">直接设置父元素的高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E6%A0%87%E7%AD%BE%E6%B3%95"><span class="nav-number">4.5.2.</span> <span class="nav-text">额外标签法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%BC%AA%E5%85%83%E7%B4%A0%E6%B8%85%E9%99%A4%E6%B3%95"><span class="nav-number">4.5.3.</span> <span class="nav-text">单伪元素清除法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%99%E7%88%B6%E5%85%83%E7%B4%A0%E8%AE%BE%E7%BD%AEoverflow-hidden"><span class="nav-number">4.5.4.</span> <span class="nav-text">给父元素设置overflow:hidden</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -589,7 +555,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">100</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -602,7 +568,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

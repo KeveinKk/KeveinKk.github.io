@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">98</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">100</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -246,95 +246,119 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="字符串转换整形"><a class="markdownIt-Anchor" href="#字符串转换整形"></a> 字符串转换整形</h1>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p>请你来实现一个<code>myAtoi(string s)</code>函数，使其能将字符串转换成一个 32 位有符号整数。</p>
+        <h1 id="字符串转换整形"><a href="#字符串转换整形" class="headerlink" title="字符串转换整形"></a>字符串转换整形</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请你来实现一个<code>myAtoi(string s)</code>函数，使其能将字符串转换成一个 32 位有符号整数。</p>
 <p>函数<code>myAtoi(string s)</code>的算法如下：</p>
 <ol>
 <li>读入字符串并丢弃无用的前导空格</li>
 <li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。</li>
 <li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。</li>
-<li>将前面步骤读入的这些数字转换为整数（即，&quot;123&quot; -&gt; 123， &quot;0032&quot; -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。</li>
+<li>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。</li>
 <li>如果整数数超过 32 位有符号整数范围 [−231,  231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。</li>
 <li>返回整数作为最终结果。</li>
-<li>注意：
-<ul>
-<li>本题中的空白字符只包括空格字符 ' '</li>
+<li>注意：<ul>
+<li>本题中的空白字符只包括空格字符 ‘ ‘ </li>
 <li>除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符</li>
 </ul>
 </li>
 </ol>
-<h2 id="方法一"><a class="markdownIt-Anchor" href="#方法一"></a> 方法一</h2>
-<h3 id="分析"><a class="markdownIt-Anchor" href="#分析"></a> 分析</h3>
-<p>这道题主要考察对输入种类的判断，以及边界情况（溢出）的处理。思路上没有什么难点，但是在细节上有很多需要注意的。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这道题主要考察对输入种类的判断，以及边界情况（溢出）的处理。思路上没有什么难点，但是在细节上有很多需要注意的。</p>
 <ul>
-<li>
-<p>对溢出的判断</p>
+<li><p>对溢出的判断</p>
 <ol>
-<li>
-<p>方法一</p>
+<li><p>方法一</p>
 <ul>
-<li>每一轮的结果计算公式如下：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>s</mi><mo>=</mo><mi>r</mi><mi>e</mi><mi>s</mi><mo>×</mo><mn>10</mn><mo>+</mo><mi>t</mi><mi>e</mi><mi>m</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">res=res\times 10+temp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">m</span><span class="mord mathnormal">p</span></span></span></span></li>
-<li>用一个变量<code>pre</code>记录上一轮的计算结果，<code>res</code>代表这一轮的计算结果
-<ul>
-<li>如果发生溢出的话<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mo mathvariant="normal">≠</mo><mi>r</mi><mi>e</mi><mi>s</mi><mo lspace="0em" rspace="0em">÷</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">pre\ne res {\div} 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal">s</span><span class="mord"><span class="mord">÷</span></span><span class="mord">1</span><span class="mord">0</span></span></span></span></li>
+<li>每一轮的结果计算公式如下：$res&#x3D;res\times 10+temp$</li>
+<li>用一个变量<code>pre</code>记录上一轮的计算结果，<code>res</code>代表这一轮的计算结果<ul>
+<li>如果发生溢出的话$pre\ne res {\div} 10$</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> res;</span><br><span class="line">res = res * <span class="number">10</span> + Character.getNumericValue(s.charAt(i));</span><br><span class="line"><span class="keyword">if</span>(pre != res/<span class="number">10</span>)</span><br><span class="line">	<span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>方法二</p>
+<li><p>方法二</p>
 <ul>
-<li>
-<p><code>int</code>型发生溢出的话我们考虑使用<code>long</code>型来存储数据</p>
+<li><p><code>int</code>型发生溢出的话我们考虑使用<code>long</code>型来存储数据</p>
 </li>
-<li>
-<p>用一个<code>long</code>型的变量<code>res</code>来记录每一轮的计算结果</p>
+<li><p>用一个<code>long</code>型的变量<code>res</code>来记录每一轮的计算结果</p>
 <ul>
 <li>如果是正数发生溢出</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res &gt; Integer.MAX_VALUE;</span><br><span class="line"><span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>如果是负数发生溢出</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res &lt; Integer.MIN_VALUE;</span><br><span class="line"><span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res &lt; Integer.MIN_VALUE;</span><br><span class="line"><span class="comment">//溢出处理...</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ol>
 </li>
-<li>
-<p>将字符转化为<code>int</code></p>
+<li><p>将字符转化为<code>int</code></p>
 <ol>
-<li>
-<p>通过Character类中的方法</p>
+<li><p>通过Character类中的方法</p>
 <ul>
-<li>
-<p><code>public static int getNumericValue(char ch)</code></p>
+<li><p><code>public static int getNumericValue(char ch)</code></p>
 <blockquote>
 <p>Returns the int value that the specified Unicode character represents</p>
 </blockquote>
 </li>
 </ul>
 </li>
-<li>
-<p>通过字符之间的运算</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;5&#x27;</span>;<span class="comment">//0~9</span></span><br><span class="line">c - <span class="string">&#x27;0&#x27;</span><span class="comment">//5</span></span><br></pre></td></tr></table></figure>
-</li>
+<li><p>通过字符之间的运算</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;5&#x27;</span>;<span class="comment">//0~9</span></span><br><span class="line">c - <span class="string">&#x27;0&#x27;</span><span class="comment">//5</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
-<li>
-<p>时间复杂度：遍历一遍字符串即可，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span></p>
+<li><p>时间复杂度：遍历一遍字符串即可，$O(N)$</p>
 </li>
-<li>
-<p>空间复杂度：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<li><p>空间复杂度：$O(1)$</p>
 </li>
 </ul>
-<h3 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">myAtoi</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录结果</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> <span class="literal">true</span>;<span class="comment">//默认是正数</span></span><br><span class="line">        s = s.trim();</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> <span class="variable">firChar</span> <span class="operator">=</span> s.charAt(<span class="number">0</span>);<span class="comment">//判断第一个字符</span></span><br><span class="line">        <span class="keyword">if</span> (firChar == <span class="string">&#x27;-&#x27;</span>) &#123;<span class="comment">//判断条件太多</span></span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (firChar == <span class="string">&#x27;+&#x27;</span>) &#123;</span><br><span class="line">            flag = <span class="literal">true</span>;<span class="comment">//非常多余</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Character.isDigit(firChar)) &#123;</span><br><span class="line">            res = Character.getNumericValue(firChar);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (Character.isDigit(c)) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> res;</span><br><span class="line">                res = res * <span class="number">10</span> + Character.getNumericValue(c);</span><br><span class="line">                <span class="keyword">if</span> (pre != res / <span class="number">10</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (flag) &#123;<span class="comment">//可以通过三目运算符来优化</span></span><br><span class="line">                        <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span> * res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="优化"><a class="markdownIt-Anchor" href="#优化"></a> 优化</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">myAtoi</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        s = s.trim();</span><br><span class="line">        <span class="comment">//将直接返回的条件写在一起</span></span><br><span class="line">        <span class="comment">//长度为0直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> <span class="variable">firChar</span> <span class="operator">=</span> s.charAt(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">//第一个字符既不是数字、也不是正负符号，直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (!Character.isDigit(firChar) &amp;&amp; firChar != <span class="string">&#x27;-&#x27;</span> &amp;&amp; firChar != <span class="string">&#x27;+&#x27;</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//此时字符串第一个字符要么是数字，要么是正负号</span></span><br><span class="line">        <span class="comment">//判断符号</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">neg</span> <span class="operator">=</span> (firChar == <span class="string">&#x27;-&#x27;</span>);<span class="comment">//如果符号位是负，则neg为真，其余情况都为正</span></span><br><span class="line">        <span class="comment">//如果第0位是数字，那从第0为开始遍历数组</span></span><br><span class="line">        <span class="comment">//如果第0为是符号，那从第1为开始遍历</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> Character.isDigit(firChar) ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//最后的结果</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0L</span>;</span><br><span class="line">        <span class="comment">//第一个条件用于正常遍历字符串</span></span><br><span class="line">        <span class="comment">//第二个条件用于：当字符串数字遍历完了之后，舍弃后面的其他字符</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; Character.isDigit(s.charAt(i)))&#123;</span><br><span class="line">            <span class="comment">//此时i指向的一定是数字</span></span><br><span class="line">            ans = ans * <span class="number">10</span> + (s.charAt(i++) - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            <span class="comment">//判断溢出情况</span></span><br><span class="line">            <span class="keyword">if</span> (neg &amp;&amp; -ans &lt; Integer.MIN_VALUE)</span><br><span class="line">                <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">            <span class="keyword">if</span> (!neg &amp;&amp; ans &gt; Integer.MAX_VALUE)</span><br><span class="line">                <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//不用写-1*ans</span></span><br><span class="line">        <span class="keyword">return</span> neg ? (<span class="type">int</span>)-ans : (<span class="type">int</span>)ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">myAtoi</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//记录结果</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> <span class="literal">true</span>;<span class="comment">//默认是正数</span></span><br><span class="line">        s = s.trim();</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> <span class="variable">firChar</span> <span class="operator">=</span> s.charAt(<span class="number">0</span>);<span class="comment">//判断第一个字符</span></span><br><span class="line">        <span class="keyword">if</span> (firChar == <span class="string">&#x27;-&#x27;</span>) &#123;<span class="comment">//判断条件太多</span></span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (firChar == <span class="string">&#x27;+&#x27;</span>) &#123;</span><br><span class="line">            flag = <span class="literal">true</span>;<span class="comment">//非常多余</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Character.isDigit(firChar)) &#123;</span><br><span class="line">            res = Character.getNumericValue(firChar);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (Character.isDigit(c)) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> res;</span><br><span class="line">                res = res * <span class="number">10</span> + Character.getNumericValue(c);</span><br><span class="line">                <span class="keyword">if</span> (pre != res / <span class="number">10</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (flag) &#123;<span class="comment">//可以通过三目运算符来优化</span></span><br><span class="line">                        <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span> * res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">myAtoi</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        s = s.trim();</span><br><span class="line">        <span class="comment">//将直接返回的条件写在一起</span></span><br><span class="line">        <span class="comment">//长度为0直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> <span class="variable">firChar</span> <span class="operator">=</span> s.charAt(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">//第一个字符既不是数字、也不是正负符号，直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (!Character.isDigit(firChar) &amp;&amp; firChar != <span class="string">&#x27;-&#x27;</span> &amp;&amp; firChar != <span class="string">&#x27;+&#x27;</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//此时字符串第一个字符要么是数字，要么是正负号</span></span><br><span class="line">        <span class="comment">//判断符号</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">neg</span> <span class="operator">=</span> (firChar == <span class="string">&#x27;-&#x27;</span>);<span class="comment">//如果符号位是负，则neg为真，其余情况都为正</span></span><br><span class="line">        <span class="comment">//如果第0位是数字，那从第0为开始遍历数组</span></span><br><span class="line">        <span class="comment">//如果第0为是符号，那从第1为开始遍历</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> Character.isDigit(firChar) ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//最后的结果</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0L</span>;</span><br><span class="line">        <span class="comment">//第一个条件用于正常遍历字符串</span></span><br><span class="line">        <span class="comment">//第二个条件用于：当字符串数字遍历完了之后，舍弃后面的其他字符</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; Character.isDigit(s.charAt(i)))&#123;</span><br><span class="line">            <span class="comment">//此时i指向的一定是数字</span></span><br><span class="line">            ans = ans * <span class="number">10</span> + (s.charAt(i++) - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            <span class="comment">//判断溢出情况</span></span><br><span class="line">            <span class="keyword">if</span> (neg &amp;&amp; -ans &lt; Integer.MIN_VALUE)</span><br><span class="line">                <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">            <span class="keyword">if</span> (!neg &amp;&amp; ans &gt; Integer.MAX_VALUE)</span><br><span class="line">                <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">        &#125;</span><br><span class="line">				<span class="comment">//不用写-1*ans</span></span><br><span class="line">        <span class="keyword">return</span> neg ? (<span class="type">int</span>)-ans : (<span class="type">int</span>)ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
 
@@ -419,7 +443,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E5%BD%A2"><span class="nav-number">1.</span> <span class="nav-text"> 字符串转换整形</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text"> 题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.2.</span> <span class="nav-text"> 方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96"><span class="nav-number">1.2.3.</span> <span class="nav-text"> 优化</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E5%BD%A2"><span class="nav-number">1.</span> <span class="nav-text">字符串转换整形</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.2.</span> <span class="nav-text">方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.2.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96"><span class="nav-number">1.2.3.</span> <span class="nav-text">优化</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -435,7 +459,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">100</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -448,7 +472,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

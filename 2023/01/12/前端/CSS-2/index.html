@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">98</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">100</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -247,99 +247,76 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="css"><a class="markdownIt-Anchor" href="#css"></a> CSS</h1>
-<h2 id="css字体"><a class="markdownIt-Anchor" href="#css字体"></a> CSS字体</h2>
-<h3 id="字体大小font-size"><a class="markdownIt-Anchor" href="#字体大小font-size"></a> 字体大小font-size</h3>
-<h4 id="属性值"><a class="markdownIt-Anchor" href="#属性值"></a> 属性值</h4>
-<ul>
+        <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="CSS字体"><a href="#CSS字体" class="headerlink" title="CSS字体"></a>CSS字体</h2><h3 id="字体大小font-size"><a href="#字体大小font-size" class="headerlink" title="字体大小font-size"></a>字体大小font-size</h3><h4 id="属性值"><a href="#属性值" class="headerlink" title="属性值"></a>属性值</h4><ul>
 <li>取值：数字+单位</li>
-<li>谷歌浏览器默认文字大小是16px
-<ul>
+<li>谷歌浏览器默认文字大小是16px<ul>
 <li>单位需要设置，否则无效</li>
 </ul>
 </li>
-<li>我们不能通过调整字体的大小使得一些文字看上去像标题
-<ul>
+<li>我们不能通过调整字体的大小使得一些文字看上去像标题<ul>
 <li>标题需要通过<code>&lt;h1&gt;-&lt;h6&gt;</code>的标签来表示</li>
 <li>段落通过<code>&lt;p&gt;</code>标签来表示</li>
 </ul>
 </li>
 </ul>
-<h4 id="单位"><a class="markdownIt-Anchor" href="#单位"></a> 单位</h4>
-<ul>
-<li>px
-<ul>
+<h4 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h4><ul>
+<li>px<ul>
 <li>控制的是文本的绝对大小</li>
 <li>设置文字的大小与像素，完全控制文字的大小</li>
 <li>默认是16px</li>
 </ul>
 </li>
-<li>em
-<ul>
+<li>em<ul>
 <li>控制的是文本的相对大小</li>
-<li>1em和当前的字体大小相等，默认是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>e</mi><mi>m</mi><mo>=</mo><mn>16</mn><mi>p</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">1em=16px</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathnormal">e</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord">6</span><span class="mord mathnormal">p</span><span class="mord mathnormal">x</span></span></span></span></li>
+<li>1em和当前的字体大小相等，默认是$1em&#x3D;16px$</li>
 </ul>
 </li>
-<li>百分比
-<ul>
+<li>百分比<ul>
 <li>控制的是文字的相对大小</li>
 <li>100%和当前的字体大小相等</li>
 </ul>
 </li>
 </ul>
-<h3 id="字体粗细font-weight"><a class="markdownIt-Anchor" href="#字体粗细font-weight"></a> 字体粗细font-weight</h3>
-<h4 id="属性值-2"><a class="markdownIt-Anchor" href="#属性值-2"></a> 属性值</h4>
-<ul>
-<li>关键字
-<ul>
+<h3 id="字体粗细font-weight"><a href="#字体粗细font-weight" class="headerlink" title="字体粗细font-weight"></a>字体粗细font-weight</h3><h4 id="属性值-1"><a href="#属性值-1" class="headerlink" title="属性值"></a>属性值</h4><ul>
+<li>关键字<ul>
 <li>正常：normal(400)</li>
 <li>加粗：bold(700)</li>
 <li>更粗：bolder(900)</li>
 <li>更细：lighter</li>
 </ul>
 </li>
-<li>数字
-<ul>
+<li>数字<ul>
 <li>100～900的整百数</li>
 </ul>
 </li>
 <li>并不是所有的字体都提供了九种粗细，因此部分取值在页面中的现实没有变化</li>
 </ul>
-<h3 id="字体样式font-style"><a class="markdownIt-Anchor" href="#字体样式font-style"></a> 字体样式font-style</h3>
-<h4 id="属性值-3"><a class="markdownIt-Anchor" href="#属性值-3"></a> 属性值</h4>
-<ul>
-<li>关键字
-<ul>
+<h3 id="字体样式font-style"><a href="#字体样式font-style" class="headerlink" title="字体样式font-style"></a>字体样式font-style</h3><h4 id="属性值-2"><a href="#属性值-2" class="headerlink" title="属性值"></a>属性值</h4><ul>
+<li>关键字<ul>
 <li>normal：显示一个标准的字体样式</li>
 <li>italic：显示一个倾斜的字体样式</li>
 </ul>
 </li>
 <li>效果等价于<code>&lt;em&gt;</code>以及<code>&lt;i&gt;</code>标签</li>
 </ul>
-<h3 id="字体类型font-family"><a class="markdownIt-Anchor" href="#字体类型font-family"></a> 字体类型font-family</h3>
-<h4 id="属性值-4"><a class="markdownIt-Anchor" href="#属性值-4"></a> 属性值</h4>
-<ul>
+<h3 id="字体类型font-family"><a href="#字体类型font-family" class="headerlink" title="字体类型font-family"></a>字体类型font-family</h3><h4 id="属性值-3"><a href="#属性值-3" class="headerlink" title="属性值"></a>属性值</h4><ul>
 <li>具体的字体名称</li>
 <li>字体1，字体2，字体3…，字体系列</li>
 <li>常见的字体包括：微软雅黑、黑体、宋体等等</li>
-<li>常见的字体系列：<code>sans-serif</code>、<code>serif</code>以及<code>monospace</code>
-<ul>
-<li>无衬线字体<code>sans-serif</code>
-<ul>
+<li>常见的字体系列：<code>sans-serif</code>、<code>serif</code>以及<code>monospace</code><ul>
+<li>无衬线字体<code>sans-serif</code><ul>
 <li>特点：文字笔画粗细均匀，且首尾无装饰</li>
 <li>常用于网页设计</li>
 <li>常见的字体：微软雅黑、黑体</li>
 </ul>
 </li>
-<li>衬线字体<code>serif</code>
-<ul>
+<li>衬线字体<code>serif</code><ul>
 <li>文字笔画粗细不均匀。并且有笔锋等装饰</li>
 <li>常用语书籍报刊的印刷</li>
 <li>常见的字体：宋体、楷体</li>
 </ul>
 </li>
-<li>等宽字体<code>monospace</code>
-<ul>
+<li>等宽字体<code>monospace</code><ul>
 <li>每个字母或者文字的宽度相同</li>
 <li>常用于代码的编写</li>
 <li>常见字体：Consolas</li>
@@ -348,10 +325,8 @@
 </ul>
 </li>
 </ul>
-<h4 id="注意"><a class="markdownIt-Anchor" href="#注意"></a> 注意</h4>
-<ul>
-<li>渲染规则
-<ul>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ul>
+<li>渲染规则<ul>
 <li>从左往右按照顺序查找，如果电脑中未安装该字体，则显示下一个字体</li>
 <li>如果都不支持，会显示最后字体系列中的默认字体</li>
 </ul>
@@ -360,32 +335,27 @@
 <li>最后一项的字体序列不需要引号包裹</li>
 <li>尽量使用系统常见的自带字体，保证不同用户浏览网页时都能正常显示</li>
 </ul>
-<h3 id="字体类型font属性连写"><a class="markdownIt-Anchor" href="#字体类型font属性连写"></a> 字体类型font属性连写</h3>
-<h4 id="复合属性"><a class="markdownIt-Anchor" href="#复合属性"></a> 复合属性</h4>
-<ul>
+<h3 id="字体类型font属性连写"><a href="#字体类型font属性连写" class="headerlink" title="字体类型font属性连写"></a>字体类型font属性连写</h3><h4 id="复合属性"><a href="#复合属性" class="headerlink" title="复合属性"></a>复合属性</h4><ul>
 <li>一个属性冒号可以写多个值</li>
 </ul>
-<h4 id="font符合属性"><a class="markdownIt-Anchor" href="#font符合属性"></a> font符合属性</h4>
-<ul>
+<h4 id="font符合属性"><a href="#font符合属性" class="headerlink" title="font符合属性"></a>font符合属性</h4><ul>
 <li>font后可以跟四个属性，顺序分别为：<code>style</code> <code>weight</code> <code>size</code> <code>family</code></li>
 <li>以上顺序不可以错乱</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#id</span>&#123;</span><br><span class="line">  	<span class="comment">/*对id为id的标签，设置其字体 样式为倾斜 粗细为加粗 大小为32px 字体为苹方*/</span></span><br><span class="line">		<span class="attribute">font</span>: italic bold <span class="number">32px</span> <span class="string">&quot;Apple Braille&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>省略
-<ul>
+<li>省略<ul>
 <li>只能省略样式和粗细，如果省略了相当于设置为默认值</li>
 </ul>
 </li>
-<li>同时设置单独和连写形式
-<ul>
+<li>同时设置单独和连写形式<ul>
 <li>单独的样式要么写在连写的下面（可能会发生样式的层叠）</li>
 <li>要么写在连写的里面</li>
 </ul>
 </li>
 </ul>
-<h3 id="样式的层叠问题"><a class="markdownIt-Anchor" href="#样式的层叠问题"></a> 样式的层叠问题</h3>
-<ul>
+<h3 id="样式的层叠问题"><a href="#样式的层叠问题" class="headerlink" title="样式的层叠问题"></a>样式的层叠问题</h3><ul>
 <li>当给同一个标签设置了相同属性，此时样式会<strong>层叠</strong>（覆盖）</li>
 <li>写在最后的样式会生效</li>
 </ul>
@@ -473,7 +443,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#css"><span class="nav-number">1.</span> <span class="nav-text"> CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#css%E5%AD%97%E4%BD%93"><span class="nav-number">1.1.</span> <span class="nav-text"> CSS字体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8Ffont-size"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 字体大小font-size</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="nav-number">1.1.1.1.</span> <span class="nav-text"> 属性值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D"><span class="nav-number">1.1.1.2.</span> <span class="nav-text"> 单位</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%B2%97%E7%BB%86font-weight"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 字体粗细font-weight</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC-2"><span class="nav-number">1.1.2.1.</span> <span class="nav-text"> 属性值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8Ffont-style"><span class="nav-number">1.1.3.</span> <span class="nav-text"> 字体样式font-style</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC-3"><span class="nav-number">1.1.3.1.</span> <span class="nav-text"> 属性值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%B1%BB%E5%9E%8Bfont-family"><span class="nav-number">1.1.4.</span> <span class="nav-text"> 字体类型font-family</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC-4"><span class="nav-number">1.1.4.1.</span> <span class="nav-text"> 属性值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">1.1.4.2.</span> <span class="nav-text"> 注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%B1%BB%E5%9E%8Bfont%E5%B1%9E%E6%80%A7%E8%BF%9E%E5%86%99"><span class="nav-number">1.1.5.</span> <span class="nav-text"> 字体类型font属性连写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.5.1.</span> <span class="nav-text"> 复合属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#font%E7%AC%A6%E5%90%88%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.5.2.</span> <span class="nav-text"> font符合属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%B1%82%E5%8F%A0%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.6.</span> <span class="nav-text"> 样式的层叠问题</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E5%AD%97%E4%BD%93"><span class="nav-number">1.1.</span> <span class="nav-text">CSS字体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8Ffont-size"><span class="nav-number">1.1.1.</span> <span class="nav-text">字体大小font-size</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">属性值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">单位</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%B2%97%E7%BB%86font-weight"><span class="nav-number">1.1.2.</span> <span class="nav-text">字体粗细font-weight</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC-1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">属性值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8Ffont-style"><span class="nav-number">1.1.3.</span> <span class="nav-text">字体样式font-style</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC-2"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">属性值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%B1%BB%E5%9E%8Bfont-family"><span class="nav-number">1.1.4.</span> <span class="nav-text">字体类型font-family</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%80%BC-3"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">属性值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%B1%BB%E5%9E%8Bfont%E5%B1%9E%E6%80%A7%E8%BF%9E%E5%86%99"><span class="nav-number">1.1.5.</span> <span class="nav-text">字体类型font属性连写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">复合属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#font%E7%AC%A6%E5%90%88%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">font符合属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%B1%82%E5%8F%A0%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.6.</span> <span class="nav-text">样式的层叠问题</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -489,7 +459,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">100</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -502,7 +472,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
