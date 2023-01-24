@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">101</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">105</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -247,55 +247,65 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="JavaScript特殊的对象"><a href="#JavaScript特殊的对象" class="headerlink" title="JavaScript特殊的对象"></a>JavaScript特殊的对象</h1><h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><h3 id="Date-1"><a href="#Date-1" class="headerlink" title="Date()"></a>Date()</h3><ul>
+        <h1 id="javascript特殊的对象"><a class="markdownIt-Anchor" href="#javascript特殊的对象"></a> JavaScript特殊的对象</h1>
+<h2 id="date"><a class="markdownIt-Anchor" href="#date"></a> Date</h2>
+<h3 id="date-2"><a class="markdownIt-Anchor" href="#date-2"></a> Date()</h3>
+<ul>
 <li>通过<code>Date()</code>方法获得当前的日期</li>
 </ul>
-<h3 id="getFullYear"><a href="#getFullYear" class="headerlink" title="getFullYear()"></a>getFullYear()</h3><ul>
+<h3 id="getfullyear"><a class="markdownIt-Anchor" href="#getfullyear"></a> getFullYear()</h3>
+<ul>
 <li>获得当前的年份</li>
 <li><code>getMonth()</code> <code>getDate()</code>等等</li>
 </ul>
-<h3 id="getTime"><a href="#getTime" class="headerlink" title="getTime()"></a>getTime()</h3><ul>
+<h3 id="gettime"><a class="markdownIt-Anchor" href="#gettime"></a> getTime()</h3>
+<ul>
 <li>获得从1970年1月1日至今的毫秒数</li>
 </ul>
-<h3 id="setFullYear"><a href="#setFullYear" class="headerlink" title="setFullYear()"></a>setFullYear()</h3><ul>
+<h3 id="setfullyear"><a class="markdownIt-Anchor" href="#setfullyear"></a> setFullYear()</h3>
+<ul>
 <li>设置具体时间</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">now;<span class="comment">//Mon Jan 23 2023 21:47:15 GMT+0800</span></span><br><span class="line">now.<span class="title function_">getFullYear</span>();<span class="comment">//2023</span></span><br><span class="line">now.<span class="title function_">getTime</span>();<span class="comment">//1674481677820</span></span><br><span class="line">now.<span class="title function_">setFullYear</span>(<span class="number">2000</span>,<span class="number">10</span>,<span class="number">14</span>);</span><br><span class="line">now;<span class="comment">//Tue Nov 14 2000 21:50:48 GMT+0800</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><ul>
+<h2 id="json"><a class="markdownIt-Anchor" href="#json"></a> JSON</h2>
+<ul>
 <li>JSON 英文全称 <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation</li>
 <li>JSON是<strong>用于存储和传输数据的格式</strong></li>
 <li>JSON通常用于服务端向网页传递数据</li>
 <li>任何JS支持的类型都可以用JSON来表示</li>
 </ul>
-<h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><ul>
+<h3 id="语法规则"><a class="markdownIt-Anchor" href="#语法规则"></a> 语法规则</h3>
+<ul>
 <li>数据用键值对的形式存储</li>
 <li>数据由逗号分隔</li>
 <li>大括号保存对象</li>
 <li>中括号保存数组</li>
 </ul>
-<h3 id="JSON数据"><a href="#JSON数据" class="headerlink" title="JSON数据"></a>JSON数据</h3><ul>
+<h3 id="json数据"><a class="markdownIt-Anchor" href="#json数据"></a> JSON数据</h3>
+<ul>
 <li>数据是键值对的形式存储</li>
 <li>用双引号包裹键值对</li>
 <li><code>&quot;键&quot;:&quot;值&quot;</code></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;name&quot;</span>:<span class="string">&quot;Tom&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="JSON对象"><a href="#JSON对象" class="headerlink" title="JSON对象"></a>JSON对象</h3><ul>
+<h3 id="json对象"><a class="markdownIt-Anchor" href="#json对象"></a> JSON对象</h3>
+<ul>
 <li>JSON对象保存在大括号中</li>
 <li>一个对象中可以保存多个数据</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;Tom&quot;</span>,<span class="string">&quot;age&quot;</span>:<span class="string">&quot;20&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="JSON数组"><a href="#JSON数组" class="headerlink" title="JSON数组"></a>JSON数组</h3><ul>
+<h3 id="json数组"><a class="markdownIt-Anchor" href="#json数组"></a> JSON数组</h3>
+<ul>
 <li>JSON 数组保存在中括号内</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//键是sites，值是一个数组</span></span><br><span class="line"><span class="string">&quot;sites&quot;</span>:[</span><br><span class="line">      &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;taobao&quot;</span>,<span class="string">&quot;url&quot;</span>:<span class="string">&quot;www.taobao.com&quot;</span>&#125;,</span><br><span class="line">      &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;baidu&quot;</span>,<span class="string">&quot;url&quot;</span>:<span class="string">&quot;www.baidu.com&quot;</span>&#125;,</span><br><span class="line">      &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;google&quot;</span>,<span class="string">&quot;url&quot;</span>:<span class="string">&quot;www.google.com&quot;</span>&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h3 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h3><h4 id="JSON-parse"><a href="#JSON-parse" class="headerlink" title="JSON.parse()"></a>JSON.parse()</h4><ul>
+<h3 id="转换函数"><a class="markdownIt-Anchor" href="#转换函数"></a> 转换函数</h3>
+<h4 id="jsonparse"><a class="markdownIt-Anchor" href="#jsonparse"></a> JSON.parse()</h4>
+<ul>
 <li>用于将一个 JSON 字符串转换为 JavaScript 对象</li>
 </ul>
-<h4 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a>JSON.stringify()</h4><ul>
+<h4 id="jsonstringify"><a class="markdownIt-Anchor" href="#jsonstringify"></a> JSON.stringify()</h4>
+<ul>
 <li>用于将 JavaScript 值转换为 JSON 字符串</li>
 </ul>
 
@@ -320,7 +330,10 @@
     <a href="/2023/01/23/%E5%89%8D%E7%AB%AF/JavaScript%E5%87%BD%E6%95%B0/" rel="prev" title="JavaScript函数">
       <i class="fa fa-chevron-left"></i> JavaScript函数
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/24/%E5%89%8D%E7%AB%AF/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" rel="next" title="JavaScript面向对象编程">
+      JavaScript面向对象编程 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -379,7 +392,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E7%89%B9%E6%AE%8A%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">JavaScript特殊的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Date"><span class="nav-number">1.1.</span> <span class="nav-text">Date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Date-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">Date()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getFullYear"><span class="nav-number">1.1.2.</span> <span class="nav-text">getFullYear()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getTime"><span class="nav-number">1.1.3.</span> <span class="nav-text">getTime()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setFullYear"><span class="nav-number">1.1.4.</span> <span class="nav-text">setFullYear()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON"><span class="nav-number">1.2.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-number">1.2.1.</span> <span class="nav-text">语法规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text">JSON数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.3.</span> <span class="nav-text">JSON对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON%E6%95%B0%E7%BB%84"><span class="nav-number">1.2.4.</span> <span class="nav-text">JSON数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.5.</span> <span class="nav-text">转换函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-parse"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">JSON.parse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-stringify"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">JSON.stringify()</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#javascript%E7%89%B9%E6%AE%8A%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text"> JavaScript特殊的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#date"><span class="nav-number">1.1.</span> <span class="nav-text"> Date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#date-2"><span class="nav-number">1.1.1.</span> <span class="nav-text"> Date()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getfullyear"><span class="nav-number">1.1.2.</span> <span class="nav-text"> getFullYear()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gettime"><span class="nav-number">1.1.3.</span> <span class="nav-text"> getTime()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setfullyear"><span class="nav-number">1.1.4.</span> <span class="nav-text"> setFullYear()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#json"><span class="nav-number">1.2.</span> <span class="nav-text"> JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 语法规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text"> JSON数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.3.</span> <span class="nav-text"> JSON对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json%E6%95%B0%E7%BB%84"><span class="nav-number">1.2.4.</span> <span class="nav-text"> JSON数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.5.</span> <span class="nav-text"> 转换函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jsonparse"><span class="nav-number">1.2.5.1.</span> <span class="nav-text"> JSON.parse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jsonstringify"><span class="nav-number">1.2.5.2.</span> <span class="nav-text"> JSON.stringify()</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -395,7 +408,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

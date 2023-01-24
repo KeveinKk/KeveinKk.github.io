@@ -145,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">101</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">105</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -251,31 +251,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="多态2"><a href="#多态2" class="headerlink" title="多态2"></a>多态2</h1><h3 id="方法覆盖"><a href="#方法覆盖" class="headerlink" title="方法覆盖"></a>方法覆盖</h3><ol>
-<li><p>私有方法无法覆盖</p>
+        <h1 id="多态2"><a class="markdownIt-Anchor" href="#多态2"></a> 多态2</h1>
+<h3 id="方法覆盖"><a class="markdownIt-Anchor" href="#方法覆盖"></a> 方法覆盖</h3>
+<ol>
+<li>
+<p>私有方法无法覆盖</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">Print</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Father&#x27;s Private Method is Exucted&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">		</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Father</span> <span class="variable">father</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br><span class="line">        father.Print();<span class="comment">//只有在Father类中才能访问私有方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span>&#123;</span><br><span class="line">    <span class="comment">//继承的方法访问权限不能低于父类方法</span></span><br><span class="line">    <span class="comment">//子类可以扩展父类的功能，但不能改变父类的功能</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Print</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Son&#x27;s Public Method is Exucted&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Father</span> <span class="variable">father</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br><span class="line">      	<span class="comment">//在外部类中无法访问私有方法</span></span><br><span class="line">        <span class="comment">//father.Print();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8a8za5eeoj30u80bi0tj.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8a8za5eeoj30u80bi0tj.jpg" alt="" /></p>
 </li>
-<li><p>方法覆盖中的返回值类型</p>
+<li>
+<p>方法覆盖中的返回值类型</p>
 <ul>
-<li>方法覆盖的条件<ol>
+<li>方法覆盖的条件
+<ol>
 <li>具有继承关系的两个类</li>
 <li>子类方法和父类方法具有相同的：方法名、形参列表，和相同的返回值类型</li>
 </ol>
 </li>
 <li>当返回值类型是基本数据类型时，不允许修改</li>
-<li>当返回值类型是引用数据类型时，子类可以的返回值可以变小，但不能变大<ul>
+<li>当返回值类型是引用数据类型时，子类可以的返回值可以变小，但不能变大
+<ul>
 <li>父类返回一个<code>Animal</code>类时，子类可以返回<code>Animal</code>或者<code>Cat</code>类，但不能返回<code>Animal</code>的父类</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>不能被继承的方法也不能被覆盖</p>
+<li>
+<p>不能被继承的方法也不能被覆盖</p>
 <ul>
 <li>继承：子类可以使用父类的一些成员变量和方法</li>
 <li>覆盖：子类方法覆盖父类方法，要求覆盖的方法必须和父类的方法<u>方法名</u>和<u>参数</u>都相同</li>
@@ -283,9 +287,11 @@
 <li>如果无法继承，即子类无法使用父类的方法，那何谈重写呢，直接在子类中<u>重新定义</u>一个方法即可</li>
 </ul>
 </li>
-<li><p>方法覆盖只针对实例方法，<strong>静态方法的覆盖没有意义</strong></p>
+<li>
+<p>方法覆盖只针对实例方法，<strong>静态方法的覆盖没有意义</strong></p>
 <ul>
-<li><u>方法覆盖和多态机制联合起来使用才有意义</u><ul>
+<li><u>方法覆盖和多态机制联合起来使用才有意义</u>
+<ul>
 <li><code>Animal animal = new Cat()</code></li>
 <li><code>animal.move()</code></li>
 <li>如果没有覆盖，则<code>animal</code>这个父类引用即使指向了子类对象，它调用的<code>move()</code>方法还都是一个结果</li>
@@ -294,70 +300,71 @@
 <li>多态需要子类对象的参与，然而静态方法的执行与对象无关</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Print</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Animal doSome&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Print</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Cat doSome&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">        <span class="comment">//通过引用调用静态方法也可以</span></span><br><span class="line">        <span class="comment">//但本质上是通过引用所在的类调用该静态方法</span></span><br><span class="line">        animal.Print();</span><br><span class="line">        Cat.Print();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8a8i56935j30ua0cqdgl.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8a8i56935j30ua0cqdgl.jpg" alt="" /></p>
 </li>
 </ol>
-<h2 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a><code>super</code>关键字</h2><ul>
-<li><p><code>this</code>关键字</p>
+<h2 id="super关键字"><a class="markdownIt-Anchor" href="#super关键字"></a> <code>super</code>关键字</h2>
 <ul>
-<li><code>this</code>只能用于构造方法和实例方法中<ul>
+<li>
+<p><code>this</code>关键字</p>
+<ul>
+<li><code>this</code>只能用于构造方法和实例方法中
+<ul>
 <li>出现在构造方法中用于调用其他构造方法</li>
 <li>出现在实例方法中用于指向调用该实例方法的对象</li>
 </ul>
 </li>
 <li><code>this</code>不能在静态方法中使用</li>
-<li>语法格式<ul>
+<li>语法格式
+<ul>
 <li><code>this.</code> 用于区分局部变量和实例变量时不能省略</li>
 <li><code>this()</code> 只能出现在构造方法的第一行，用于调用本类中其他的构造函数</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><code>super</code>关键字</p>
+<li>
+<p><code>super</code>关键字</p>
 <ul>
 <li><code>super</code>只能出现在实例方法和构造方法中</li>
 <li><code>super</code>不能在静态方法中使用</li>
 </ul>
 </li>
-<li><p><code>super()</code></p>
+<li>
+<p><code>super()</code></p>
 <ul>
 <li>表示通过子类的构造方法去调用父类的构造方法</li>
-<li>当子类的构造方法第一个行没有显示的说明调用父类<code>super()</code>或者本类<code>this()</code> 哪种构造方法时，默认调用<code>super()</code><ul>
+<li>当子类的构造方法第一个行没有显示的说明调用父类<code>super()</code>或者本类<code>this()</code> 哪种构造方法时，默认调用<code>super()</code>
+<ul>
 <li>表示通过当前子类的构造方法去调用父类无参数的构造方法</li>
 <li>此时必须保证父类的无参构造方法是存在的</li>
 </ul>
 </li>
-<li><code>super()</code>必须出现在子类构造函数的第一行<ul>
+<li><code>super()</code>必须出现在子类构造函数的第一行
+<ul>
 <li>这也意味着一个构造方法中只能出现一个<code>super()</code>，否则第二个就只能出现在第二行</li>
 <li><code>this()</code> 和<code>super()</code>不能共存，因为它们都要求出现在构造方法的第一行</li>
 </ul>
 </li>
-<li><strong>无论什么情况，父类的构造方法都会执行！！</strong><ul>
+<li><strong>无论什么情况，父类的构造方法都会执行！！</strong>
+<ul>
 <li>先有父亲，才会有儿子</li>
 <li>在构造任何方法时，都会第一个执行（非调用Object类的构造方法</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">        <span class="comment">//super();省略调用Object的构造方法</span></span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">Father</span><span class="params">()</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;父类无参数构造方法&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Son</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//super();省略调用Father的构造方法</span></span><br><span class="line">        <span class="built_in">this</span>(<span class="number">10</span>);<span class="comment">//调用本类其他的构造方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;子类无参数的构造方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Son</span><span class="params">(<span class="type">int</span> i)</span>&#123;</span><br><span class="line">        <span class="comment">//super();省略调用Father的构造方法</span></span><br><span class="line">      	<span class="comment">//只是省略无参的super()，如果需要调用有参数的super需要手动声明</span></span><br><span class="line">        System.out.println(<span class="string">&quot;子类有参数的构造方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Son</span> <span class="variable">son</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8agwv67ipj30vk0gcwfv.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8agwv67ipj30vk0gcwfv.jpg" alt="" /></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Son</span> <span class="variable">son</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>(<span class="number">10</span>);</span><br><span class="line">      	<span class="comment">//因为在子类有参构造方法中采用了默认的无参数的super()，所以不会调用有参数的super(int i)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ah06h88nj30vs0feq46.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ah06h88nj30vs0feq46.jpg" alt="" /></p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">A</span><span class="params">()</span>&#123;<span class="comment">//第五个被调用</span></span><br><span class="line">        System.out.println(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_">A</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">B</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">B</span><span class="params">(<span class="type">int</span> i)</span>&#123;<span class="comment">//第四个被调用</span></span><br><span class="line">        System.out.println(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> <span class="keyword">extends</span> <span class="title class_">B</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">()</span>&#123;<span class="comment">//第一个被调用</span></span><br><span class="line">        <span class="built_in">this</span>(<span class="number">10</span>);</span><br><span class="line">        System.out.println(<span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">(<span class="type">int</span> i)</span>&#123;<span class="comment">//第二个被调用</span></span><br><span class="line">        <span class="built_in">this</span>(i,<span class="number">20</span>);</span><br><span class="line">        System.out.println(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">C</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;<span class="comment">//第三个被调用</span></span><br><span class="line">        <span class="built_in">super</span>(j);</span><br><span class="line">        System.out.println(<span class="number">6</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">      	<span class="comment">//后被调用的先执行</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">C</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ahjs5w5gj30u20e23z3.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8ahjs5w5gj30u20e23z3.jpg" alt="" /></p>
 
     </div>
 
@@ -441,7 +448,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E6%80%812"><span class="nav-number">1.</span> <span class="nav-text">多态2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%A6%86%E7%9B%96"><span class="nav-number">1.0.1.</span> <span class="nav-text">方法覆盖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#super%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.1.</span> <span class="nav-text">super关键字</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E6%80%812"><span class="nav-number">1.</span> <span class="nav-text"> 多态2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%A6%86%E7%9B%96"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 方法覆盖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#super%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.1.</span> <span class="nav-text"> super关键字</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -457,7 +464,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

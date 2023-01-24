@@ -31,8 +31,8 @@
 <meta property="article:published_time" content="2022-11-27T02:55:33.000Z">
 <meta property="article:modified_time" content="2022-11-27T02:55:33.000Z">
 <meta property="article:author" content="Kevin He">
-<meta property="article:tag" content="数组">
 <meta property="article:tag" content="算法">
+<meta property="article:tag" content="数组">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008vxvgGly1h8jh0wx7pjj30w60u0diy.jpg">
 
@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">101</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">105</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -249,70 +249,82 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="旋转图像"><a href="#旋转图像" class="headerlink" title="旋转图像"></a>旋转图像</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个$n\times n$的二维矩阵<code>matrix</code>表示一个图像。请你将图像顺时针旋转 90 度。</p>
+        <h1 id="旋转图像"><a class="markdownIt-Anchor" href="#旋转图像"></a> 旋转图像</h1>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p>给定一个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span>的二维矩阵<code>matrix</code>表示一个图像。请你将图像顺时针旋转 90 度。</p>
 <p>你必须在<u>原地</u>旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要使用另一个矩阵来旋转图像。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>我们可以通过多次翻转操作来实现旋转的效果</p>
+<h2 id="方法一"><a class="markdownIt-Anchor" href="#方法一"></a> 方法一</h2>
+<h3 id="分析"><a class="markdownIt-Anchor" href="#分析"></a> 分析</h3>
+<p>我们可以通过多次翻转操作来实现旋转的效果</p>
 <table>
 <thead>
 <tr>
-<th align="center">1</th>
-<th align="center">2</th>
-<th align="center">3</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">4</td>
-<td align="center">5</td>
-<td align="center">6</td>
+<tbody>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
 </tr>
 <tr>
-<td align="center">7</td>
-<td align="center">8</td>
-<td align="center">9</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ol>
-<li><p>首先将数组沿着对角线交换</p>
+<li>
+<p>首先将数组沿着对角线交换</p>
 <table>
 <thead>
 <tr>
-<th align="center">1</th>
-<th align="center">4</th>
-<th align="center">7</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">7</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">2</td>
-<td align="center">5</td>
-<td align="center">8</td>
+<tbody>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">8</td>
 </tr>
 <tr>
-<td align="center">3</td>
-<td align="center">6</td>
-<td align="center">9</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">9</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
-<li><p>然后将每一行再翻转一次</p>
+<li>
+<p>然后将每一行再翻转一次</p>
 <table>
 <thead>
 <tr>
-<th align="center">7</th>
-<th align="center">4</th>
-<th align="center">1</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">1</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">8</td>
-<td align="center">5</td>
-<td align="center">2</td>
+<tbody>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">2</td>
 </tr>
 <tr>
-<td align="center">9</td>
-<td align="center">6</td>
-<td align="center">3</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">3</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
 </ol>
 <p>这样便完成了一次旋转操作。</p>
@@ -322,23 +334,25 @@
 <li>每一行进行翻转：第<code>i</code>行<code>matrix[i][j]</code>与<code>matrix[i][length-1-j]</code>交换</li>
 </ol>
 <ul>
-<li>时间复杂度：只需要遍历一次通过两次翻转操作就可以完成旋转的效果，时间复杂度为$O(N^{2})$</li>
-<li>空间复杂度：原地工作，空间复杂度$O(1)$</li>
+<li>时间复杂度：只需要遍历一次通过两次翻转操作就可以完成旋转的效果，时间复杂度为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>N</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N^{2})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>空间复杂度：原地工作，空间复杂度<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
 </ul>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[][] matrix)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;= i; j ++)&#123;</span><br><span class="line">                swap(matrix,i,j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            reverse(matrix,i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[][] matrix, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i == j)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        matrix[i][j] = matrix[i][j] ^ matrix[j][i];</span><br><span class="line">        matrix[j][i] = matrix[i][j] ^ matrix[j][i];</span><br><span class="line">        matrix[i][j] = matrix[i][j] ^ matrix[j][i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span>[][] matrix, <span class="type">int</span> i)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;= (matrix.length-<span class="number">1</span>)/<span class="number">2</span>; j++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> matrix[i][j];</span><br><span class="line">            matrix[i][j] = matrix[i][matrix.length-<span class="number">1</span>-j];</span><br><span class="line">            matrix[i][matrix.length-<span class="number">1</span>-j] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>当然我们也可以通过旋转操作来解决这个问题。直接旋转整个数组太困难，那我们可以一层一层的旋转，不难发现每一层矩形框的旋转都是符合同一个规律的。自外向内一共有不超过$n&#x2F;2$层矩形框，对于第<code>times</code>层矩形框（从外向内计数），我们只需要循环交换其4个部分即可。</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8jh0wx7pjj30w60u0diy.jpg"></p>
-<p>由于不能使用额外的存储空间，所以我们只能一个元素一个元素的交换。我们循环交换每个部分的第一个数，然后是第二个数…</p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8jhmjo7h2j30xt0u0jt0.jpg"></p>
+<h3 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[][] matrix)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;= i; j ++)&#123;</span><br><span class="line">                swap(matrix,i,j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            reverse(matrix,i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[][] matrix, <span class="type">int</span> i, <span class="type">int</span> j)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i == j)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        matrix[i][j] = matrix[i][j] ^ matrix[j][i];</span><br><span class="line">        matrix[j][i] = matrix[i][j] ^ matrix[j][i];</span><br><span class="line">        matrix[i][j] = matrix[i][j] ^ matrix[j][i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span>[][] matrix, <span class="type">int</span> i)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;= (matrix.length-<span class="number">1</span>)/<span class="number">2</span>; j++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> matrix[i][j];</span><br><span class="line">            matrix[i][j] = matrix[i][matrix.length-<span class="number">1</span>-j];</span><br><span class="line">            matrix[i][matrix.length-<span class="number">1</span>-j] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="方法二"><a class="markdownIt-Anchor" href="#方法二"></a> 方法二</h2>
+<h3 id="分析-2"><a class="markdownIt-Anchor" href="#分析-2"></a> 分析</h3>
+<p>当然我们也可以通过旋转操作来解决这个问题。直接旋转整个数组太困难，那我们可以一层一层的旋转，不难发现每一层矩形框的旋转都是符合同一个规律的。自外向内一共有不超过<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">n/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mord">/</span><span class="mord">2</span></span></span></span>层矩形框，对于第<code>times</code>层矩形框（从外向内计数），我们只需要循环交换其4个部分即可。</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8jh0wx7pjj30w60u0diy.jpg" alt="" /></p>
+<p>由于不能使用额外的存储空间，所以我们只能一个元素一个元素的交换。我们循环交换每个部分的第一个数，然后是第二个数...</p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8jhmjo7h2j30xt0u0jt0.jpg" alt="" /></p>
 <p>总结一下交换的规律：</p>
 <p>第times层里有<code>len=matrix.length - 2*times</code>个数第0个数的坐标为<code>matrix[times][times+i]</code>,第1个数的坐标为<code>matrix[times+i][times+len-1]</code>，第2个数为<code>matrix[times+len-1][times+lem-i-1]</code>，第3个数为<code>matrix[times+len-i-1][times]</code></p>
 <ul>
-<li>时间复杂度：$O(N^{2})$</li>
-<li>空间复杂度：$O(1)$</li>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>N</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N^{2})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
 </ul>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[][] matrix)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.length == <span class="number">0</span> || matrix.length != matrix[<span class="number">0</span>].length) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">nums</span> <span class="operator">=</span> matrix.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">times</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(times &lt;= (nums &gt;&gt; <span class="number">1</span>))&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> nums - (times &lt;&lt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len - <span class="number">1</span>; ++i)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> matrix[times][times + i];</span><br><span class="line">                matrix[times][times + i] = matrix[times + len - i - <span class="number">1</span>][times];</span><br><span class="line">                matrix[times + len - i - <span class="number">1</span>][times] = matrix[times + len - <span class="number">1</span>][times + len - i - <span class="number">1</span>];</span><br><span class="line">                matrix[times + len - <span class="number">1</span>][times + len - i - <span class="number">1</span>] = matrix[times + i][times + len - <span class="number">1</span>];</span><br><span class="line">                matrix[times + i][times + len - <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            ++times;</span><br><span class="line">        &#125;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h3 id="代码-2"><a class="markdownIt-Anchor" href="#代码-2"></a> 代码</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>[][] matrix)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.length == <span class="number">0</span> || matrix.length != matrix[<span class="number">0</span>].length) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">nums</span> <span class="operator">=</span> matrix.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">times</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(times &lt;= (nums &gt;&gt; <span class="number">1</span>))&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> nums - (times &lt;&lt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len - <span class="number">1</span>; ++i)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> matrix[times][times + i];</span><br><span class="line">                matrix[times][times + i] = matrix[times + len - i - <span class="number">1</span>][times];</span><br><span class="line">                matrix[times + len - i - <span class="number">1</span>][times] = matrix[times + len - <span class="number">1</span>][times + len - i - <span class="number">1</span>];</span><br><span class="line">                matrix[times + len - <span class="number">1</span>][times + len - i - <span class="number">1</span>] = matrix[times + i][times + len - <span class="number">1</span>];</span><br><span class="line">                matrix[times + i][times + len - <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            ++times;</span><br><span class="line">        &#125;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -348,8 +362,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%95%B0%E7%BB%84/" rel="tag"># 数组</a>
               <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/" rel="tag"># 数组</a>
           </div>
 
         
@@ -423,7 +437,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text">旋转图像</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.2.</span> <span class="nav-text">方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.2.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-number">1.3.</span> <span class="nav-text">方法二</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text"> 旋转图像</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text"> 题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.2.</span> <span class="nav-text"> 方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-number">1.3.</span> <span class="nav-text"> 方法二</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 代码</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -439,7 +453,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
