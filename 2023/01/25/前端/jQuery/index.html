@@ -19,24 +19,21 @@
     var CONFIG = {"hostname":"keveinkk.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Java学习-集合">
+  <meta name="description" content="jQuery初步认识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="集合">
-<meta property="og:url" content="https://keveinkk.github.io/2022/12/20/Java/%E9%9B%86%E5%90%88/index.html">
+<meta property="og:title" content="jQuery">
+<meta property="og:url" content="https://keveinkk.github.io/2023/01/25/%E5%89%8D%E7%AB%AF/jQuery/index.html">
 <meta property="og:site_name" content="Kevin&#39;s study Blog">
-<meta property="og:description" content="Java学习-集合">
+<meta property="og:description" content="jQuery初步认识">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGgy1h99nmlsdu4j317a0m2tei.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ny5soe3j31n40om0z6.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ok7cakgj31lc0u0q9d.jpg">
-<meta property="article:published_time" content="2022-12-19T18:30:53.000Z">
-<meta property="article:modified_time" content="2022-12-19T18:30:53.000Z">
+<meta property="article:published_time" content="2023-01-25T11:35:10.519Z">
+<meta property="article:modified_time" content="2023-01-25T11:36:26.900Z">
 <meta property="article:author" content="Kevin He">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008vxvgGgy1h99nmlsdu4j317a0m2tei.jpg">
 
-<link rel="canonical" href="https://keveinkk.github.io/2022/12/20/Java/%E9%9B%86%E5%90%88/">
+<link rel="canonical" href="https://keveinkk.github.io/2023/01/25/%E5%89%8D%E7%AB%AF/jQuery/">
 
 
 <script id="page-configurations">
@@ -49,7 +46,7 @@
   };
 </script>
 
-  <title>集合 | Kevin's study Blog</title>
+  <title>jQuery | Kevin's study Blog</title>
   
 
 
@@ -202,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://keveinkk.github.io/2022/12/20/Java/%E9%9B%86%E5%90%88/">
+    <link itemprop="mainEntityOfPage" href="https://keveinkk.github.io/2023/01/25/%E5%89%8D%E7%AB%AF/jQuery/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -215,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          集合
+          jQuery
         </h1>
 
         <div class="post-meta">
@@ -224,8 +221,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-12-20 02:30:53" itemprop="dateCreated datePublished" datetime="2022-12-20T02:30:53+08:00">2022-12-20</time>
+              <time title="创建时间：2023-01-25 19:35:10 / 修改时间：19:36:26" itemprop="dateCreated datePublished" datetime="2023-01-25T19:35:10+08:00">2023-01-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,12 +231,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Java学习-集合</div>
+            <div class="post-description">jQuery初步认识</div>
 
         </div>
       </header>
@@ -249,158 +247,159 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="集合"><a class="markdownIt-Anchor" href="#集合"></a> 集合</h1>
-<h2 id="概念"><a class="markdownIt-Anchor" href="#概念"></a> 概念</h2>
+        <h1 id="jquery"><a class="markdownIt-Anchor" href="#jquery"></a> jQuery</h1>
 <ul>
-<li>集合就是一个容器，可以用来容纳其它类型的数据</li>
-<li>作用
-<ul>
-<li>集合作为一个载体，可以一次性容纳多个对象</li>
+<li>jQuery 是一个JavaScript库，里面存在大量的JavaScript函数，极大地简化JavaScript编程</li>
 </ul>
-</li>
-<li>集合中存储的是对象的<strong>引用</strong>
+<h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2>
 <ul>
-<li>集合中不能存储基本数据类型</li>
-<li>集合中也不能直接存储对象</li>
-<li>集合本身也是一个对象，这也意味着，集合中可以存储集合的引用</li>
-</ul>
-</li>
-<li>每一个不同的集合在底层对应不同的<strong>数据结构</strong>
+<li>可以从jQuery.com下载jQuery库
 <ul>
-<li>向不同的集合中增加元素等价于将数据放到了不同的数据结构中</li>
-<li>使用不同的集合等价于使用不同的数据结构</li>
-<li>根据不同的情况，选择不同的集合</li>
-</ul>
-</li>
-<li>所有的集合类以及集合接口都在<code>java.util</code>下</li>
-</ul>
-<h2 id="collction的继承结构图"><a class="markdownIt-Anchor" href="#collction的继承结构图"></a> <code>Collction</code>的继承结构图</h2>
-<ul>
-<li>Java中集合分为两大类
-<ol>
-<li>直接存储数据元素的方式
-<ul>
-<li>其超级父类接口是<code>java.util.Collection</code></li>
-</ul>
-</li>
-<li>以键/值对的方式存储数据
-<ul>
-<li>其超级父类接口是<code>java.util.Map</code></li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="public-interface-iterablet"><a class="markdownIt-Anchor" href="#public-interface-iterablet"></a> <code>public interface Iterable&lt;T&gt;</code></h3>
-<blockquote>
-<p>Implementing this interface allows an object to be the target of the enhanced for statement (sometimes called the &quot;for-each loop&quot; statement).</p>
-</blockquote>
-<ul>
-<li>表示可迭代、可遍历的接口</li>
-<li>实现这个接口代表集合中所有元素都是可以遍历的</li>
-<li>接口中有如下方法：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用于返回一个迭代器来遍历集合中的元素</span></span><br><span class="line">Iterator&lt;T&gt; <span class="title function_">iterator</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="public-interface-iteratore"><a class="markdownIt-Anchor" href="#public-interface-iteratore"></a> <code>public interface Iterator&lt;E&gt;</code></h3>
-<blockquote>
-<p>An iterator over a collection. Iterator takes the place of Enumeration in the Java Collections Framework.</p>
-</blockquote>
-<ul>
-<li>集合的迭代器对象</li>
-<li>使用迭代器来遍历整个集合</li>
-<li>接口中有以下三个方法来实现集合的遍历</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="title function_">hasNext</span><span class="params">()</span>;</span><br><span class="line">E <span class="title function_">next</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title function_">remove</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
-<h3 id="list接口"><a class="markdownIt-Anchor" href="#list接口"></a> <code>List</code>接口</h3>
-<ul>
-<li>存储元素的特点
-<ul>
-<li>有序：存储时的顺序和取出时的顺序一致</li>
-<li>可重复：允许在List中存在重复元素</li>
-<li>存储的元素有下标：下标从0开始</li>
-</ul>
-</li>
-<li>分别有<code>ArrayList</code>、<code>LinkedList</code>、<code>Vector</code>三个类来实现这个接口</li>
-</ul>
-<h4 id="arraylist"><a class="markdownIt-Anchor" href="#arraylist"></a> <code>ArrayList</code></h4>
-<ul>
-<li>底层采用<strong>数组</strong>的数据结构</li>
-<li>非线程安全的</li>
-</ul>
-<h4 id="linkedlist"><a class="markdownIt-Anchor" href="#linkedlist"></a> <code>LinkedList</code></h4>
-<ul>
-<li>底层采用<strong>双向链表</strong>的数据结构</li>
-</ul>
-<h4 id="vector"><a class="markdownIt-Anchor" href="#vector"></a> <code>Vector</code></h4>
-<ul>
-<li>底层采用<strong>数组</strong>的数据结构</li>
-<li>线程安全的
-<ul>
-<li>方法中关键字<code>synchronize</code>修饰</li>
-<li>效率较低，使用较少</li>
+<li>将下载好的文件放到网页的同一目录下就可以使用</li>
 </ul>
 </li>
 </ul>
-<h3 id="set接口"><a class="markdownIt-Anchor" href="#set接口"></a> <code>Set</code>接口</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;jquery-1.11.0.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>存储元素的特点
+<li>也可以从CDN中加载jQuery
 <ul>
-<li>无序</li>
-<li>不可重复</li>
-<li>无下标</li>
+<li>不用下载jQuery</li>
 </ul>
 </li>
 </ul>
-<h3 id="继承结构图"><a class="markdownIt-Anchor" href="#继承结构图"></a> 继承结构图</h3>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99nmlsdu4j317a0m2tei.jpg" alt="" /></p>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ny5soe3j31n40om0z6.jpg" alt="" /></p>
-<h2 id="map的继承结构图"><a class="markdownIt-Anchor" href="#map的继承结构图"></a> <code>Map</code>的继承结构图</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="语法"><a class="markdownIt-Anchor" href="#语法"></a> 语法</h2>
 <ul>
-<li><code>Map</code>集合与<code>Collection</code>集合无关</li>
-<li><code>Map</code>集合中以键值对的方式（<code>key</code>和<code>value</code>）存储元素
+<li>通过jQuery，可以选取（query）HTML元素，并对其进行操作（action）</li>
+<li>基础语法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).<span class="title function_">action</span>()</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>key</code>和<code>value</code>存储的都是对象的引用</li>
-<li><code>key</code>是无序且不可重复的</li>
+<li>美元符号定义jQuery</li>
+<li>选择符（selector）选取HTML元素
+<ul>
+<li>和CSS的选择器相同</li>
 </ul>
 </li>
-<li>分别有<code>HashMap</code>、<code>Hashtable</code>两个类来实现这个接口</li>
-<li>有一个子接口<code>SortedMap</code>，<code>TreeMap</code>实现这个子接口
+<li>jQuery的action执行对元素的操作</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="variable language_">this</span>).<span class="title function_">hide</span>();<span class="comment">//隐藏当前元素</span></span><br><span class="line">$(<span class="string">&#x27;p&#x27;</span>).<span class="title function_">hide</span>();<span class="comment">//隐藏所有&lt;p&gt;元素</span></span><br><span class="line">$(<span class="string">&#x27;p.test&#x27;</span>).<span class="title function_">hide</span>();<span class="comment">//隐藏所有class为test的&lt;p&gt;元素</span></span><br><span class="line">$(<span class="string">&#x27;#test&#x27;</span>).<span class="title function_">hide</span>();<span class="comment">//隐藏id为test的元素</span></span><br></pre></td></tr></table></figure>
+<h2 id="选择器"><a class="markdownIt-Anchor" href="#选择器"></a> 选择器</h2>
 <ul>
-<li><code>SortedMap</code>接口中的<code>key</code>同样是无序且不可重复的</li>
-<li>且集合<code>key</code>部分的元素会自动按照大小进行排序</li>
-<li>区分这里的<strong>排序</strong>和<code>List</code>集合中的<strong>有序</strong>的区别
+<li>通过原生的JavaScript获取元素</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>();<span class="comment">//通过id获取元素</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>();<span class="comment">//通过类名获取元素</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>();<span class="comment">//通过标签名获取元素</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>排序是指：从大到小进行排序</li>
-<li>有序是指：存的顺序和取的顺序一致</li>
+<li>在jQuery中获取元素</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">`.idName`</span>).<span class="title function_">action</span>();<span class="comment">//获取id为idName的元素</span></span><br><span class="line">$(<span class="string">`#className`</span>).<span class="title function_">action</span>();<span class="comment">//获取类为className的元素</span></span><br><span class="line">$(<span class="string">`tagName`</span>).<span class="title function_">action</span>();<span class="comment">//获取标签名为tagName的元素</span></span><br></pre></td></tr></table></figure>
+<h2 id="事件"><a class="markdownIt-Anchor" href="#事件"></a> 事件</h2>
+<ul>
+<li>页面对不同访问者的响应叫做事件</li>
+<li>事件处理程序值的是当HTML中发生某些事件时所调用的方法
+<ul>
+<li>在元素上移动鼠标</li>
+<li>点击元素</li>
+<li>选取元素</li>
+</ul>
+</li>
+<li>大多数DOM事件都有一个等效的jQuery方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对标签p点击后的事件</span></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// 动作触发后执行的代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>事件类型
+<ul>
+<li>鼠标事件</li>
+<li>键盘事件</li>
+<li>表单事件</li>
+<li>窗口事件</li>
+</ul>
+</li>
+</ul>
+<h3 id="常见事件"><a class="markdownIt-Anchor" href="#常见事件"></a> 常见事件</h3>
+<ul>
+<li><code>$(document).ready()</code>
+<ul>
+<li>当文档加载完券后执行的函数</li>
+</ul>
+</li>
+<li><code>click()</code>
+<ul>
+<li>当按钮点击事件被触发时会调用的一个函数</li>
+</ul>
+</li>
+<li><code>dbclick()</code>
+<ul>
+<li>当双击元素时发生的事件</li>
+</ul>
+</li>
+<li><code>mouseenter()</code>
+<ul>
+<li>当鼠标穿过元素时发生的事件</li>
+</ul>
+</li>
+<li><code>mouseleave()</code>
+<ul>
+<li>当鼠标离开元素时发生的事件</li>
+</ul>
+</li>
+<li><code>hover()</code>
+<ul>
+<li>当鼠标悬停在元素上时的事件</li>
+</ul>
+</li>
+</ul>
+<h2 id="操作dom元素"><a class="markdownIt-Anchor" href="#操作dom元素"></a> 操作DOM元素</h2>
+<h3 id="删除元素"><a class="markdownIt-Anchor" href="#删除元素"></a> 删除元素</h3>
+<ul>
+<li><code>remove()</code>
+<ul>
+<li>删除被选元素及其子元素</li>
+<li>可以对被删除的元素进行<strong>过滤</strong>
+<ul>
+<li>在扩号中加入选择器即可</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="hashmap"><a class="markdownIt-Anchor" href="#hashmap"></a> <code>HashMap</code></h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除class=&quot;italic&quot;的所有 &lt;p&gt; 元素</span></span><br><span class="line">$(<span class="string">&quot;p&quot;</span>).<span class="title function_">remove</span>(<span class="string">&quot;.italic&quot;</span>);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>底层采用<strong>哈希表</strong>的数据结构</li>
-<li>非线程安全的</li>
-</ul>
-<h3 id="hashtable"><a class="markdownIt-Anchor" href="#hashtable"></a> <code>Hashtable</code></h3>
+<li><code>empty()</code>
 <ul>
-<li>底层采用<strong>哈希表</strong>的数据结构</li>
-<li>线程安全的
-<ul>
-<li>效率较低，使用较少</li>
-</ul>
-</li>
-<li>有一个子类<code>Proprieties</code>
-<ul>
-<li><code>key</code>和<code>value</code>只支持<code>String</code>类型</li>
+<li>从被选元素删除子元素</li>
+<li>同样可以对元素进行过滤</li>
 </ul>
 </li>
 </ul>
-<h3 id="treemap"><a class="markdownIt-Anchor" href="#treemap"></a> <code>TreeMap</code></h3>
+<h3 id="添加元素"><a class="markdownIt-Anchor" href="#添加元素"></a> 添加元素</h3>
 <ul>
-<li>底层采用<strong>二叉树</strong>的数据结构</li>
+<li><code>append()</code>
+<ul>
+<li>在被选元素的结尾插入内容</li>
+<li>插入的元素仍然在该元素的内部</li>
+<li>可以同时追加多个元素</li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h99ok7cakgj31lc0u0q9d.jpg" alt="" /></p>
+</li>
+<li><code>prepend()</code>
+<ul>
+<li>在被选元素的开头插入内容</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">appendText</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> txt1=<span class="string">&quot;&lt;p&gt;文本-1。&lt;/p&gt;&quot;</span>;<span class="comment">//使用 HTML 标签创建文本</span></span><br><span class="line">    <span class="keyword">var</span> txt2=$(<span class="string">&quot;&lt;p&gt;&lt;/p&gt;&quot;</span>).<span class="title function_">text</span>(<span class="string">&quot;文本-2。&quot;</span>);<span class="comment">//使用 jQuery 创建文本</span></span><br><span class="line">    <span class="keyword">var</span> txt3=<span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;p&quot;</span>);</span><br><span class="line">    txt3.<span class="property">innerHTML</span>=<span class="string">&quot;文本-3。&quot;</span>;<span class="comment">//使用 DOM 创建文本 text with DOM</span></span><br><span class="line">    $(<span class="string">&quot;body&quot;</span>).<span class="title function_">append</span>(txt1,txt2,txt3);<span class="comment">// 追加新元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>after()
+<ul>
+<li>在被选元素之后插入内容</li>
+</ul>
+</li>
+<li>before()
+<ul>
+<li>在被选元素之前插入内容</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -410,7 +409,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           </div>
 
         
@@ -419,13 +419,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/12/19/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" rel="prev" title="反转链表">
-      <i class="fa fa-chevron-left"></i> 反转链表
+    <a href="/2023/01/24/%E5%89%8D%E7%AB%AF/%E8%A1%A8%E5%8D%95%E6%93%8D%E4%BD%9C/" rel="prev" title="表单操作">
+      <i class="fa fa-chevron-left"></i> 表单操作
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/12/20/%E7%AE%97%E6%B3%95/%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E7%94%9F%E5%BA%8F%E9%93%BE%E8%A1%A8/" rel="next" title="合并两个有序生序链表">
-      合并两个有序生序链表 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -484,7 +481,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text"> 集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text"> 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collction%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.2.</span> <span class="nav-text"> Collction的继承结构图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-interface-iterablet"><span class="nav-number">1.2.1.</span> <span class="nav-text"> public interface Iterable&lt;T&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-interface-iteratore"><span class="nav-number">1.2.2.</span> <span class="nav-text"> public interface Iterator&lt;E&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.2.3.</span> <span class="nav-text"> List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#arraylist"><span class="nav-number">1.2.3.1.</span> <span class="nav-text"> ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linkedlist"><span class="nav-number">1.2.3.2.</span> <span class="nav-text"> LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vector"><span class="nav-number">1.2.3.3.</span> <span class="nav-text"> Vector</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.2.4.</span> <span class="nav-text"> Set接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.2.5.</span> <span class="nav-text"> 继承结构图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map%E7%9A%84%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="nav-number">1.3.</span> <span class="nav-text"> Map的继承结构图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hashmap"><span class="nav-number">1.3.1.</span> <span class="nav-text"> HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashtable"><span class="nav-number">1.3.2.</span> <span class="nav-text"> Hashtable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#treemap"><span class="nav-number">1.3.3.</span> <span class="nav-text"> TreeMap</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jquery"><span class="nav-number">1.</span> <span class="nav-text"> jQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text"> 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text"> 语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text"> 选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text"> 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.4.1.</span> <span class="nav-text"> 常见事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9Cdom%E5%85%83%E7%B4%A0"><span class="nav-number">1.5.</span> <span class="nav-text"> 操作DOM元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">1.5.1.</span> <span class="nav-text"> 删除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0"><span class="nav-number">1.5.2.</span> <span class="nav-text"> 添加元素</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
