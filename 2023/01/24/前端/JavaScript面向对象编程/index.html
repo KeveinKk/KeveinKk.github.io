@@ -130,17 +130,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">15</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">106</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">107</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -247,25 +247,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="javascript面向对象编程"><a class="markdownIt-Anchor" href="#javascript面向对象编程"></a> JavaScript面向对象编程</h1>
-<h2 id="继承"><a class="markdownIt-Anchor" href="#继承"></a> 继承</h2>
-<ul>
+        <h1 id="JavaScript面向对象编程"><a href="#JavaScript面向对象编程" class="headerlink" title="JavaScript面向对象编程"></a>JavaScript面向对象编程</h1><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
 <li>ES6中引入了<code>class</code>关键字，<code>class</code>可以通过<code>extends</code>关键字实现继承，还可以通过<code>static</code>关键字定义类的静态方法</li>
 <li>在早期版本中，JavaScript的继承是先创造子类的实例对象<code>this</code>，然后将父类的方法添加到<code>this</code>上面。</li>
 <li>ES6中的继承是先将父类实例对象的属性和方法驾到<code>this</code>上面，然后再用子类的构造函数修改<code>this</code></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  	<span class="comment">//需要使用构造器，通过构造器初始化了两个属性</span></span><br><span class="line">    <span class="comment">//不需要再单独写name和age的属性</span></span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">    &#125;</span><br><span class="line">		<span class="comment">//函数前不再需要用function关键字</span></span><br><span class="line">    <span class="title function_">showInfo</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`调用父类方法`</span>);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`姓名：`</span> + <span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">` 年龄：`</span> + <span class="variable language_">this</span>.<span class="property">age</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">`Tom`</span>,<span class="number">20</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(p1);</span><br><span class="line">p1.<span class="title function_">showInfo</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name, age, score</span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>(name,age);<span class="comment">//调用父类的构造器</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">score</span> = score;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">showInfo</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`调用子类的方法`</span>);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`姓名：`</span> + <span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">` 年龄：`</span> + <span class="variable language_">this</span>.<span class="property">age</span> + <span class="string">` 分数：`</span> + <span class="variable language_">this</span>.<span class="property">score</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s1 = <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">`Jerry`</span>, <span class="number">10</span>, <span class="number">100</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s1);</span><br><span class="line">s1.<span class="title function_">showInfo</span>();</span><br><span class="line"><span class="comment">//Person</span></span><br><span class="line"><span class="comment">//调用父类方法</span></span><br><span class="line"><span class="comment">//姓名：Tom 年龄：20</span></span><br><span class="line"><span class="comment">//Student</span></span><br><span class="line"><span class="comment">//调用子类的方法</span></span><br><span class="line"><span class="comment">//姓名：Jerry 年龄：10 分数：100</span></span><br></pre></td></tr></table></figure>
-<h2 id="操作bom对象"><a class="markdownIt-Anchor" href="#操作bom对象"></a> 操作BOM对象</h2>
-<h3 id="浏览器对象模型"><a class="markdownIt-Anchor" href="#浏览器对象模型"></a> 浏览器对象模型</h3>
-<ul>
+
+<h2 id="操作BOM对象"><a href="#操作BOM对象" class="headerlink" title="操作BOM对象"></a>操作BOM对象</h2><h3 id="浏览器对象模型"><a href="#浏览器对象模型" class="headerlink" title="浏览器对象模型"></a>浏览器对象模型</h3><ul>
 <li>浏览器对象模型（<strong>B</strong>rowser <strong>O</strong>bject <strong>M</strong>odel (BOM)）</li>
 <li>BOM使得JS有能力与浏览器进行交互</li>
 </ul>
-<h3 id="window对象"><a class="markdownIt-Anchor" href="#window对象"></a> Window对象</h3>
-<ul>
+<h3 id="Window对象"><a href="#Window对象" class="headerlink" title="Window对象"></a>Window对象</h3><ul>
 <li>所有浏览器都支持window对象。它表示浏览器窗口</li>
-<li>所有JavaScript全局对象、函数以及变量均自动成为window对象的成员
-<ul>
+<li>所有JavaScript全局对象、函数以及变量均自动成为window对象的成员<ul>
 <li>全局变量是window对象的属性。</li>
 <li>全局函数是window对象的方法。</li>
 <li>甚至HTML DOM的document也是window对象的属性之一</li>
@@ -273,34 +268,30 @@
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//常用属性</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">innerHeight</span><span class="comment">//获取浏览器内部高度</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">outerHeight</span><span class="comment">//获取浏览器外部高度</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">innerWidth</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">outerWidth</span></span><br><span class="line"><span class="comment">//常用方法</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">open</span>() <span class="comment">//打开新窗口</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">close</span>() <span class="comment">//关闭当前窗口</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">moveTo</span>() <span class="comment">//移动当前窗口</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">resizeTo</span>() <span class="comment">//调整当前窗口的尺寸</span></span><br></pre></td></tr></table></figure>
-<h3 id="navigator对象"><a class="markdownIt-Anchor" href="#navigator对象"></a> Navigator对象</h3>
-<ul>
+
+<h3 id="Navigator对象"><a href="#Navigator对象" class="headerlink" title="Navigator对象"></a>Navigator对象</h3><ul>
 <li><code>window.navigator</code>对象包含有关访问者<strong>浏览器</strong>的信息</li>
 <li><code>window.navigator</code>对象在编写时可不使用<code>window</code>这个前缀</li>
-<li>来自navigator对象的信息具有误导性，不能被用于检测浏览器版本，因为
-<ul>
+<li>来自navigator对象的信息具有误导性，不能被用于检测浏览器版本，因为<ul>
 <li>navigator数据可被浏览器使用者更改</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">navigator.<span class="property">appVersion</span></span><br><span class="line"><span class="comment">//&quot;5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="screen对象"><a class="markdownIt-Anchor" href="#screen对象"></a> Screen对象</h3>
-<ul>
+
+<h3 id="Screen对象"><a href="#Screen对象" class="headerlink" title="Screen对象"></a>Screen对象</h3><ul>
 <li><code>window.screen</code>对象包含有关用户屏幕的信息</li>
 <li><code>window.screen</code>对象在编写时可不使用<code>window</code>这个前缀</li>
-<li>常用属性
-<ul>
+<li>常用属性<ul>
 <li><code>screen.availWidth</code>：可用的屏幕宽度</li>
 <li><code>screen.availHeight</code>：可用的屏幕高度</li>
 </ul>
 </li>
 </ul>
-<h3 id="location对象"><a class="markdownIt-Anchor" href="#location对象"></a> Location对象</h3>
-<ul>
+<h3 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a>Location对象</h3><ul>
 <li>window.location对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面</li>
 <li><code>window.location</code>对象在编写时可不使用<code>window</code>这个前缀</li>
-<li>常用属性
-<ul>
+<li>常用属性<ul>
 <li><code>location.hostname</code>返回 web 主机的域名</li>
 <li><code>location.pathname</code>返回当前页面的路径和文件名</li>
 <li><code>location.port</code>返回 web 主机的端口 （80 或 443）</li>
@@ -308,19 +299,16 @@
 <li><code>location.href</code> 返回当前页面的URL</li>
 </ul>
 </li>
-<li>常用方法
-<ul>
+<li>常用方法<ul>
 <li><code>location.reload()</code> 刷新（重新加载）页面</li>
 <li><code>location.assign()</code> 加载新的页面</li>
 </ul>
 </li>
 </ul>
-<h3 id="history对象"><a class="markdownIt-Anchor" href="#history对象"></a> History对象</h3>
-<ul>
+<h3 id="History对象"><a href="#History对象" class="headerlink" title="History对象"></a>History对象</h3><ul>
 <li><code>window.history</code> 对象包含浏览器的历史</li>
 <li><code>window.history</code>对象在编写时可不使用<code>window</code>这个前缀</li>
-<li>常用属性
-<ul>
+<li>常用属性<ul>
 <li><code>history.back()</code>与在浏览器点击后退按钮相同</li>
 <li><code>history.forward()</code>与在浏览器中点击向前按钮相同</li>
 </ul>
@@ -410,7 +398,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text"> JavaScript面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">1.1.</span> <span class="nav-text"> 继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9Cbom%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.</span> <span class="nav-text"> 操作BOM对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 浏览器对象模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.2.</span> <span class="nav-text"> Window对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#navigator%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.3.</span> <span class="nav-text"> Navigator对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#screen%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.4.</span> <span class="nav-text"> Screen对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.5.</span> <span class="nav-text"> Location对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.6.</span> <span class="nav-text"> History对象</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">JavaScript面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">1.1.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9CBOM%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.</span> <span class="nav-text">操作BOM对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.1.</span> <span class="nav-text">浏览器对象模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Window%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.2.</span> <span class="nav-text">Window对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Navigator%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.3.</span> <span class="nav-text">Navigator对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Screen%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.4.</span> <span class="nav-text">Screen对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Location%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.5.</span> <span class="nav-text">Location对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#History%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.6.</span> <span class="nav-text">History对象</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -426,20 +414,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

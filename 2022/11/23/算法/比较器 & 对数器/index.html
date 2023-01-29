@@ -134,17 +134,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">15</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">106</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">107</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -250,11 +250,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="对数器"><a class="markdownIt-Anchor" href="#对数器"></a> 对数器</h1>
-<ul>
+        <h1 id="对数器"><a href="#对数器" class="headerlink" title="对数器"></a>对数器</h1><ul>
 <li>用自己产生随机数的方法来检验自己的编写算法是否正确</li>
-<li>现有两个方法
-<ul>
+<li>现有两个方法<ul>
 <li>方法A：想要测试的目标方法</li>
 <li>方法B：容易实现，但是性能较差的方法</li>
 </ul>
@@ -262,51 +260,47 @@
 <li>实现一个随机样本产生器，使A和B同时运行随机生成的样本，检查结果是否一致</li>
 <li>若不一致，则可以使用print的方法进行人工干预</li>
 </ul>
-<h4 id="java产生随机数"><a class="markdownIt-Anchor" href="#java产生随机数"></a> Java产生随机数</h4>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Math.random()						<span class="comment">//[0,1)之间所有的小数，等概率的返回一个</span></span><br><span class="line">Math.random()*N					<span class="comment">//[0,N)之间所有的小数，等概率返回一个</span></span><br><span class="line">(<span class="type">int</span>)(Math.random()*N)	<span class="comment">//[o,N)之间所有的整数，等概率返回一个</span></span><br></pre></td></tr></table></figure>
-<h3 id="比较器"><a class="markdownIt-Anchor" href="#比较器"></a> 比较器</h3>
-<ul>
+<h4 id="Java产生随机数"><a href="#Java产生随机数" class="headerlink" title="Java产生随机数"></a>Java产生随机数</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Math.random()						<span class="comment">//[0,1)之间所有的小数，等概率的返回一个</span></span><br><span class="line">Math.random()*N					<span class="comment">//[0,N)之间所有的小数，等概率返回一个</span></span><br><span class="line">(<span class="type">int</span>)(Math.random()*N)	<span class="comment">//[o,N)之间所有的整数，等概率返回一个</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="比较器"><a href="#比较器" class="headerlink" title="比较器"></a>比较器</h3><ul>
 <li>重载比较运算符</li>
 <li>比较器可以很好的应用在特殊标准的排序上，因为我们可以自定义排序标准</li>
 </ul>
-<h5 id="自定义排序标准"><a class="markdownIt-Anchor" href="#自定义排序标准"></a> 自定义排序标准</h5>
+<h5 id="自定义排序标准"><a href="#自定义排序标准" class="headerlink" title="自定义排序标准"></a>自定义排序标准</h5><ul>
+<li><p><code>Arrays.sort()</code></p>
 <ul>
-<li>
-<p><code>Arrays.sort()</code></p>
-<ul>
-<li><code>Arrays.sort()</code>重载了四类方法
-<ol>
+<li><code>Arrays.sort()</code>重载了四类方法<ol>
 <li><code>Arrays.sort(T[] a)</code>: 对指定的T型数组按数字升序排序</li>
 <li><code>Arrays.sort(T[] a, int formIndex, int toIndex)</code>: 对指定的T型数组在下标[formIndex, toIndex]之间排序</li>
 <li><code>Arrays.sort(T[] a, Comparator&lt;? supre T&gt; c)</code>: 根据比较器产生的顺序对指定对象数组进行排序</li>
-<li><code>Arrasy.sort(T[] a, int formIndex, int toIndex, Comparator&lt;? supre T&gt; c</code>): ...</li>
+<li><code>Arrasy.sort(T[] a, int formIndex, int toIndex, Comparator&lt;? supre T&gt; c</code>): …</li>
 </ol>
 </li>
 </ul>
 </li>
-<li>
-<p><code>Arrays.sort(T[] a)</code></p>
+<li><p><code>Arrays.sort(T[] a)</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">LENGTH</span> <span class="operator">=</span> <span class="number">20</span>;<span class="comment">//产生长度为20的数组</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> <span class="number">30</span>;<span class="comment">//数组元素的值在[0,30)之间</span></span><br><span class="line">    <span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[LENGTH];</span><br><span class="line">    arr = randomGener(LENGTH,N);</span><br><span class="line">    System.out.print(<span class="string">&quot;随机产生的数组为：&quot;</span>);</span><br><span class="line">    display(arr);</span><br><span class="line">    Arrays.sort(arr);<span class="comment">//对arr进行升序排序</span></span><br><span class="line">    System.out.print(<span class="string">&quot;排序后的数组为：&quot;</span>);</span><br><span class="line">    display(arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83jzswsmnj31bi0hq0us.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83jzswsmnj31bi0hq0us.jpg"></p>
 </li>
-<li>
-<p><code>Arrays.sort(T[] a, int formIndex, int toIndex)</code></p>
+<li><p><code>Arrays.sort(T[] a, int formIndex, int toIndex)</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] arr2 = <span class="keyword">new</span> <span class="title class_">int</span>[LENGTH];</span><br><span class="line">arr2 = randomGener(LENGTH,N);</span><br><span class="line">System.out.print(<span class="string">&quot;随机产生的数组为：&quot;</span>);</span><br><span class="line">display(arr2);</span><br><span class="line">Arrays.sort(arr2,<span class="number">0</span>,<span class="number">9</span>);<span class="comment">//只对前半部分进行排序</span></span><br><span class="line">System.out.print(<span class="string">&quot;只对前半部分排序后的数组为：&quot;</span>);</span><br><span class="line">display(arr2);</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83k3fliumj31de0ca40d.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83k3fliumj31de0ca40d.jpg"></p>
 </li>
-<li>
-<p><code>Arrays.sort(T[] a, Comparator&lt;? supre T&gt; c)</code></p>
+<li><p><code>Arrays.sort(T[] a, Comparator&lt;? supre T&gt; c)</code>	</p>
 </li>
-<li>
-<p><strong>注意这里的数据类型不能是基本数据类型</strong></p>
+<li><p><strong>注意这里的数据类型不能是基本数据类型</strong></p>
 <ul>
 <li>创建一个学生类，包含姓名、年级、年龄三个属性，分别对后两个属性进行升序和降序排序</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重载比较器</span></span><br><span class="line"><span class="comment">//按照 数据类型的属性a的升序排序</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> class 类名 <span class="keyword">implements</span> <span class="title class_">Comparator</span>&lt;数据类型&gt; &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> 数据类型 compare(数据类型 o1, 数据类型 o2) &#123;</span><br><span class="line">    <span class="comment">//当返回值为负数时，第一个参数在前</span></span><br><span class="line">    <span class="comment">//当返回值为正数时，第二个参数在前</span></span><br><span class="line">    <span class="comment">//当返回值为0时，顺序无所谓</span></span><br><span class="line">    <span class="keyword">if</span>(o1.属性a &lt; o2.属性a)</span><br><span class="line">      <span class="keyword">return</span> -<span class="number">1</span>;<span class="comment">//第一个数先输出，第一个数小，所以时升序</span></span><br><span class="line">    <span class="keyword">if</span> (o1.属性a &gt; o2.属性a)</span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//第二个数先输出，第二个数小</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Student;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StudentSort</span> &#123;</span><br><span class="line">    <span class="comment">//重载比较器</span></span><br><span class="line">    <span class="comment">//根据年级升序排序</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">GradeAscendingComparator</span> <span class="keyword">implements</span> <span class="title class_">Comparator</span>&lt;Student&gt; &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Student o1, Student o2)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(o1.grade &lt; o2.grade)</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (o1.grade &gt; o2.grade)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//重载比较器</span></span><br><span class="line">    <span class="comment">//根据年龄降序排序</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">AgeDescendingComparator</span> <span class="keyword">implements</span> <span class="title class_">Comparator</span>&lt;Student&gt; &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="comment">//降序：大的先输出</span></span><br><span class="line">        <span class="comment">//o2&gt;o1，则先输出o2</span></span><br><span class="line">        <span class="comment">//o2&lt;o1，则先输出o1</span></span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Student o1, Student o2)</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> o2.age - o1.age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">Student</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;aaa&quot;</span>,<span class="number">8</span>,<span class="number">20</span>);</span><br><span class="line">        <span class="type">Student</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;bbb&quot;</span>,<span class="number">10</span>,<span class="number">15</span>);</span><br><span class="line">        <span class="type">Student</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;ccc&quot;</span>,<span class="number">5</span>,<span class="number">21</span>);</span><br><span class="line"></span><br><span class="line">        Student[] stus = &#123;s1,s2,s3&#125;;</span><br><span class="line">        System.out.println(<span class="string">&quot;学生信息为：&quot;</span>);</span><br><span class="line">        print(stus);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;按照年级升序排序的学生信息为：&quot;</span>);</span><br><span class="line">        Arrays.sort(stus,<span class="keyword">new</span> <span class="title class_">GradeAscendingComparator</span>());</span><br><span class="line">        print(stus);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;按照年龄降序排序的学生信息为：&quot;</span>);</span><br><span class="line">        Arrays.sort(stus,<span class="keyword">new</span> <span class="title class_">AgeDescendingComparator</span>());</span><br><span class="line">        print(stus);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(Student[] stus)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; stus.length ; i++)&#123;</span><br><span class="line">            System.out.println(stus[i].name + <span class="string">&quot; &quot;</span> + stus[i].grade + <span class="string">&quot; &quot;</span> + stus[i].age);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83kwq4abej30u00vkq4u.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h83kwq4abej30u00vkq4u.jpg"></p>
 
     </div>
 
@@ -391,7 +385,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text"> 对数器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#java%E4%BA%A7%E7%94%9F%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="nav-number">1.0.0.1.</span> <span class="nav-text"> Java产生随机数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 比较器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F%E6%A0%87%E5%87%86"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text"> 自定义排序标准</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">对数器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java%E4%BA%A7%E7%94%9F%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Java产生随机数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8"><span class="nav-number">1.0.1.</span> <span class="nav-text">比较器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F%E6%A0%87%E5%87%86"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">自定义排序标准</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -407,20 +401,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
