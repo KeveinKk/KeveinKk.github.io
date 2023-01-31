@@ -141,7 +141,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">107</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">108</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -247,65 +247,73 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h1><h3 id="this关键字-1"><a href="#this关键字-1" class="headerlink" title="this关键字"></a>this关键字</h3><h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p><code>this</code>关键字用于引用方法或构造函数中的当前对象</p>
+        <h1 id="this关键字"><a class="markdownIt-Anchor" href="#this关键字"></a> this关键字</h1>
+<h3 id="this关键字-2"><a class="markdownIt-Anchor" href="#this关键字-2"></a> this关键字</h3>
+<h5 id="作用"><a class="markdownIt-Anchor" href="#作用"></a> 作用</h5>
+<p><code>this</code>关键字用于引用方法或构造函数中的当前对象</p>
 <ul>
 <li><code>this</code>是一个引用变量，this中保存的内存地址指向自身</li>
 <li><code>this</code>存储在堆内存中</li>
 <li>在初始化对象过程中，都会初始化该对象的<code>this</code>关键字</li>
 </ul>
-<h5 id="this的使用情况"><a href="#this的使用情况" class="headerlink" title="this的使用情况"></a><code>this</code>的使用情况</h5><ol>
-<li>出现在实例方法中，用于指向当前正在执行这个动作的对象<ul>
-<li>一般通过<code>this</code>访问的都是实例变量&#x2F;方法，而在访问这个实例变量&#x2F;方法的大多都是该对象本身，所以<code>this.</code>可以省略</li>
+<h5 id="this的使用情况"><a class="markdownIt-Anchor" href="#this的使用情况"></a> <code>this</code>的使用情况</h5>
+<ol>
+<li>出现在实例方法中，用于指向当前正在执行这个动作的对象
+<ul>
+<li>一般通过<code>this</code>访问的都是实例变量/方法，而在访问这个实例变量/方法的大多都是该对象本身，所以<code>this.</code>可以省略</li>
 <li><code>this</code>不能出现在带有<code>static</code>的方法中</li>
-<li>在<code>static</code>修饰的方法中通过手动创建一个对象来访问实例变量&#x2F;方法</li>
+<li>在<code>static</code>修饰的方法中通过手动创建一个对象来访问实例变量/方法</li>
 </ul>
 </li>
-<li>用来区分局部变量和实例变量<ul>
+<li>用来区分局部变量和实例变量
+<ul>
 <li>用于区分时，不能省略<code>this.</code></li>
 </ul>
 </li>
 <li>用来调用其他构造方法</li>
 </ol>
-<h5 id="实例方法-amp-实例变量"><a href="#实例方法-amp-实例变量" class="headerlink" title="实例方法 &amp; 实例变量"></a>实例方法 &amp; 实例变量</h5><ol>
-<li><p>实例变量</p>
+<h5 id="实例方法-实例变量"><a class="markdownIt-Anchor" href="#实例方法-实例变量"></a> 实例方法 &amp; 实例变量</h5>
+<ol>
+<li>
+<p>实例变量</p>
 <ul>
 <li>不带<code>static</code>关键字的变量被称为实例变量，通过<code>引用.变量</code>来访问</li>
 <li>当一个变量会因为不同的对象而不同时，这个变量需要被定义为实例变量，不能用<code>static</code>来修饰</li>
 </ul>
 </li>
-<li><p>实例方法</p>
+<li>
+<p>实例方法</p>
 <ul>
 <li>不带<code>static</code>关键字的方法被称为实例方法，通过<code>引用.方法名(形参列表)</code>来访问</li>
-<li>当一个行为&#x2F;动作执行的过程中需要对象参与时，这个方法需要定义为实例方法，不能用<code>static</code>来修饰</li>
+<li>当一个行为/动作执行的过程中需要对象参与时，这个方法需要定义为实例方法，不能用<code>static</code>来修饰</li>
 </ul>
 </li>
-<li><p>实例</p>
+<li>
+<p>实例</p>
 <ul>
-<li>实例代表这个方法&#x2F;变量时对象级别的，而不是类级别的</li>
-<li>访问实例对象&#x2F;方法一定得通过引用来访问</li>
+<li>实例代表这个方法/变量时对象级别的，而不是类级别的</li>
+<li>访问实例对象/方法一定得通过引用来访问</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    String name;<span class="comment">//实例对象</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">(String n)</span>&#123;</span><br><span class="line">        name = n;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pay</span><span class="params">()</span>&#123; <span class="comment">//实例方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;pay&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//实例方法，代表shop这个行为是对象级别的</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">shop</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//实例对象的访问应该通过引用来访问！</span></span><br><span class="line"><span class="comment">//        System.out.println(name + &quot;正在购物&quot;);//省略了引用</span></span><br><span class="line">        <span class="comment">//完整写法</span></span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot;正在购物&quot;</span>);<span class="comment">//this代表当前正在执行这个行为的对象</span></span><br><span class="line">      </span><br><span class="line">      	<span class="comment">//实例方法的调用也应该通过引用来访问！</span></span><br><span class="line"><span class="comment">//        pay();//省略了引用</span></span><br><span class="line">      	<span class="comment">//完整写法</span></span><br><span class="line">        <span class="built_in">this</span>.pay();<span class="comment">//this代表了当前调用这个行为的对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>在static修饰的方法中访问实例变量&#x2F;方法</li>
+<li>在static修饰的方法中访问实例变量/方法</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">  	<span class="type">int</span> num;<span class="comment">//实例对象</span></span><br><span class="line">  	</span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pay</span><span class="params">()</span>&#123; <span class="comment">//实例方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;pay&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">//在静态方法中访问实例变量的方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNum</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="comment">//        System.out.println(num);//访问失败，必须通过引用.实例变量才能访问，但是this不能出现在static的方法中</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();<span class="comment">//自己手动创建一个对象即可</span></span><br><span class="line">        System.out.println(u.num);</span><br><span class="line"><span class="comment">//				pay()；//调用失败</span></span><br><span class="line">      	u.pay();<span class="comment">//通过手动创建的对象调用</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">  	<span class="type">int</span> num;<span class="comment">//实例对象</span></span><br><span class="line">  	</span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pay</span><span class="params">()</span>&#123; <span class="comment">//实例方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;pay&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">//在静态方法中访问实例变量的方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNum</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="comment">//        System.out.println(num);//访问失败，必须通过引用.实例变量才能访问，但是this不能出现在static的方法中</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();<span class="comment">//自己手动创建一个对象即可</span></span><br><span class="line">        System.out.println(u.num);</span><br><span class="line"><span class="comment">//				pay()；//调用失败</span></span><br><span class="line">      	u.pay();<span class="comment">//通过手动创建的对象调用</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h5 id="用于区分局部变量和实例变量"><a href="#用于区分局部变量和实例变量" class="headerlink" title="用于区分局部变量和实例变量"></a>用于区分局部变量和实例变量</h5><ul>
+<h5 id="用于区分局部变量和实例变量"><a class="markdownIt-Anchor" href="#用于区分局部变量和实例变量"></a> 用于区分局部变量和实例变量</h5>
+<ul>
 <li>在用于区分局部变量和实例变量时，<code>this</code>不能省略</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Customer</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;<span class="comment">//封装</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span>&#123;</span><br><span class="line"><span class="comment">//        name = name;//编译报错，无法区分两个变量</span></span><br><span class="line">        <span class="comment">//通过this来区分实例变量和局部变量</span></span><br><span class="line">        <span class="built_in">this</span>.name = name;<span class="comment">//等号左边的为实例变量，右边的为局部变量</span></span><br><span class="line">    &#125;</span><br><span class="line">  	</span><br><span class="line">  	<span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span>&#123;</span><br><span class="line">      	<span class="comment">//此时this可以省略，因为返回的name是实例变量，不需要区分</span></span><br><span class="line">      	<span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="用来调用其他构造方法"><a href="#用来调用其他构造方法" class="headerlink" title="用来调用其他构造方法"></a>用来调用其他构造方法</h3><ul>
+<h3 id="用来调用其他构造方法"><a class="markdownIt-Anchor" href="#用来调用其他构造方法"></a> 用来调用其他构造方法</h3>
+<ul>
 <li>出现在构造方法中，通过当前构造方法调用其他构造方法</li>
 <li>语法结构<code>this(实参列表)；</code></li>
 <li>用这种方法调用构造方法时，这条语句必须出现在构造方法的<strong>第一行</strong></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Date</span>&#123;</span><br><span class="line">  <span class="keyword">private</span> year;</span><br><span class="line">  <span class="keyword">private</span> month;</span><br><span class="line">  <span class="keyword">private</span> day;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Constructor</span></span><br><span class="line">    <span class="comment">//要求：在调用无参数的构造方法时，默认创建的日期是&quot;2000-10-25&quot;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Date</span><span class="params">(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> day)</span> &#123;</span><br><span class="line">      setYear(year);</span><br><span class="line">      setMonth(month);</span><br><span class="line">      setDay(day);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">public</span> <span class="title function_">Date</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="comment">//这样的方式会创建两个对象</span></span><br><span class="line">      <span class="comment">//调用无参的构造函数会生成一个对象，无参构造函数中又调用一个有参的构造函数再生成一个对象</span></span><br><span class="line">  <span class="comment">//        new Date(2000, 10, 25);//调用构造函数只能通过new的方式</span></span><br><span class="line">      <span class="comment">//采用以下的方式来调用构造函数</span></span><br><span class="line">      <span class="built_in">this</span>(<span class="number">2000</span>,<span class="number">10</span>,<span class="number">25</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123; </span><br><span class="line">      <span class="type">Date</span> <span class="variable">day1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">      System.out.print(<span class="string">&quot;采用无参数的构造函数&quot;</span>);</span><br><span class="line">      day1.printDate();</span><br><span class="line">      </span><br><span class="line">      <span class="type">Date</span> <span class="variable">day2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">2022</span>,<span class="number">11</span>,<span class="number">12</span>);</span><br><span class="line">      System.out.print(<span class="string">&quot;采用带参数的构造函数&quot;</span>);</span><br><span class="line">      day2.printDate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h827qci8k8j312e0kcac7.jpg"></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h827qci8k8j312e0kcac7.jpg" alt="" /></p>
 
     </div>
 
@@ -389,7 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this%E5%85%B3%E9%94%AE%E5%AD%97-1"><span class="nav-number">1.0.1.</span> <span class="nav-text">this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#this%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">this的使用情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95-amp-%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F"><span class="nav-number">1.0.1.0.3.</span> <span class="nav-text">实例方法 &amp; 实例变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E5%8C%BA%E5%88%86%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F"><span class="nav-number">1.0.1.0.4.</span> <span class="nav-text">用于区分局部变量和实例变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%9D%A5%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.0.2.</span> <span class="nav-text">用来调用其他构造方法</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text"> this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this%E5%85%B3%E9%94%AE%E5%AD%97-2"><span class="nav-number">1.0.1.</span> <span class="nav-text"> this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text"> 作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#this%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text"> this的使用情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95-%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F"><span class="nav-number">1.0.1.0.3.</span> <span class="nav-text"> 实例方法 &amp; 实例变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E5%8C%BA%E5%88%86%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F"><span class="nav-number">1.0.1.0.4.</span> <span class="nav-text"> 用于区分局部变量和实例变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%9D%A5%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 用来调用其他构造方法</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -405,7 +413,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
