@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">108</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">109</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -246,26 +246,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="颠倒二进制位"><a class="markdownIt-Anchor" href="#颠倒二进制位"></a> 颠倒二进制位</h1>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p>颠倒给定的 32 位无符号整数的二进制位。</p>
-<h2 id="方法一"><a class="markdownIt-Anchor" href="#方法一"></a> 方法一</h2>
-<h3 id="分析"><a class="markdownIt-Anchor" href="#分析"></a> 分析</h3>
-<p>将n看成一个二进制比特串，我们从低位向高位依次取出每一位数，然后将其倒序放到翻转结果中即可。</p>
+        <h1 id="颠倒二进制位"><a href="#颠倒二进制位" class="headerlink" title="颠倒二进制位"></a>颠倒二进制位</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>颠倒给定的 32 位无符号整数的二进制位。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>将n看成一个二进制比特串，我们从低位向高位依次取出每一位数，然后将其倒序放到翻转结果中即可。</p>
 <p>假如我们取出的是第<em>0</em>位，那它在翻转的结果中应该是在第<em>31</em>位，如果原本是在第<em>1</em>位，那最后应该在第<em>30</em>位，也就是如果原本在第<em>i</em>位，那最后就在第<em>31-i</em>位置。</p>
 <p>我们没有必要真的将数字转换成一个二进制比特串，而是可以每次直接取出最后一位，然后取出一位，就将n逻辑右移一位，这样就能做到从低到高位一一取出的效果。</p>
 <ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span>，其中<em>k</em>代表数字的位数</li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
+<li>时间复杂度：$O(k)$，其中<em>k</em>代表数字的位数</li>
+<li>空间复杂度：$O(1)$</li>
 </ul>
-<h3 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">reverseBits</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">rev</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">      	<span class="comment">//如果n的所有数字都被取完了，则暂停</span></span><br><span class="line">      	<span class="comment">//n前面高位的0会被自动补齐到低位</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">32</span> &amp;&amp; n != <span class="number">0</span>; ++i) &#123;</span><br><span class="line">          	<span class="comment">////用n&amp;1取出最后一位，然后放到31-i位置</span></span><br><span class="line">          	<span class="comment">//最后和前面的结果做一个拼接</span></span><br><span class="line">            rev = rev | (n &amp; <span class="number">1</span>) &lt;&lt; (<span class="number">31</span> - i);</span><br><span class="line">            n &gt;&gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="方法二分治算法"><a class="markdownIt-Anchor" href="#方法二分治算法"></a> 方法二：分治算法</h2>
-<h3 id="分析-2"><a class="markdownIt-Anchor" href="#分析-2"></a> 分析</h3>
-<p>其实Java中已经自己实现了这个功<code>Integer.reverse()</code>。通过研究源码我们发现，它其实是通过分治算法来实现的。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">reverseBits</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">rev</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">      	<span class="comment">//如果n的所有数字都被取完了，则暂停</span></span><br><span class="line">      	<span class="comment">//n前面高位的0会被自动补齐到低位</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">32</span> &amp;&amp; n != <span class="number">0</span>; ++i) &#123;</span><br><span class="line">          	<span class="comment">////用n&amp;1取出最后一位，然后放到31-i位置</span></span><br><span class="line">          	<span class="comment">//最后和前面的结果做一个拼接</span></span><br><span class="line">            rev = rev | (n &amp; <span class="number">1</span>) &lt;&lt; (<span class="number">31</span> - i);</span><br><span class="line">            n &gt;&gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二：分治算法"><a href="#方法二：分治算法" class="headerlink" title="方法二：分治算法"></a>方法二：分治算法</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>其实Java中已经自己实现了这个功<code>Integer.reverse()</code>。通过研究源码我们发现，它其实是通过分治算法来实现的。</p>
 <ul>
-<li>
-<p>简单的效果如下</p>
+<li><p>简单的效果如下</p>
 <ul>
 <li>原数据为:12345678</li>
 <li>第一轮 奇偶位交换 21436587</li>
@@ -273,13 +266,10 @@
 <li>第三轮 每四位交换 87654321</li>
 </ul>
 </li>
-<li>
-<p>那我们具体来看这个效果</p>
+<li><p>那我们具体来看这个效果</p>
 <ul>
-<li>首先需要奇偶位交换
-<ul>
-<li>我们先提取出所有的奇数位，然后将其左边移，它们就都变到了偶数位上
-<ul>
+<li>首先需要奇偶位交换<ul>
+<li>我们先提取出所有的奇数位，然后将其左边移，它们就都变到了偶数位上<ul>
 <li>提取奇数位的方法：将数字和01010101去做与运算即可</li>
 <li>不能右移，否则会损失一位的数据</li>
 </ul>
@@ -287,8 +277,7 @@
 <li>然后同理，我们先将原有的数右移一位，这样所有的偶数就跑到奇数的位置，然后用如上的方法将其提取出来，就好了</li>
 </ul>
 </li>
-<li>然后是每两位交换
-<ul>
+<li>然后是每两位交换<ul>
 <li>方法其实和上面一样</li>
 <li>只不过这次我们要每两位每两位的提取数字，也就是将原有的数和00110011去做与运算</li>
 <li>并且这次移动位数要两位两位的移动</li>
@@ -299,15 +288,13 @@
 <li>最后是将前一半数字和后一半数字交换即可</li>
 </ul>
 </li>
-<li>
-<p>时间复杂度：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<li><p>时间复杂度：$O(1)$</p>
 </li>
-<li>
-<p>空间复杂度：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<li><p>空间复杂度：$O(1)$</p>
 </li>
 </ul>
-<h3 id="代码-2"><a class="markdownIt-Anchor" href="#代码-2"></a> 代码</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">M1</span> <span class="operator">=</span> <span class="number">0B01010101010101010101010101010101</span>;<span class="comment">//交换奇偶位</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">M2</span> <span class="operator">=</span> <span class="number">0B00110011001100110011001100110011</span>;<span class="comment">//交换每两位</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">M3</span> <span class="operator">=</span> <span class="number">0B00001111000011110000111100001111</span>;<span class="comment">//交换每四位</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">M4</span> <span class="operator">=</span> <span class="number">0B00000000111111110000000011111111</span>;<span class="comment">//交换每八位</span></span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">M5</span> <span class="operator">=</span> <span class="number">0B00000000000000001111111111111111</span>;<span class="comment">//交换前一半后后一半</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">reverseBits</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">      	<span class="comment">//(n &amp; M1) &lt;&lt; 1将奇数位置提取出来左移</span></span><br><span class="line">      	<span class="comment">//(n &gt;&gt;&gt; 1) &amp; M1将偶数位移动到奇数位，然后提取出来，最后拼接两个的结果</span></span><br><span class="line">        n = (n &amp; M1) &lt;&lt; <span class="number">1</span> | (n &gt;&gt;&gt; <span class="number">1</span>) &amp; M1;</span><br><span class="line">        n = (n &amp; M2) &lt;&lt; <span class="number">2</span> | (n &gt;&gt;&gt; <span class="number">2</span>) &amp; M2;</span><br><span class="line">        n = (n &amp; M3) &lt;&lt; <span class="number">4</span> | (n &gt;&gt;&gt; <span class="number">4</span>) &amp; M3;</span><br><span class="line">        n = (n &amp; M4) &lt;&lt; <span class="number">8</span> | (n &gt;&gt;&gt; <span class="number">8</span>) &amp; M4;</span><br><span class="line">        n = (n &amp; M5) &lt;&lt; <span class="number">16</span> | (n &gt;&gt;&gt; <span class="number">16</span>) &amp; M5;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">M1</span> <span class="operator">=</span> <span class="number">0B01010101010101010101010101010101</span>;<span class="comment">//交换奇偶位</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">M2</span> <span class="operator">=</span> <span class="number">0B00110011001100110011001100110011</span>;<span class="comment">//交换每两位</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">M3</span> <span class="operator">=</span> <span class="number">0B00001111000011110000111100001111</span>;<span class="comment">//交换每四位</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">M4</span> <span class="operator">=</span> <span class="number">0B00000000111111110000000011111111</span>;<span class="comment">//交换每八位</span></span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">M5</span> <span class="operator">=</span> <span class="number">0B00000000000000001111111111111111</span>;<span class="comment">//交换前一半后后一半</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">reverseBits</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">      	<span class="comment">//(n &amp; M1) &lt;&lt; 1将奇数位置提取出来左移</span></span><br><span class="line">      	<span class="comment">//(n &gt;&gt;&gt; 1) &amp; M1将偶数位移动到奇数位，然后提取出来，最后拼接两个的结果</span></span><br><span class="line">        n = (n &amp; M1) &lt;&lt; <span class="number">1</span> | (n &gt;&gt;&gt; <span class="number">1</span>) &amp; M1;</span><br><span class="line">        n = (n &amp; M2) &lt;&lt; <span class="number">2</span> | (n &gt;&gt;&gt; <span class="number">2</span>) &amp; M2;</span><br><span class="line">        n = (n &amp; M3) &lt;&lt; <span class="number">4</span> | (n &gt;&gt;&gt; <span class="number">4</span>) &amp; M3;</span><br><span class="line">        n = (n &amp; M4) &lt;&lt; <span class="number">8</span> | (n &gt;&gt;&gt; <span class="number">8</span>) &amp; M4;</span><br><span class="line">        n = (n &amp; M5) &lt;&lt; <span class="number">16</span> | (n &gt;&gt;&gt; <span class="number">16</span>) &amp; M5;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -391,7 +378,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%A0%E5%80%92%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D"><span class="nav-number">1.</span> <span class="nav-text"> 颠倒二进制位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text"> 题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.2.</span> <span class="nav-text"> 方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text"> 方法二：分治算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 代码</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%A0%E5%80%92%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D"><span class="nav-number">1.</span> <span class="nav-text">颠倒二进制位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.2.</span> <span class="nav-text">方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.2.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">方法二：分治算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -407,7 +394,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">109</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">108</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">109</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -250,150 +250,129 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="java面向对象2"><a class="markdownIt-Anchor" href="#java面向对象2"></a> Java面向对象2</h1>
-<h3 id="集成开发环境"><a class="markdownIt-Anchor" href="#集成开发环境"></a> 集成开发环境</h3>
-<ul>
+        <h1 id="Java面向对象2"><a href="#Java面向对象2" class="headerlink" title="Java面向对象2"></a>Java面向对象2</h1><h3 id="集成开发环境"><a href="#集成开发环境" class="headerlink" title="集成开发环境"></a>集成开发环境</h3><ul>
 <li>IDE:Integrated Development Environment</li>
 <li>在IDE中不需要额外下载JDK、不需要手动配置环境变量、不需要手动编译生成字节码文件</li>
 <li>IDE提供语法检查、提供丰富的代码工具</li>
 <li>IntelliJ IDEA的快捷键详见参考文献<sup><a href="#ref1">[1]</a></sup></li>
 </ul>
-<h3 id="封装"><a class="markdownIt-Anchor" href="#封装"></a> 封装</h3>
-<h5 id="封装的作用"><a class="markdownIt-Anchor" href="#封装的作用"></a> 封装的作用</h5>
-<ol>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h5 id="封装的作用"><a href="#封装的作用" class="headerlink" title="封装的作用"></a>封装的作用</h5><ol>
 <li>安全性：控制外部的访问</li>
 <li>有效性：复杂性封装，提供简单的操作入口</li>
 <li>复用性：使得对象可以被反复使用</li>
 </ol>
-<h5 id="封装的步骤"><a class="markdownIt-Anchor" href="#封装的步骤"></a> 封装的步骤</h5>
-<ol>
-<li>
-<p>所有属性私有化，使用private关键字进行修饰</p>
+<h5 id="封装的步骤"><a href="#封装的步骤" class="headerlink" title="封装的步骤"></a>封装的步骤</h5><ol>
+<li><p>所有属性私有化，使用private关键字进行修饰</p>
 <ul>
 <li>private表示私有的，所修饰的数据只能在本类中访问</li>
 </ul>
 </li>
-<li>
-<p>对外提供简单的操作入口，通过这些简单的操作入口来修改私有属性</p>
+<li><p>对外提供简单的操作入口，通过这些简单的操作入口来修改私有属性</p>
 <ul>
 <li>如果不提供操作入口，私有属性将永远无法被访问</li>
 <li>数据的访问存在 读 和 写 两种，因此对外提供两个公开的方法<code>set</code>和<code>get</code>，用于读写私有数据</li>
 </ul>
 </li>
-<li>
-<p>关于<code>set</code>和<code>get</code>的细节</p>
+<li><p>关于<code>set</code>和<code>get</code>的细节</p>
 <ul>
 <li><code>set</code>方法命名规范</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> set属性名(形参列表)&#123;<span class="comment">//形参不能和私有属性的名字相同</span></span><br><span class="line">	<span class="comment">//进行安全过滤</span></span><br><span class="line">  属性名 = 形式参数;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><code>get</code>方法命名规范</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> 返回类型 get属性名()&#123;</span><br><span class="line">  <span class="comment">//进行安全控制</span></span><br><span class="line">	<span class="keyword">return</span> 属性;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><code>set</code>和<code>get</code>函数的修饰符列表中没有<code>static</code>关键字，直接使用 <code>引用.方法名(实参列表)</code> 来调用</li>
 <li><code>set</code>和<code>get</code>函数可以在IntelliJ中自动生成：选中所需要生成<code>set</code>和<code>get</code>方法的实例变量，<code>command + N</code>选择<code>Getter and Setter</code>即可</li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h81578xz2pj310a0n0acn.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h81578xz2pj310a0n0acn.jpg"></p>
 </li>
 </ol>
-<h3 id="构造方法"><a class="markdownIt-Anchor" href="#构造方法"></a> 构造方法</h3>
-<ul>
-<li>构造方法又被称作构造函数/构造器/Constructor</li>
+<h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><ul>
+<li>构造方法又被称作构造函数&#x2F;构造器&#x2F;Constructor</li>
 <li>构造方法语法结构</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[修饰符列表] 构造方法名(形参列表)&#123;</span><br><span class="line">	构造方法体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>
-<p>与普通的方法相比较</p>
+<li><p>与普通的方法相比较</p>
 <ol>
 <li>构造方法不需要指定<u>返回值类型</u>， 也不需要为其指定<code>void</code>返回值类型</li>
 <li>构造方法名必须和<u>类名</u>保持一致</li>
 </ol>
 </li>
 </ul>
-<h5 id="构造方法的作用"><a class="markdownIt-Anchor" href="#构造方法的作用"></a> 构造方法的作用</h5>
-<ol>
+<h5 id="构造方法的作用"><a href="#构造方法的作用" class="headerlink" title="构造方法的作用"></a>构造方法的作用</h5><ol>
 <li>通过调用构造函数用于在堆内存中<strong>创建对象</strong></li>
 <li>创建对象的同时，<strong>初始化实例变量</strong></li>
 </ol>
-<h5 id="构造方法的调用"><a class="markdownIt-Anchor" href="#构造方法的调用"></a> 构造方法的调用</h5>
-<ul>
-<li>普通方法的调用
-<ul>
+<h5 id="构造方法的调用"><a href="#构造方法的调用" class="headerlink" title="构造方法的调用"></a>构造方法的调用</h5><ul>
+<li>普通方法的调用<ul>
 <li>修饰符列表含有<code>static</code>关键字时：<code>类名.方法名(实参列表)</code> (在同一个类中类名可以省略)</li>
 <li>修饰符列表不含<code>static</code>关键字时：<code>引用.方法名(实参列表)</code></li>
 </ul>
 </li>
-<li>构造方法的调用
-<ul>
+<li>构造方法的调用<ul>
 <li><code>new 构造方法(实参列表)</code></li>
 </ul>
 </li>
 </ul>
-<h5 id="有关于构造方法的返回值"><a class="markdownIt-Anchor" href="#有关于构造方法的返回值"></a> 有关于构造方法的返回值</h5>
-<ul>
+<h5 id="有关于构造方法的返回值"><a href="#有关于构造方法的返回值" class="headerlink" title="有关于构造方法的返回值"></a>有关于构造方法的返回值</h5><ul>
 <li>构造方法调用结束会返回堆地址中创建的对象的<strong>地址</strong></li>
 <li>构造方法的返回值类型<strong>非常固定</strong>，永远是该类的类型，故可以它的省略返回值类型</li>
 </ul>
-<h5 id="缺省构造器"><a class="markdownIt-Anchor" href="#缺省构造器"></a> 缺省构造器</h5>
-<ul>
-<li>
-<p>当一个类中没有定义任何构造方法时，系统默认给该类提供一个无参数的构造方法，该方法称为缺省构造器</p>
+<h5 id="缺省构造器"><a href="#缺省构造器" class="headerlink" title="缺省构造器"></a>缺省构造器</h5><ul>
+<li><p>当一个类中没有定义任何构造方法时，系统默认给该类提供一个无参数的构造方法，该方法称为缺省构造器</p>
 </li>
-<li>
-<p>当类中显示的定义了构造方法时，系统就不会再提供缺省构造器</p>
+<li><p>当类中显示的定义了构造方法时，系统就不会再提供缺省构造器</p>
 </li>
-<li>
-<p>构造方法支持重载</p>
+<li><p>构造方法支持重载</p>
 <ul>
 <li>在一个类中可以编写多个构造方法</li>
 <li>由于无参数构造方法的常用性，手动的为当前类提供一个无参数的构造方法，避免其之后被省略</li>
 <li>每调用一次构造方法就会调用一个对象，<u>调用不同的重载方法，就会创建不同的对象</u></li>
 </ul>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8159g1t1pj310u0k0ac5.jpg" alt="" /></p>
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8159g1t1pj310u0k0ac5.jpg"></p>
 </li>
 </ul>
-<h5 id="初始化实例变量"><a class="markdownIt-Anchor" href="#初始化实例变量"></a> 初始化实例变量</h5>
-<ul>
+<h5 id="初始化实例变量"><a href="#初始化实例变量" class="headerlink" title="初始化实例变量"></a>初始化实例变量</h5><ul>
 <li>在类加载时，系统并不会初始化实例变量，因为实例变量需要通过对象去访问</li>
 <li>在通过构造函数初始化对象时进行实例变量的初始化工作</li>
 </ul>
-<h3 id="对象和引用"><a class="markdownIt-Anchor" href="#对象和引用"></a> 对象和引用</h3>
-<h5 id="对象"><a class="markdownIt-Anchor" href="#对象"></a> 对象</h5>
-<ul>
+<h3 id="对象和引用"><a href="#对象和引用" class="headerlink" title="对象和引用"></a>对象和引用</h3><h5 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h5><ul>
 <li>通过构造函数在堆内存中开辟的内存空间称为对象</li>
 </ul>
-<h5 id="引用"><a class="markdownIt-Anchor" href="#引用"></a> 引用</h5>
-<ul>
+<h5 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h5><ul>
 <li>一个指向堆内存中对象地址的变量</li>
 <li>可能是局部变量(在方法中声明)；也可能是实例变量(在类中声明)</li>
 <li>所有访问实例相关的数据，都需要通过引用的方式进行访问</li>
 <li>一个空引用访问实例相关的数据时运行时会出现“空指针异常”</li>
 </ul>
-<h3 id="参数传递"><a class="markdownIt-Anchor" href="#参数传递"></a> 参数传递</h3>
-<h5 id="按值传递"><a class="markdownIt-Anchor" href="#按值传递"></a> 按值传递</h5>
-<ul>
+<h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3><h5 id="按值传递"><a href="#按值传递" class="headerlink" title="按值传递"></a>按值传递</h5><ul>
 <li>方法调用时，实际参数把它的值传递给对应的形式参数，函数接收的是原始值的一份拷贝，在方法中对这个拷贝的形参做修改，不改变实参的值</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Transfer</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">1</span>;<span class="comment">//num是一个存放在栈区的普通变量，存储的是数据1</span></span><br><span class="line">        System.out.println(<span class="string">&quot;调用前num = &quot;</span> + num);</span><br><span class="line">        add(num);<span class="comment">//传递的是num的拷贝，等价于add(10)</span></span><br><span class="line">        System.out.println(<span class="string">&quot;调用后num = &quot;</span> + num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//按值传递</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> n)</span> &#123;<span class="comment">//n = 10</span></span><br><span class="line">        num++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="按引用传递"><a class="markdownIt-Anchor" href="#按引用传递"></a> 按引用传递</h5>
-<ul>
+
+<h5 id="按引用传递"><a href="#按引用传递" class="headerlink" title="按引用传递"></a>按引用传递</h5><ul>
 <li>方法调用时，实参的引用被传递给方法中相应的形参，在方法执行过程中，形参和实参指向同一块内存地址，方法执行后再访问该内存地址，会发现实参被改变了</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Transfer</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test</span>(<span class="number">1</span>);<span class="comment">//test是一个存放在栈中的引用变量，它存储的是一个Test的对象的地址0x6324</span></span><br><span class="line">        System.out.println(<span class="string">&quot;调用前test.num = &quot;</span> + test.getNum());</span><br><span class="line">        add(test);<span class="comment">//传递的是Test对象的引用,等价于add(0x6324)</span></span><br><span class="line">        System.out.println(<span class="string">&quot;调用后test.num = &quot;</span> + test.getNum());<span class="comment">//方法执行后，再访问同一个地址</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//按引用传递</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(Test t)</span> &#123;<span class="comment">//t = 0x6324</span></span><br><span class="line">      <span class="comment">//注意这里，t = 0x6324， 而不是t = test，本质上传递的还是值，t和test两个引用指向了同一个堆内存空间</span></span><br><span class="line">        test.setNum(test.getNum() + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> num;<span class="comment">//对num进行了封装</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Test</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        num = n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setNum</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        num = n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getNum</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8164xm21tj30vk0ludi2.jpg" alt="" /></p>
-<h5 id="参数传递的本质"><a class="markdownIt-Anchor" href="#参数传递的本质"></a> 参数传递的本质</h5>
-<ul>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h8164xm21tj30vk0ludi2.jpg"></p>
+<h5 id="参数传递的本质"><a href="#参数传递的本质" class="headerlink" title="参数传递的本质"></a>参数传递的本质</h5><ul>
 <li>方法调用涉及参数传递时，Java只遵循的其实只有一种机制：<strong>将变量中存储的“值”传递过去</strong>，只不过这个值有的时候时字面值，有的是内存地址</li>
 <li>理解以下这个例子更能明白“传值”的含义</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Transfer</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Test</span> <span class="variable">t1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test</span>(<span class="number">10</span>);</span><br><span class="line">        <span class="type">Test</span> <span class="variable">t2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test</span>(<span class="number">20</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;调用前t1.num = &quot;</span> + t1.getNum());</span><br><span class="line">        System.out.println(<span class="string">&quot;调用前t2.num = &quot;</span> + t2.getNum());</span><br><span class="line"></span><br><span class="line">        swap(t1, t2);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;调用后t1.num = &quot;</span> + t1.getNum());</span><br><span class="line">        System.out.println(<span class="string">&quot;调用后t2.num = &quot;</span> + t2.getNum());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(Test test1, Test test2)</span> &#123;</span><br><span class="line">        <span class="type">Test</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test</span>();</span><br><span class="line">        temp = test1;</span><br><span class="line">        test1 = test2;</span><br><span class="line">        test2 = temp;</span><br><span class="line">      <span class="comment">//方法执行后，形参test1和test2的值交换了，实参t1和t2并没有收到改变</span></span><br><span class="line">      <span class="comment">//如果在主函数里访问test1和test2的地址，会发现受到了真正的影响</span></span><br><span class="line">      <span class="comment">//如果在主函数里访问t1和t2的地址，会发现没有任何影响</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> num;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Test</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        num = n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Test</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setNum</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        num = n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getNum</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h816vu4tjej31ik0m4q5n.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h816vu4tjej31ik0m4q5n.jpg"></p>
 <ul>
 <li>我们会发现，调用前后<code>t1</code>和<code>t2</code>的值并没有改变，因为方法调用时，只是将<code>t1</code>和<code>t2</code>的值（也就是两个地址）传进去了，而不是把这两个值真正的传进去</li>
 </ul>
-<p>Reference <a name="ref1"><font color="black">[1]<a target="_blank" rel="noopener" href="https://dancon.gitbooks.io/intellij-idea/content/keymap-mac-introduce.html">https://dancon.gitbooks.io/intellij-idea/content/keymap-mac-introduce.html</a></p>
+<p>Reference <a name="ref1"><font color="black">[1]https://dancon.gitbooks.io/intellij-idea/content/keymap-mac-introduce.html</p>
 
     </div>
 
@@ -477,7 +456,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A12"><span class="nav-number">1.</span> <span class="nav-text"> Java面向对象2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 集成开发环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 封装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text"> 封装的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text"> 封装的步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text"> 构造方法的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E7%9A%84%E8%B0%83%E7%94%A8"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text"> 构造方法的调用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%89%E5%85%B3%E4%BA%8E%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text"> 有关于构造方法的返回值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E7%9C%81%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">1.0.3.0.4.</span> <span class="nav-text"> 缺省构造器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F"><span class="nav-number">1.0.3.0.5.</span> <span class="nav-text"> 初始化实例变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 对象和引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text"> 对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text"> 引用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text"> 按值传递</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text"> 按引用传递</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="nav-number">1.0.5.0.3.</span> <span class="nav-text"> 参数传递的本质</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A12"><span class="nav-number">1.</span> <span class="nav-text">Java面向对象2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">1.0.1.</span> <span class="nav-text">集成开发环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-number">1.0.2.</span> <span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">封装的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">封装的步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.0.3.</span> <span class="nav-text">构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">构造方法的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E7%9A%84%E8%B0%83%E7%94%A8"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">构造方法的调用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%89%E5%85%B3%E4%BA%8E%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">有关于构造方法的返回值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E7%9C%81%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">1.0.3.0.4.</span> <span class="nav-text">缺省构造器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F"><span class="nav-number">1.0.3.0.5.</span> <span class="nav-text">初始化实例变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.4.</span> <span class="nav-text">对象和引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">引用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">1.0.5.</span> <span class="nav-text">参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">按值传递</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">按引用传递</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="nav-number">1.0.5.0.3.</span> <span class="nav-text">参数传递的本质</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -493,7 +472,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">109</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

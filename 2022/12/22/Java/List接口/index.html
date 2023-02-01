@@ -146,7 +146,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">108</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">109</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -252,22 +252,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="迭代器的补充"><a class="markdownIt-Anchor" href="#迭代器的补充"></a> 迭代器的补充</h2>
-<h3 id="迭代器是对集合当前状态的一个快照"><a class="markdownIt-Anchor" href="#迭代器是对集合当前状态的一个快照"></a> 迭代器是对集合当前状态的一个快照</h3>
-<ul>
-<li><code>Iterator it = collection.iterator()</code>
-<ul>
+        <h2 id="迭代器的补充"><a href="#迭代器的补充" class="headerlink" title="迭代器的补充"></a>迭代器的补充</h2><h3 id="迭代器是对集合当前状态的一个快照"><a href="#迭代器是对集合当前状态的一个快照" class="headerlink" title="迭代器是对集合当前状态的一个快照"></a>迭代器是对集合当前状态的一个快照</h3><ul>
+<li><code>Iterator it = collection.iterator()</code><ul>
 <li>获取集合<code>collection</code>的迭代器对象，迭代器用来遍历集合</li>
 <li>迭代器相当于给当前集合状态拍了一个快照</li>
 <li>迭代器通过参考这个快照来对集合进行迭代</li>
 <li>迭代器在遍历集合时会不停的检查快照的有效性</li>
 </ul>
 </li>
-<li>当集合状态发生改变时，之前的快照（迭代器）就会失效，导致无法迭代
-<ul>
+<li>当集合状态发生改变时，之前的快照（迭代器）就会失效，导致无法迭代<ul>
 <li>抛出<code>ConcurrentModificationException</code>异常</li>
-<li>集合状态的改变包括
-<ul>
+<li>集合状态的改变包括<ul>
 <li>元素的增加</li>
 <li>元素的删除</li>
 <li>等等</li>
@@ -277,10 +272,10 @@
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">Collection</span> <span class="variable">collection</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    collection.add(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">    collection.add(<span class="string">&quot;def&quot;</span>);</span><br><span class="line">    collection.add(<span class="string">&quot;ghi&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">Iterator</span> <span class="variable">iterator</span> <span class="operator">=</span> collection.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> iterator.next();</span><br><span class="line">        System.out.println(obj);</span><br><span class="line">      	<span class="comment">//通过集合进行修改 </span></span><br><span class="line">      	<span class="comment">//对集合进行了修改，导致迭代器（快照）失效</span></span><br><span class="line">        collection.remove(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cehgyfn4j30pb0a0wfx.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cehgyfn4j30pb0a0wfx.jpg"></p>
 <ul>
-<li>通过迭代器来对集合进行修改
-<ul>
+<li>通过迭代器来对集合进行修改<ul>
 <li>通过迭代器进行修改，会直接修改这个快照以及快照所对应的集合，保持快照和集合的对应</li>
 <li>通过迭代器进行修改会更新迭代器</li>
 <li>不会报错</li>
@@ -288,49 +283,41 @@
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test2</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">Collection</span> <span class="variable">collection</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    collection.add(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    collection.add(<span class="string">&quot;456&quot;</span>);</span><br><span class="line">    collection.add(<span class="string">&quot;789&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">Iterator</span> <span class="variable">iterator</span> <span class="operator">=</span> collection.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> iterator.next();</span><br><span class="line">        System.out.println(obj);</span><br><span class="line">      	<span class="comment">//通过迭代器进行修改，可以直接修改快照和集合</span></span><br><span class="line">        iterator.remove();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="list接口"><a class="markdownIt-Anchor" href="#list接口"></a> <code>List</code>接口</h2>
-<h3 id="list集合存储特点"><a class="markdownIt-Anchor" href="#list集合存储特点"></a> <code>List</code>集合存储特点</h3>
-<blockquote>
+
+<h2 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a><code>List</code>接口</h2><h3 id="List集合存储特点"><a href="#List集合存储特点" class="headerlink" title="List集合存储特点"></a><code>List</code>集合存储特点</h3><blockquote>
 <p>An ordered collection (also known as a <em>sequence</em>). （有序的集合）The user of this interface has precise control over where in the list each element is inserted（能够控制List中每一个元素）. The user can access elements by their integer index (position in the list), and search for elements in the list.（通过元素下标来访问控制元素）</p>
 </blockquote>
 <ol>
-<li>有序
-<ul>
+<li>有序<ul>
 <li><code>List</code>集合中的元素有下标，下标从0开始，以1递增</li>
 </ul>
 </li>
-<li>可重复
-<ul>
+<li>可重复<ul>
 <li><code>List</code>集合中允许有重复元素</li>
 </ul>
 </li>
 </ol>
-<h3 id="list接口的特有方法"><a class="markdownIt-Anchor" href="#list接口的特有方法"></a> <code>List</code>接口的特有方法</h3>
-<h4 id="void-addint-index-e-element"><a class="markdownIt-Anchor" href="#void-addint-index-e-element"></a> <code>void add(int index, E element)</code></h4>
-<blockquote>
+<h3 id="List接口的特有方法"><a href="#List接口的特有方法" class="headerlink" title="List接口的特有方法"></a><code>List</code>接口的特有方法</h3><h4 id="void-add-int-index-E-element"><a href="#void-add-int-index-E-element" class="headerlink" title="void add(int index, E element)"></a><code>void add(int index, E element)</code></h4><blockquote>
 <p>Inserts the specified element at the specified position in this list (optional operation). Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).</p>
 </blockquote>
 <ul>
-<li>将元素插入List中的特定位置
-<ul>
+<li>将元素插入List中的特定位置<ul>
 <li>如果原来的位置上有元素的话就将其替代，然后后续元素向后移动</li>
 </ul>
 </li>
-<li>效率较低，涉及到大量元素的移动
-<ul>
+<li>效率较低，涉及到大量元素的移动<ul>
 <li>底层是数组实现</li>
 </ul>
 </li>
-<li><code>boolean add(E e)</code>
-<ul>
+<li><code>boolean add(E e)</code><ul>
 <li>默认向集合尾部插入元素</li>
 <li>效率较高</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">List</span> <span class="variable">list1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">    list1.add(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    list1.add(<span class="string">&quot;456&quot;</span>);</span><br><span class="line">    list1.add(<span class="string">&quot;789&quot;</span>);</span><br><span class="line"></span><br><span class="line">    list1.add(<span class="number">1</span>,<span class="string">&quot;def&quot;</span>);<span class="comment">//在下标为1处插入</span></span><br><span class="line"></span><br><span class="line">    <span class="type">Iterator</span> <span class="variable">iterator</span> <span class="operator">=</span> list1.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">    		System.out.println(iterator.next());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="e-getint-index"><a class="markdownIt-Anchor" href="#e-getint-index"></a> <code>E get(int index)</code></h4>
-<blockquote>
+
+<h4 id="E-get-int-index"><a href="#E-get-int-index" class="headerlink" title="E get(int index)"></a><code>E get(int index)</code></h4><blockquote>
 <p>Returns the element at the specified position in this list.</p>
 </blockquote>
 <ul>
@@ -338,77 +325,69 @@
 <li>可以通过这个方法来遍历<code>List</code>集合</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list1.size();i ++)&#123;</span><br><span class="line">		System.out.println(list1.get(i));	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="int-indexofobject-o"><a class="markdownIt-Anchor" href="#int-indexofobject-o"></a> <code>int indexOf(Object o)</code></h4>
-<blockquote>
+
+<h4 id="int-indexOf-Object-o"><a href="#int-indexOf-Object-o" class="headerlink" title="int indexOf(Object o)"></a><code>int indexOf(Object o)</code></h4><blockquote>
 <p>Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element. More formally, returns the lowest index <code>i</code> such that<code>(o==null ? get(i)==null : o.equals(get(i)))</code>, or -1 if there is no such index.</p>
 </blockquote>
 <ul>
-<li>返回对象<em>o</em>第一次出现的下标
-<ul>
+<li>返回对象<em>o</em>第一次出现的下标<ul>
 <li>当<code>List</code>中不存在对象<em>o</em>时返回*-1*</li>
 </ul>
 </li>
-<li><code>int lastIndexOf(Object o)</code>
-<ul>
+<li><code>int lastIndexOf(Object o)</code><ul>
 <li>返回对象最后一次出现的下标</li>
 </ul>
 </li>
 </ul>
-<h4 id="e-removeint-index"><a class="markdownIt-Anchor" href="#e-removeint-index"></a> <code>E remove(int index)</code></h4>
-<blockquote>
+<h4 id="E-remove-int-index"><a href="#E-remove-int-index" class="headerlink" title="E remove(int index)"></a><code>E remove(int index)</code></h4><blockquote>
 <p>Removes the element at the specified position in this list (optional operation). Shifts any subsequent elements to the left (subtracts one from their indices). Returns the element that was removed from the list.</p>
 </blockquote>
 <ul>
-<li>删除指定下标处的元素
-<ul>
+<li>删除指定下标处的元素<ul>
 <li>然后后续元素向前移动</li>
 </ul>
 </li>
 </ul>
-<h4 id="e-setint-index-e-element"><a class="markdownIt-Anchor" href="#e-setint-index-e-element"></a> <code>E set(int index, E element)</code></h4>
-<blockquote>
+<h4 id="E-set-int-index-E-element"><a href="#E-set-int-index-E-element" class="headerlink" title="E set(int index, E element)"></a><code>E set(int index, E element)</code></h4><blockquote>
 <p>Replaces the element at the specified position in this list with the specified element (optional operation).</p>
 </blockquote>
 <ul>
 <li>修改指定下标处的元素</li>
 </ul>
-<h2 id="arraylist"><a class="markdownIt-Anchor" href="#arraylist"></a> <code>ArrayList</code></h2>
-<h3 id="初始化"><a class="markdownIt-Anchor" href="#初始化"></a> 初始化</h3>
-<blockquote>
+<h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><code>ArrayList</code></h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><blockquote>
 <p>Resizable-array implementation of the <code>List</code> interface. Implements all optional list operations, and permits all elements, including <code>null</code>. In addition to implementing the <code>List</code> interface, this class provides methods to manipulate the size of the array that is used internally to store the list. (This class is roughly equivalent to <code>Vector</code>, except that it is unsynchronized.)</p>
 </blockquote>
 <ul>
-<li><code>ArrayList</code>底层使用数组实现的
-<ul>
-<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cg908dw3j30lx04sjru.jpg" alt="" /></li>
-<li><code>ArrayList</code>集合初始化容量是10
-<ul>
+<li><code>ArrayList</code>底层使用数组实现的<ul>
+<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cg908dw3j30lx04sjru.jpg"></li>
+<li><code>ArrayList</code>集合初始化容量是10<ul>
 <li>底层先创建了一个长度为0的数组，当有元素加入时再把它扩容到初始容量</li>
 </ul>
 </li>
-<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cg861vicj30ha08t0tb.jpg" alt="" /></li>
+<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cg861vicj30ha08t0tb.jpg"></li>
 <li>默认是一个<code>Object</code>类型的数组</li>
 </ul>
 </li>
-<li>可以通过初始化的方式确定<code>ArrayList</code>数组的大小
-<ul>
+<li>可以通过初始化的方式确定<code>ArrayList</code>数组的大小<ul>
 <li><code>public ArrayList(int initialCapacity)</code></li>
 <li>通过<code>size()</code>方法获得的是当前集合元素的个数，而非集合的大小</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//指定初始化一个数组大小为20的ArrayList</span></span><br><span class="line"><span class="type">ArrayList</span> <span class="variable">arrayList</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">ArrayList</span> <span class="variable">arrayList1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>(<span class="number">20</span>);</span><br><span class="line">    <span class="type">ArrayList</span> <span class="variable">arrayList2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>(<span class="number">40</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;arrayList1: &quot;</span> + arrayList1.size());</span><br><span class="line">    System.out.println(<span class="string">&quot;arrayList2: &quot;</span> + arrayList2.size());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cghu7c3dj30fz06oaad.jpg" alt="" /></p>
-<h3 id="扩容"><a class="markdownIt-Anchor" href="#扩容"></a> 扩容</h3>
-<ul>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cghu7c3dj30fz06oaad.jpg"></p>
+<h3 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h3><ul>
 <li>当原来的ArrayList集合已经满了的时候，如果我们继续向其中增加元素，集合会自动扩容</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> index, E element)</span> &#123;</span><br><span class="line">    rangeCheckForAdd(index);</span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> s;</span><br><span class="line">    Object[] elementData;</span><br><span class="line">    <span class="keyword">if</span> ((s = size) == (elementData = <span class="built_in">this</span>.elementData).length)</span><br><span class="line">    		elementData = grow();</span><br><span class="line">    System.arraycopy(elementData, index,</span><br><span class="line">        elementData, index + <span class="number">1</span>,</span><br><span class="line">        s - index);</span><br><span class="line">    elementData[index] = element;</span><br><span class="line">    size = s + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Object[] grow(<span class="type">int</span> minCapacity) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">oldCapacity</span> <span class="operator">=</span> elementData.length;</span><br><span class="line">        <span class="keyword">if</span> (oldCapacity &gt; <span class="number">0</span> || elementData != DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">newCapacity</span> <span class="operator">=</span> ArraysSupport.newLength(oldCapacity,</span><br><span class="line">                    minCapacity - oldCapacity, <span class="comment">/* minimum growth */</span></span><br><span class="line">                    <span class="comment">//增长原来的一半</span></span><br><span class="line">                    oldCapacity &gt;&gt; <span class="number">1</span>           <span class="comment">/* preferred growth */</span>);</span><br><span class="line">            <span class="type">return</span> <span class="variable">elementData</span> <span class="operator">=</span> Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">return</span> <span class="variable">elementData</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Object</span>[Math.max(DEFAULT_CAPACITY, minCapacity)];</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><strong>扩容的容量是之前容量的</strong>$\frac{1}{2} $
-<ul>
+<li><strong>扩容的容量是之前容量的</strong>$\frac{1}{2} $<ul>
 <li>旧容量是<em>10</em>，如果此时集合已经满了</li>
 <li>增长<em>5</em></li>
 <li>新的容量是<em>15</em></li>
@@ -416,59 +395,46 @@
 </li>
 <li>尽可能减少扩容的次数</li>
 </ul>
-<h2 id="linklist"><a class="markdownIt-Anchor" href="#linklist"></a> <code>LinkList</code></h2>
-<h3 id="链表的优缺点"><a class="markdownIt-Anchor" href="#链表的优缺点"></a> 链表的优缺点</h3>
-<ul>
+<h2 id="LinkList"><a href="#LinkList" class="headerlink" title="LinkList"></a><code>LinkList</code></h2><h3 id="链表的优缺点"><a href="#链表的优缺点" class="headerlink" title="链表的优缺点"></a>链表的优缺点</h3><ul>
 <li>优点：随机增删元素的效率高</li>
 <li>缺点：查询效率低</li>
 </ul>
-<h3 id="初始化-2"><a class="markdownIt-Anchor" href="#初始化-2"></a> 初始化</h3>
-<ul>
-<li><code>LinkList</code>在底层是一个双向链表
-<ul>
-<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cpk7bmprj30hc0bdwex.jpg" alt="" /></li>
-<li>初始化了两个指针<code>first</code>和<code>last</code>，分别用于指向链表中的头节点和尾节点
-<ul>
-<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cprno1kvj309o06jjrf.jpg" alt="" /></li>
+<h3 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h3><ul>
+<li><code>LinkList</code>在底层是一个双向链表<ul>
+<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cpk7bmprj30hc0bdwex.jpg"></li>
+<li>初始化了两个指针<code>first</code>和<code>last</code>，分别用于指向链表中的头节点和尾节点<ul>
+<li><img data-src="https://tva1.sinaimg.cn/large/008vxvgGgy1h9cprno1kvj309o06jjrf.jpg"></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><code>LinkList</code>底层不是数组，没有初始化容量一说
-<ul>
+<li><code>LinkList</code>底层不是数组，没有初始化容量一说<ul>
 <li><code>first</code>和<code>last</code>初始值都为<code>null</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="元素的增加"><a class="markdownIt-Anchor" href="#元素的增加"></a> 元素的增加</h3>
-<h4 id="public-boolean-adde-e"><a class="markdownIt-Anchor" href="#public-boolean-adde-e"></a> <code>public boolean add(E e)</code></h4>
-<blockquote>
+<h3 id="元素的增加"><a href="#元素的增加" class="headerlink" title="元素的增加"></a>元素的增加</h3><h4 id="public-boolean-add-E-e"><a href="#public-boolean-add-E-e" class="headerlink" title="public boolean add(E e)"></a><code>public boolean add(E e)</code></h4><blockquote>
 <p>Appends the specified element to the end of this list.</p>
 </blockquote>
 <ul>
 <li>在双链表的末尾增添元素</li>
 <li>等价于<code>public void addLast(E e)</code></li>
 </ul>
-<h4 id="public-void-addfirste-e"><a class="markdownIt-Anchor" href="#public-void-addfirste-e"></a> <code>public void addFirst(E e)</code></h4>
-<blockquote>
+<h4 id="public-void-addFirst-E-e"><a href="#public-void-addFirst-E-e" class="headerlink" title="public void addFirst(E e)"></a><code>public void addFirst(E e)</code></h4><blockquote>
 <p>Inserts the specified element at the beginning of this list.</p>
 </blockquote>
 <ul>
 <li>在链表的头部添加元素</li>
 </ul>
-<h2 id="vector"><a class="markdownIt-Anchor" href="#vector"></a> <code>Vector</code></h2>
-<ul>
+<h2 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a><code>Vector</code></h2><ul>
 <li>底层是一个数组</li>
 <li>初始化容量是10</li>
 <li>每次成倍的增长</li>
 </ul>
-<h3 id="线程安全"><a class="markdownIt-Anchor" href="#线程安全"></a> 线程安全</h3>
-<ul>
+<h3 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h3><ul>
 <li><code>Vector</code>是线程安全的</li>
-<li>将<code>ArrayListh</code>和<code>LinkList</code>转化为线程安全的方法
-<ul>
-<li><code>Collections</code>类下的<code>synchronizedList()</code>方法
-<ul>
+<li>将<code>ArrayListh</code>和<code>LinkList</code>转化为线程安全的方法<ul>
+<li><code>Collections</code>类下的<code>synchronizedList()</code>方法<ul>
 <li><code>Collections</code>是一个集合工具类</li>
 <li><code>Collection</code>是一个集合接口</li>
 </ul>
@@ -559,7 +525,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E8%A1%A5%E5%85%85"><span class="nav-number">1.</span> <span class="nav-text"> 迭代器的补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%98%AF%E5%AF%B9%E9%9B%86%E5%90%88%E5%BD%93%E5%89%8D%E7%8A%B6%E6%80%81%E7%9A%84%E4%B8%80%E4%B8%AA%E5%BF%AB%E7%85%A7"><span class="nav-number">1.1.</span> <span class="nav-text"> 迭代器是对集合当前状态的一个快照</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.</span> <span class="nav-text"> List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#list%E9%9B%86%E5%90%88%E5%AD%98%E5%82%A8%E7%89%B9%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text"> List集合存储特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%89%B9%E6%9C%89%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text"> List接口的特有方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-addint-index-e-element"><span class="nav-number">2.2.1.</span> <span class="nav-text"> void add(int index, E element)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#e-getint-index"><span class="nav-number">2.2.2.</span> <span class="nav-text"> E get(int index)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int-indexofobject-o"><span class="nav-number">2.2.3.</span> <span class="nav-text"> int indexOf(Object o)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#e-removeint-index"><span class="nav-number">2.2.4.</span> <span class="nav-text"> E remove(int index)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#e-setint-index-e-element"><span class="nav-number">2.2.5.</span> <span class="nav-text"> E set(int index, E element)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arraylist"><span class="nav-number">3.</span> <span class="nav-text"> ArrayList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text"> 初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9"><span class="nav-number">3.2.</span> <span class="nav-text"> 扩容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linklist"><span class="nav-number">4.</span> <span class="nav-text"> LinkList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">4.1.</span> <span class="nav-text"> 链表的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-2"><span class="nav-number">4.2.</span> <span class="nav-text"> 初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E7%9A%84%E5%A2%9E%E5%8A%A0"><span class="nav-number">4.3.</span> <span class="nav-text"> 元素的增加</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#public-boolean-adde-e"><span class="nav-number">4.3.1.</span> <span class="nav-text"> public boolean add(E e)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#public-void-addfirste-e"><span class="nav-number">4.3.2.</span> <span class="nav-text"> public void addFirst(E e)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector"><span class="nav-number">5.</span> <span class="nav-text"> Vector</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">5.1.</span> <span class="nav-text"> 线程安全</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E8%A1%A5%E5%85%85"><span class="nav-number">1.</span> <span class="nav-text">迭代器的补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%98%AF%E5%AF%B9%E9%9B%86%E5%90%88%E5%BD%93%E5%89%8D%E7%8A%B6%E6%80%81%E7%9A%84%E4%B8%80%E4%B8%AA%E5%BF%AB%E7%85%A7"><span class="nav-number">1.1.</span> <span class="nav-text">迭代器是对集合当前状态的一个快照</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.</span> <span class="nav-text">List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List%E9%9B%86%E5%90%88%E5%AD%98%E5%82%A8%E7%89%B9%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text">List集合存储特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%89%B9%E6%9C%89%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">List接口的特有方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-add-int-index-E-element"><span class="nav-number">2.2.1.</span> <span class="nav-text">void add(int index, E element)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-get-int-index"><span class="nav-number">2.2.2.</span> <span class="nav-text">E get(int index)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int-indexOf-Object-o"><span class="nav-number">2.2.3.</span> <span class="nav-text">int indexOf(Object o)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-remove-int-index"><span class="nav-number">2.2.4.</span> <span class="nav-text">E remove(int index)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-set-int-index-E-element"><span class="nav-number">2.2.5.</span> <span class="nav-text">E set(int index, E element)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList"><span class="nav-number">3.</span> <span class="nav-text">ArrayList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9"><span class="nav-number">3.2.</span> <span class="nav-text">扩容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkList"><span class="nav-number">4.</span> <span class="nav-text">LinkList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">4.1.</span> <span class="nav-text">链表的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-1"><span class="nav-number">4.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E7%9A%84%E5%A2%9E%E5%8A%A0"><span class="nav-number">4.3.</span> <span class="nav-text">元素的增加</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#public-boolean-add-E-e"><span class="nav-number">4.3.1.</span> <span class="nav-text">public boolean add(E e)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#public-void-addFirst-E-e"><span class="nav-number">4.3.2.</span> <span class="nav-text">public void addFirst(E e)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vector"><span class="nav-number">5.</span> <span class="nav-text">Vector</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">5.1.</span> <span class="nav-text">线程安全</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -575,7 +541,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">109</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

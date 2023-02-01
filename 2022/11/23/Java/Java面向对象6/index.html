@@ -142,7 +142,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">108</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">109</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -248,48 +248,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="方法的覆盖override"><a class="markdownIt-Anchor" href="#方法的覆盖override"></a> 方法的覆盖Override</h1>
-<h3 id="方法的重载overload"><a class="markdownIt-Anchor" href="#方法的重载overload"></a> 方法的重载Overload</h3>
-<ul>
-<li>适用情况
-<ul>
+        <h1 id="方法的覆盖Override"><a href="#方法的覆盖Override" class="headerlink" title="方法的覆盖Override"></a>方法的覆盖Override</h1><h3 id="方法的重载Overload"><a href="#方法的重载Overload" class="headerlink" title="方法的重载Overload"></a>方法的重载Overload</h3><ul>
+<li>适用情况<ul>
 <li>在同一个类中，方法完成的功能相似时，建议方法名相同，这样方便编程、代码美观</li>
 </ul>
 </li>
-<li>使用条件
-<ul>
+<li>使用条件<ul>
 <li>在同一个类中</li>
 <li>方法名相同</li>
 <li>参数列表不同：类型不同、顺序不同、个数不同</li>
 </ul>
 </li>
-<li>方法重载
-<ul>
+<li>方法重载<ul>
 <li>与方法返回值无关</li>
 <li>与方法的修饰符列表无关</li>
 </ul>
 </li>
 </ul>
-<h3 id="方法覆盖overide"><a class="markdownIt-Anchor" href="#方法覆盖overide"></a> 方法覆盖Overide</h3>
-<ul>
-<li>
-<p>又称为方法重写Overwrite</p>
+<h3 id="方法覆盖Overide"><a href="#方法覆盖Overide" class="headerlink" title="方法覆盖Overide"></a>方法覆盖Overide</h3><ul>
+<li><p>又称为方法重写Overwrite</p>
 </li>
-<li>
-<p>适用情况</p>
+<li><p>适用情况</p>
 <ul>
 <li>当父类中的方法无法满足当前子类的要求时，子类有必要将父类继承过来的方法进行重写</li>
 <li>举一个例子：父类Animal有一个动作move可以输出“动物在移动”，子类Cat和Bird继承了这两个方法，若不重写的话，两个子类调用move方法还是会输出同样的内容</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;动物在移动&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;&#125;<span class="comment">//Cat类继承动物类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;&#125;<span class="comment">//Bird继承动物类</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;Animal类：&quot;</span>);</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();</span><br><span class="line">        animal.move();</span><br><span class="line">        System.out.print(<span class="string">&quot;Cat类：&quot;</span>);</span><br><span class="line">        <span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">        cat.move();</span><br><span class="line">        System.out.print(<span class="string">&quot;Bird类：&quot;</span>);</span><br><span class="line">        <span class="type">Bird</span> <span class="variable">bird</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();</span><br><span class="line">        bird.move();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h84e0pyl50j30uc0feq42.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h84e0pyl50j30uc0feq42.jpg"></p>
 </li>
-<li>
-<p>使用条件</p>
+<li><p>使用条件</p>
 <ul>
 <li>方法重写发生在具有继承关系的父子类之间</li>
-<li>重写的方法必须和父类的方法的<u>返回值类型</u>、<u>方法名</u>、<u>形参列表</u>相同
-<ul>
+<li>重写的方法必须和父类的方法的<u>返回值类型</u>、<u>方法名</u>、<u>形参列表</u>相同<ul>
 <li>直接复制粘贴父类的方法，然后修改方法体中内容即可</li>
 </ul>
 </li>
@@ -298,10 +289,10 @@
 <li>同样针对上述例子，进行方法重写</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;猫在移动&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;鸟在飞翔&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;Animal类：&quot;</span>);</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();</span><br><span class="line">        animal.move();</span><br><span class="line"></span><br><span class="line">        System.out.print(<span class="string">&quot;Cat类：&quot;</span>);</span><br><span class="line">        <span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">        cat.move();</span><br><span class="line"></span><br><span class="line">        System.out.print(<span class="string">&quot;Bird类：&quot;</span>);</span><br><span class="line">        <span class="type">Bird</span> <span class="variable">bird</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bird</span>();</span><br><span class="line">        bird.move();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h84ee8k3tjj30u20dydgt.jpg" alt="" /></p>
+
+<p><img data-src="https://tva1.sinaimg.cn/large/008vxvgGly1h84ee8k3tjj30u20dydgt.jpg"></p>
 </li>
-<li>
-<p>注意</p>
+<li><p>注意</p>
 <ol>
 <li>私有方法不能继承，所以不能覆盖</li>
 <li>构造方法不能继承，所以不能覆盖</li>
@@ -393,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84%E8%A6%86%E7%9B%96override"><span class="nav-number">1.</span> <span class="nav-text"> 方法的覆盖Override</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BDoverload"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 方法的重载Overload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%A6%86%E7%9B%96overide"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 方法覆盖Overide</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84%E8%A6%86%E7%9B%96Override"><span class="nav-number">1.</span> <span class="nav-text">方法的覆盖Override</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BDOverload"><span class="nav-number">1.0.1.</span> <span class="nav-text">方法的重载Overload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%A6%86%E7%9B%96Overide"><span class="nav-number">1.0.2.</span> <span class="nav-text">方法覆盖Overide</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -409,7 +400,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">109</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

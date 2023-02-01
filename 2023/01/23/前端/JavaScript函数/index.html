@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">108</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">109</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -247,53 +247,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="javascript函数"><a class="markdownIt-Anchor" href="#javascript函数"></a> JavaScript函数</h1>
-<h2 id="函数"><a class="markdownIt-Anchor" href="#函数"></a> 函数</h2>
-<h3 id="函数和方法的区别"><a class="markdownIt-Anchor" href="#函数和方法的区别"></a> 函数和方法的区别</h3>
-<ul>
+        <h1 id="JavaScript函数"><a href="#JavaScript函数" class="headerlink" title="JavaScript函数"></a>JavaScript函数</h1><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数和方法的区别"><a href="#函数和方法的区别" class="headerlink" title="函数和方法的区别"></a>函数和方法的区别</h3><ul>
 <li>方法：对象中的函数称为方法（对象中存在方法和属性）</li>
-<li>函数：对象外的方法称为函数
-<ul>
+<li>函数：对象外的方法称为函数<ul>
 <li>函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块</li>
 </ul>
 </li>
 </ul>
-<h3 id="函数语法"><a class="markdownIt-Anchor" href="#函数语法"></a> 函数语法</h3>
-<ul>
+<h3 id="函数语法"><a href="#函数语法" class="headerlink" title="函数语法"></a>函数语法</h3><ul>
 <li>函数是包裹在花括号<code>&#123; &#125;</code>中的代码块，前面使用了关键字<code>function</code></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">functionName</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="comment">//执行代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>当调用该函数时，会执行函数内的代码</li>
 <li>在JS中声明函数时<strong>不需要声明函数的返回值类型</strong>，因为所有的返回值都是同一个类型</li>
 </ul>
-<h3 id="调用带参数的函数"><a class="markdownIt-Anchor" href="#调用带参数的函数"></a> 调用带参数的函数</h3>
-<ul>
+<h3 id="调用带参数的函数"><a href="#调用带参数的函数" class="headerlink" title="调用带参数的函数"></a>调用带参数的函数</h3><ul>
 <li>在调用函数时，可以向其传递参数</li>
 <li>可以传递任意多的参数，不同的参数之间用逗号隔开</li>
 <li>声明形式参数时也不需要声明参数的类型，即不用在前面添加一个<code>var</code></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">functionName</span>(<span class="params">var1,var2</span>)&#123;</span><br><span class="line">		<span class="comment">//执行代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="带有返回值的函数"><a class="markdownIt-Anchor" href="#带有返回值的函数"></a> 带有返回值的函数</h3>
-<ul>
-<li>通过<code>return</code>语句实现函数返回值
-<ul>
+
+<h3 id="带有返回值的函数"><a href="#带有返回值的函数" class="headerlink" title="带有返回值的函数"></a>带有返回值的函数</h3><ul>
+<li>通过<code>return</code>语句实现函数返回值<ul>
 <li><code>return</code>语句也可以实现函数的退出</li>
 </ul>
 </li>
 </ul>
-<h3 id="函数中的参数"><a class="markdownIt-Anchor" href="#函数中的参数"></a> 函数中的参数</h3>
-<ul>
-<li>JS中可以传递任意多的参数，即使数量和函数在声明时参数的数量不一致
-<ul>
+<h3 id="函数中的参数"><a href="#函数中的参数" class="headerlink" title="函数中的参数"></a>函数中的参数</h3><ul>
+<li>JS中可以传递任意多的参数，即使数量和函数在声明时参数的数量不一致<ul>
 <li>通过<code>arguments.length</code>来获取传入参数的数量</li>
-<li><code>arguments</code>关键字
-<ul>
+<li><code>arguments</code>关键字<ul>
 <li>代表所有传入函数的参数，是一个<strong>数组</strong></li>
 </ul>
 </li>
-<li><code>rest</code>关键字
-<ul>
+<li><code>rest</code>关键字<ul>
 <li>代表除了已经定义的参数之外的所有参数，同样是一个<strong>数组</strong></li>
 <li>在定义时只能写在最后面，同时需要在前面加<code>...</code>进行标识</li>
 </ul>
@@ -302,79 +292,72 @@
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">functionName</span>(<span class="params">var1,var2,...rest</span>)&#123;</span><br><span class="line">		<span class="comment">//执行代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>JS中也可以不传递参数，即使函数在声明时需要参数
-<ul>
+<li>JS中也可以不传递参数，即使函数在声明时需要参数<ul>
 <li>返回<code>undifined</code>或<code>NaN</code></li>
 <li>通过<code>typeof</code>关键字获得参数的类型，如果类型不匹配则抛出异常</li>
 </ul>
 </li>
 </ul>
-<h3 id="js手动抛出异常"><a class="markdownIt-Anchor" href="#js手动抛出异常"></a> JS手动抛出异常</h3>
-<ul>
+<h3 id="JS手动抛出异常"><a href="#JS手动抛出异常" class="headerlink" title="JS手动抛出异常"></a>JS手动抛出异常</h3><ul>
 <li><code>throw</code>关键字</li>
-<li><code>throw '异常信息'</code></li>
+<li><code>throw &#39;异常信息&#39;</code></li>
 </ul>
-<h2 id="变量的作用域"><a class="markdownIt-Anchor" href="#变量的作用域"></a> 变量的作用域</h2>
-<h3 id="局部javascript变量"><a class="markdownIt-Anchor" href="#局部javascript变量"></a> 局部JavaScript变量</h3>
-<ul>
+<h2 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><h3 id="局部JavaScript变量"><a href="#局部JavaScript变量" class="headerlink" title="局部JavaScript变量"></a>局部JavaScript变量</h3><ul>
 <li>在函数内部声明的变量（使用<code>var</code>）是局部变量</li>
 <li>只能在函数内部访问（大括号内部）</li>
 </ul>
-<h4 id="提升变量作用域"><a class="markdownIt-Anchor" href="#提升变量作用域"></a> 提升变量作用域</h4>
-<ul>
+<h4 id="提升变量作用域"><a href="#提升变量作用域" class="headerlink" title="提升变量作用域"></a>提升变量作用域</h4><ul>
 <li>JavaScript会自动提升（提前）变量的声明，但不会提前为其赋值</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="string">`hello `</span> + y;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x);<span class="comment">//hello undifined</span></span><br><span class="line">    <span class="keyword">var</span> y = <span class="string">`world`</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">  	<span class="keyword">var</span> y</span><br><span class="line">    <span class="keyword">var</span> x = <span class="string">`hello `</span> + y;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x);<span class="comment">//hello undifined</span></span><br><span class="line">    y = <span class="string">`world`</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>JavaScript习惯在函数头部就定义或者声明所有的变量</li>
 </ul>
-<h4 id="let关键字"><a class="markdownIt-Anchor" href="#let关键字"></a> let关键字</h4>
-<ul>
+<h4 id="let关键字"><a href="#let关键字" class="headerlink" title="let关键字"></a>let关键字</h4><ul>
 <li>解决局部作用域的冲突</li>
 <li>局部变量使用<code>let</code></li>
 </ul>
-<h3 id="全局javascript变量"><a class="markdownIt-Anchor" href="#全局javascript变量"></a> 全局JavaScript变量</h3>
-<ul>
+<h3 id="全局JavaScript变量"><a href="#全局JavaScript变量" class="headerlink" title="全局JavaScript变量"></a>全局JavaScript变量</h3><ul>
 <li>在函数外声明的变量是全局变量</li>
 <li>网页上的所有脚本和函数都能访问它</li>
-<li>所有的全局变量都默认绑定到<code>window</code>对象下
-<ul>
+<li>所有的全局变量都默认绑定到<code>window</code>对象下<ul>
 <li>可以通过<code>window.</code>的方式访问该全局变量</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">123</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x);<span class="comment">//123</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">x</span>);<span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>由于所有的全局变量都会绑定到<code>window</code>对象下，如果不同的JS文件使用了相同的全局变量，可能会造成冲突
-<ul>
+<li>由于所有的全局变量都会绑定到<code>window</code>对象下，如果不同的JS文件使用了相同的全局变量，可能会造成冲突<ul>
 <li>解决方法</li>
 <li>将自己的代码全部放到自己定一的唯一空间名字中</li>
 </ul>
 </li>
 </ul>
-<h4 id="const关键字"><a class="markdownIt-Anchor" href="#const关键字"></a> const关键字</h4>
-<ul>
+<h4 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h4><ul>
 <li>用<code>const</code>关键字修饰的变量是常量，无法修改</li>
 <li>只读变量</li>
 </ul>
-<h2 id="方法"><a class="markdownIt-Anchor" href="#方法"></a> 方法</h2>
-<ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
 <li>对象内部的函数</li>
 <li>定义方法</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">`Tom`</span>,</span><br><span class="line">    <span class="attr">birth</span>: <span class="number">2000</span>,</span><br><span class="line"></span><br><span class="line">    <span class="attr">age</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> thisYear = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getFullYear</span>();</span><br><span class="line">    		<span class="keyword">return</span> thisYear - <span class="variable language_">this</span>.<span class="property">birth</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="apply关键字"><a class="markdownIt-Anchor" href="#apply关键字"></a> apply关键字</h3>
-<ul>
-<li>可以修改<code>this</code>指针指向的对象
-<ul>
+
+<h3 id="apply关键字"><a href="#apply关键字" class="headerlink" title="apply关键字"></a>apply关键字</h3><ul>
+<li>可以修改<code>this</code>指针指向的对象<ul>
 <li>在<code>java</code>中<code>this</code>指针只指向调用该方法的对象</li>
 <li>所有的方法都可以适用<code>apply</code>关键字</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">`Tom`</span>,</span><br><span class="line">    <span class="attr">mufun</span>: <span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">    		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);<span class="comment">//this指针指向person</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">person.<span class="title function_">mufun</span>();<span class="comment">//Tom</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">`Tom`</span>,</span><br><span class="line">    <span class="attr">mufun</span>: <span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">    		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">person.<span class="title function_">mufun</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">		<span class="attr">name</span>: <span class="string">`Jack`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//修改this指针指向person2对象</span></span><br><span class="line">person.<span class="property">mufun</span>.<span class="title function_">apply</span>(person2);<span class="comment">//Jack</span></span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -459,7 +442,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#javascript%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text"> JavaScript函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text"> 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 函数和方法的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 函数语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.3.</span> <span class="nav-text"> 调用带参数的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.4.</span> <span class="nav-text"> 带有返回值的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.5.</span> <span class="nav-text"> 函数中的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js%E6%89%8B%E5%8A%A8%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="nav-number">1.1.6.</span> <span class="nav-text"> JS手动抛出异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.2.</span> <span class="nav-text"> 变量的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8javascript%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 局部JavaScript变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%90%E5%8D%87%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.2.1.1.</span> <span class="nav-text"> 提升变量作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#let%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.2.1.2.</span> <span class="nav-text"> let关键字</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80javascript%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 全局JavaScript变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#const%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.2.2.1.</span> <span class="nav-text"> const关键字</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text"> 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apply%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.3.1.</span> <span class="nav-text"> apply关键字</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">JavaScript函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.1.</span> <span class="nav-text">函数和方法的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">函数语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.3.</span> <span class="nav-text">调用带参数的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.4.</span> <span class="nav-text">带有返回值的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.5.</span> <span class="nav-text">函数中的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS%E6%89%8B%E5%8A%A8%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="nav-number">1.1.6.</span> <span class="nav-text">JS手动抛出异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.2.</span> <span class="nav-text">变量的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8JavaScript%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">局部JavaScript变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%90%E5%8D%87%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">提升变量作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#let%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">let关键字</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80JavaScript%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.2.</span> <span class="nav-text">全局JavaScript变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#const%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">const关键字</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apply%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.3.1.</span> <span class="nav-text">apply关键字</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -475,7 +458,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">109</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
